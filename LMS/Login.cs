@@ -60,10 +60,14 @@ namespace LMS {
                     Functions fn = new Functions();
                     DataTable dt = fn.StaffAuthenticate(username: UsernameTB.Text, password: PasswordTB.Text);
 
+                    // TODO: If credentials are wrong, show error message
+                    // TODO: Redirection
                     Console.WriteLine(dt.Rows.Count);
+                } else {
+                    // TODO: Form Validation Failed
                 }
             } catch (Exception ex) {
-
+                // TODO: Error message
             } finally {
                 Console.ReadLine();
             }
