@@ -18,13 +18,13 @@ namespace LMS {
         }
 
         private void Login_Load(object sender, EventArgs e) {
-            UsernameTB.Text = "Username  ";
-            PasswordTB.Text = "Password  ";
+            //UsernameTB.Text = "Username  ";
+            //PasswordTB.Text = "Password  ";
 
-            UsernameTB.GotFocus += UsernameRemoveText;
-            UsernameTB.LostFocus += UsernameAddText;
-            PasswordTB.GotFocus += PasswordRemoveText;
-            PasswordTB.LostFocus += PasswordAddText;
+            //UsernameTB.GotFocus += UsernameRemoveText;
+            //UsernameTB.LostFocus += UsernameAddText;
+            //PasswordTB.GotFocus += PasswordRemoveText;
+            //PasswordTB.LostFocus += PasswordAddText;
         }
 
         public void UsernameRemoveText(object sender, EventArgs e) {
@@ -64,15 +64,13 @@ namespace LMS {
                     // TODO: Redirection
                     Console.WriteLine(dt.Rows.Count);
                 } else {
-                    // TODO: Form Validation Failed
+                    MessageBox.Show("Username and Password can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             } catch (Exception ex) {
                 // TODO: Error message
             } finally {
                 Console.ReadLine();
             }
-
         }
-
     }
 }
