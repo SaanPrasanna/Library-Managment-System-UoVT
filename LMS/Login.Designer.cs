@@ -62,7 +62,9 @@ namespace LMS
             this.UsernameTB.FocusedState.Parent = this.UsernameTB;
             this.UsernameTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.UsernameTB.HoverState.Parent = this.UsernameTB;
-            this.UsernameTB.Location = new System.Drawing.Point(300, 162);
+            this.UsernameTB.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.UsernameTB.IconRight = ((System.Drawing.Image)(resources.GetObject("UsernameTB.IconRight")));
+            this.UsernameTB.Location = new System.Drawing.Point(300, 169);
             this.UsernameTB.Name = "UsernameTB";
             this.UsernameTB.PasswordChar = '\0';
             this.UsernameTB.PlaceholderText = "Username";
@@ -91,7 +93,9 @@ namespace LMS
             this.PasswordTB.FocusedState.Parent = this.PasswordTB;
             this.PasswordTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PasswordTB.HoverState.Parent = this.PasswordTB;
-            this.PasswordTB.Location = new System.Drawing.Point(300, 219);
+            this.PasswordTB.IconRight = ((System.Drawing.Image)(resources.GetObject("PasswordTB.IconRight")));
+            this.PasswordTB.IconRightSize = new System.Drawing.Size(18, 23);
+            this.PasswordTB.Location = new System.Drawing.Point(300, 222);
             this.PasswordTB.Name = "PasswordTB";
             this.PasswordTB.PasswordChar = '●';
             this.PasswordTB.PlaceholderText = "Password";
@@ -169,7 +173,7 @@ namespace LMS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 24);
+            this.label1.Location = new System.Drawing.Point(37, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(229, 40);
             this.label1.TabIndex = 7;
@@ -180,7 +184,7 @@ namespace LMS
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 64);
+            this.label2.Location = new System.Drawing.Point(18, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(262, 20);
             this.label2.TabIndex = 8;
@@ -217,9 +221,9 @@ namespace LMS
             // 
             this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox2.Image")));
-            this.gunaPictureBox2.Location = new System.Drawing.Point(362, 6);
+            this.gunaPictureBox2.Location = new System.Drawing.Point(371, 10);
             this.gunaPictureBox2.Name = "gunaPictureBox2";
-            this.gunaPictureBox2.Size = new System.Drawing.Size(140, 144);
+            this.gunaPictureBox2.Size = new System.Drawing.Size(134, 132);
             this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox2.TabIndex = 11;
             this.gunaPictureBox2.TabStop = false;
@@ -228,7 +232,7 @@ namespace LMS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 348);
+            this.ClientSize = new System.Drawing.Size(588, 332);
             this.Controls.Add(this.gunaPictureBox2);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.gunaPictureBox1);
