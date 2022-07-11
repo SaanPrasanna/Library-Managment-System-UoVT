@@ -28,9 +28,14 @@ namespace LMS {
                     DataTable dt = fn.Authentication(username: UsernameTB.Text, password: PasswordTB.Text);
 
                     if (dt.Rows.Count == 1) {
+
                         MessageBox.Show("Access Granted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Properties.Settings.Default.username = dt.Rows[0][1].ToString();
+                        Properties.Settings.Default.fname = dt.Rows[0][3].ToString();
                         this.Hide();
                         mf.Show();
+
                     } else {
                         MessageBox.Show("Access Denied!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
