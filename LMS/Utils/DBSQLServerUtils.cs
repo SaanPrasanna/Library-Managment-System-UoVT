@@ -13,6 +13,7 @@ namespace LMS.Utils {
 			string connString = @"Data Source=" + datasource + ";Initial Catalog=" + database + ";Integrated Security=True";
 			SqlConnection conn = new SqlConnection(connString);
 			return conn;
+
 		}
 	}
 }

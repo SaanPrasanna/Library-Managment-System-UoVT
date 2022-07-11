@@ -8,12 +8,14 @@ using System.Data.SqlClient;
 namespace LMS.Utils {
     internal class DBUtils {
         public static SqlConnection GetDBConnection() {
+
             string datasource = @"RGENESIS\SQLEXPRESS";
             string database = "lms";
             string username = "";
             string password = "";
 
             return DBSQLServerUtils.GetDBConnection(datasource, database, username, password);
+
         }
     }
 }

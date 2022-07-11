@@ -27,7 +27,6 @@ namespace LMS.Utils {
                 adupter.Fill(dt);
                 return dt;
 
-
             } catch {
 
             } finally {
