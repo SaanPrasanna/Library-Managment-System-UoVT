@@ -17,42 +17,6 @@ namespace LMS {
             InitializeComponent();
         }
 
-        private void Login_Load(object sender, EventArgs e) {
-            //UsernameTB.Text = "Username  ";
-            //PasswordTB.Text = "Password  ";
-
-            //UsernameTB.GotFocus += UsernameRemoveText;
-            //UsernameTB.LostFocus += UsernameAddText;
-            //PasswordTB.GotFocus += PasswordRemoveText;
-            //PasswordTB.LostFocus += PasswordAddText;
-        }
-
-        public void UsernameRemoveText(object sender, EventArgs e) {
-            if (UsernameTB.Text == "Username  ") {
-                UsernameTB.Text = "";
-            }
-        }
-
-        public void PasswordRemoveText(object sender, EventArgs e) {
-            if (PasswordTB.Text == "Password  ") {
-                PasswordTB.Text = "";
-                PasswordTB.PasswordChar = '●';
-            }
-        }
-
-        public void UsernameAddText(object sender, EventArgs e) {
-            if (string.IsNullOrWhiteSpace(UsernameTB.Text))
-                UsernameTB.Text = "Username  ";
-        }
-
-        public void PasswordAddText(object sender, EventArgs e) {
-            if (string.IsNullOrWhiteSpace(PasswordTB.Text)) {
-                PasswordTB.Text = "Password  ";
-                PasswordTB.PasswordChar = '\0';
-            }
-
-        }
-
         private void LoginBtn_Click(object sender, EventArgs e) {
             try {
 

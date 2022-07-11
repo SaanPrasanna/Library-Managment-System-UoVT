@@ -150,8 +150,8 @@ namespace LMS
             this.ExitBtn.ImageSize = new System.Drawing.Size(20, 20);
             this.ExitBtn.Location = new System.Drawing.Point(486, 275);
             this.ExitBtn.Name = "ExitBtn";
-            this.ExitBtn.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(145)))), ((int)(((byte)(221)))));
-            this.ExitBtn.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(255)))));
+            this.ExitBtn.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(160)))), ((int)(((byte)(60)))));
+            this.ExitBtn.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(160)))));
             this.ExitBtn.OnHoverBorderColor = System.Drawing.Color.Black;
             this.ExitBtn.OnHoverForeColor = System.Drawing.Color.White;
             this.ExitBtn.OnHoverImage = null;
@@ -248,7 +248,6 @@ namespace LMS
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
             this.ResumeLayout(false);
