@@ -1,7 +1,7 @@
 ﻿
 namespace LMS
 {
-    partial class Login
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace LMS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.UsernameTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.LoginElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PasswordTB = new Guna.UI2.WinForms.Guna2TextBox();
@@ -72,7 +72,7 @@ namespace LMS
             this.UsernameTB.ShadowDecoration.Parent = this.UsernameTB;
             this.UsernameTB.Size = new System.Drawing.Size(271, 36);
             this.UsernameTB.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.UsernameTB.TabIndex = 4;
+            this.UsernameTB.TabIndex = 0;
             // 
             // LoginElipse
             // 
@@ -103,7 +103,7 @@ namespace LMS
             this.PasswordTB.ShadowDecoration.Parent = this.PasswordTB;
             this.PasswordTB.Size = new System.Drawing.Size(271, 36);
             this.PasswordTB.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.PasswordTB.TabIndex = 4;
+            this.PasswordTB.TabIndex = 1;
             // 
             // LoginBtn
             // 
@@ -127,7 +127,7 @@ namespace LMS
             this.LoginBtn.OnHoverImage = null;
             this.LoginBtn.OnPressedColor = System.Drawing.Color.Black;
             this.LoginBtn.Size = new System.Drawing.Size(180, 42);
-            this.LoginBtn.TabIndex = 5;
+            this.LoginBtn.TabIndex = 2;
             this.LoginBtn.Text = "Login";
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
@@ -157,7 +157,7 @@ namespace LMS
             this.ExitBtn.OnHoverImage = null;
             this.ExitBtn.OnPressedColor = System.Drawing.Color.Black;
             this.ExitBtn.Size = new System.Drawing.Size(85, 42);
-            this.ExitBtn.TabIndex = 6;
+            this.ExitBtn.TabIndex = 3;
             this.ExitBtn.Text = "Exit";
             // 
             // ExitBtnElipse
@@ -214,8 +214,9 @@ namespace LMS
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
             this.CloseBtn.Size = new System.Drawing.Size(42, 42);
-            this.CloseBtn.TabIndex = 10;
+            this.CloseBtn.TabIndex = 4;
             this.CloseBtn.Text = "X";
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // gunaPictureBox2
             // 
@@ -248,6 +249,7 @@ namespace LMS
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.TopMost = true;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
             this.ResumeLayout(false);

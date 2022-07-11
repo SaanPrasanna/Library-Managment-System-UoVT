@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 
 namespace LMS.Utils {
     class Functions {
-        public DataTable StaffAuthenticate(string username, string password) {
+        public DataTable Authentication(string username, string password) {
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 
