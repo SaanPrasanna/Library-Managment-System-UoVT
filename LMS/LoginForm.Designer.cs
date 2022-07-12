@@ -51,6 +51,7 @@ namespace LMS
             // UsernameTB
             // 
             this.UsernameTB.Animated = true;
+            this.UsernameTB.BorderRadius = 15;
             this.UsernameTB.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.UsernameTB.DefaultText = "";
             this.UsernameTB.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -71,7 +72,6 @@ namespace LMS
             this.UsernameTB.SelectedText = "";
             this.UsernameTB.ShadowDecoration.Parent = this.UsernameTB;
             this.UsernameTB.Size = new System.Drawing.Size(271, 36);
-            this.UsernameTB.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.UsernameTB.TabIndex = 0;
             // 
             // LoginElipse
@@ -82,6 +82,7 @@ namespace LMS
             // PasswordTB
             // 
             this.PasswordTB.Animated = true;
+            this.PasswordTB.BorderRadius = 15;
             this.PasswordTB.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.PasswordTB.DefaultText = "";
             this.PasswordTB.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -102,7 +103,6 @@ namespace LMS
             this.PasswordTB.SelectedText = "";
             this.PasswordTB.ShadowDecoration.Parent = this.PasswordTB;
             this.PasswordTB.Size = new System.Drawing.Size(271, 36);
-            this.PasswordTB.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.PasswordTB.TabIndex = 1;
             // 
             // LoginBtn
@@ -229,7 +229,7 @@ namespace LMS
             this.gunaPictureBox2.TabIndex = 11;
             this.gunaPictureBox2.TabStop = false;
             // 
-            // Login
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -245,7 +245,7 @@ namespace LMS
             this.Controls.Add(this.UsernameTB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Name = "Login";
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.TopMost = true;
