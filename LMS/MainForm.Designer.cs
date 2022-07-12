@@ -24,10 +24,11 @@ namespace LMS {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.OverviewBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.DashboardBtn = new Guna.UI2.WinForms.Guna2Button();
             this.BorrowBooksBtn = new Guna.UI2.WinForms.Guna2Button();
             this.BooksBtn = new Guna.UI2.WinForms.Guna2Button();
             this.MangeBooksBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -38,7 +39,7 @@ namespace LMS {
             this.StaffsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ReportsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SettingsBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.OverviewPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.BooksPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +58,7 @@ namespace LMS {
             this.guna2ShadowPanel1.Controls.Add(this.BooksBtn);
             this.guna2ShadowPanel1.Controls.Add(this.MangeBooksBtn);
             this.guna2ShadowPanel1.Controls.Add(this.BorrowBooksBtn);
-            this.guna2ShadowPanel1.Controls.Add(this.OverviewBtn);
+            this.guna2ShadowPanel1.Controls.Add(this.DashboardBtn);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.White;
             this.guna2ShadowPanel1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(2, 44);
@@ -98,35 +99,39 @@ namespace LMS {
             this.CloseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseBtn.ForeColor = System.Drawing.Color.White;
             this.CloseBtn.HoverState.Parent = this.CloseBtn;
+            this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
             this.CloseBtn.Location = new System.Drawing.Point(1314, 14);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
             this.CloseBtn.Size = new System.Drawing.Size(35, 35);
             this.CloseBtn.TabIndex = 2;
-            this.CloseBtn.Text = "X";
             // 
-            // OverviewBtn
+            // DashboardBtn
             // 
-            this.OverviewBtn.Animated = true;
-            this.OverviewBtn.BorderRadius = 10;
-            this.OverviewBtn.Checked = true;
-            this.OverviewBtn.CheckedState.Parent = this.OverviewBtn;
-            this.OverviewBtn.CustomImages.Parent = this.OverviewBtn;
-            this.OverviewBtn.FillColor = System.Drawing.Color.Transparent;
-            this.OverviewBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OverviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
-            this.OverviewBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
-            this.OverviewBtn.HoverState.ForeColor = System.Drawing.Color.White;
-            this.OverviewBtn.HoverState.Parent = this.OverviewBtn;
-            this.OverviewBtn.Location = new System.Drawing.Point(10, 21);
-            this.OverviewBtn.Name = "OverviewBtn";
-            this.OverviewBtn.ShadowDecoration.Parent = this.OverviewBtn;
-            this.OverviewBtn.Size = new System.Drawing.Size(252, 45);
-            this.OverviewBtn.TabIndex = 0;
-            this.OverviewBtn.Text = "Overview";
-            this.OverviewBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.OverviewBtn.TextOffset = new System.Drawing.Point(35, 0);
+            this.DashboardBtn.Animated = true;
+            this.DashboardBtn.BorderRadius = 10;
+            this.DashboardBtn.Checked = true;
+            this.DashboardBtn.CheckedState.Parent = this.DashboardBtn;
+            this.DashboardBtn.CustomImages.Parent = this.DashboardBtn;
+            this.DashboardBtn.FillColor = System.Drawing.Color.Transparent;
+            this.DashboardBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashboardBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
+            this.DashboardBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
+            this.DashboardBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.DashboardBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.HoverState.Image")));
+            this.DashboardBtn.HoverState.Parent = this.DashboardBtn;
+            this.DashboardBtn.Image = ((System.Drawing.Image)(resources.GetObject("DashboardBtn.Image")));
+            this.DashboardBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DashboardBtn.ImageOffset = new System.Drawing.Point(15, 0);
+            this.DashboardBtn.Location = new System.Drawing.Point(10, 21);
+            this.DashboardBtn.Name = "DashboardBtn";
+            this.DashboardBtn.ShadowDecoration.Parent = this.DashboardBtn;
+            this.DashboardBtn.Size = new System.Drawing.Size(252, 45);
+            this.DashboardBtn.TabIndex = 0;
+            this.DashboardBtn.Text = "Dashboard";
+            this.DashboardBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DashboardBtn.TextOffset = new System.Drawing.Point(35, 0);
             // 
             // BorrowBooksBtn
             // 
@@ -139,7 +144,11 @@ namespace LMS {
             this.BorrowBooksBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
             this.BorrowBooksBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
             this.BorrowBooksBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.BorrowBooksBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.HoverState.Image")));
             this.BorrowBooksBtn.HoverState.Parent = this.BorrowBooksBtn;
+            this.BorrowBooksBtn.Image = ((System.Drawing.Image)(resources.GetObject("BorrowBooksBtn.Image")));
+            this.BorrowBooksBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BorrowBooksBtn.ImageOffset = new System.Drawing.Point(15, 0);
             this.BorrowBooksBtn.Location = new System.Drawing.Point(10, 67);
             this.BorrowBooksBtn.Name = "BorrowBooksBtn";
             this.BorrowBooksBtn.ShadowDecoration.Parent = this.BorrowBooksBtn;
@@ -160,7 +169,11 @@ namespace LMS {
             this.BooksBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
             this.BooksBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
             this.BooksBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.BooksBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.HoverState.Image")));
             this.BooksBtn.HoverState.Parent = this.BooksBtn;
+            this.BooksBtn.Image = ((System.Drawing.Image)(resources.GetObject("BooksBtn.Image")));
+            this.BooksBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BooksBtn.ImageOffset = new System.Drawing.Point(15, 0);
             this.BooksBtn.Location = new System.Drawing.Point(10, 115);
             this.BooksBtn.Name = "BooksBtn";
             this.BooksBtn.ShadowDecoration.Parent = this.BooksBtn;
@@ -181,7 +194,11 @@ namespace LMS {
             this.MangeBooksBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
             this.MangeBooksBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
             this.MangeBooksBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.MangeBooksBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.HoverState.Image")));
             this.MangeBooksBtn.HoverState.Parent = this.MangeBooksBtn;
+            this.MangeBooksBtn.Image = ((System.Drawing.Image)(resources.GetObject("MangeBooksBtn.Image")));
+            this.MangeBooksBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MangeBooksBtn.ImageOffset = new System.Drawing.Point(15, 0);
             this.MangeBooksBtn.Location = new System.Drawing.Point(10, 163);
             this.MangeBooksBtn.Name = "MangeBooksBtn";
             this.MangeBooksBtn.ShadowDecoration.Parent = this.MangeBooksBtn;
@@ -202,7 +219,11 @@ namespace LMS {
             this.MembersBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
             this.MembersBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
             this.MembersBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.MembersBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button5.HoverState.Image")));
             this.MembersBtn.HoverState.Parent = this.MembersBtn;
+            this.MembersBtn.Image = ((System.Drawing.Image)(resources.GetObject("MembersBtn.Image")));
+            this.MembersBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MembersBtn.ImageOffset = new System.Drawing.Point(15, 0);
             this.MembersBtn.Location = new System.Drawing.Point(10, 211);
             this.MembersBtn.Name = "MembersBtn";
             this.MembersBtn.ShadowDecoration.Parent = this.MembersBtn;
@@ -223,7 +244,11 @@ namespace LMS {
             this.PublishersBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
             this.PublishersBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
             this.PublishersBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.PublishersBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button6.HoverState.Image")));
             this.PublishersBtn.HoverState.Parent = this.PublishersBtn;
+            this.PublishersBtn.Image = ((System.Drawing.Image)(resources.GetObject("PublishersBtn.Image")));
+            this.PublishersBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PublishersBtn.ImageOffset = new System.Drawing.Point(15, 0);
             this.PublishersBtn.Location = new System.Drawing.Point(10, 259);
             this.PublishersBtn.Name = "PublishersBtn";
             this.PublishersBtn.ShadowDecoration.Parent = this.PublishersBtn;
@@ -243,13 +268,13 @@ namespace LMS {
             this.MinimizeBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimizeBtn.ForeColor = System.Drawing.Color.White;
             this.MinimizeBtn.HoverState.Parent = this.MinimizeBtn;
+            this.MinimizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeBtn.Image")));
             this.MinimizeBtn.Location = new System.Drawing.Point(1276, 14);
             this.MinimizeBtn.Name = "MinimizeBtn";
             this.MinimizeBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.MinimizeBtn.ShadowDecoration.Parent = this.MinimizeBtn;
             this.MinimizeBtn.Size = new System.Drawing.Size(35, 35);
             this.MinimizeBtn.TabIndex = 3;
-            this.MinimizeBtn.Text = "-";
             // 
             // guna2HtmlLabel1
             // 
@@ -276,7 +301,11 @@ namespace LMS {
             this.StaffsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
             this.StaffsBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
             this.StaffsBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.StaffsBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button7.HoverState.Image")));
             this.StaffsBtn.HoverState.Parent = this.StaffsBtn;
+            this.StaffsBtn.Image = ((System.Drawing.Image)(resources.GetObject("StaffsBtn.Image")));
+            this.StaffsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.StaffsBtn.ImageOffset = new System.Drawing.Point(15, 0);
             this.StaffsBtn.Location = new System.Drawing.Point(10, 307);
             this.StaffsBtn.Name = "StaffsBtn";
             this.StaffsBtn.ShadowDecoration.Parent = this.StaffsBtn;
@@ -297,7 +326,11 @@ namespace LMS {
             this.ReportsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
             this.ReportsBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
             this.ReportsBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.ReportsBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button8.HoverState.Image")));
             this.ReportsBtn.HoverState.Parent = this.ReportsBtn;
+            this.ReportsBtn.Image = ((System.Drawing.Image)(resources.GetObject("ReportsBtn.Image")));
+            this.ReportsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ReportsBtn.ImageOffset = new System.Drawing.Point(15, 0);
             this.ReportsBtn.Location = new System.Drawing.Point(10, 355);
             this.ReportsBtn.Name = "ReportsBtn";
             this.ReportsBtn.ShadowDecoration.Parent = this.ReportsBtn;
@@ -318,7 +351,11 @@ namespace LMS {
             this.SettingsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
             this.SettingsBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
             this.SettingsBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.SettingsBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button9.HoverState.Image")));
             this.SettingsBtn.HoverState.Parent = this.SettingsBtn;
+            this.SettingsBtn.Image = ((System.Drawing.Image)(resources.GetObject("SettingsBtn.Image")));
+            this.SettingsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.SettingsBtn.ImageOffset = new System.Drawing.Point(15, 0);
             this.SettingsBtn.Location = new System.Drawing.Point(10, 403);
             this.SettingsBtn.Name = "SettingsBtn";
             this.SettingsBtn.ShadowDecoration.Parent = this.SettingsBtn;
@@ -328,22 +365,22 @@ namespace LMS {
             this.SettingsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SettingsBtn.TextOffset = new System.Drawing.Point(35, 0);
             // 
-            // OverviewPanel
+            // BooksPanel
             // 
-            this.OverviewPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.BooksPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.OverviewPanel.BackColor = System.Drawing.Color.Transparent;
-            this.OverviewPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.OverviewPanel.FillColor = System.Drawing.Color.White;
-            this.OverviewPanel.Location = new System.Drawing.Point(275, 64);
-            this.OverviewPanel.Name = "OverviewPanel";
-            this.OverviewPanel.Radius = 15;
-            this.OverviewPanel.ShadowColor = System.Drawing.Color.Black;
-            this.OverviewPanel.ShadowDepth = 15;
-            this.OverviewPanel.ShadowShift = 10;
-            this.OverviewPanel.Size = new System.Drawing.Size(1088, 701);
-            this.OverviewPanel.TabIndex = 5;
+            this.BooksPanel.BackColor = System.Drawing.Color.Transparent;
+            this.BooksPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BooksPanel.FillColor = System.Drawing.Color.White;
+            this.BooksPanel.Location = new System.Drawing.Point(275, 64);
+            this.BooksPanel.Name = "BooksPanel";
+            this.BooksPanel.Radius = 15;
+            this.BooksPanel.ShadowColor = System.Drawing.Color.Black;
+            this.BooksPanel.ShadowDepth = 15;
+            this.BooksPanel.ShadowShift = 10;
+            this.BooksPanel.Size = new System.Drawing.Size(1088, 701);
+            this.BooksPanel.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -351,7 +388,7 @@ namespace LMS {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(1366, 768);
-            this.Controls.Add(this.OverviewPanel);
+            this.Controls.Add(this.BooksPanel);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -370,7 +407,7 @@ namespace LMS {
 
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
-        private Guna.UI2.WinForms.Guna2Button OverviewBtn;
+        private Guna.UI2.WinForms.Guna2Button DashboardBtn;
         private Guna.UI2.WinForms.Guna2CircleButton CloseBtn;
         private Guna.UI2.WinForms.Guna2Button BooksBtn;
         private Guna.UI2.WinForms.Guna2Button BorrowBooksBtn;
@@ -382,6 +419,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2Button StaffsBtn;
         private Guna.UI2.WinForms.Guna2Button SettingsBtn;
         private Guna.UI2.WinForms.Guna2Button ReportsBtn;
-        private Guna.UI2.WinForms.Guna2ShadowPanel OverviewPanel;
+        private Guna.UI2.WinForms.Guna2ShadowPanel BooksPanel;
     }
 }
