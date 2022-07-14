@@ -14,6 +14,14 @@ using LMS.Utils;
 namespace LMS {
     public partial class AddBooks : Form {
         MainForm Mf;
+        private const int CS_DROPSHADOW = 0x20000;
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
         public AddBooks(MainForm mf) {
             InitializeComponent();
             this.Mf = mf;
@@ -86,13 +94,13 @@ namespace LMS {
         private void AddBooks_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 this.Close();
-                this.Dispose();
+                //this.Dispose();
             }
         }
 
         private void CloseBtn_Click(object sender, EventArgs e) {
             this.Close();
-            this.Dispose();
+            //this.Dispose();
         }
 
         private void PriceTb_KeyPress(object sender, KeyPressEventArgs e) {

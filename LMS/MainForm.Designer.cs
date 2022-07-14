@@ -522,6 +522,7 @@ namespace LMS {
             this.ActionBtn.Size = new System.Drawing.Size(119, 38);
             this.ActionBtn.TabIndex = 1;
             this.ActionBtn.Text = "SAMPLE TEXT";
+            this.ActionBtn.Click += new System.EventHandler(this.ActionBtn_Click);
             // 
             // MainDgv
             // 

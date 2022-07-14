@@ -120,5 +120,13 @@ namespace LMS {
             this.Dispose();
             lf.Show();
         }
+
+        private void ActionBtn_Click(object sender, EventArgs e) {
+            if(ActionBtn.Text == "ADD BOOK") {
+                MainForm mf = new MainForm();
+                AddBooks ab = new AddBooks(mf);
+                ab.ShowDialog();
+            }
+        }
     }
 }
