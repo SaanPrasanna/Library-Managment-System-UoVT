@@ -35,15 +35,14 @@ namespace LMS
             this.LoginElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PasswordTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.LoginBtn = new Guna.UI.WinForms.GunaGradientButton();
-            this.LoginBtnElipse = new Guna.UI.WinForms.GunaElipse(this.components);
             this.ExitBtn = new Guna.UI.WinForms.GunaGradientButton();
-            this.ExitBtnElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.LoginDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2Button();
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaAnimateWindow1 = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -107,8 +106,10 @@ namespace LMS
             // 
             // LoginBtn
             // 
+            this.LoginBtn.Animated = true;
             this.LoginBtn.AnimationHoverSpeed = 0.07F;
             this.LoginBtn.AnimationSpeed = 0.03F;
+            this.LoginBtn.BackColor = System.Drawing.Color.Transparent;
             this.LoginBtn.BaseColor1 = System.Drawing.Color.SlateBlue;
             this.LoginBtn.BaseColor2 = System.Drawing.Color.Fuchsia;
             this.LoginBtn.BorderColor = System.Drawing.Color.Black;
@@ -126,19 +127,18 @@ namespace LMS
             this.LoginBtn.OnHoverForeColor = System.Drawing.Color.White;
             this.LoginBtn.OnHoverImage = null;
             this.LoginBtn.OnPressedColor = System.Drawing.Color.Black;
+            this.LoginBtn.Radius = 10;
             this.LoginBtn.Size = new System.Drawing.Size(180, 42);
             this.LoginBtn.TabIndex = 2;
             this.LoginBtn.Text = "Login";
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
-            // LoginBtnElipse
-            // 
-            this.LoginBtnElipse.TargetControl = this.LoginBtn;
-            // 
             // ExitBtn
             // 
+            this.ExitBtn.Animated = true;
             this.ExitBtn.AnimationHoverSpeed = 0.07F;
             this.ExitBtn.AnimationSpeed = 0.03F;
+            this.ExitBtn.BackColor = System.Drawing.Color.Transparent;
             this.ExitBtn.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ExitBtn.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ExitBtn.BorderColor = System.Drawing.Color.Black;
@@ -156,14 +156,10 @@ namespace LMS
             this.ExitBtn.OnHoverForeColor = System.Drawing.Color.White;
             this.ExitBtn.OnHoverImage = null;
             this.ExitBtn.OnPressedColor = System.Drawing.Color.Black;
+            this.ExitBtn.Radius = 10;
             this.ExitBtn.Size = new System.Drawing.Size(85, 42);
             this.ExitBtn.TabIndex = 3;
             this.ExitBtn.Text = "Exit";
-            // 
-            // ExitBtnElipse
-            // 
-            this.ExitBtnElipse.BorderRadius = 4;
-            this.ExitBtnElipse.TargetControl = this.ExitBtn;
             // 
             // LoginDragControl
             // 
@@ -229,6 +225,12 @@ namespace LMS
             this.gunaPictureBox2.TabIndex = 11;
             this.gunaPictureBox2.TabStop = false;
             // 
+            // gunaAnimateWindow1
+            // 
+            this.gunaAnimateWindow1.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_ACTIVATE;
+            this.gunaAnimateWindow1.Interval = 100;
+            this.gunaAnimateWindow1.TargetControl = this;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,15 +264,14 @@ namespace LMS
         private Guna.UI2.WinForms.Guna2Elipse LoginElipse;
         private Guna.UI2.WinForms.Guna2TextBox PasswordTB;
         private Guna.UI.WinForms.GunaGradientButton LoginBtn;
-        private Guna.UI.WinForms.GunaElipse LoginBtnElipse;
         private Guna.UI.WinForms.GunaGradientButton ExitBtn;
-        private Guna.UI2.WinForms.Guna2Elipse ExitBtnElipse;
         private Guna.UI2.WinForms.Guna2DragControl LoginDragControl;
         private System.Windows.Forms.Label label1;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private System.Windows.Forms.Label label2;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox2;
         private Guna.UI2.WinForms.Guna2Button CloseBtn;
+        private Guna.UI.WinForms.GunaAnimateWindow gunaAnimateWindow1;
     }
 }
 
