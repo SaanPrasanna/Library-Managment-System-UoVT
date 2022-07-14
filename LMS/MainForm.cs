@@ -67,9 +67,9 @@ namespace LMS {
             if (ActionBtn.Text == "ADD BOOK") {
                 String isbn = MainDgv.Rows[e.RowIndex].Cells[0].Value.ToString();
                 if (e.ColumnIndex == 9) {
-                    // Modify
+                    // Modify books
                 }else if(e.ColumnIndex == 10) {
-                    // Remove
+                    // Remove books
                 }
             }
         }
