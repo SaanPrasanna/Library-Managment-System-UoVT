@@ -139,10 +139,12 @@ namespace LMS {
             this.ISBNTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.ISBNTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ISBNTb.FocusedState.Parent = this.ISBNTb;
+            this.ISBNTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
             this.ISBNTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ISBNTb.HoverState.Parent = this.ISBNTb;
             this.ISBNTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.ISBNTb.Location = new System.Drawing.Point(128, 70);
+            this.ISBNTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ISBNTb.Name = "ISBNTb";
             this.ISBNTb.PasswordChar = '\0';
             this.ISBNTb.PlaceholderText = "";
@@ -246,10 +248,12 @@ namespace LMS {
             this.TitleTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TitleTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TitleTb.FocusedState.Parent = this.TitleTb;
+            this.TitleTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
             this.TitleTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TitleTb.HoverState.Parent = this.TitleTb;
             this.TitleTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.TitleTb.Location = new System.Drawing.Point(128, 213);
+            this.TitleTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TitleTb.Name = "TitleTb";
             this.TitleTb.PasswordChar = '\0';
             this.TitleTb.PlaceholderText = "";
@@ -271,10 +275,12 @@ namespace LMS {
             this.AuthorTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.AuthorTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AuthorTb.FocusedState.Parent = this.AuthorTb;
+            this.AuthorTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
             this.AuthorTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AuthorTb.HoverState.Parent = this.AuthorTb;
             this.AuthorTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.AuthorTb.Location = new System.Drawing.Point(128, 258);
+            this.AuthorTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AuthorTb.Name = "AuthorTb";
             this.AuthorTb.PasswordChar = '\0';
             this.AuthorTb.PlaceholderText = "";
@@ -296,10 +302,12 @@ namespace LMS {
             this.CategoryTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.CategoryTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CategoryTb.FocusedState.Parent = this.CategoryTb;
+            this.CategoryTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
             this.CategoryTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CategoryTb.HoverState.Parent = this.CategoryTb;
             this.CategoryTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.CategoryTb.Location = new System.Drawing.Point(128, 348);
+            this.CategoryTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CategoryTb.Name = "CategoryTb";
             this.CategoryTb.PasswordChar = '\0';
             this.CategoryTb.PlaceholderText = "";
@@ -321,10 +329,12 @@ namespace LMS {
             this.PriceTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.PriceTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PriceTb.FocusedState.Parent = this.PriceTb;
+            this.PriceTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
             this.PriceTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PriceTb.HoverState.Parent = this.PriceTb;
             this.PriceTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.PriceTb.Location = new System.Drawing.Point(128, 393);
+            this.PriceTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PriceTb.Name = "PriceTb";
             this.PriceTb.PasswordChar = '\0';
             this.PriceTb.PlaceholderText = "";
@@ -332,6 +342,7 @@ namespace LMS {
             this.PriceTb.ShadowDecoration.Parent = this.PriceTb;
             this.PriceTb.Size = new System.Drawing.Size(206, 36);
             this.PriceTb.TabIndex = 4;
+            this.PriceTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PriceTb_KeyPress);
             // 
             // AddBooksBtn
             // 
@@ -371,7 +382,7 @@ namespace LMS {
             this.PublisherTb.Animated = true;
             this.PublisherTb.BorderRadius = 15;
             this.PublisherTb.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PublisherTb.DefaultText = "";
+            this.PublisherTb.DefaultText = "P00001";
             this.PublisherTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.PublisherTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.PublisherTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -380,14 +391,17 @@ namespace LMS {
             this.PublisherTb.Enabled = false;
             this.PublisherTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PublisherTb.FocusedState.Parent = this.PublisherTb;
+            this.PublisherTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
             this.PublisherTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PublisherTb.HoverState.Parent = this.PublisherTb;
             this.PublisherTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.PublisherTb.Location = new System.Drawing.Point(127, 303);
+            this.PublisherTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PublisherTb.Name = "PublisherTb";
             this.PublisherTb.PasswordChar = '\0';
             this.PublisherTb.PlaceholderText = "";
             this.PublisherTb.SelectedText = "";
+            this.PublisherTb.SelectionStart = 6;
             this.PublisherTb.ShadowDecoration.Parent = this.PublisherTb;
             this.PublisherTb.Size = new System.Drawing.Size(249, 36);
             this.PublisherTb.TabIndex = 2;
@@ -433,6 +447,7 @@ namespace LMS {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "AddBooks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBooks";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddBooks_KeyDown);
             this.guna2ShadowPanel2.ResumeLayout(false);

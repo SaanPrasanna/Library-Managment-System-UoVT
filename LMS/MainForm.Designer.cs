@@ -655,7 +655,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2Button ReportsBtn;
         private Guna.UI2.WinForms.Guna2ShadowPanel MainPanel;
         private Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
-        private Guna.UI2.WinForms.Guna2DataGridView MainDgv;
         private Guna.UI2.WinForms.Guna2PictureBox TitlePb;
         private Guna.UI2.WinForms.Guna2HtmlLabel UsernameLbl;
         private Guna.UI2.WinForms.Guna2HtmlLabel FNameLbl;
@@ -666,5 +665,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2HtmlLabel Title2Lbl;
         private Guna.UI2.WinForms.Guna2HtmlLabel RecentUpdateLbl;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        public Guna.UI2.WinForms.Guna2DataGridView MainDgv;
     }
 }

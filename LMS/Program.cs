@@ -16,9 +16,9 @@ namespace LMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MainForm());
+            Application.Run(new MainForm());
             //Application.Run(new LoginForm());
-            Application.Run(new AddBooks(new MainForm()));
+            //Application.Run(new AddBooks(new MainForm()));
         }
     }
 }
