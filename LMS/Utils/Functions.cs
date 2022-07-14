@@ -57,7 +57,7 @@ namespace LMS.Utils {
 
             try {
 
-                string sql = "SELECT COUNT(*) FROM books;";
+                string sql = "SELECT COUNT(*) FROM books WHERE is_removed = 0;";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 return (Int32)cmd.ExecuteScalar();
 

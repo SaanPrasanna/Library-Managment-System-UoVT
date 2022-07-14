@@ -41,7 +41,24 @@ namespace LMS.Utils {
             }
         }
 
-        public void ShowGrid(DataGridView dgv, string query) {
+        public void ShowGrid(DataGridView dgv, string name) {
+
+            string query = "";
+            switch (name) {
+                case "Books":
+                    query = "SELECT ISBN, Title, Author, Category, publishers.name AS Publisher, Price, Quantity, Date, Time  FROM books, publishers  WHERE books.pid = publishers.pid AND books.is_removed = 0;";
+                    break;
+                case "ManageBooks":
+                    break;
+                case "Staffs":
+                    break;
+                case "Publishers":
+                    break;
+                default:
+                    Console.WriteLine("Please double check Grid Name!");
+                    break;
+            }
+
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
             try {

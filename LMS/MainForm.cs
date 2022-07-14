@@ -54,22 +54,59 @@ namespace LMS {
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
 
-            string query = "SELECT ISBN, Title, Author, Category, publishers.name AS Publisher, Price, Quantity, Date, Time  FROM books, publishers  WHERE books.pid = publishers.pid AND books.is_removed = 0;";
-
-            dgv.ShowGrid(dgv: MainDgv, query: query);
-            if (MainDgv.ColumnCount <= 9) {
+            if (MainDgv.ColumnCount < 9) {
                 dgv.GridButtons(dgv: MainDgv);
             }
-            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 250, 250, 100, 250, 100, 100 });
+            dgv.ShowGrid(dgv: MainDgv, name: "Books");
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
         }
 
         private void MainDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
             if (ActionBtn.Text == "ADD BOOK") {
-                String isbn = MainDgv.Rows[e.RowIndex].Cells[0].Value.ToString();
-                if (e.ColumnIndex == 9) {
+
+                String isbn = MainDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                if (e.ColumnIndex == 0) {
                     // Modify books
-                }else if(e.ColumnIndex == 10) {
-                    // Remove books
+                } else if (e.ColumnIndex == 1) {
+
+                    if (MessageBox.Show("Do you want to delete this book[" + isbn + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+                        SqlConnection conn = DBUtils.GetDBConnection();
+                        conn.Open();
+                        String query = "UPDATE books SET is_removed = @number WHERE isbn = @isbn;";
+
+                        try {
+
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
+                            cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+
+                            int rowCount = cmd.ExecuteNonQuery();
+                            if (rowCount > 0) {
+
+                                GridControlSettings dgv = new GridControlSettings();
+                                Console.WriteLine(MainDgv.ColumnCount);
+
+                                dgv.ShowGrid(dgv: MainDgv, name: "Books");
+                                if (MainDgv.ColumnCount < 9) {
+                                    dgv.GridButtons(dgv: MainDgv);
+                                }
+                                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
+
+                            } else {
+                                MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                        } catch (Exception ex) {
+                            Console.WriteLine("Book Remove Error: " + ex.ToString());
+                        } finally {
+                            conn.Close();
+                            conn.Dispose();
+                            Console.Read();
+                        }
+                    }
+
                 }
             }
         }
