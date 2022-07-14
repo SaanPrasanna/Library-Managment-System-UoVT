@@ -51,8 +51,8 @@ namespace LMS {
                     cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = 0;
                     cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
                     cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
-                    cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = "S00001";
-                    cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = "P00001";
+                    cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = "S00001"; // TODO: After all functionalities are completed
+                    cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = "P00001";// TODO: After creating the Publisher form
                     cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
 
                     int rowCount = cmd.ExecuteNonQuery();
@@ -99,6 +99,10 @@ namespace LMS {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
                 e.Handled = true;
             }
+        }
+
+        private void ChooseBtn_Click(object sender, EventArgs e) {
+            // TODO: After creating the Publisher form
         }
     }
 }

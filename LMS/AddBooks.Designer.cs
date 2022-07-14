@@ -47,7 +47,7 @@ namespace LMS {
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.PublisherTb = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.ChooseBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ISBNPb)).BeginInit();
@@ -406,29 +406,30 @@ namespace LMS {
             this.PublisherTb.Size = new System.Drawing.Size(249, 36);
             this.PublisherTb.TabIndex = 2;
             // 
-            // guna2Button1
+            // ChooseBtn
             // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(382, 301);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(79, 38);
-            this.guna2Button1.TabIndex = 198;
-            this.guna2Button1.Text = "CHOOSE";
+            this.ChooseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChooseBtn.Animated = true;
+            this.ChooseBtn.BorderRadius = 10;
+            this.ChooseBtn.CheckedState.Parent = this.ChooseBtn;
+            this.ChooseBtn.CustomImages.Parent = this.ChooseBtn;
+            this.ChooseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChooseBtn.ForeColor = System.Drawing.Color.White;
+            this.ChooseBtn.HoverState.Parent = this.ChooseBtn;
+            this.ChooseBtn.Location = new System.Drawing.Point(382, 301);
+            this.ChooseBtn.Name = "ChooseBtn";
+            this.ChooseBtn.ShadowDecoration.Parent = this.ChooseBtn;
+            this.ChooseBtn.Size = new System.Drawing.Size(79, 38);
+            this.ChooseBtn.TabIndex = 198;
+            this.ChooseBtn.Text = "CHOOSE";
+            this.ChooseBtn.Click += new System.EventHandler(this.ChooseBtn_Click);
             // 
             // AddBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 491);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.ChooseBtn);
             this.Controls.Add(this.AddBooksBtn);
             this.Controls.Add(this.PriceTb);
             this.Controls.Add(this.CategoryTb);
@@ -480,7 +481,7 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2TextBox CategoryTb;
         private Guna.UI2.WinForms.Guna2Button AddBooksBtn;
         private System.Windows.Forms.ToolTip toolTip1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button ChooseBtn;
         private Guna.UI2.WinForms.Guna2TextBox PublisherTb;
         internal System.Windows.Forms.Label label2;
     }
