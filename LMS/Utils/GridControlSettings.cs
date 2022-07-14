@@ -41,7 +41,7 @@ namespace LMS.Utils {
             }
         }
 
-        public void ShowGrid(DataGridView dgv, string gridName, string query) {
+        public void ShowGrid(DataGridView dgv, string query) {
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
             try {
@@ -54,7 +54,7 @@ namespace LMS.Utils {
                 }
 
             } catch (Exception ex) {
-                Console.WriteLine(gridName + " Error: " + ex.ToString());
+                Console.WriteLine("Error: " + ex.ToString());
             } finally {
                 conn.Close();
                 conn.Dispose();

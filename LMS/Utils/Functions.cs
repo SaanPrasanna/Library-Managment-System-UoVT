@@ -49,5 +49,26 @@ namespace LMS.Utils {
                 return sb.ToString();
             }
         }
+
+        public int GetNumberOfBooks() {
+
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+
+            try {
+
+                string sql = "SELECT COUNT(*) FROM books;";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                return (Int32)cmd.ExecuteScalar();
+
+            } catch (Exception e) {
+                Console.WriteLine("Error: " + e.ToString());
+            } finally {
+                conn.Close();
+                conn.Dispose();
+                Console.ReadLine();
+            }
+            return 0;
+        }
     }
 }

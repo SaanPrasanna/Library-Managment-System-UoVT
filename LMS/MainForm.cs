@@ -18,6 +18,8 @@ namespace LMS {
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
+
+            // Fixed Taskbar issue
             this.WindowState = FormWindowState.Normal;
             this.StartPosition = FormStartPosition.Manual;
             {
@@ -25,30 +27,61 @@ namespace LMS {
                 this.SetBounds(withBlock.Left, withBlock.Top, withBlock.Width, withBlock.Height);
             }
 
-            //BooksPanel.Hide();
-            TitlePb.Image = Properties.Resources.Dashboard;
-
-            // Demo coding for format the DGV
-            GridControlSettings dgv = new GridControlSettings();
-            dgv.ShowGrid(dgv: BooksDgv, gridName: "BooksGrid", query: "SELECT ISBN, Title, Author, Category, publishers.name AS Publisher, Price, Quantity, Date, Time  FROM books, publishers  WHERE books.pid = publishers.pid AND books.is_removed = 0;");
-            if (BooksDgv.ColumnCount <= 9) {
-                dgv.GridButtons(dgv: BooksDgv);
-            }
-            dgv.GridWidth(dgv: BooksDgv, widths: new int[] { 150, 250, 250, 100, 250, 100, 100 });
-        }
-
-        private void BooksBtn_Click(object sender, EventArgs e) {
-            BooksPanel.Show();
-            DashboardBtn.Checked = false;
-            BooksBtn.Checked = true;
-
         }
 
         private void DashboardBtn_Click(object sender, EventArgs e) {
-            BooksPanel.Hide();
+            MainPanel.Hide();
             BooksBtn.Checked = false;
             DashboardBtn.Checked = true;
+            TitlePb.Image = Properties.Resources.Dashboard;
+            TitleLbl.Text = "Dashboard Oveview";
 
+        }
+
+        private void BooksBtn_Click(object sender, EventArgs e) {
+
+            Functions fn = new Functions();
+            GridControlSettings dgv = new GridControlSettings();
+
+            MainPanel.Show();
+            DashboardBtn.Checked = false;
+            BooksBtn.Checked = true;
+            TitlePb.Image = Properties.Resources.Books;
+            TitleLbl.Text = "All Books";
+            Title2Lbl.Text = "Total Books: " + fn.GetNumberOfBooks();
+            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
+            ActionBtn.Text = "ADD BOOK";
+            ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
+            ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+
+            string query = "SELECT ISBN, Title, Author, Category, publishers.name AS Publisher, Price, Quantity, Date, Time  FROM books, publishers  WHERE books.pid = publishers.pid AND books.is_removed = 0;";
+
+            dgv.ShowGrid(dgv: MainDgv, query: query);
+            if (MainDgv.ColumnCount <= 9) {
+                dgv.GridButtons(dgv: MainDgv);
+            }
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 250, 250, 100, 250, 100, 100 });
+        }
+
+        private void MainDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+            if (ActionBtn.Text == "ADD BOOK") {
+                String isbn = MainDgv.Rows[e.RowIndex].Cells[0].Value.ToString();
+                if (e.ColumnIndex == 9) {
+                    // Modify
+                }else if(e.ColumnIndex == 10) {
+                    // Remove
+                }
+            }
+        }
+        private void MinimizeBtn_Click(object sender, EventArgs e) {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void CloseBtn_Click(object sender, EventArgs e) {
+            LoginForm lf = new LoginForm();
+            this.Hide();
+            this.Dispose();
+            lf.Show();
         }
     }
 }

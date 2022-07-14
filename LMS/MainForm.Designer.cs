@@ -30,9 +30,10 @@ namespace LMS {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.UsernameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.FNameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.SettingsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ReportsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.StaffsBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -47,15 +48,21 @@ namespace LMS {
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.MinimizeBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.BooksPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.BooksDgv = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.MainPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.RecentUpdateLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.Title2Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ActionBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.MainDgv = new Guna.UI2.WinForms.Guna2DataGridView();
             this.GridElipe = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1.SuspendLayout();
+            this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
-            this.BooksPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BooksDgv)).BeginInit();
+            this.MainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainDgv)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel1
@@ -64,9 +71,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2ShadowPanel1.Controls.Add(this.UsernameLbl);
-            this.guna2ShadowPanel1.Controls.Add(this.FNameLbl);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox1);
+            this.guna2ShadowPanel1.Controls.Add(this.guna2GroupBox1);
             this.guna2ShadowPanel1.Controls.Add(this.SettingsBtn);
             this.guna2ShadowPanel1.Controls.Add(this.ReportsBtn);
             this.guna2ShadowPanel1.Controls.Add(this.StaffsBtn);
@@ -87,12 +92,40 @@ namespace LMS {
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(273, 765);
             this.guna2ShadowPanel1.TabIndex = 0;
             // 
+            // guna2GroupBox1
+            // 
+            this.guna2GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.guna2GroupBox1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox1.Controls.Add(this.guna2PictureBox1);
+            this.guna2GroupBox1.Controls.Add(this.UsernameLbl);
+            this.guna2GroupBox1.Controls.Add(this.FNameLbl);
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox1.Location = new System.Drawing.Point(10, 675);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
+            this.guna2GroupBox1.Size = new System.Drawing.Size(252, 79);
+            this.guna2GroupBox1.TabIndex = 8;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(55, 55);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 5;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // UsernameLbl
             // 
             this.UsernameLbl.BackColor = System.Drawing.Color.Transparent;
             this.UsernameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
-            this.UsernameLbl.Location = new System.Drawing.Point(87, 685);
+            this.UsernameLbl.Location = new System.Drawing.Point(82, 43);
             this.UsernameLbl.Name = "UsernameLbl";
             this.UsernameLbl.Size = new System.Drawing.Size(41, 19);
             this.UsernameLbl.TabIndex = 7;
@@ -103,23 +136,12 @@ namespace LMS {
             // 
             this.FNameLbl.BackColor = System.Drawing.Color.Transparent;
             this.FNameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FNameLbl.Location = new System.Drawing.Point(87, 663);
+            this.FNameLbl.Location = new System.Drawing.Point(82, 21);
             this.FNameLbl.Name = "FNameLbl";
             this.FNameLbl.Size = new System.Drawing.Size(86, 25);
             this.FNameLbl.TabIndex = 6;
             this.FNameLbl.Text = "First Name";
             this.FNameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(26, 654);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(55, 55);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 5;
-            this.guna2PictureBox1.TabStop = false;
             // 
             // SettingsBtn
             // 
@@ -371,11 +393,10 @@ namespace LMS {
             // 
             // TitlePb
             // 
-            this.TitlePb.Image = global::LMS.Properties.Resources.Dashboard;
-            this.TitlePb.Location = new System.Drawing.Point(23, 14);
+            this.TitlePb.Location = new System.Drawing.Point(23, 17);
             this.TitlePb.Name = "TitlePb";
             this.TitlePb.ShadowDecoration.Parent = this.TitlePb;
-            this.TitlePb.Size = new System.Drawing.Size(40, 40);
+            this.TitlePb.Size = new System.Drawing.Size(40, 35);
             this.TitlePb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.TitlePb.TabIndex = 4;
             this.TitlePb.TabStop = false;
@@ -408,6 +429,7 @@ namespace LMS {
             this.MinimizeBtn.ShadowDecoration.Parent = this.MinimizeBtn;
             this.MinimizeBtn.Size = new System.Drawing.Size(35, 35);
             this.MinimizeBtn.TabIndex = 3;
+            this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // CloseBtn
             // 
@@ -426,63 +448,120 @@ namespace LMS {
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
             this.CloseBtn.Size = new System.Drawing.Size(35, 35);
             this.CloseBtn.TabIndex = 2;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
-            // BooksPanel
+            // MainPanel
             // 
-            this.BooksPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BooksPanel.BackColor = System.Drawing.Color.Transparent;
-            this.BooksPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BooksPanel.Controls.Add(this.BooksDgv);
-            this.BooksPanel.FillColor = System.Drawing.Color.White;
-            this.BooksPanel.Location = new System.Drawing.Point(274, 64);
-            this.BooksPanel.Name = "BooksPanel";
-            this.BooksPanel.Radius = 10;
-            this.BooksPanel.ShadowColor = System.Drawing.Color.Black;
-            this.BooksPanel.ShadowDepth = 15;
-            this.BooksPanel.ShadowShift = 10;
-            this.BooksPanel.Size = new System.Drawing.Size(1088, 701);
-            this.BooksPanel.TabIndex = 5;
+            this.MainPanel.BackColor = System.Drawing.Color.Transparent;
+            this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MainPanel.Controls.Add(this.RecentUpdateLbl);
+            this.MainPanel.Controls.Add(this.guna2PictureBox2);
+            this.MainPanel.Controls.Add(this.Title2Lbl);
+            this.MainPanel.Controls.Add(this.ActionBtn);
+            this.MainPanel.Controls.Add(this.MainDgv);
+            this.MainPanel.FillColor = System.Drawing.Color.White;
+            this.MainPanel.Location = new System.Drawing.Point(274, 64);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Radius = 10;
+            this.MainPanel.ShadowColor = System.Drawing.Color.Black;
+            this.MainPanel.ShadowDepth = 15;
+            this.MainPanel.ShadowShift = 10;
+            this.MainPanel.Size = new System.Drawing.Size(1088, 701);
+            this.MainPanel.TabIndex = 5;
             // 
-            // BooksDgv
+            // RecentUpdateLbl
             // 
-            this.BooksDgv.AllowUserToAddRows = false;
-            this.BooksDgv.AllowUserToDeleteRows = false;
-            this.BooksDgv.AllowUserToResizeColumns = false;
-            this.BooksDgv.AllowUserToResizeRows = false;
-            this.BooksDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.RecentUpdateLbl.BackColor = System.Drawing.Color.Transparent;
+            this.RecentUpdateLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecentUpdateLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
+            this.RecentUpdateLbl.Location = new System.Drawing.Point(55, 48);
+            this.RecentUpdateLbl.Name = "RecentUpdateLbl";
+            this.RecentUpdateLbl.Size = new System.Drawing.Size(128, 21);
+            this.RecentUpdateLbl.TabIndex = 6;
+            this.RecentUpdateLbl.Text = "2022-07-14, 12:33:20";
+            this.RecentUpdateLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
+            this.guna2PictureBox2.Location = new System.Drawing.Point(36, 47);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(20, 20);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox2.TabIndex = 5;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // Title2Lbl
+            // 
+            this.Title2Lbl.BackColor = System.Drawing.Color.Transparent;
+            this.Title2Lbl.Font = new System.Drawing.Font("Segoe UI Semibold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title2Lbl.Location = new System.Drawing.Point(36, 18);
+            this.Title2Lbl.Name = "Title2Lbl";
+            this.Title2Lbl.Size = new System.Drawing.Size(137, 34);
+            this.Title2Lbl.TabIndex = 5;
+            this.Title2Lbl.Text = "Sample Text";
+            this.Title2Lbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ActionBtn
+            // 
+            this.ActionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActionBtn.Animated = true;
+            this.ActionBtn.BorderRadius = 10;
+            this.ActionBtn.CheckedState.Parent = this.ActionBtn;
+            this.ActionBtn.CustomImages.Parent = this.ActionBtn;
+            this.ActionBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActionBtn.ForeColor = System.Drawing.Color.White;
+            this.ActionBtn.HoverState.Parent = this.ActionBtn;
+            this.ActionBtn.Location = new System.Drawing.Point(932, 34);
+            this.ActionBtn.Name = "ActionBtn";
+            this.ActionBtn.ShadowDecoration.Parent = this.ActionBtn;
+            this.ActionBtn.Size = new System.Drawing.Size(119, 38);
+            this.ActionBtn.TabIndex = 1;
+            this.ActionBtn.Text = "SAMPLE TEXT";
+            // 
+            // MainDgv
+            // 
+            this.MainDgv.AllowUserToAddRows = false;
+            this.MainDgv.AllowUserToDeleteRows = false;
+            this.MainDgv.AllowUserToResizeColumns = false;
+            this.MainDgv.AllowUserToResizeRows = false;
+            this.MainDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BooksDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.BooksDgv.BackgroundColor = System.Drawing.Color.White;
-            this.BooksDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.BooksDgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.BooksDgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.MainDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MainDgv.BackgroundColor = System.Drawing.Color.White;
+            this.MainDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MainDgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.MainDgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BooksDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.BooksDgv.ColumnHeadersHeight = 50;
-            this.BooksDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.MainDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.MainDgv.ColumnHeadersHeight = 50;
+            this.MainDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.NullValue = null;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BooksDgv.DefaultCellStyle = dataGridViewCellStyle2;
-            this.BooksDgv.EnableHeadersVisualStyles = false;
-            this.BooksDgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BooksDgv.Location = new System.Drawing.Point(36, 95);
-            this.BooksDgv.MultiSelect = false;
-            this.BooksDgv.Name = "BooksDgv";
-            this.BooksDgv.ReadOnly = true;
+            this.MainDgv.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MainDgv.EnableHeadersVisualStyles = false;
+            this.MainDgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.MainDgv.Location = new System.Drawing.Point(36, 95);
+            this.MainDgv.MultiSelect = false;
+            this.MainDgv.Name = "MainDgv";
+            this.MainDgv.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.841584F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -490,43 +569,44 @@ namespace LMS {
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BooksDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.BooksDgv.RowHeadersVisible = false;
-            this.BooksDgv.RowHeadersWidth = 43;
-            this.BooksDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.BooksDgv.RowTemplate.Height = 50;
-            this.BooksDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.BooksDgv.ShowEditingIcon = false;
-            this.BooksDgv.ShowRowErrors = false;
-            this.BooksDgv.Size = new System.Drawing.Size(1015, 570);
-            this.BooksDgv.TabIndex = 0;
-            this.BooksDgv.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.BooksDgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.Empty;
-            this.BooksDgv.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.BooksDgv.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.BooksDgv.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.BooksDgv.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.BooksDgv.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.BooksDgv.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BooksDgv.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.BooksDgv.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.BooksDgv.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BooksDgv.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.BooksDgv.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.BooksDgv.ThemeStyle.HeaderStyle.Height = 50;
-            this.BooksDgv.ThemeStyle.ReadOnly = true;
-            this.BooksDgv.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.BooksDgv.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.BooksDgv.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BooksDgv.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.BooksDgv.ThemeStyle.RowsStyle.Height = 50;
-            this.BooksDgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.BooksDgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.MainDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.MainDgv.RowHeadersVisible = false;
+            this.MainDgv.RowHeadersWidth = 43;
+            this.MainDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.MainDgv.RowTemplate.Height = 50;
+            this.MainDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MainDgv.ShowEditingIcon = false;
+            this.MainDgv.ShowRowErrors = false;
+            this.MainDgv.Size = new System.Drawing.Size(1015, 570);
+            this.MainDgv.TabIndex = 0;
+            this.MainDgv.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.MainDgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.Empty;
+            this.MainDgv.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.MainDgv.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.MainDgv.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.MainDgv.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.MainDgv.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.MainDgv.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.MainDgv.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.MainDgv.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.MainDgv.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainDgv.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.MainDgv.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.MainDgv.ThemeStyle.HeaderStyle.Height = 50;
+            this.MainDgv.ThemeStyle.ReadOnly = true;
+            this.MainDgv.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.MainDgv.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.MainDgv.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainDgv.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.MainDgv.ThemeStyle.RowsStyle.Height = 50;
+            this.MainDgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.MainDgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.MainDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainDgv_CellContentClick);
             // 
             // GridElipe
             // 
             this.GridElipe.BorderRadius = 10;
-            this.GridElipe.TargetControl = this.BooksDgv;
+            this.GridElipe.TargetControl = this.MainDgv;
             // 
             // MainForm
             // 
@@ -534,7 +614,7 @@ namespace LMS {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(1366, 768);
-            this.Controls.Add(this.BooksPanel);
+            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -544,13 +624,16 @@ namespace LMS {
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
-            this.guna2ShadowPanel1.PerformLayout();
+            this.guna2GroupBox1.ResumeLayout(false);
+            this.guna2GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).EndInit();
-            this.BooksPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BooksDgv)).EndInit();
+            this.MainPanel.ResumeLayout(false);
+            this.MainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainDgv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -570,13 +653,18 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2Button StaffsBtn;
         private Guna.UI2.WinForms.Guna2Button SettingsBtn;
         private Guna.UI2.WinForms.Guna2Button ReportsBtn;
-        private Guna.UI2.WinForms.Guna2ShadowPanel BooksPanel;
+        private Guna.UI2.WinForms.Guna2ShadowPanel MainPanel;
         private Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
-        private Guna.UI2.WinForms.Guna2DataGridView BooksDgv;
+        private Guna.UI2.WinForms.Guna2DataGridView MainDgv;
         private Guna.UI2.WinForms.Guna2PictureBox TitlePb;
         private Guna.UI2.WinForms.Guna2HtmlLabel UsernameLbl;
         private Guna.UI2.WinForms.Guna2HtmlLabel FNameLbl;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Elipse GridElipe;
+        private Guna.UI2.WinForms.Guna2Button ActionBtn;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel Title2Lbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel RecentUpdateLbl;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }
