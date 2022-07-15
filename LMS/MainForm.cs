@@ -11,6 +11,7 @@ using System.IO;
 using System.Data.SqlClient;
 using LMS.Utils;
 using System.Threading;
+using Guna.UI2.WinForms;
 
 namespace LMS {
     public partial class MainForm : Form {
@@ -27,7 +28,9 @@ namespace LMS {
                 var withBlock = Screen.PrimaryScreen.WorkingArea;
                 this.SetBounds(withBlock.Left, withBlock.Top, withBlock.Width, withBlock.Height);
             }
+
             MainPanel.Hide();
+            DashboardDetails();
 
         }
         private void DashboardBtn_Click(object sender, EventArgs e) {
@@ -37,7 +40,7 @@ namespace LMS {
             TitlePb.Image = Properties.Resources.Dashboard;
             TitleLbl.Text = "Dashboard Oveview";
             DashboardPanel.Show();
-
+            DashboardDetails();
         }
 
         private void BooksBtn_Click(object sender, EventArgs e) {
@@ -64,6 +67,14 @@ namespace LMS {
             dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
         }
 
+        private void DashboardDetails() {
+            Functions fn = new Functions();
+            BooksLbl.Text = fn.GetNumberOfBooks().ToString();
+            Guna2HtmlLabel[] labels = new[] { RecentUpdate1Lbl, RecentUpdate2Lbl, RecentUpdate3Lbl, RecentUpdate4Lbl, RecentUpdate5Lbl, RecentUpdate6Lbl };
+            Array.ForEach(labels, x => { x.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt"); });
+            MembersLbl.Text = fn.GetNumberOfMembers().ToString();
+        }
+
         private void MainDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
             if (ActionBtn.Text == "ADD BOOK") {
@@ -71,7 +82,10 @@ namespace LMS {
                 String isbn = MainDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
 
                 if (e.ColumnIndex == 0) {
-                    // Modify books
+
+                    BooksActions ab = new BooksActions(form: this, title: "Modify Book", isbn: isbn);
+                    ab.ShowDialog();
+
                 } else if (e.ColumnIndex == 1) {
 
                     if (MessageBox.Show("Do you want to delete this book[" + isbn + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
@@ -91,11 +105,12 @@ namespace LMS {
                                 GridControlSettings dgv = new GridControlSettings();
                                 Console.WriteLine(MainDgv.ColumnCount);
 
-                                dgv.ShowGrid(dgv: MainDgv, name: "Books");
                                 if (MainDgv.ColumnCount < 9) {
                                     dgv.GridButtons(dgv: MainDgv);
                                 }
+                                dgv.ShowGrid(dgv: MainDgv, name: "Books");
                                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
+                                RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
 
                             } else {
                                 MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -126,8 +141,7 @@ namespace LMS {
 
         private void ActionBtn_Click(object sender, EventArgs e) {
             if (ActionBtn.Text == "ADD BOOK") {
-                MainForm mf = new MainForm();
-                AddBooks ab = new AddBooks(mf);
+                BooksActions ab = new BooksActions(form: this, title: "Add Book", "");
                 ab.ShowDialog();
             }
         }

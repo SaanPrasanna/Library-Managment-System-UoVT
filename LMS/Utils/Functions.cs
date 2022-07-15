@@ -70,5 +70,26 @@ namespace LMS.Utils {
             }
             return 0;
         }
+
+        public int GetNumberOfMembers() {
+
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+
+            try {
+
+                string sql = "SELECT COUNT(*) FROM members WHERE is_removed = 0;";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                return (Int32)cmd.ExecuteScalar();
+
+            } catch (Exception e) {
+                Console.WriteLine("Error: " + e.ToString());
+            } finally {
+                conn.Close();
+                conn.Dispose();
+                Console.ReadLine();
+            }
+            return 0;
+        }
     }
 }

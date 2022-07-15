@@ -1,6 +1,6 @@
 ﻿
 namespace LMS {
-    partial class AddBooks {
+    partial class BooksActions {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -25,7 +25,7 @@ namespace LMS {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBooks));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooksActions));
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -43,7 +43,7 @@ namespace LMS {
             this.AuthorTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.CategoryTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.PriceTb = new Guna.UI2.WinForms.Guna2TextBox();
-            this.AddBooksBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ActionBtn = new Guna.UI2.WinForms.Guna2Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.PublisherTb = new Guna.UI2.WinForms.Guna2TextBox();
@@ -96,9 +96,9 @@ namespace LMS {
             this.TitleLbl.IsSelectionEnabled = false;
             this.TitleLbl.Location = new System.Drawing.Point(69, 17);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(115, 37);
+            this.TitleLbl.Size = new System.Drawing.Size(109, 37);
             this.TitleLbl.TabIndex = 1;
-            this.TitleLbl.Text = "Add Book";
+            this.TitleLbl.Text = "Title Text";
             this.TitleLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CloseBtn
@@ -344,24 +344,24 @@ namespace LMS {
             this.PriceTb.TabIndex = 4;
             this.PriceTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PriceTb_KeyPress);
             // 
-            // AddBooksBtn
+            // ActionBtn
             // 
-            this.AddBooksBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddBooksBtn.Animated = true;
-            this.AddBooksBtn.BorderRadius = 10;
-            this.AddBooksBtn.CheckedState.Parent = this.AddBooksBtn;
-            this.AddBooksBtn.CustomImages.Parent = this.AddBooksBtn;
-            this.AddBooksBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(200)))), ((int)(((byte)(86)))));
-            this.AddBooksBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBooksBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBooksBtn.HoverState.Parent = this.AddBooksBtn;
-            this.AddBooksBtn.Location = new System.Drawing.Point(342, 444);
-            this.AddBooksBtn.Name = "AddBooksBtn";
-            this.AddBooksBtn.ShadowDecoration.Parent = this.AddBooksBtn;
-            this.AddBooksBtn.Size = new System.Drawing.Size(119, 38);
-            this.AddBooksBtn.TabIndex = 5;
-            this.AddBooksBtn.Text = "ADD BOOK";
-            this.AddBooksBtn.Click += new System.EventHandler(this.AddBooksBtn_Click);
+            this.ActionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActionBtn.Animated = true;
+            this.ActionBtn.BorderRadius = 10;
+            this.ActionBtn.CheckedState.Parent = this.ActionBtn;
+            this.ActionBtn.CustomImages.Parent = this.ActionBtn;
+            this.ActionBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(200)))), ((int)(((byte)(86)))));
+            this.ActionBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActionBtn.ForeColor = System.Drawing.Color.White;
+            this.ActionBtn.HoverState.Parent = this.ActionBtn;
+            this.ActionBtn.Location = new System.Drawing.Point(342, 444);
+            this.ActionBtn.Name = "ActionBtn";
+            this.ActionBtn.ShadowDecoration.Parent = this.ActionBtn;
+            this.ActionBtn.Size = new System.Drawing.Size(119, 38);
+            this.ActionBtn.TabIndex = 5;
+            this.ActionBtn.Text = "Action Button";
+            this.ActionBtn.Click += new System.EventHandler(this.ActionBtn_Click);
             // 
             // label2
             // 
@@ -424,13 +424,13 @@ namespace LMS {
             this.ChooseBtn.Text = "CHOOSE";
             this.ChooseBtn.Click += new System.EventHandler(this.ChooseBtn_Click);
             // 
-            // AddBooks
+            // BooksActions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 491);
             this.Controls.Add(this.ChooseBtn);
-            this.Controls.Add(this.AddBooksBtn);
+            this.Controls.Add(this.ActionBtn);
             this.Controls.Add(this.PriceTb);
             this.Controls.Add(this.CategoryTb);
             this.Controls.Add(this.PublisherTb);
@@ -447,7 +447,7 @@ namespace LMS {
             this.Controls.Add(this.guna2ShadowPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Name = "AddBooks";
+            this.Name = "BooksActions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBooks";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddBooks_KeyDown);
@@ -479,7 +479,7 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2TextBox TitleTb;
         private Guna.UI2.WinForms.Guna2TextBox PriceTb;
         private Guna.UI2.WinForms.Guna2TextBox CategoryTb;
-        private Guna.UI2.WinForms.Guna2Button AddBooksBtn;
+        private Guna.UI2.WinForms.Guna2Button ActionBtn;
         private System.Windows.Forms.ToolTip toolTip1;
         private Guna.UI2.WinForms.Guna2Button ChooseBtn;
         private Guna.UI2.WinForms.Guna2TextBox PublisherTb;
