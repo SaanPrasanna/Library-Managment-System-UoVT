@@ -10,7 +10,7 @@ namespace LMS.Utils {
 		public static SqlConnection GetDBConnection(string datasource, string database, string username, string password) {
 
 			//Data Source = RGENESIS\SQLEXPRESS; Initial Catalog = lms; Integrated Security = True
-			string connString = @"Data Source=" + datasource + ";Initial Catalog=" + database + ";Integrated Security=True";
+			string connString = @"Data Source=" + datasource + ";Initial Catalog=" + database + ";Integrated Security=True;";
 			SqlConnection conn = new SqlConnection(connString);
 			return conn;
 

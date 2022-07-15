@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using ZXing;
 using LMS.Utils;
+using Guna.UI2.WinForms;
 
 namespace LMS {
     public partial class BooksActions : Form {
@@ -32,11 +33,40 @@ namespace LMS {
             TitleLbl.Text = title;
             ActionBtn.Text = title.ToUpper();
             ISBNTb.Text = isbn;
+            loadData(isbn);
+            ISBNTb.Enabled = false;
 
             if (title == "Add Book") {
                 ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             } else if (title == "Modify Book") {
                 ActionBtn.FillColor = Color.FromArgb(249, 217, 55);
+            }
+        }
+
+        private void loadData(string isbn) {
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+            try {
+                string query = "SELECT title, author, pid, category, price  FROM books WHERE isbn = @isbn;";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                Guna2TextBox[] tb = new[] { TitleTb, AuthorTb, PublisherTb, CategoryTb, PriceTb };
+                foreach (var textBox in tb.Select((name, index) => (name, index))) {
+                    textBox.name.Text = table.Rows[0][textBox.index].ToString();
+                }
+
+            } catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.ToString());
+            } finally {
+                Console.ReadLine();
+                conn.Close();
+                conn.Dispose();
             }
         }
 
@@ -52,7 +82,7 @@ namespace LMS {
             }
         }
         private void ActionBtn_Click(object sender, EventArgs e) {
-            
+
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 
@@ -67,8 +97,8 @@ namespace LMS {
 
                         SqlCommand cmd = new SqlCommand(query, conn);
                         cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;
-                        cmd.Parameters.Add("@title", SqlDbType.VarChar, 150).Value = TitleTb.Text;
-                        cmd.Parameters.Add("@author", SqlDbType.VarChar, 100).Value = AuthorTb.Text;
+                        cmd.Parameters.Add("@title", SqlDbType.NVarChar, 150).Value = TitleTb.Text;
+                        cmd.Parameters.Add("@author", SqlDbType.NVarChar, 100).Value = AuthorTb.Text;
                         cmd.Parameters.Add("@category", SqlDbType.VarChar, 20).Value = CategoryTb.Text;
                         cmd.Parameters.Add("@price", SqlDbType.Decimal).Value = PriceTb.Text;
                         cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = 0;
@@ -99,8 +129,8 @@ namespace LMS {
                             "price = @price, pid = @pid WHERE isbn = @isbn;";
 
                         SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.Add("@title", SqlDbType.VarChar, 150).Value = TitleTb.Text;
-                        cmd.Parameters.Add("@author", SqlDbType.VarChar, 100).Value = AuthorTb.Text;
+                        cmd.Parameters.Add("@title", SqlDbType.NVarChar, 150).Value = TitleTb.Text;
+                        cmd.Parameters.Add("@author", SqlDbType.NVarChar, 100).Value = AuthorTb.Text;
                         cmd.Parameters.Add("@category", SqlDbType.VarChar, 20).Value = CategoryTb.Text;
                         cmd.Parameters.Add("@price", SqlDbType.Decimal).Value = PriceTb.Text;
                         cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = "P00001";// TODO: After creating the Publisher form
