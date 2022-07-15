@@ -27,6 +27,8 @@ namespace LMS {
                 this.SetBounds(withBlock.Left, withBlock.Top, withBlock.Width, withBlock.Height);
             }
 
+            MainPanel.Hide();
+
         }
 
         private void DashboardBtn_Click(object sender, EventArgs e) {
@@ -35,6 +37,7 @@ namespace LMS {
             DashboardBtn.Checked = true;
             TitlePb.Image = Properties.Resources.Dashboard;
             TitleLbl.Text = "Dashboard Oveview";
+            DashboardPanel.Show();
 
         }
 
@@ -43,6 +46,7 @@ namespace LMS {
             Functions fn = new Functions();
             GridControlSettings dgv = new GridControlSettings();
 
+            DashboardPanel.Hide();
             MainPanel.Show();
             DashboardBtn.Checked = false;
             BooksBtn.Checked = true;
@@ -122,7 +126,7 @@ namespace LMS {
         }
 
         private void ActionBtn_Click(object sender, EventArgs e) {
-            if(ActionBtn.Text == "ADD BOOK") {
+            if (ActionBtn.Text == "ADD BOOK") {
                 MainForm mf = new MainForm();
                 AddBooks ab = new AddBooks(mf);
                 ab.ShowDialog();
