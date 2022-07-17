@@ -83,7 +83,56 @@ namespace LMS {
 
                 if (e.ColumnIndex == 0) {
 
-                    BooksActions ab = new BooksActions(form: this, title: "Modify Book", isbn: isbn);
+                    BooksActionsForm ab = new BooksActionsForm(form: this, title: "Modify Book", isbn: isbn);
+                    ab.ShowDialog();
+
+                } else if (e.ColumnIndex == 1) {
+
+                    if (MessageBox.Show("Do you want to delete this book[" + isbn + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+                        SqlConnection conn = DBUtils.GetDBConnection();
+                        conn.Open();
+                        String query = "UPDATE books SET is_removed = @number WHERE isbn = @isbn;";
+
+                        try {
+
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
+                            cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+
+                            int rowCount = cmd.ExecuteNonQuery();
+                            if (rowCount > 0) {
+
+                                GridControlSettings dgv = new GridControlSettings();
+                                Console.WriteLine(MainDgv.ColumnCount);
+
+                                if (MainDgv.ColumnCount < 9) {
+                                    dgv.GridButtons(dgv: MainDgv);
+                                }
+                                dgv.ShowGrid(dgv: MainDgv, name: "Books");
+                                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
+                                RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
+
+                            } else {
+                                MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                        } catch (Exception ex) {
+                            Console.WriteLine("Book Remove Error: " + ex.ToString());
+                        } finally {
+                            conn.Close();
+                            conn.Dispose();
+                            Console.Read();
+                        }
+                    }
+
+                }
+            } else if (ActionBtn.Text == "ADD MEMBER") {
+
+                String mid = MainDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                if (e.ColumnIndex == 0) {
+
+                    MemberActionsForm ab = new MemberActionsForm(form: this, title: "Modify Member", mid: mid);
                     ab.ShowDialog();
 
                 } else if (e.ColumnIndex == 1) {
@@ -139,10 +188,41 @@ namespace LMS {
             lf.Show();
         }
 
+        private void MembersBtn_Click(object sender, EventArgs e) {
+            Functions fn = new Functions();
+            GridControlSettings dgv = new GridControlSettings();
+
+            DashboardPanel.Hide();
+            MainPanel.Show();
+            DashboardBtn.Checked = false;
+            BooksBtn.Checked = false;
+            MembersBtn.Checked = true;
+            TitlePb.Image = Properties.Resources.Books; //TODO: DOwnload and Change Image
+            TitleLbl.Text = "All Members";
+            Title2Lbl.Text = "Total Members: " + fn.GetNumberOfMembers();
+            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
+            ActionBtn.Text = "ADD MEMBER";
+            ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
+            ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+
+
+            if (MainDgv.ColumnCount < 8) {
+                dgv.GridButtons(dgv: MainDgv);
+            }
+            dgv.ShowGrid(dgv: MainDgv, name: "Members");
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
+
+        }
+
         private void ActionBtn_Click(object sender, EventArgs e) {
-            if (ActionBtn.Text == "ADD BOOK") {
-                BooksActions ab = new BooksActions(form: this, title: "Add Book", "");
-                ab.ShowDialog();
+
+            switch (ActionBtn.Text) {
+                case "ADD BOOK":
+                    BooksActionsForm addBook = new BooksActionsForm(form: this, title: "Add Book", "");
+                    addBook.ShowDialog();
+                    break;
+                case "ADD MEMBER":
+                    break;
             }
         }
     }
