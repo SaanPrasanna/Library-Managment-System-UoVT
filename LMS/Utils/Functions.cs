@@ -72,7 +72,7 @@ namespace LMS.Utils {
         }
 
         public int GetNumberOfMembers() {
-
+            
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 

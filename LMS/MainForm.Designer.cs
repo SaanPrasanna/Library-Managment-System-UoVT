@@ -340,6 +340,7 @@ namespace LMS {
             this.MembersBtn.Text = "Members";
             this.MembersBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MembersBtn.TextOffset = new System.Drawing.Point(35, 0);
+            this.MembersBtn.Click += new System.EventHandler(this.MembersBtn_Click);
             // 
             // BooksBtn
             // 
@@ -626,6 +627,7 @@ namespace LMS {
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;

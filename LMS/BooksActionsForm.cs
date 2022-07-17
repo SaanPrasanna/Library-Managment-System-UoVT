@@ -13,7 +13,7 @@ using LMS.Utils;
 using Guna.UI2.WinForms;
 
 namespace LMS {
-    public partial class BooksActions : Form {
+    public partial class BooksActionsForm : Form {
 
         MainForm Mf;
 
@@ -26,7 +26,7 @@ namespace LMS {
             }
         }
 
-        public BooksActions(MainForm form, string title, string isbn) {
+        public BooksActionsForm(MainForm form, string title, string isbn) {
             InitializeComponent();
 
             this.Mf = form;

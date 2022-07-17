@@ -1,6 +1,6 @@
 ﻿
 namespace LMS {
-    partial class BooksActions {
+    partial class BooksActionsForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -25,7 +25,7 @@ namespace LMS {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooksActions));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooksActionsForm));
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
