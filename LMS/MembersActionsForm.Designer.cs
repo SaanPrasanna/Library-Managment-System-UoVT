@@ -44,7 +44,7 @@ namespace LMS {
             this.TitlePanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.CategoryCb = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ReNewDateTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.UpdateBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
@@ -96,7 +96,7 @@ namespace LMS {
             this.ActionBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActionBtn.ForeColor = System.Drawing.Color.White;
             this.ActionBtn.HoverState.Parent = this.ActionBtn;
-            this.ActionBtn.Location = new System.Drawing.Point(342, 349);
+            this.ActionBtn.Location = new System.Drawing.Point(342, 342);
             this.ActionBtn.Name = "ActionBtn";
             this.ActionBtn.ShadowDecoration.Parent = this.ActionBtn;
             this.ActionBtn.Size = new System.Drawing.Size(119, 38);
@@ -349,33 +349,33 @@ namespace LMS {
             this.CategoryCb.Size = new System.Drawing.Size(206, 36);
             this.CategoryCb.TabIndex = 4;
             // 
-            // guna2TextBox1
+            // ReNewDateTb
             // 
-            this.guna2TextBox1.Animated = true;
-            this.guna2TextBox1.BorderRadius = 15;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.Enabled = false;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.guna2TextBox1.Location = new System.Drawing.Point(127, 295);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(207, 36);
-            this.guna2TextBox1.TabIndex = 3;
+            this.ReNewDateTb.Animated = true;
+            this.ReNewDateTb.BorderRadius = 15;
+            this.ReNewDateTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ReNewDateTb.DefaultText = "";
+            this.ReNewDateTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ReNewDateTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ReNewDateTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ReNewDateTb.DisabledState.Parent = this.ReNewDateTb;
+            this.ReNewDateTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ReNewDateTb.Enabled = false;
+            this.ReNewDateTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ReNewDateTb.FocusedState.Parent = this.ReNewDateTb;
+            this.ReNewDateTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.ReNewDateTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ReNewDateTb.HoverState.Parent = this.ReNewDateTb;
+            this.ReNewDateTb.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.ReNewDateTb.Location = new System.Drawing.Point(127, 295);
+            this.ReNewDateTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ReNewDateTb.Name = "ReNewDateTb";
+            this.ReNewDateTb.PasswordChar = '\0';
+            this.ReNewDateTb.PlaceholderText = "";
+            this.ReNewDateTb.SelectedText = "";
+            this.ReNewDateTb.ShadowDecoration.Parent = this.ReNewDateTb;
+            this.ReNewDateTb.Size = new System.Drawing.Size(207, 36);
+            this.ReNewDateTb.TabIndex = 3;
             // 
             // label3
             // 
@@ -408,17 +408,18 @@ namespace LMS {
             this.UpdateBtn.TabIndex = 213;
             this.UpdateBtn.Text = "UPDATE";
             this.UpdateBtn.Visible = false;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // MembersActionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 396);
+            this.ClientSize = new System.Drawing.Size(475, 389);
             this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.CategoryCb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.ReNewDateTb);
             this.Controls.Add(this.ActionBtn);
             this.Controls.Add(this.AddressTb);
             this.Controls.Add(this.LnameTb);
@@ -463,7 +464,7 @@ namespace LMS {
         private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
         private Guna.UI2.WinForms.Guna2ComboBox CategoryCb;
         internal System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox ReNewDateTb;
         private Guna.UI2.WinForms.Guna2Button UpdateBtn;
     }
 }
