@@ -127,53 +127,54 @@ namespace LMS {
 
                 }
             } else if (ActionBtn.Text == "ADD MEMBER") {
-
                 String mid = MainDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
 
                 if (e.ColumnIndex == 0) {
 
-                    MemberActionsForm ab = new MemberActionsForm(form: this, title: "Modify Member", mid: mid);
-                    ab.ShowDialog();
+                    MembersActionsForm membersForm = new MembersActionsForm(form: this, title: "Modify Member", mid: mid);
+                    membersForm.ShowDialog();
 
                 } else if (e.ColumnIndex == 1) {
+                    /*
 
-                    if (MessageBox.Show("Do you want to delete this book[" + isbn + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
-                        SqlConnection conn = DBUtils.GetDBConnection();
-                        conn.Open();
-                        String query = "UPDATE books SET is_removed = @number WHERE isbn = @isbn;";
+                        if (MessageBox.Show("Do you want to delete this book[" + isbn + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+                            SqlConnection conn = DBUtils.GetDBConnection();
+                            conn.Open();
+                            String query = "UPDATE books SET is_removed = @number WHERE isbn = @isbn;";
 
-                        try {
+                            try {
 
-                            SqlCommand cmd = new SqlCommand(query, conn);
-                            cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
-                            cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+                                SqlCommand cmd = new SqlCommand(query, conn);
+                                cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
+                                cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
 
-                            int rowCount = cmd.ExecuteNonQuery();
-                            if (rowCount > 0) {
+                                int rowCount = cmd.ExecuteNonQuery();
+                                if (rowCount > 0) {
 
-                                GridControlSettings dgv = new GridControlSettings();
-                                Console.WriteLine(MainDgv.ColumnCount);
+                                    GridControlSettings dgv = new GridControlSettings();
+                                    Console.WriteLine(MainDgv.ColumnCount);
 
-                                if (MainDgv.ColumnCount < 9) {
-                                    dgv.GridButtons(dgv: MainDgv);
+                                    if (MainDgv.ColumnCount < 9) {
+                                        dgv.GridButtons(dgv: MainDgv);
+                                    }
+                                    dgv.ShowGrid(dgv: MainDgv, name: "Books");
+                                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
+                                    RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
+
+                                } else {
+                                    MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-                                dgv.ShowGrid(dgv: MainDgv, name: "Books");
-                                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
-                                RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
 
-                            } else {
-                                MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            } catch (Exception ex) {
+                                Console.WriteLine("Book Remove Error: " + ex.ToString());
+                            } finally {
+                                conn.Close();
+                                conn.Dispose();
+                                Console.Read();
                             }
-
-                        } catch (Exception ex) {
-                            Console.WriteLine("Book Remove Error: " + ex.ToString());
-                        } finally {
-                            conn.Close();
-                            conn.Dispose();
-                            Console.Read();
                         }
-                    }
 
+                    */
                 }
             }
         }
@@ -216,12 +217,16 @@ namespace LMS {
 
         private void ActionBtn_Click(object sender, EventArgs e) {
 
+            Functions fn = new Functions();
+
             switch (ActionBtn.Text) {
                 case "ADD BOOK":
-                    BooksActionsForm addBook = new BooksActionsForm(form: this, title: "Add Book", "");
-                    addBook.ShowDialog();
+                    BooksActionsForm booksForm = new BooksActionsForm(form: this, title: "Add Book", "");
+                    booksForm.ShowDialog();
                     break;
                 case "ADD MEMBER":
+                    MembersActionsForm membersForm = new MembersActionsForm(form: this, title: "Add Member", fn.GetID("Member"));
+                    membersForm.ShowDialog();
                     break;
             }
         }

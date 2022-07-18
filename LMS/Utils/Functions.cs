@@ -72,7 +72,7 @@ namespace LMS.Utils {
         }
 
         public int GetNumberOfMembers() {
-            
+
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 
@@ -90,6 +90,58 @@ namespace LMS.Utils {
                 Console.ReadLine();
             }
             return 0;
+        }
+
+        public string GetID(string name) {
+
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+
+            try {
+
+                string mid = "", query = "", prefix = "";
+                switch (name) {
+                    case "Member":
+                        query = "SELECT COUNT(*) FROM members;";
+                        prefix = "M";
+                        break;
+                    case "Staff":
+                        query = "SELECT COUNT(*) FROM staffs;";
+                        prefix = "S";
+                        break;
+                    case "Publisher":
+                        query = "SELECT COUNT(*) FROM publishers;";
+                        prefix = "P";
+                        break;
+                    default:
+                        Console.WriteLine("Please double check ID name!");
+                        break;
+                }
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                int cout = (Int32)cmd.ExecuteScalar() + 1;
+
+                if (cout >= 0 && cout < 10) {
+                    mid = prefix + "0000" + cout.ToString();
+                } else if (cout >= 10 && cout < 100) {
+                    mid = prefix + "000" + cout.ToString();
+                } else if (cout >= 100 && cout < 1000) {
+                    mid = prefix + "00" + cout.ToString();
+                } else if (cout >= 1000 && cout < 10000) {
+                    mid = prefix + "0" + cout.ToString();
+                } else if (cout >= 10000 && cout < 100000) {
+                    mid = prefix + cout.ToString();
+                }
+                return mid;
+
+            } catch (Exception e) {
+                Console.WriteLine("Error: " + e.ToString());
+            } finally {
+                conn.Close();
+                conn.Dispose();
+                Console.ReadLine();
+            }
+            return null;
         }
     }
 }
