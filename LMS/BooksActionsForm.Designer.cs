@@ -74,7 +74,7 @@ namespace LMS {
             this.guna2ShadowPanel2.ShadowDepth = 15;
             this.guna2ShadowPanel2.ShadowShift = 10;
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(480, 68);
-            this.guna2ShadowPanel2.TabIndex = 6;
+            this.guna2ShadowPanel2.TabIndex = 7;
             // 
             // TitlePb
             // 
@@ -117,7 +117,7 @@ namespace LMS {
             this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
             this.CloseBtn.Size = new System.Drawing.Size(35, 35);
-            this.CloseBtn.TabIndex = 1;
+            this.CloseBtn.TabIndex = 0;
             this.toolTip1.SetToolTip(this.CloseBtn, "Press Esc to close");
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
@@ -314,7 +314,7 @@ namespace LMS {
             this.CategoryTb.SelectedText = "";
             this.CategoryTb.ShadowDecoration.Parent = this.CategoryTb;
             this.CategoryTb.Size = new System.Drawing.Size(206, 36);
-            this.CategoryTb.TabIndex = 3;
+            this.CategoryTb.TabIndex = 4;
             // 
             // PriceTb
             // 
@@ -341,7 +341,7 @@ namespace LMS {
             this.PriceTb.SelectedText = "";
             this.PriceTb.ShadowDecoration.Parent = this.PriceTb;
             this.PriceTb.Size = new System.Drawing.Size(206, 36);
-            this.PriceTb.TabIndex = 4;
+            this.PriceTb.TabIndex = 5;
             this.PriceTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PriceTb_KeyPress);
             // 
             // ActionBtn
@@ -359,7 +359,7 @@ namespace LMS {
             this.ActionBtn.Name = "ActionBtn";
             this.ActionBtn.ShadowDecoration.Parent = this.ActionBtn;
             this.ActionBtn.Size = new System.Drawing.Size(119, 38);
-            this.ActionBtn.TabIndex = 5;
+            this.ActionBtn.TabIndex = 6;
             this.ActionBtn.Text = "Action Button";
             this.ActionBtn.Click += new System.EventHandler(this.ActionBtn_Click);
             // 
@@ -404,7 +404,7 @@ namespace LMS {
             this.PublisherTb.SelectionStart = 6;
             this.PublisherTb.ShadowDecoration.Parent = this.PublisherTb;
             this.PublisherTb.Size = new System.Drawing.Size(249, 36);
-            this.PublisherTb.TabIndex = 2;
+            this.PublisherTb.TabIndex = 3;
             // 
             // ChooseBtn
             // 
@@ -420,11 +420,11 @@ namespace LMS {
             this.ChooseBtn.Name = "ChooseBtn";
             this.ChooseBtn.ShadowDecoration.Parent = this.ChooseBtn;
             this.ChooseBtn.Size = new System.Drawing.Size(79, 38);
-            this.ChooseBtn.TabIndex = 198;
+            this.ChooseBtn.TabIndex = 3;
             this.ChooseBtn.Text = "CHOOSE";
             this.ChooseBtn.Click += new System.EventHandler(this.ChooseBtn_Click);
             // 
-            // BooksActions
+            // BooksActionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -447,10 +447,10 @@ namespace LMS {
             this.Controls.Add(this.guna2ShadowPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Name = "BooksActions";
+            this.Name = "BooksActionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBooks";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddBooks_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BooksActions_KeyDown);
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).EndInit();

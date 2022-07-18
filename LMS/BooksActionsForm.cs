@@ -33,17 +33,17 @@ namespace LMS {
             TitleLbl.Text = title;
             ActionBtn.Text = title.ToUpper();
             ISBNTb.Text = isbn;
-            loadData(isbn);
-            ISBNTb.Enabled = false;
 
             if (title == "Add Book") {
                 ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             } else if (title == "Modify Book") {
+                LoadData(isbn);
+                ISBNTb.Enabled = false;
                 ActionBtn.FillColor = Color.FromArgb(249, 217, 55);
             }
         }
 
-        private void loadData(string isbn) {
+        private void LoadData(string isbn) {
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
             try {
@@ -86,13 +86,14 @@ namespace LMS {
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 
-            try {
 
-                if (ISBNTb.Text != string.Empty && TitleTb.Text != string.Empty && AuthorTb.Text != string.Empty
-                    && CategoryTb.Text != string.Empty && PriceTb.Text != string.Empty && PublisherTb.Text != string.Empty) {
 
-                    if (ActionBtn.Text == "ADD BOOK") {
+            if (ISBNTb.Text != string.Empty && TitleTb.Text != string.Empty && AuthorTb.Text != string.Empty
+                && CategoryTb.Text != string.Empty && PriceTb.Text != string.Empty && PublisherTb.Text != string.Empty) {
 
+                if (ActionBtn.Text == "ADD BOOK") {
+
+                    try {
                         string query = "INSERT INTO books VALUES(@isbn, @title, @author, @category, @price, @quantity, @date, @time, @sid, @pid, @isRemoved);";
 
                         SqlCommand cmd = new SqlCommand(query, conn);
@@ -123,10 +124,21 @@ namespace LMS {
                             this.Close();
                         }
 
-                    } else if (ActionBtn.Text == "MODIFY BOOK") {
+                    } catch (Exception ex) {
+                        MessageBox.Show("Book already exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Console.WriteLine("Action Book Error: " + ex.ToString());
+                    } finally {
+                        conn.Close();
+                        conn.Dispose();
+                        Console.ReadLine();
+                    }
+
+                } else if (ActionBtn.Text == "MODIFY BOOK") {
+
+                    try {
 
                         string query = "UPDATE books SET title = @title, author = @author, category = @category, " +
-                            "price = @price, pid = @pid WHERE isbn = @isbn;";
+                        "price = @price, pid = @pid WHERE isbn = @isbn;";
 
                         SqlCommand cmd = new SqlCommand(query, conn);
                         cmd.Parameters.Add("@title", SqlDbType.NVarChar, 150).Value = TitleTb.Text;
@@ -152,23 +164,26 @@ namespace LMS {
                             Mf.Show();
                         }
 
+                    } catch (Exception ex) {
+                        MessageBox.Show("Book updation failed!\nTry Again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Console.WriteLine("Action Book Error: " + ex.ToString());
+                    } finally {
+                        conn.Close();
+                        conn.Dispose();
+                        Console.ReadLine();
                     }
 
-
-                } else {
-                    MessageBox.Show("Fields can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-            } catch (Exception ex) {
-                Console.WriteLine("Action Book Error: " + ex.ToString());
-            } finally {
-                conn.Close();
-                conn.Dispose();
-                Console.ReadLine();
+
+            } else {
+                MessageBox.Show("Fields can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+
         }
 
-        private void AddBooks_KeyDown(object sender, KeyEventArgs e) {
+        private void BooksActions_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 this.Close();
                 //this.Dispose();
