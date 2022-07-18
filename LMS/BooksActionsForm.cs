@@ -86,8 +86,6 @@ namespace LMS {
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 
-
-
             if (ISBNTb.Text != string.Empty && TitleTb.Text != string.Empty && AuthorTb.Text != string.Empty
                 && CategoryTb.Text != string.Empty && PriceTb.Text != string.Empty && PublisherTb.Text != string.Empty) {
 
@@ -179,8 +177,6 @@ namespace LMS {
             } else {
                 MessageBox.Show("Fields can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-
         }
 
         private void BooksActions_KeyDown(object sender, KeyEventArgs e) {
