@@ -28,7 +28,6 @@ namespace LMS {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersActionsForm));
             this.label2 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.ActionBtn = new Guna.UI2.WinForms.Guna2Button();
             this.AddressTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.LnameTb = new Guna.UI2.WinForms.Guna2TextBox();
@@ -39,7 +38,6 @@ namespace LMS {
             this.Label6 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.TitlePanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
@@ -47,8 +45,10 @@ namespace LMS {
             this.ReNewDateTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.UpdateBtn = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
+            this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.TitlePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -64,26 +64,6 @@ namespace LMS {
             this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 209;
             this.label2.Text = "Address";
-            // 
-            // CloseBtn
-            // 
-            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseBtn.Animated = true;
-            this.CloseBtn.CheckedState.Parent = this.CloseBtn;
-            this.CloseBtn.CustomImages.Parent = this.CloseBtn;
-            this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(83)))), ((int)(((byte)(79)))));
-            this.CloseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseBtn.ForeColor = System.Drawing.Color.White;
-            this.CloseBtn.HoverState.Parent = this.CloseBtn;
-            this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
-            this.CloseBtn.Location = new System.Drawing.Point(429, 17);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
-            this.CloseBtn.Size = new System.Drawing.Size(35, 35);
-            this.CloseBtn.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.CloseBtn, "Press Esc to close");
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // ActionBtn
             // 
@@ -274,18 +254,6 @@ namespace LMS {
             this.guna2Elipse1.BorderRadius = 15;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // TitlePb
-            // 
-            this.TitlePb.Enabled = false;
-            this.TitlePb.Image = global::LMS.Properties.Resources.members;
-            this.TitlePb.Location = new System.Drawing.Point(23, 17);
-            this.TitlePb.Name = "TitlePb";
-            this.TitlePb.ShadowDecoration.Parent = this.TitlePb;
-            this.TitlePb.Size = new System.Drawing.Size(40, 35);
-            this.TitlePb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.TitlePb.TabIndex = 4;
-            this.TitlePb.TabStop = false;
-            // 
             // TitleLbl
             // 
             this.TitleLbl.BackColor = System.Drawing.Color.Transparent;
@@ -410,6 +378,38 @@ namespace LMS {
             this.UpdateBtn.Visible = false;
             this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
+            // TitlePb
+            // 
+            this.TitlePb.Enabled = false;
+            this.TitlePb.Image = global::LMS.Properties.Resources.Members;
+            this.TitlePb.Location = new System.Drawing.Point(23, 17);
+            this.TitlePb.Name = "TitlePb";
+            this.TitlePb.ShadowDecoration.Parent = this.TitlePb;
+            this.TitlePb.Size = new System.Drawing.Size(40, 35);
+            this.TitlePb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TitlePb.TabIndex = 4;
+            this.TitlePb.TabStop = false;
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseBtn.Animated = true;
+            this.CloseBtn.CheckedState.Parent = this.CloseBtn;
+            this.CloseBtn.CustomImages.Parent = this.CloseBtn;
+            this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(83)))), ((int)(((byte)(79)))));
+            this.CloseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseBtn.ForeColor = System.Drawing.Color.White;
+            this.CloseBtn.HoverState.Parent = this.CloseBtn;
+            this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
+            this.CloseBtn.Location = new System.Drawing.Point(429, 17);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
+            this.CloseBtn.Size = new System.Drawing.Size(35, 35);
+            this.CloseBtn.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.CloseBtn, "Press Esc to close");
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
             // MembersActionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,9 +436,9 @@ namespace LMS {
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MemberActionsForm";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MemberActionsForm_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).EndInit();
             this.TitlePanel.ResumeLayout(false);
             this.TitlePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

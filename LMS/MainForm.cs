@@ -200,7 +200,7 @@ namespace LMS {
             DashboardBtn.Checked = false;
             BooksBtn.Checked = false;
             MembersBtn.Checked = true;
-            TitlePb.Image = Properties.Resources.Books; //TODO: DOwnload and Change Image
+            TitlePb.Image = Properties.Resources.Members;
             TitleLbl.Text = "All Members";
             Title2Lbl.Text = "Total Members: " + fn.GetNumberOfMembers();
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");

@@ -175,7 +175,7 @@
     <Folder Include="Utils\Models\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\members.png" />
+    <None Include="Resources\Members.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
