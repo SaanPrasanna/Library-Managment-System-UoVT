@@ -232,5 +232,33 @@ namespace LMS {
                     break;
             }
         }
+
+        private void StaffsBtn_Click(object sender, EventArgs e) {
+
+            Functions fn = new Functions();
+            GridControlSettings dgv = new GridControlSettings();
+
+            DashboardPanel.Hide();
+            MainPanel.Show();
+            StaffsBtn.Checked = true;
+            MembersBtn.Checked = false;
+            DashboardBtn.Checked = false;
+            BooksBtn.Checked = false;
+            TitlePb.Image = Properties.Resources.Members;
+            TitleLbl.Text = "All Staffs Members";
+            Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOfMembers();
+            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
+            ActionBtn.Text = "ADD STAFF";
+            ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
+            ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+
+
+            if (MainDgv.ColumnCount < 8) {
+                dgv.GridButtons(dgv: MainDgv);
+            }
+            dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
+
+        }
     }
 }
