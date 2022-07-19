@@ -35,8 +35,9 @@ namespace LMS {
         }
         private void DashboardBtn_Click(object sender, EventArgs e) {
             MainPanel.Hide();
-            BooksBtn.Checked = false;
             DashboardBtn.Checked = true;
+            BooksBtn.Checked = false;
+            MembersBtn.Checked = false;
             TitlePb.Image = Properties.Resources.Dashboard;
             TitleLbl.Text = "Dashboard Oveview";
             DashboardPanel.Show();
@@ -50,8 +51,9 @@ namespace LMS {
 
             DashboardPanel.Hide();
             MainPanel.Show();
-            DashboardBtn.Checked = false;
             BooksBtn.Checked = true;
+            DashboardBtn.Checked = false;
+            MembersBtn.Checked = false;
             TitlePb.Image = Properties.Resources.Books;
             TitleLbl.Text = "All Books";
             Title2Lbl.Text = "Total Books: " + fn.GetNumberOfBooks();

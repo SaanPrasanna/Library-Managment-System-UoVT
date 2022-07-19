@@ -96,7 +96,7 @@ namespace LMS {
             this.ActionBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActionBtn.ForeColor = System.Drawing.Color.White;
             this.ActionBtn.HoverState.Parent = this.ActionBtn;
-            this.ActionBtn.Location = new System.Drawing.Point(342, 342);
+            this.ActionBtn.Location = new System.Drawing.Point(342, 345);
             this.ActionBtn.Name = "ActionBtn";
             this.ActionBtn.ShadowDecoration.Parent = this.ActionBtn;
             this.ActionBtn.Size = new System.Drawing.Size(119, 38);
@@ -277,7 +277,7 @@ namespace LMS {
             // TitlePb
             // 
             this.TitlePb.Enabled = false;
-            this.TitlePb.Image = global::LMS.Properties.Resources.Books;
+            this.TitlePb.Image = global::LMS.Properties.Resources.members;
             this.TitlePb.Location = new System.Drawing.Point(23, 17);
             this.TitlePb.Name = "TitlePb";
             this.TitlePb.ShadowDecoration.Parent = this.TitlePb;
@@ -414,7 +414,7 @@ namespace LMS {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 389);
+            this.ClientSize = new System.Drawing.Size(475, 392);
             this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.CategoryCb);
             this.Controls.Add(this.label3);
