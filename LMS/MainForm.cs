@@ -234,7 +234,7 @@ namespace LMS {
         }
 
         private void StaffsBtn_Click(object sender, EventArgs e) {
-            //check
+            // Once change the comment
             Functions fn = new Functions();
             GridControlSettings dgv = new GridControlSettings();
 
