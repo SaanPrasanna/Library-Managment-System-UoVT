@@ -104,7 +104,7 @@ namespace LMS {
 
                             GridControlSettings dgv = new GridControlSettings();
 
-                            if (mf.MainDgv.ColumnCount < 8) {
+                            if (mf.MainDgv.ColumnCount == 0) {
                                 dgv.GridButtons(dgv: mf.MainDgv);
                             }
                             dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");
@@ -142,7 +142,7 @@ namespace LMS {
 
                             GridControlSettings dgv = new GridControlSettings();
 
-                            if (mf.MainDgv.ColumnCount < 8) {
+                            if (mf.MainDgv.ColumnCount == 0) {
                                 dgv.GridButtons(dgv: mf.MainDgv);
                             }
                             dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");

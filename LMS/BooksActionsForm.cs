@@ -113,7 +113,7 @@ namespace LMS {
                             GridControlSettings dgv = new GridControlSettings();
 
                             dgv.ShowGrid(dgv: Mf.MainDgv, name: "Books");
-                            if (Mf.MainDgv.ColumnCount < 9) {
+                            if (Mf.MainDgv.ColumnCount == 0) {
                                 dgv.GridButtons(dgv: Mf.MainDgv);
                             }
                             dgv.GridWidth(dgv: Mf.MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
@@ -152,7 +152,7 @@ namespace LMS {
                             GridControlSettings dgv = new GridControlSettings();
 
                             dgv.ShowGrid(dgv: Mf.MainDgv, name: "Books");
-                            if (Mf.MainDgv.ColumnCount < 9) {
+                            if (Mf.MainDgv.ColumnCount == 0) {
                                 dgv.GridButtons(dgv: Mf.MainDgv);
                             }
                             dgv.GridWidth(dgv: Mf.MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });

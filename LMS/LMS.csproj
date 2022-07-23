@@ -118,6 +118,7 @@
     <Compile Include="Utils\DBUtils.cs" />
     <Compile Include="Utils\Functions.cs" />
     <Compile Include="Utils\GridControlSettings.cs" />
+    <Compile Include="Utils\Models\Staff.cs" />
     <EmbeddedResource Include="BooksActionsForm.resx">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,9 +172,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Members.png" />
   </ItemGroup>

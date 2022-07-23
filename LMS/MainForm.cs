@@ -62,7 +62,8 @@ namespace LMS {
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
 
-            if (MainDgv.ColumnCount < 9) {
+            MainDgv.Refresh();
+            if (MainDgv.ColumnCount == 0) {
                 dgv.GridButtons(dgv: MainDgv);
             }
             dgv.ShowGrid(dgv: MainDgv, name: "Books");
@@ -107,7 +108,7 @@ namespace LMS {
                                 GridControlSettings dgv = new GridControlSettings();
                                 Console.WriteLine(MainDgv.ColumnCount);
 
-                                if (MainDgv.ColumnCount < 9) {
+                                if (MainDgv.ColumnCount == 0) {
                                     dgv.GridButtons(dgv: MainDgv);
                                 }
                                 dgv.ShowGrid(dgv: MainDgv, name: "Books");
@@ -155,7 +156,7 @@ namespace LMS {
                                 GridControlSettings dgv = new GridControlSettings();
                                 Console.WriteLine(MainDgv.ColumnCount);
 
-                                if (MainDgv.ColumnCount < 8) {
+                                if (MainDgv.ColumnCount == 0) {
                                     dgv.GridButtons(dgv: MainDgv);
                                 }
                                 dgv.ShowGrid(dgv: MainDgv, name: "Members");
@@ -204,8 +205,8 @@ namespace LMS {
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
 
-
-            if (MainDgv.ColumnCount < 8) {
+            MainDgv.Refresh();
+            if (MainDgv.ColumnCount == 0) {
                 dgv.GridButtons(dgv: MainDgv);
             }
             dgv.ShowGrid(dgv: MainDgv, name: "Members");
@@ -230,7 +231,7 @@ namespace LMS {
         }
 
         private void StaffsBtn_Click(object sender, EventArgs e) {
-            // Once change the comment
+            
             Functions fn = new Functions();
             GridControlSettings dgv = new GridControlSettings();
 
@@ -248,12 +249,11 @@ namespace LMS {
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
 
-
-            if (MainDgv.ColumnCount < 8) {
+            if (MainDgv.ColumnCount == 0) {
                 dgv.GridButtons(dgv: MainDgv);
             }
             dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
-            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
 
         }
     }
