@@ -90,7 +90,7 @@ namespace LMS {
 
                 } else if (e.ColumnIndex == 1) {
 
-                    if (MessageBox.Show("Do you want to delete this book[" + isbn + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+                    if (MessageBox.Show("Do you want to delete this book [" + isbn + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
                         SqlConnection conn = DBUtils.GetDBConnection();
                         conn.Open();
                         String query = "UPDATE books SET is_removed = @number WHERE isbn = @isbn;";
@@ -137,46 +137,42 @@ namespace LMS {
                     membersForm.ShowDialog();
 
                 } else if (e.ColumnIndex == 1) {
-                    /*
 
-                        if (MessageBox.Show("Do you want to delete this book[" + isbn + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
-                            SqlConnection conn = DBUtils.GetDBConnection();
-                            conn.Open();
-                            String query = "UPDATE books SET is_removed = @number WHERE isbn = @isbn;";
+                    if (MessageBox.Show("Do you want to delete this member [" + mid+ "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+                        SqlConnection conn = DBUtils.GetDBConnection();
+                        conn.Open();
+                        String query = "UPDATE members SET is_removed = @number WHERE mid = @mid;";
 
-                            try {
+                        try {
 
-                                SqlCommand cmd = new SqlCommand(query, conn);
-                                cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
-                                cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
+                            cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = mid;
 
-                                int rowCount = cmd.ExecuteNonQuery();
-                                if (rowCount > 0) {
+                            int rowCount = cmd.ExecuteNonQuery();
+                            if (rowCount > 0) {
 
-                                    GridControlSettings dgv = new GridControlSettings();
-                                    Console.WriteLine(MainDgv.ColumnCount);
+                                GridControlSettings dgv = new GridControlSettings();
+                                Console.WriteLine(MainDgv.ColumnCount);
 
-                                    if (MainDgv.ColumnCount < 9) {
-                                        dgv.GridButtons(dgv: MainDgv);
-                                    }
-                                    dgv.ShowGrid(dgv: MainDgv, name: "Books");
-                                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
-                                    RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
-
-                                } else {
-                                    MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                if (MainDgv.ColumnCount < 8) {
+                                    dgv.GridButtons(dgv: MainDgv);
                                 }
+                                dgv.ShowGrid(dgv: MainDgv, name: "Members");
+                                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
 
-                            } catch (Exception ex) {
-                                Console.WriteLine("Book Remove Error: " + ex.ToString());
-                            } finally {
-                                conn.Close();
-                                conn.Dispose();
-                                Console.Read();
+                            } else {
+                                MessageBox.Show("Something was went wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-                        }
 
-                    */
+                        } catch (Exception ex) {
+                            Console.WriteLine("Member Removed Error: " + ex.ToString());
+                        } finally {
+                            conn.Close();
+                            conn.Dispose();
+                            Console.Read();
+                        }
+                    }
                 }
             }
         }
