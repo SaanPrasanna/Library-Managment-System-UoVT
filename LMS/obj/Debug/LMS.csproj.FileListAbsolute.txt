@@ -7,8 +7,6 @@ C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.csproj.GenerateResource.cache
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.csproj.CoreCompileInputs.cache
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.exe
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.pdb
-C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\Guna.UI.dll
-C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\Guna.UI2.dll
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.csproj.CopyComplete
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.LoginForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.MainForm.resources
