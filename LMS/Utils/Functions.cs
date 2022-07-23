@@ -43,42 +43,21 @@ namespace LMS.Utils {
                 var sb = new StringBuilder(hash.Length * 2);
 
                 foreach (byte b in hash) {
-                    sb.Append(b.ToString("X2"));
+                    sb.Append(b.ToString("x2"));
                 }
 
                 return sb.ToString();
             }
         }
 
-        public int GetNumberOfBooks() {
+        public int GetNumberOf(string name) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 
             try {
 
-                string sql = "SELECT COUNT(*) FROM books WHERE is_removed = 0;";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                return (Int32)cmd.ExecuteScalar();
-
-            } catch (Exception e) {
-                Console.WriteLine("Error: " + e.ToString());
-            } finally {
-                conn.Close();
-                conn.Dispose();
-                Console.ReadLine();
-            }
-            return 0;
-        }
-
-        public int GetNumberOfMembers() {
-
-            SqlConnection conn = DBUtils.GetDBConnection();
-            conn.Open();
-
-            try {
-
-                string sql = "SELECT COUNT(*) FROM members WHERE is_removed = 0;";
+                string sql = "SELECT COUNT(*) FROM " + name + " WHERE is_removed = 0;";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 return (Int32)cmd.ExecuteScalar();
 

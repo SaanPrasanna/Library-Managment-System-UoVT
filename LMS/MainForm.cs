@@ -54,9 +54,10 @@ namespace LMS {
             BooksBtn.Checked = true;
             DashboardBtn.Checked = false;
             MembersBtn.Checked = false;
+            StaffsBtn.Checked = false;
             TitlePb.Image = Properties.Resources.Books;
             TitleLbl.Text = "All Books";
-            Title2Lbl.Text = "Total Books: " + fn.GetNumberOfBooks();
+            Title2Lbl.Text = "Total Books: " + fn.GetNumberOf(name: "books");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
             ActionBtn.Text = "ADD BOOK";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
@@ -72,10 +73,10 @@ namespace LMS {
 
         private void DashboardDetails() {
             Functions fn = new Functions();
-            BooksLbl.Text = fn.GetNumberOfBooks().ToString();
+            BooksLbl.Text = fn.GetNumberOf(name: "books").ToString();
             Guna2HtmlLabel[] labels = new[] { RecentUpdate1Lbl, RecentUpdate2Lbl, RecentUpdate3Lbl, RecentUpdate4Lbl, RecentUpdate5Lbl, RecentUpdate6Lbl };
             Array.ForEach(labels, x => { x.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt"); });
-            MembersLbl.Text = fn.GetNumberOfMembers().ToString();
+            MembersLbl.Text = fn.GetNumberOf(name: "members").ToString();
         }
 
         private void MainDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
@@ -139,7 +140,7 @@ namespace LMS {
 
                 } else if (e.ColumnIndex == 1) {
 
-                    if (MessageBox.Show("Do you want to delete this member [" + mid+ "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+                    if (MessageBox.Show("Do you want to delete this member [" + mid + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
                         SqlConnection conn = DBUtils.GetDBConnection();
                         conn.Open();
                         String query = "UPDATE members SET is_removed = @number WHERE mid = @mid;";
@@ -175,6 +176,53 @@ namespace LMS {
                         }
                     }
                 }
+            } else if (ActionBtn.Text == "ADD STAFF") {
+                String sid = MainDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                if (e.ColumnIndex == 0) {
+
+                    StaffsActionsForm staffForm = new StaffsActionsForm(form: this, title: "Modify Staff", sid: sid);
+                    staffForm.ShowDialog();
+
+                } else if (e.ColumnIndex == 1) {
+                    /*
+                    if (MessageBox.Show("Do you want to delete this member [" + mid + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+                        SqlConnection conn = DBUtils.GetDBConnection();
+                        conn.Open();
+                        String query = "UPDATE members SET is_removed = @number WHERE mid = @mid;";
+
+                        try {
+
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
+                            cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = mid;
+
+                            int rowCount = cmd.ExecuteNonQuery();
+                            if (rowCount > 0) {
+
+                                GridControlSettings dgv = new GridControlSettings();
+                                Console.WriteLine(MainDgv.ColumnCount);
+
+                                if (MainDgv.ColumnCount == 0) {
+                                    dgv.GridButtons(dgv: MainDgv);
+                                }
+                                dgv.ShowGrid(dgv: MainDgv, name: "Members");
+                                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
+
+                            } else {
+                                MessageBox.Show("Something was went wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                        } catch (Exception ex) {
+                            Console.WriteLine("Member Removed Error: " + ex.ToString());
+                        } finally {
+                            conn.Close();
+                            conn.Dispose();
+                            Console.Read();
+                        }
+                    }
+                    */
+                }
             }
         }
         private void MinimizeBtn_Click(object sender, EventArgs e) {
@@ -194,12 +242,13 @@ namespace LMS {
 
             DashboardPanel.Hide();
             MainPanel.Show();
+            MembersBtn.Checked = true;
             DashboardBtn.Checked = false;
             BooksBtn.Checked = false;
-            MembersBtn.Checked = true;
+            StaffsBtn.Checked = false;
             TitlePb.Image = Properties.Resources.Members;
             TitleLbl.Text = "All Members";
-            Title2Lbl.Text = "Total Members: " + fn.GetNumberOfMembers();
+            Title2Lbl.Text = "Total Members: " + fn.GetNumberOf(name: "members");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
             ActionBtn.Text = "ADD MEMBER";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
@@ -210,7 +259,7 @@ namespace LMS {
                 dgv.GridButtons(dgv: MainDgv);
             }
             dgv.ShowGrid(dgv: MainDgv, name: "Members");
-            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 200, 200, 250, 150, 150, 150 });
 
         }
 
@@ -227,11 +276,15 @@ namespace LMS {
                     MembersActionsForm membersForm = new MembersActionsForm(form: this, title: "Add Member", fn.GetID("Member"));
                     membersForm.ShowDialog();
                     break;
+                case "ADD STAFF":
+                    StaffsActionsForm staffsForm = new StaffsActionsForm(form: this, title: "Add Staff", fn.GetID("Staff"));
+                    staffsForm.ShowDialog();
+                    break;
             }
         }
 
         private void StaffsBtn_Click(object sender, EventArgs e) {
-            
+
             Functions fn = new Functions();
             GridControlSettings dgv = new GridControlSettings();
 
@@ -243,7 +296,7 @@ namespace LMS {
             BooksBtn.Checked = false;
             TitlePb.Image = Properties.Resources.Members;
             TitleLbl.Text = "All Staffs Members";
-            Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOfMembers();
+            Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
             ActionBtn.Text = "ADD STAFF";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);

@@ -17,3 +17,4 @@ C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\zxing.presentation.xml
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.LoadingForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.BooksActionsForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.MembersActionsForm.resources
+C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.StaffsActionsForm.resources
