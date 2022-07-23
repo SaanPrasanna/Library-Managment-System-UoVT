@@ -54,6 +54,7 @@ namespace LMS.Utils {
                 case "ManageBooks":
                     break;
                 case "Staffs":
+                    query = "SELECT Username, fname AS 'First Name', lname AS 'Last Name', Address, type AS 'Account Type' FROM staffs;";
                     break;
                 case "Publishers":
                     break;
