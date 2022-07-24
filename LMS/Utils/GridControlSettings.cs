@@ -10,6 +10,50 @@ using System.Data;
 
 namespace LMS.Utils {
     class GridControlSettings {
+
+        public void ShowGrid(DataGridView dgv, string name) {
+
+            string query = "";
+            switch (name) {
+                case "Books":
+                    query = "SELECT ISBN, Title, Author, Category, publishers.name AS Publisher, Price, Quantity, Date, Time  FROM books, publishers  WHERE books.pid = publishers.pid AND books.is_removed = 0;";
+                    break;
+                case "Members":
+                    query = "SELECT m.mid AS 'Member ID', m.fname AS 'First Name', m.lname AS 'Last Name', m.Address, m.Category AS 'Account Type', Date AS 'Registered Date', m.renew_date AS 'Re-New Date', s.fname AS 'Added By' FROM members AS m, staffs AS s WHERE m.sid = s.sid AND m.is_removed = 0;";
+                    break;
+                case "ManageBooks":
+                    break;
+                case "Staffs":
+                    query = "SELECT sid AS 'Staff ID', Username, fname AS 'First Name', lname AS 'Last Name', Address, type AS 'Account Type' FROM staffs WHERE is_removed = 0;";
+                    break;
+                case "Publishers":
+                    query = "SELECT p.pid AS 'Publisher ID', p.Name, pn.Number FROM publishers AS p, publishers_number AS pn WHERE p.pid = pn.pid AND is_removed = 0;";
+                    break;
+                default:
+                    Console.WriteLine("Please double check Grid Name!");
+                    break;
+            }
+
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+            try {
+
+                SqlDataAdapter adupter = new SqlDataAdapter(query, conn);
+                using (SqlDataAdapter adapter = adupter) {
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dgv.DataSource = ds.Tables[0];
+                }
+
+            } catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.ToString());
+            } finally {
+                conn.Close();
+                conn.Dispose();
+                Console.Read();
+            }
+        }
+
         public void GridButtons(DataGridView dgv) {
 
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
@@ -38,48 +82,6 @@ namespace LMS.Utils {
         public void GridWidth(DataGridView dgv, int[] widths) {
             for (int i = 0; i < widths.Length; i++) {
                 dgv.Columns[i].Width = widths[i];
-            }
-        }
-
-        public void ShowGrid(DataGridView dgv, string name) {
-
-            string query = "";
-            switch (name) {
-                case "Books":
-                    query = "SELECT ISBN, Title, Author, Category, publishers.name AS Publisher, Price, Quantity, Date, Time  FROM books, publishers  WHERE books.pid = publishers.pid AND books.is_removed = 0;";
-                    break;
-                case "Members":
-                    query = "SELECT m.mid AS 'Member ID', m.fname AS 'First Name', m.lname AS 'Last Name', m.Address, m.Category AS 'Account Type', Date AS 'Registered Date', m.renew_date AS 'Re-New Date', s.fname AS 'Added By' FROM members AS m, staffs AS s WHERE m.sid = s.sid AND m.is_removed = 0;";
-                    break;
-                case "ManageBooks":
-                    break;
-                case "Staffs":
-                    query = "SELECT sid AS 'Staff ID', Username, fname AS 'First Name', lname AS 'Last Name', Address, type AS 'Account Type' FROM staffs WHERE is_removed = 0;";
-                    break;
-                case "Publishers":
-                    break;
-                default:
-                    Console.WriteLine("Please double check Grid Name!");
-                    break;
-            }
-
-            SqlConnection conn = DBUtils.GetDBConnection();
-            conn.Open();
-            try {
-
-                SqlDataAdapter adupter = new SqlDataAdapter(query, conn);
-                using (SqlDataAdapter adapter = adupter) {
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dgv.DataSource = ds.Tables[0];
-                }
-
-            } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.ToString());
-            } finally {
-                conn.Close();
-                conn.Dispose();
-                Console.Read();
             }
         }
 

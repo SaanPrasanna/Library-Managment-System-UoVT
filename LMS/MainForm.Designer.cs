@@ -42,7 +42,6 @@ namespace LMS {
             this.SettingsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ReportsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.StaffsBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.PublishersBtn = new Guna.UI2.WinForms.Guna2Button();
             this.MembersBtn = new Guna.UI2.WinForms.Guna2Button();
             this.BooksBtn = new Guna.UI2.WinForms.Guna2Button();
             this.MangeBooksBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -57,6 +56,7 @@ namespace LMS {
             this.RecentUpdateLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Title2Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.Action2Btn = new Guna.UI2.WinForms.Guna2Button();
             this.ActionBtn = new Guna.UI2.WinForms.Guna2Button();
             this.MainDgv = new Guna.UI2.WinForms.Guna2DataGridView();
             this.GridElipe = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -148,7 +148,6 @@ namespace LMS {
             this.guna2ShadowPanel1.Controls.Add(this.SettingsBtn);
             this.guna2ShadowPanel1.Controls.Add(this.ReportsBtn);
             this.guna2ShadowPanel1.Controls.Add(this.StaffsBtn);
-            this.guna2ShadowPanel1.Controls.Add(this.PublishersBtn);
             this.guna2ShadowPanel1.Controls.Add(this.MembersBtn);
             this.guna2ShadowPanel1.Controls.Add(this.BooksBtn);
             this.guna2ShadowPanel1.Controls.Add(this.MangeBooksBtn);
@@ -232,7 +231,7 @@ namespace LMS {
             this.SettingsBtn.Image = ((System.Drawing.Image)(resources.GetObject("SettingsBtn.Image")));
             this.SettingsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SettingsBtn.ImageOffset = new System.Drawing.Point(15, 0);
-            this.SettingsBtn.Location = new System.Drawing.Point(10, 393);
+            this.SettingsBtn.Location = new System.Drawing.Point(10, 346);
             this.SettingsBtn.Name = "SettingsBtn";
             this.SettingsBtn.ShadowDecoration.Parent = this.SettingsBtn;
             this.SettingsBtn.Size = new System.Drawing.Size(252, 45);
@@ -257,7 +256,7 @@ namespace LMS {
             this.ReportsBtn.Image = ((System.Drawing.Image)(resources.GetObject("ReportsBtn.Image")));
             this.ReportsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ReportsBtn.ImageOffset = new System.Drawing.Point(15, 0);
-            this.ReportsBtn.Location = new System.Drawing.Point(10, 345);
+            this.ReportsBtn.Location = new System.Drawing.Point(10, 298);
             this.ReportsBtn.Name = "ReportsBtn";
             this.ReportsBtn.ShadowDecoration.Parent = this.ReportsBtn;
             this.ReportsBtn.Size = new System.Drawing.Size(252, 45);
@@ -282,7 +281,7 @@ namespace LMS {
             this.StaffsBtn.Image = ((System.Drawing.Image)(resources.GetObject("StaffsBtn.Image")));
             this.StaffsBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.StaffsBtn.ImageOffset = new System.Drawing.Point(15, 0);
-            this.StaffsBtn.Location = new System.Drawing.Point(10, 297);
+            this.StaffsBtn.Location = new System.Drawing.Point(10, 250);
             this.StaffsBtn.Name = "StaffsBtn";
             this.StaffsBtn.ShadowDecoration.Parent = this.StaffsBtn;
             this.StaffsBtn.Size = new System.Drawing.Size(252, 45);
@@ -291,31 +290,6 @@ namespace LMS {
             this.StaffsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.StaffsBtn.TextOffset = new System.Drawing.Point(35, 0);
             this.StaffsBtn.Click += new System.EventHandler(this.StaffsBtn_Click);
-            // 
-            // PublishersBtn
-            // 
-            this.PublishersBtn.Animated = true;
-            this.PublishersBtn.BorderRadius = 10;
-            this.PublishersBtn.CheckedState.Parent = this.PublishersBtn;
-            this.PublishersBtn.CustomImages.Parent = this.PublishersBtn;
-            this.PublishersBtn.FillColor = System.Drawing.Color.Transparent;
-            this.PublishersBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PublishersBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
-            this.PublishersBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
-            this.PublishersBtn.HoverState.ForeColor = System.Drawing.Color.White;
-            this.PublishersBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("PublishersBtn.HoverState.Image")));
-            this.PublishersBtn.HoverState.Parent = this.PublishersBtn;
-            this.PublishersBtn.Image = ((System.Drawing.Image)(resources.GetObject("PublishersBtn.Image")));
-            this.PublishersBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.PublishersBtn.ImageOffset = new System.Drawing.Point(15, 0);
-            this.PublishersBtn.Location = new System.Drawing.Point(10, 249);
-            this.PublishersBtn.Name = "PublishersBtn";
-            this.PublishersBtn.ShadowDecoration.Parent = this.PublishersBtn;
-            this.PublishersBtn.Size = new System.Drawing.Size(252, 45);
-            this.PublishersBtn.TabIndex = 2;
-            this.PublishersBtn.Text = "Publishers";
-            this.PublishersBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.PublishersBtn.TextOffset = new System.Drawing.Point(35, 0);
             // 
             // MembersBtn
             // 
@@ -535,6 +509,7 @@ namespace LMS {
             this.MainPanel.Controls.Add(this.RecentUpdateLbl);
             this.MainPanel.Controls.Add(this.guna2PictureBox2);
             this.MainPanel.Controls.Add(this.Title2Lbl);
+            this.MainPanel.Controls.Add(this.Action2Btn);
             this.MainPanel.Controls.Add(this.ActionBtn);
             this.MainPanel.Controls.Add(this.MainDgv);
             this.MainPanel.FillColor = System.Drawing.Color.White;
@@ -580,6 +555,25 @@ namespace LMS {
             this.Title2Lbl.TabIndex = 5;
             this.Title2Lbl.Text = "Sample Text";
             this.Title2Lbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Action2Btn
+            // 
+            this.Action2Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Action2Btn.Animated = true;
+            this.Action2Btn.BorderRadius = 10;
+            this.Action2Btn.CheckedState.Parent = this.Action2Btn;
+            this.Action2Btn.CustomImages.Parent = this.Action2Btn;
+            this.Action2Btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Action2Btn.ForeColor = System.Drawing.Color.White;
+            this.Action2Btn.HoverState.Parent = this.Action2Btn;
+            this.Action2Btn.Location = new System.Drawing.Point(839, 34);
+            this.Action2Btn.Name = "Action2Btn";
+            this.Action2Btn.ShadowDecoration.Parent = this.Action2Btn;
+            this.Action2Btn.Size = new System.Drawing.Size(119, 38);
+            this.Action2Btn.TabIndex = 1;
+            this.Action2Btn.Text = "SAMPLE TEXT";
+            this.Action2Btn.Visible = false;
+            this.Action2Btn.Click += new System.EventHandler(this.Action2Btn_Click);
             // 
             // ActionBtn
             // 
@@ -1372,7 +1366,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2CircleButton CloseBtn;
         private Guna.UI2.WinForms.Guna2Button BooksBtn;
         private Guna.UI2.WinForms.Guna2Button BorrowBooksBtn;
-        private Guna.UI2.WinForms.Guna2Button PublishersBtn;
         private Guna.UI2.WinForms.Guna2Button MembersBtn;
         private Guna.UI2.WinForms.Guna2Button MangeBooksBtn;
         private Guna.UI2.WinForms.Guna2CircleButton MinimizeBtn;
@@ -1438,5 +1431,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         public Guna.UI2.WinForms.Guna2Button ActionBtn;
         public Guna.UI2.WinForms.Guna2HtmlLabel Title2Lbl;
+        public Guna.UI2.WinForms.Guna2Button Action2Btn;
     }
 }

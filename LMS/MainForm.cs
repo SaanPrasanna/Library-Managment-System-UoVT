@@ -52,6 +52,7 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             BooksBtn.Checked = true;
+            Action2Btn.Visible = true;
             DashboardBtn.Checked = false;
             MembersBtn.Checked = false;
             StaffsBtn.Checked = false;
@@ -59,9 +60,12 @@ namespace LMS {
             TitleLbl.Text = "All Books";
             Title2Lbl.Text = "Total Books: " + fn.GetNumberOf(name: "books");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
+
             ActionBtn.Text = "ADD BOOK";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+
+            Action2Btn.Text = "PUBLISHERS";
 
             MainDgv.Refresh();
             if (MainDgv.ColumnCount == 0) {
@@ -247,6 +251,7 @@ namespace LMS {
             DashboardBtn.Checked = false;
             BooksBtn.Checked = false;
             StaffsBtn.Checked = false;
+            Action2Btn.Visible = false;
             TitlePb.Image = Properties.Resources.Members;
             TitleLbl.Text = "All Members";
             Title2Lbl.Text = "Total Members: " + fn.GetNumberOf(name: "members");
@@ -295,6 +300,7 @@ namespace LMS {
             MembersBtn.Checked = false;
             DashboardBtn.Checked = false;
             BooksBtn.Checked = false;
+            Action2Btn.Visible = false;
             TitlePb.Image = Properties.Resources.Members;
             TitleLbl.Text = "All Staffs Members";
             Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
@@ -309,6 +315,13 @@ namespace LMS {
             dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
             dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
 
+        }
+
+        private void Action2Btn_Click(object sender, EventArgs e) {
+            if (Action2Btn.Text == "PUBLISHERS") {
+                PublishersForm publisherForm = new PublishersForm();
+                publisherForm.ShowDialog();
+            }
         }
     }
 }
