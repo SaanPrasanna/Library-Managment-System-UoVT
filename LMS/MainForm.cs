@@ -58,7 +58,7 @@ namespace LMS {
             TitlePb.Image = Properties.Resources.Books;
             TitleLbl.Text = "All Books";
             Title2Lbl.Text = "Total Books: " + fn.GetNumberOf(name: "books");
-            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
+            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
             ActionBtn.Text = "ADD BOOK";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
@@ -185,29 +185,31 @@ namespace LMS {
                     staffForm.ShowDialog();
 
                 } else if (e.ColumnIndex == 1) {
-                    /*
-                    if (MessageBox.Show("Do you want to delete this member [" + mid + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+
+                    if (MessageBox.Show("Do you want to delete this staff member [" + sid + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+
+                        Functions fn = new Functions();
                         SqlConnection conn = DBUtils.GetDBConnection();
                         conn.Open();
-                        String query = "UPDATE members SET is_removed = @number WHERE mid = @mid;";
+                        String query = "UPDATE staffs SET is_removed = @number WHERE sid = @sid;";
 
                         try {
 
                             SqlCommand cmd = new SqlCommand(query, conn);
                             cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
-                            cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = mid;
+                            cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = sid;
 
-                            int rowCount = cmd.ExecuteNonQuery();
+                            int rowCount = (Int32)cmd.ExecuteNonQuery();
                             if (rowCount > 0) {
 
                                 GridControlSettings dgv = new GridControlSettings();
-                                Console.WriteLine(MainDgv.ColumnCount);
 
                                 if (MainDgv.ColumnCount == 0) {
                                     dgv.GridButtons(dgv: MainDgv);
                                 }
-                                dgv.ShowGrid(dgv: MainDgv, name: "Members");
-                                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
+                                dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
+                                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
+                                Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
 
                             } else {
                                 MessageBox.Show("Something was went wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -221,7 +223,6 @@ namespace LMS {
                             Console.Read();
                         }
                     }
-                    */
                 }
             }
         }
@@ -249,7 +250,7 @@ namespace LMS {
             TitlePb.Image = Properties.Resources.Members;
             TitleLbl.Text = "All Members";
             Title2Lbl.Text = "Total Members: " + fn.GetNumberOf(name: "members");
-            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
+            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
             ActionBtn.Text = "ADD MEMBER";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
@@ -297,7 +298,7 @@ namespace LMS {
             TitlePb.Image = Properties.Resources.Members;
             TitleLbl.Text = "All Staffs Members";
             Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
-            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
+            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
             ActionBtn.Text = "ADD STAFF";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);

@@ -647,6 +647,7 @@ namespace LMS {
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.MainDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.MainDgv.RowHeadersVisible = false;
             this.MainDgv.RowHeadersWidth = 43;
             this.MainDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.MainDgv.RowTemplate.Height = 50;
@@ -1386,7 +1387,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Elipse GridElipe;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel Title2Lbl;
         private Guna.UI2.WinForms.Guna2HtmlLabel RecentUpdateLbl;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         public Guna.UI2.WinForms.Guna2DataGridView MainDgv;
@@ -1437,5 +1437,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         public Guna.UI2.WinForms.Guna2Button ActionBtn;
+        public Guna.UI2.WinForms.Guna2HtmlLabel Title2Lbl;
     }
 }
