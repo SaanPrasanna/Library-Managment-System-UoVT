@@ -20,3 +20,4 @@ C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.MembersActionsForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.StaffsActionsForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.PublishersForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.PublishersActionsForm.resources
+C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.ChoosePID.resources

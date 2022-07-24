@@ -382,7 +382,7 @@ namespace LMS {
             this.PublisherTb.Animated = true;
             this.PublisherTb.BorderRadius = 15;
             this.PublisherTb.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PublisherTb.DefaultText = "P00001";
+            this.PublisherTb.DefaultText = "";
             this.PublisherTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.PublisherTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.PublisherTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -401,7 +401,6 @@ namespace LMS {
             this.PublisherTb.PasswordChar = '\0';
             this.PublisherTb.PlaceholderText = "";
             this.PublisherTb.SelectedText = "";
-            this.PublisherTb.SelectionStart = 6;
             this.PublisherTb.ShadowDecoration.Parent = this.PublisherTb;
             this.PublisherTb.Size = new System.Drawing.Size(249, 36);
             this.PublisherTb.TabIndex = 3;
@@ -482,7 +481,7 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2Button ActionBtn;
         private System.Windows.Forms.ToolTip toolTip1;
         private Guna.UI2.WinForms.Guna2Button ChooseBtn;
-        private Guna.UI2.WinForms.Guna2TextBox PublisherTb;
         internal System.Windows.Forms.Label label2;
+        public Guna.UI2.WinForms.Guna2TextBox PublisherTb;
     }
 }

@@ -81,6 +81,12 @@
     <Compile Include="BooksActionsForm.Designer.cs">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChoosePID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChoosePID.Designer.cs">
+      <DependentUpon>ChoosePID.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     <Compile Include="Utils\Models\Staff.cs" />
     <EmbeddedResource Include="BooksActionsForm.resx">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChoosePID.resx">
+      <DependentUpon>ChoosePID.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>

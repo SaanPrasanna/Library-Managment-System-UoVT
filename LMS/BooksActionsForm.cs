@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ZXing;
 using LMS.Utils;
 using Guna.UI2.WinForms;
+using System.Runtime.InteropServices;
 
 namespace LMS {
     public partial class BooksActionsForm : Form {
@@ -104,7 +105,7 @@ namespace LMS {
                         cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
                         cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
                         cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = "S00001"; // TODO: After all functionalities are completed
-                        cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = "P00001";// TODO: After creating the Publisher form
+                        cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PublisherTb.Text;
                         cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
 
                         int rowCount = cmd.ExecuteNonQuery();
@@ -143,7 +144,7 @@ namespace LMS {
                         cmd.Parameters.Add("@author", SqlDbType.NVarChar, 100).Value = AuthorTb.Text;
                         cmd.Parameters.Add("@category", SqlDbType.VarChar, 20).Value = CategoryTb.Text;
                         cmd.Parameters.Add("@price", SqlDbType.Decimal).Value = PriceTb.Text;
-                        cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = "P00001";// TODO: After creating the Publisher form
+                        cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PublisherTb.Text;
                         cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;
 
                         int rowCount = cmd.ExecuteNonQuery();
@@ -197,7 +198,8 @@ namespace LMS {
         }
 
         private void ChooseBtn_Click(object sender, EventArgs e) {
-            // TODO: After creating the Publisher form
+            ChoosePID chooseForm = new ChoosePID(this);
+            chooseForm.ShowDialog();
         }
     }
 }
