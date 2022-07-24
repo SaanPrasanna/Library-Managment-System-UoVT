@@ -161,6 +161,8 @@ namespace LMS {
                         conn.Dispose();
                     }
                 }
+            } else {
+                MessageBox.Show("Fields can't be empty!\nPlease fill all fields and submit again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
