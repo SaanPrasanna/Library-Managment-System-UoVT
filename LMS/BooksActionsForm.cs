@@ -202,5 +202,11 @@ namespace LMS {
             ChooseForm chooseForm = new ChooseForm(booksActions: this);
             chooseForm.ShowDialog();
         }
+
+        private void ISBNTb_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
     }
 }

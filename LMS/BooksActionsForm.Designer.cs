@@ -145,6 +145,7 @@ namespace LMS {
             this.ISBNTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.ISBNTb.Location = new System.Drawing.Point(128, 70);
             this.ISBNTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ISBNTb.MaxLength = 13;
             this.ISBNTb.Name = "ISBNTb";
             this.ISBNTb.PasswordChar = '\0';
             this.ISBNTb.PlaceholderText = "";
@@ -153,6 +154,7 @@ namespace LMS {
             this.ISBNTb.Size = new System.Drawing.Size(333, 36);
             this.ISBNTb.TabIndex = 0;
             this.ISBNTb.TextChanged += new System.EventHandler(this.UsernameTb_TextChanged);
+            this.ISBNTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ISBNTb_KeyPress);
             // 
             // Label10
             // 
