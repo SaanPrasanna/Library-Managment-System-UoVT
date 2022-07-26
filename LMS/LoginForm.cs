@@ -19,7 +19,7 @@ namespace LMS {
 
         private void LoginBtn_Click(object sender, EventArgs e) {
 
-            MainForm mf = new MainForm();
+            SplashForm splashForm = new SplashForm();
 
             try {
                 if (UsernameTB.Text != string.Empty && PasswordTB.Text != string.Empty) {
@@ -36,7 +36,7 @@ namespace LMS {
                         Properties.Settings.Default.fname = dt.Rows[0][3].ToString();
                         Properties.Settings.Default.accountType = dt.Rows[0][6].ToString();
                         this.Hide();
-                        mf.Show();
+                        splashForm.Show();
 
                     } else {
                         MessageBox.Show("Access Denied!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
