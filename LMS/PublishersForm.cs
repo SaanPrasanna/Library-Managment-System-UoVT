@@ -20,6 +20,7 @@ namespace LMS {
 
             Functions fn = new Functions();
             GridControlSettings dgv = new GridControlSettings();
+
             if (PublishersDgv.ColumnCount == 0) {
                 dgv.GridButtons(dgv: PublishersDgv);
             }
@@ -28,6 +29,7 @@ namespace LMS {
 
             Title2Lbl.Text = "Total Publishers : " + fn.GetNumberOf(name: "Publishers").ToString();
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
+            SearchTb.PlaceholderText = "Search By Name";
         }
 
         private void PublishersDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
@@ -71,6 +73,14 @@ namespace LMS {
                 PublishersActionsForm publisherForm = new PublishersActionsForm(form: this, title: "Add Publisher", fn.GetID(name: "Publisher"));
                 publisherForm.ShowDialog();
             }
+        }
+
+        private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
+
+            GridControlSettings dgv = new GridControlSettings();
+            dgv.ShowGrid(dgv: PublishersDgv, name: "Publishers", searchQuery: SearchTb.Text);
+            dgv.GridWidth(dgv: PublishersDgv, widths: new int[] { 0, 0, 150, 200, 150 });
+
         }
     }
 }

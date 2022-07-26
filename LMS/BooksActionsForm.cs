@@ -167,6 +167,7 @@ namespace LMS {
                         MessageBox.Show("Book updation failed!\nTry Again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Console.WriteLine("Action Book Error: " + ex.ToString());
                     } finally {
+                        Mf.SearchTb.Text = string.Empty;
                         conn.Close();
                         conn.Dispose();
                         Console.ReadLine();

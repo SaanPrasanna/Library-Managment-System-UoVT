@@ -23,7 +23,17 @@ namespace LMS {
             if (booksActions != null) {
                 this.booksActions = booksActions;
                 TitleLbl.Text = "Choose Publisher";
+                SearchTb.PlaceholderText = "Search By Name";
                 dgv.ShowGrid(dgv: ChooseDgv, name: "Publishers");
+            }
+        }
+
+        protected override CreateParams CreateParams {
+            get {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
             }
         }
 
@@ -41,6 +51,14 @@ namespace LMS {
 
         private void CloseBtn_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
+
+            GridControlSettings dgv = new GridControlSettings();
+            if (booksActions != null) {
+                dgv.ShowGrid(dgv: ChooseDgv, name: "Publishers", searchQuery: SearchTb.Text);
+            }
         }
     }
 }

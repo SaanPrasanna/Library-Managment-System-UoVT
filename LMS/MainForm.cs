@@ -57,6 +57,8 @@ namespace LMS {
             MembersBtn.Checked = false;
             StaffsBtn.Checked = false;
             TitlePb.Image = Properties.Resources.Books;
+            SearchTb.PlaceholderText = "Search By Title";
+            SearchTb.Text = string.Empty;
             TitleLbl.Text = "All Books";
             Title2Lbl.Text = "Total Books: " + fn.GetNumberOf(name: "books");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
@@ -253,6 +255,8 @@ namespace LMS {
             StaffsBtn.Checked = false;
             Action2Btn.Visible = false;
             TitlePb.Image = Properties.Resources.Members;
+            SearchTb.PlaceholderText = "Search By First Name";
+            SearchTb.Text = string.Empty;
             TitleLbl.Text = "All Members";
             Title2Lbl.Text = "Total Members: " + fn.GetNumberOf(name: "members");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
@@ -302,6 +306,8 @@ namespace LMS {
             BooksBtn.Checked = false;
             Action2Btn.Visible = false;
             TitlePb.Image = Properties.Resources.Members;
+            SearchTb.PlaceholderText = "Search By Username";
+            SearchTb.Text = string.Empty;
             TitleLbl.Text = "All Staffs Members";
             Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
@@ -321,6 +327,22 @@ namespace LMS {
             if (Action2Btn.Text == "PUBLISHERS") {
                 PublishersForm publisherForm = new PublishersForm();
                 publisherForm.ShowDialog();
+            }
+        }
+
+        private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
+
+            GridControlSettings dgv = new GridControlSettings();
+
+            if (ActionBtn.Text == "ADD BOOK") {
+                dgv.ShowGrid(dgv: MainDgv, name: "Books", searchQuery: SearchTb.Text);
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
+            } else if (ActionBtn.Text == "ADD MEMBER") {
+                dgv.ShowGrid(dgv: MainDgv, name: "Members", searchQuery: SearchTb.Text);
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 200, 200, 250, 150, 150, 150 });
+            } else if (ActionBtn.Text == "ADD STAFF") {
+                dgv.ShowGrid(dgv: MainDgv, name: "Staffs", searchQuery: SearchTb.Text);
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
             }
         }
     }
