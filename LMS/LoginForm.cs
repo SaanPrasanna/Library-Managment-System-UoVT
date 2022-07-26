@@ -19,6 +19,7 @@ namespace LMS {
 
         private void LoginBtn_Click(object sender, EventArgs e) {
 
+            // Need to Update Login Form UI
             SplashForm splashForm = new SplashForm();
 
             try {
