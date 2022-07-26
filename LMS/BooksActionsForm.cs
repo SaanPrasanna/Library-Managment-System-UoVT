@@ -198,7 +198,7 @@ namespace LMS {
         }
 
         private void ChooseBtn_Click(object sender, EventArgs e) {
-            ChoosePID chooseForm = new ChoosePID(this);
+            ChooseForm chooseForm = new ChooseForm(booksActions: this);
             chooseForm.ShowDialog();
         }
     }
