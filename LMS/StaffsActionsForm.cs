@@ -30,7 +30,7 @@ namespace LMS {
                 ChangeBtn.Visible = true;
                 PasswordTb.Enabled = false;
                 UsernameTb.Enabled = false;
-                ActionBtn.FillColor = Color.FromArgb(249, 217, 55);
+                ActionBtn.FillColor = Color.FromArgb(248, 187, 0);
             }
         }
 

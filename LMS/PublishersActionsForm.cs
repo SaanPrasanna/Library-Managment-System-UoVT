@@ -26,7 +26,7 @@ namespace LMS {
                 ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             } else if (title == "Modify Publisher") {
                 LoadData(pid: pid);
-                ActionBtn.FillColor = Color.FromArgb(249, 217, 55);
+                ActionBtn.FillColor = Color.FromArgb(248, 187, 0);
             }
         }
 
