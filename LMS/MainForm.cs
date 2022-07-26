@@ -192,42 +192,48 @@ namespace LMS {
 
                 } else if (e.ColumnIndex == 1) {
 
-                    if (MessageBox.Show("Do you want to delete this staff member [" + sid + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+                    if (Properties.Settings.Default.accountType.ToLower() == "admin" && Properties.Settings.Default.sid != sid) {
+                        if (MessageBox.Show("Do you want to delete this staff member [" + sid + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
 
-                        Functions fn = new Functions();
-                        SqlConnection conn = DBUtils.GetDBConnection();
-                        conn.Open();
-                        String query = "UPDATE staffs SET is_removed = @number WHERE sid = @sid;";
+                            Functions fn = new Functions();
+                            SqlConnection conn = DBUtils.GetDBConnection();
+                            conn.Open();
+                            String query = "UPDATE staffs SET is_removed = @number WHERE sid = @sid;";
 
-                        try {
+                            try {
 
-                            SqlCommand cmd = new SqlCommand(query, conn);
-                            cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
-                            cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = sid;
+                                SqlCommand cmd = new SqlCommand(query, conn);
+                                cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
+                                cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = sid;
 
-                            int rowCount = (Int32)cmd.ExecuteNonQuery();
-                            if (rowCount > 0) {
+                                int rowCount = (Int32)cmd.ExecuteNonQuery();
+                                if (rowCount > 0) {
 
-                                GridControlSettings dgv = new GridControlSettings();
+                                    GridControlSettings dgv = new GridControlSettings();
 
-                                if (MainDgv.ColumnCount == 0) {
-                                    dgv.GridButtons(dgv: MainDgv);
+                                    if (MainDgv.ColumnCount == 0) {
+                                        dgv.GridButtons(dgv: MainDgv);
+                                    }
+                                    dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
+                                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
+                                    Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
+
+                                } else {
+                                    MessageBox.Show("Something was went wrong!", "Exception Occur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-                                dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
-                                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
-                                Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
 
-                            } else {
-                                MessageBox.Show("Something was went wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            } catch (Exception ex) {
+                                Console.WriteLine("Member Removed Error: " + ex.ToString());
+                            } finally {
+                                conn.Close();
+                                conn.Dispose();
+                                Console.Read();
                             }
-
-                        } catch (Exception ex) {
-                            Console.WriteLine("Member Removed Error: " + ex.ToString());
-                        } finally {
-                            conn.Close();
-                            conn.Dispose();
-                            Console.Read();
                         }
+                    } else if (Properties.Settings.Default.sid == sid && Properties.Settings.Default.accountType.ToLower() == "admin") {
+                        MessageBox.Show("Sorry, you can't delete your account!", "Access Denied!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } else if (Properties.Settings.Default.accountType.ToLower() == "moderator") {
+                        MessageBox.Show("You doesn't have permission to delete accounts!", "Access Denied!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

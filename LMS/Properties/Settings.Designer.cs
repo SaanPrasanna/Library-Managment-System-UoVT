@@ -46,5 +46,29 @@ namespace LMS.Properties {
                 this["fname"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string accountType {
+            get {
+                return ((string)(this["accountType"]));
+            }
+            set {
+                this["accountType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string sid {
+            get {
+                return ((string)(this["sid"]));
+            }
+            set {
+                this["sid"] = value;
+            }
+        }
     }
 }

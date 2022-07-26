@@ -31,8 +31,10 @@ namespace LMS {
 
                         MessageBox.Show("Access Granted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        Properties.Settings.Default.sid = dt.Rows[0][0].ToString();
                         Properties.Settings.Default.username = dt.Rows[0][1].ToString();
                         Properties.Settings.Default.fname = dt.Rows[0][3].ToString();
+                        Properties.Settings.Default.accountType = dt.Rows[0][6].ToString();
                         this.Hide();
                         mf.Show();
 
