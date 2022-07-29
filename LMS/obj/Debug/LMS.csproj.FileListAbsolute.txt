@@ -14,10 +14,10 @@ C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\zxing.dll
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\zxing.presentation.dll
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\zxing.xml
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\zxing.presentation.xml
-C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.LoadingForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.BooksActionsForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.MembersActionsForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.StaffsActionsForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.PublishersForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.PublishersActionsForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.ChooseForm.resources
+C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.SplashForm.resources

@@ -31,8 +31,8 @@ namespace LMS {
 
             MainPanel.Hide();
             DashboardDetails();
-
         }
+
         private void DashboardBtn_Click(object sender, EventArgs e) {
             MainPanel.Hide();
             DashboardBtn.Checked = true;
@@ -42,6 +42,8 @@ namespace LMS {
             TitleLbl.Text = "Dashboard Oveview";
             DashboardPanel.Show();
             DashboardDetails();
+            FNameLbl.Text = Properties.Settings.Default.fname;
+            UsernameLbl.Text = Properties.Settings.Default.username;
         }
 
         private void BooksBtn_Click(object sender, EventArgs e) {
