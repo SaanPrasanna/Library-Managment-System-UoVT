@@ -55,6 +55,7 @@ namespace LMS {
             MainPanel.Show();
             BooksBtn.Checked = true;
             Action2Btn.Visible = true;
+            MangeBooksBtn.Checked = false;
             DashboardBtn.Checked = false;
             MembersBtn.Checked = false;
             StaffsBtn.Checked = false;
@@ -70,6 +71,7 @@ namespace LMS {
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
 
             Action2Btn.Text = "PUBLISHERS";
+            DateTimePickers(isVisible: false);
 
             MainDgv.Refresh();
             if (MainDgv.ColumnCount == 0) {
@@ -258,6 +260,7 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             MembersBtn.Checked = true;
+            MangeBooksBtn.Checked = false;
             DashboardBtn.Checked = false;
             BooksBtn.Checked = false;
             StaffsBtn.Checked = false;
@@ -271,6 +274,7 @@ namespace LMS {
             ActionBtn.Text = "ADD MEMBER";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+            DateTimePickers(isVisible: false);
 
             MainDgv.Refresh();
             if (MainDgv.ColumnCount == 0) {
@@ -309,6 +313,7 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             StaffsBtn.Checked = true;
+            MangeBooksBtn.Checked = false;
             MembersBtn.Checked = false;
             DashboardBtn.Checked = false;
             BooksBtn.Checked = false;
@@ -322,6 +327,7 @@ namespace LMS {
             ActionBtn.Text = "ADD STAFF";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+            DateTimePickers(isVisible: false);
 
             if (MainDgv.ColumnCount == 0) {
                 dgv.GridButtons(dgv: MainDgv);
@@ -352,6 +358,45 @@ namespace LMS {
                 dgv.ShowGrid(dgv: MainDgv, name: "Staffs", searchQuery: SearchTb.Text);
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
             }
+        }
+
+        private void DateTimePickers(bool isVisible) {
+            FromDtp.Visible = isVisible;
+            ToDtp.Visible = isVisible;
+            FromLbl.Visible = isVisible;
+            ToLbl.Visible = isVisible;
+        }
+
+        private void MangeBooksBtn_Click(object sender, EventArgs e) {
+
+            Functions fn = new Functions();
+            GridControlSettings dgv = new GridControlSettings();
+
+            DateTimePickers(isVisible: true);
+            DashboardPanel.Hide();
+            MainPanel.Show();
+            MangeBooksBtn.Checked = true;
+            StaffsBtn.Checked = false;
+            MembersBtn.Checked = false;
+            DashboardBtn.Checked = false;
+            BooksBtn.Checked = false;
+            Action2Btn.Visible = false;
+            TitlePb.Image = Properties.Resources.Members;
+            SearchTb.PlaceholderText = "Search By Name";
+            SearchTb.Text = string.Empty;
+            TitleLbl.Text = "Manage Books";
+            Title2Lbl.Text = "Today Manage Books: " + fn.GetNumberOf(name: "staffs");
+            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
+            ActionBtn.Text = "MANAGE BOOK";
+            ActionBtn.FillColor = Color.FromArgb(248, 187, 0);
+            ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+            DateTimePickers(isVisible: true);
+
+            if (MainDgv.ColumnCount == 0) {
+                dgv.GridButtons(dgv: MainDgv);
+            }
+            dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
         }
     }
 }
