@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 namespace LMS.Utils {
     class GridControlSettings {
 
-        public void ShowGrid(DataGridView dgv, string name, [Optional] string searchQuery) {
+        public void ShowGrid(DataGridView dgv, string name, [Optional] string searchQuery, [Optional] string fromDate, [Optional] string toDate) {
 
             string query = "";
             switch (name) {
@@ -29,6 +29,12 @@ namespace LMS.Utils {
                     break;
                 case "Publishers":
                     query = "SELECT p.pid AS 'Publisher ID', p.Name, pn.Number FROM publishers AS p, publishers_number AS pn WHERE p.pid = pn.pid AND is_removed = 0" + ((searchQuery != string.Empty) ? "AND p.name LIKE '%" + searchQuery + "%';" : ";");
+                    break;
+                case "Manage Books":
+                    query = "SELECT bm.ISBN, b.Title, bm.Quantity, Action, Description, bm.Date, bm.Time, s.Username  FROM books_manage AS bm, staffs AS s, books AS b WHERE bm.sid=s.sid AND bm.isbn = b.isbn AND" + ((searchQuery != string.Empty) ? " b.title LIKE '%" + searchQuery + "%' AND" : " ") + " bm.date BETWEEN '" + fromDate + "' AND '" + toDate + "';";
+                    break;
+                case "Books Limit Columns":
+                    query = "SELECT ISBN, Title, Quantity FROM books  WHERE books.is_removed = 0" + ((searchQuery != string.Empty) ? " AND books.title LIKE '%" + searchQuery + "%';" : ";");
                     break;
                 default:
                     Console.WriteLine("Please double check Grid Name!");

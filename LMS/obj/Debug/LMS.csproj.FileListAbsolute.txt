@@ -21,3 +21,4 @@ C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.PublishersForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.PublishersActionsForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.ChooseForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.SplashForm.resources
+C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.ManageBooksForm.resources
