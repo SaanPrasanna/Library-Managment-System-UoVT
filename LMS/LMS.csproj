@@ -148,6 +148,9 @@
     <Compile Include="Utils\DBUtils.cs" />
     <Compile Include="Utils\Functions.cs" />
     <Compile Include="Utils\GridControlSettings.cs" />
+    <Compile Include="Utils\Models\Book.cs" />
+    <Compile Include="Utils\Models\Member.cs" />
+    <Compile Include="Utils\Models\Publisher.cs" />
     <Compile Include="Utils\Models\Staff.cs" />
     <EmbeddedResource Include="BooksActionsForm.resx">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
