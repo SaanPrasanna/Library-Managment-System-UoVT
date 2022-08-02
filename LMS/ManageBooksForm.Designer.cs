@@ -128,8 +128,8 @@ namespace LMS {
             this.ActionCb.HoverState.Parent = this.ActionCb;
             this.ActionCb.ItemHeight = 30;
             this.ActionCb.Items.AddRange(new object[] {
-            "ADD",
-            "REMOVE"});
+            "Add",
+            "Remove"});
             this.ActionCb.ItemsAppearance.Parent = this.ActionCb;
             this.ActionCb.Location = new System.Drawing.Point(754, 252);
             this.ActionCb.Name = "ActionCb";
@@ -568,6 +568,7 @@ namespace LMS {
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
             this.CloseBtn.Size = new System.Drawing.Size(35, 35);
             this.CloseBtn.TabIndex = 0;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // guna2Elipse1
             // 
@@ -594,6 +595,7 @@ namespace LMS {
             this.Name = "ManageBooksForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageBooksForm";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ManageBooksForm_KeyDown);
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SelectionDgv)).EndInit();

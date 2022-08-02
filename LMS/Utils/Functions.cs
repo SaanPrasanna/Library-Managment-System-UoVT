@@ -92,6 +92,10 @@ namespace LMS.Utils {
                         query = "SELECT COUNT(*) FROM publishers;";
                         prefix = "P";
                         break;
+                    case "Books Manage":
+                        query = "SELECT COUNT(*) FROM books_manage;";
+                        prefix = "R";
+                        break;
                     default:
                         Console.WriteLine("Please double check ID name!");
                         break;

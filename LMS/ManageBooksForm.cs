@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LMS.Utils;
+using System.Data.SqlClient;
+using Guna.UI2.WinForms;
 
 namespace LMS {
     public partial class ManageBooksForm : Form {
@@ -38,15 +35,16 @@ namespace LMS {
 
         private void SelectionDgv_CellEnter(object sender, DataGridViewCellEventArgs e) {
 
-            ISBNTb.Text = SelectionDgv.CurrentRow.Cells[0].Value.ToString();
-            TitleTb.Text = SelectionDgv.CurrentRow.Cells[1].Value.ToString();
-            QtyTb.Text = SelectionDgv.CurrentRow.Cells[2].Value.ToString();
+            Guna2TextBox[] tb = new[] { ISBNTb, TitleTb, QtyTb };
+            foreach (var textBox in tb.Select((name, index) => (name, index))) {
+                textBox.name.Text = SelectionDgv.CurrentRow.Cells[textBox.index].Value.ToString();
+            }
             ActionCalculation();
         }
 
         private void ActionCalculation() {
-            if (ActionCb.Text != string.Empty) {
-                if (ActionCb.Text == "ADD") {
+            if (ActionCb.Text != string.Empty && AQtyTb.Text != string.Empty) {
+                if (ActionCb.Text == "Add") {
                     FQtyTb.Text = (Int32.Parse(QtyTb.Text) + ((AQtyTb.Text != string.Empty) ? Int32.Parse(AQtyTb.Text) : 0)).ToString();
                 } else {
                     if (Int32.Parse(QtyTb.Text) >= Int32.Parse(AQtyTb.Text)) {
@@ -55,7 +53,7 @@ namespace LMS {
                         FQtyTb.Text = string.Empty;
                         AQtyTb.Text = string.Empty;
                         ActionCb.SelectedIndex = -1;
-                        MessageBox.Show("Not Enough Quantities To Remove!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Not Enough Quantities to Remove!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -77,6 +75,62 @@ namespace LMS {
 
         private void ManageBtn_Click(object sender, EventArgs e) {
 
+            if (ISBNTb.Text != string.Empty && AQtyTb.Text != string.Empty && ActionCb.Text != string.Empty && FQtyTb.Text != string.Empty) {
+
+                Functions fn = new Functions();
+                SqlConnection conn = DBUtils.GetDBConnection();
+                conn.Open();
+
+                try {
+
+                    string query = "INSERT INTO books_manage VALUES(@refID, @isbn, @sid, @qty, @action, @description, @date, @time);";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.Add("@refID", SqlDbType.VarChar, 6).Value = fn.GetID("Books Manage");
+                    cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;
+                    cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = "S00001"; // TODO: Properties.Settings.Default.sid
+                    cmd.Parameters.Add("@qty", SqlDbType.Int).Value = Int32.Parse(AQtyTb.Text);
+                    cmd.Parameters.Add("@action", SqlDbType.VarChar, 10).Value = ActionCb.Text;
+                    cmd.Parameters.Add("@description", SqlDbType.VarChar, 50).Value = DescriptionTb.Text;
+                    cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
+                    cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
+
+                    string query2 = "UPDATE books SET quantity = @qty WHERE isbn = @isbn";
+                    SqlCommand cmd2 = new SqlCommand(query2, conn);
+                    cmd2.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;
+                    cmd2.Parameters.Add("@qty", SqlDbType.Int).Value = Int32.Parse(FQtyTb.Text);
+
+                    if ((Int32)cmd.ExecuteNonQuery() > 0 && (Int32)cmd2.ExecuteNonQuery() > 0) {
+
+                        MessageBox.Show("Book(s) " + ActionCb.Text + ((ActionCb.Text == "Add") ? "ed!" : "d!"), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        FQtyTb.Text = string.Empty;
+                        AQtyTb.Text = string.Empty;
+                        DescriptionTb.Text = String.Empty;
+                        ActionCb.SelectedIndex = -1;
+
+                        LoadGrid();
+                    }
+
+                } catch (Exception ex) {
+                    MessageBox.Show("Book(s) " + ActionCb.Text + ((ActionCb.Text == "Add") ? "ed!" : "d!") + " Failed : \n" + ex.ToString(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                } finally {
+                    conn.Close();
+                    Console.ReadLine();
+                }
+            } else {
+                MessageBox.Show("Fields can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+        private void CloseBtn_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void ManageBooksForm_KeyDown(object sender, KeyEventArgs e) {
+            if(e.KeyCode == Keys.Escape) {
+                this.Close();
+            }
         }
     }
 }
