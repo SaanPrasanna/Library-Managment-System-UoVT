@@ -87,6 +87,21 @@ namespace LMS.Utils {
             dgv.Columns.Add(btn2);
         }
 
+        public void GridSingleButton(DataGridView dgv) {
+
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.UseColumnTextForButtonValue = true;
+            btn.Name = "";
+            btn.Text = "Mark As Done";
+            btn.FlatStyle = FlatStyle.Popup;
+            btn.InheritedStyle.SelectionForeColor = Color.White;
+            btn.InheritedStyle.SelectionBackColor = Color.FromArgb(98, 222, 107);
+            btn.InheritedStyle.BackColor = Color.FromArgb(77, 200, 86);
+            btn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgv.Columns.Add(btn);
+
+        }
+
         public void GridWidth(DataGridView dgv, int[] widths) {
             for (int i = 0; i < widths.Length; i++) {
                 dgv.Columns[i].Width = widths[i];

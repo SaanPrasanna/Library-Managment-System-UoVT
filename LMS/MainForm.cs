@@ -83,15 +83,19 @@ namespace LMS {
         }
 
         private void DashboardDetails() {
+
             Functions fn = new Functions();
-            BooksLbl.Text = fn.GetNumberOf(name: "Books").ToString();
+
             Guna2HtmlLabel[] labels = new[] { RecentUpdate1Lbl, RecentUpdate2Lbl, RecentUpdate3Lbl, RecentUpdate4Lbl, RecentUpdate5Lbl, RecentUpdate6Lbl, RecentUpdate7Lbl, RecentUpdate8Lbl };
             Array.ForEach(labels, x => { x.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt"); });
-            MembersLbl.Text = fn.GetNumberOf(name: "Members").ToString();
-            ManageBooksLbl.Text = fn.GetNumberOf(name: "Manage Books").ToString();
-            PendingBooksLbl.Text = fn.GetNumberOf(name: "Pending Books").ToString();
-            ReturnBooksLbl.Text = fn.GetNumberOf(name: "Returned Books").ToString();
-            IssuedBooksLbl.Text = fn.GetNumberOf(name: "Issued Books").ToString();
+
+            Guna2HtmlLabel[] mainLabels = new[] { BooksLbl, MembersLbl, ManageBooksLbl, PendingBooksLbl, ReturnBooksLbl, IssuedBooksLbl };
+            string[] names = new[] { "Books", "Members", "Manage Books", "Pending Books", "Returned Books", "Issued Books" };
+
+            foreach (var lbl in mainLabels.Select((name, index) => (name, index))) {
+                lbl.name.Text = fn.GetNumberOf(name: names[lbl.index]).ToString();
+            }
+
         }
 
         private void MainDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
@@ -379,6 +383,10 @@ namespace LMS {
             ToDtp.Visible = isVisible;
             FromLbl.Visible = isVisible;
             ToLbl.Visible = isVisible;
+
+            // Changing Mainage Books DateTimePicker values
+            FromDtp.Value = DateTime.Now;
+            ToDtp.Value = DateTime.Now;
         }
 
         private void MangeBooksBtn_Click(object sender, EventArgs e) {
@@ -406,22 +414,37 @@ namespace LMS {
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
             DateTimePickers(isVisible: true);
 
+            ManageDataGridLoad();
+        }
+
+        private void ManageDataGridLoad() {
+            GridControlSettings dgv = new GridControlSettings();
             MainDgv.Columns.Clear();
             dgv.ShowGrid(dgv: MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
             dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
         }
 
-        private void ShowButtonGrid(bool value) {
-            if (value) {
-                MainDgv.Visible = value;
-                MainDgv.Visible = !value;
-            } else {
-                MainDgv.Visible = !value;
-                MainDgv.Visible = value;
-            }
+        private void FromDtp_ValueChanged(object sender, EventArgs e) {
+            ManageDataGridLoad();
+        }
+
+        private void ToDtp_ValueChanged(object sender, EventArgs e) {
+            ManageDataGridLoad();
         }
 
         private void BorrowBooksBtn_Click(object sender, EventArgs e) {
+            GridControlSettings dgv = new GridControlSettings();
+
+            MainDgv.Columns.Clear();
+            dgv.ShowGrid(dgv: MainDgv, name: "Members");
+            if (MainDgv.ColumnCount == 8) {
+                dgv.GridSingleButton(dgv: MainDgv);
+            }
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 150, 200, 200, 250, 150, 150, 150 });
+            MainDgv.CurrentCell.Selected = false;
+
+            // TODO: Cell Color Change
+            //MainDgv.Rows[0].DefaultCellStyle.BackColor = Color.FromArgb(77, 200, 86);
         }
     }
 }
