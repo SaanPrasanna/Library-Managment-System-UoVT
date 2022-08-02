@@ -26,17 +26,14 @@ namespace LMS {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -67,12 +64,13 @@ namespace LMS {
             this.Action2Btn = new Guna.UI2.WinForms.Guna2Button();
             this.ActionBtn = new Guna.UI2.WinForms.Guna2Button();
             this.MainDgv = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Main2Dgv = new Guna.UI2.WinForms.Guna2DataGridView();
             this.GridElipe = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.DashboardPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel10 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.OverviewChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.Grid2Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.tableLayoutPanel1 = new LMS.Utils.Components.DoubleBufferedTableLayoutPanel();
             this.guna2ShadowPanel19 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -94,38 +92,36 @@ namespace LMS {
             this.guna2PictureBox17 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox18 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel32 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ShadowPanel16 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.ManageBooksLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.RecentUpdate3Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox13 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox14 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ShadowPanel14 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.MembersLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.RecentUpdate5Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox9 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox10 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ShadowPanel15 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.IssuedBooksLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.RecentUpdate2Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox11 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ShadowPanel13 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.PendingBooksLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.RecentUpdate4Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ShadowPanel16 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.ManageBooksLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.RecentUpdate3Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox13 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox14 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ShadowPanel12 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.BooksLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.RecentUpdate1Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.Grid2Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2ShadowPanel15 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.IssuedBooksLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.RecentUpdate2Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox11 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ShadowPanel14 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.MembersLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.RecentUpdate5Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox9 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox10 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -134,7 +130,6 @@ namespace LMS {
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainDgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Main2Dgv)).BeginInit();
             this.DashboardPanel.SuspendLayout();
             this.guna2ShadowPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OverviewChart)).BeginInit();
@@ -149,21 +144,21 @@ namespace LMS {
             this.guna2ShadowPanel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox18)).BeginInit();
-            this.guna2ShadowPanel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).BeginInit();
-            this.guna2ShadowPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox10)).BeginInit();
-            this.guna2ShadowPanel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).BeginInit();
             this.guna2ShadowPanel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
+            this.guna2ShadowPanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).BeginInit();
             this.guna2ShadowPanel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).BeginInit();
+            this.guna2ShadowPanel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).BeginInit();
+            this.guna2ShadowPanel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel1
@@ -534,6 +529,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MainPanel.BackColor = System.Drawing.Color.Transparent;
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MainPanel.Controls.Add(this.MainDgv);
             this.MainPanel.Controls.Add(this.ToLbl);
             this.MainPanel.Controls.Add(this.FromLbl);
             this.MainPanel.Controls.Add(this.FromDtp);
@@ -544,8 +540,6 @@ namespace LMS {
             this.MainPanel.Controls.Add(this.Title2Lbl);
             this.MainPanel.Controls.Add(this.Action2Btn);
             this.MainPanel.Controls.Add(this.ActionBtn);
-            this.MainPanel.Controls.Add(this.MainDgv);
-            this.MainPanel.Controls.Add(this.Main2Dgv);
             this.MainPanel.FillColor = System.Drawing.Color.White;
             this.MainPanel.Location = new System.Drawing.Point(268, 68);
             this.MainPanel.Name = "MainPanel";
@@ -743,40 +737,40 @@ namespace LMS {
             this.MainDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MainDgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.MainDgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MainDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MainDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.MainDgv.ColumnHeadersHeight = 60;
             this.MainDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MainDgv.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MainDgv.DefaultCellStyle = dataGridViewCellStyle5;
             this.MainDgv.EnableHeadersVisualStyles = false;
             this.MainDgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.MainDgv.Location = new System.Drawing.Point(36, 95);
             this.MainDgv.MultiSelect = false;
             this.MainDgv.Name = "MainDgv";
             this.MainDgv.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.841584F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MainDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.841584F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MainDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.MainDgv.RowHeadersVisible = false;
             this.MainDgv.RowHeadersWidth = 43;
             this.MainDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -809,86 +803,6 @@ namespace LMS {
             this.MainDgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.MainDgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.MainDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainDgv_CellContentClick);
-            // 
-            // Main2Dgv
-            // 
-            this.Main2Dgv.AllowUserToAddRows = false;
-            this.Main2Dgv.AllowUserToDeleteRows = false;
-            this.Main2Dgv.AllowUserToResizeColumns = false;
-            this.Main2Dgv.AllowUserToResizeRows = false;
-            this.Main2Dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Main2Dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Main2Dgv.BackgroundColor = System.Drawing.Color.White;
-            this.Main2Dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Main2Dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.Main2Dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Main2Dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.Main2Dgv.ColumnHeadersHeight = 60;
-            this.Main2Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Main2Dgv.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Main2Dgv.EnableHeadersVisualStyles = false;
-            this.Main2Dgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Main2Dgv.Location = new System.Drawing.Point(37, 96);
-            this.Main2Dgv.MultiSelect = false;
-            this.Main2Dgv.Name = "Main2Dgv";
-            this.Main2Dgv.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.841584F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Main2Dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.Main2Dgv.RowHeadersVisible = false;
-            this.Main2Dgv.RowHeadersWidth = 43;
-            this.Main2Dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.Main2Dgv.RowTemplate.Height = 50;
-            this.Main2Dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Main2Dgv.ShowEditingIcon = false;
-            this.Main2Dgv.ShowRowErrors = false;
-            this.Main2Dgv.Size = new System.Drawing.Size(1291, 802);
-            this.Main2Dgv.TabIndex = 10;
-            this.Main2Dgv.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.Main2Dgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.Empty;
-            this.Main2Dgv.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.Main2Dgv.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.Main2Dgv.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.Main2Dgv.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.Main2Dgv.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.Main2Dgv.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Main2Dgv.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Main2Dgv.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.Main2Dgv.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Main2Dgv.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.Main2Dgv.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.Main2Dgv.ThemeStyle.HeaderStyle.Height = 60;
-            this.Main2Dgv.ThemeStyle.ReadOnly = true;
-            this.Main2Dgv.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.Main2Dgv.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.Main2Dgv.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Main2Dgv.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.Main2Dgv.ThemeStyle.RowsStyle.Height = 50;
-            this.Main2Dgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Main2Dgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
             // GridElipe
             // 
@@ -932,34 +846,34 @@ namespace LMS {
             // 
             // OverviewChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.OverviewChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.OverviewChart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.OverviewChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.OverviewChart.Legends.Add(legend2);
             this.OverviewChart.Location = new System.Drawing.Point(19, 69);
             this.OverviewChart.Name = "OverviewChart";
             this.OverviewChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(60)))));
-            series1.Legend = "Legend1";
-            series1.Name = "Issued Books";
-            series1.YValuesPerPoint = 4;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(93)))), ((int)(((byte)(85)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Pending Books";
-            series2.YValuesPerPoint = 2;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(202)))), ((int)(((byte)(51)))));
-            series3.Legend = "Legend1";
-            series3.Name = "Returned Books";
-            series3.YValuesPerPoint = 2;
-            this.OverviewChart.Series.Add(series1);
-            this.OverviewChart.Series.Add(series2);
-            this.OverviewChart.Series.Add(series3);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(60)))));
+            series4.Legend = "Legend1";
+            series4.Name = "Issued Books";
+            series4.YValuesPerPoint = 4;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(93)))), ((int)(((byte)(85)))));
+            series5.Legend = "Legend1";
+            series5.Name = "Pending Books";
+            series5.YValuesPerPoint = 2;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(202)))), ((int)(((byte)(51)))));
+            series6.Legend = "Legend1";
+            series6.Name = "Returned Books";
+            series6.YValuesPerPoint = 2;
+            this.OverviewChart.Series.Add(series4);
+            this.OverviewChart.Series.Add(series5);
+            this.OverviewChart.Series.Add(series6);
             this.OverviewChart.Size = new System.Drawing.Size(891, 371);
             this.OverviewChart.TabIndex = 4;
             this.OverviewChart.Text = "chart1";
@@ -973,6 +887,10 @@ namespace LMS {
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(111, 32);
             this.guna2HtmlLabel8.TabIndex = 3;
             this.guna2HtmlLabel8.Text = "OVERVIEW";
+            // 
+            // Grid2Elipse
+            // 
+            this.Grid2Elipse.BorderRadius = 10;
             // 
             // tableLayoutPanel1
             // 
@@ -1263,228 +1181,6 @@ namespace LMS {
             this.guna2HtmlLabel32.TabIndex = 4;
             this.guna2HtmlLabel32.Text = "RETURNED BOOKS";
             // 
-            // guna2ShadowPanel16
-            // 
-            this.guna2ShadowPanel16.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2ShadowPanel16.Controls.Add(this.ManageBooksLbl);
-            this.guna2ShadowPanel16.Controls.Add(this.RecentUpdate3Lbl);
-            this.guna2ShadowPanel16.Controls.Add(this.guna2PictureBox13);
-            this.guna2ShadowPanel16.Controls.Add(this.guna2PictureBox14);
-            this.guna2ShadowPanel16.Controls.Add(this.guna2HtmlLabel26);
-            this.guna2ShadowPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2ShadowPanel16.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel16.Location = new System.Drawing.Point(577, 3);
-            this.guna2ShadowPanel16.Name = "guna2ShadowPanel16";
-            this.guna2ShadowPanel16.Radius = 10;
-            this.guna2ShadowPanel16.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel16.ShadowDepth = 15;
-            this.guna2ShadowPanel16.ShadowShift = 10;
-            this.guna2ShadowPanel16.Size = new System.Drawing.Size(281, 199);
-            this.guna2ShadowPanel16.TabIndex = 12;
-            // 
-            // ManageBooksLbl
-            // 
-            this.ManageBooksLbl.BackColor = System.Drawing.Color.Transparent;
-            this.ManageBooksLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManageBooksLbl.Location = new System.Drawing.Point(134, 78);
-            this.ManageBooksLbl.Name = "ManageBooksLbl";
-            this.ManageBooksLbl.Size = new System.Drawing.Size(49, 59);
-            this.ManageBooksLbl.TabIndex = 9;
-            this.ManageBooksLbl.Text = "20";
-            // 
-            // RecentUpdate3Lbl
-            // 
-            this.RecentUpdate3Lbl.BackColor = System.Drawing.Color.Transparent;
-            this.RecentUpdate3Lbl.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecentUpdate3Lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
-            this.RecentUpdate3Lbl.Location = new System.Drawing.Point(58, 156);
-            this.RecentUpdate3Lbl.Name = "RecentUpdate3Lbl";
-            this.RecentUpdate3Lbl.Size = new System.Drawing.Size(140, 22);
-            this.RecentUpdate3Lbl.TabIndex = 8;
-            this.RecentUpdate3Lbl.Text = "2022-07-14, 12:33:20";
-            this.RecentUpdate3Lbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2PictureBox13
-            // 
-            this.guna2PictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox13.Image")));
-            this.guna2PictureBox13.Location = new System.Drawing.Point(29, 155);
-            this.guna2PictureBox13.Name = "guna2PictureBox13";
-            this.guna2PictureBox13.ShadowDecoration.Parent = this.guna2PictureBox13;
-            this.guna2PictureBox13.Size = new System.Drawing.Size(23, 23);
-            this.guna2PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox13.TabIndex = 7;
-            this.guna2PictureBox13.TabStop = false;
-            // 
-            // guna2PictureBox14
-            // 
-            this.guna2PictureBox14.Image = global::LMS.Properties.Resources.Books;
-            this.guna2PictureBox14.Location = new System.Drawing.Point(28, 66);
-            this.guna2PictureBox14.Name = "guna2PictureBox14";
-            this.guna2PictureBox14.ShadowDecoration.Parent = this.guna2PictureBox14;
-            this.guna2PictureBox14.Size = new System.Drawing.Size(75, 82);
-            this.guna2PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox14.TabIndex = 5;
-            this.guna2PictureBox14.TabStop = false;
-            // 
-            // guna2HtmlLabel26
-            // 
-            this.guna2HtmlLabel26.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel26.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel26.Location = new System.Drawing.Point(28, 25);
-            this.guna2HtmlLabel26.Name = "guna2HtmlLabel26";
-            this.guna2HtmlLabel26.Size = new System.Drawing.Size(269, 32);
-            this.guna2HtmlLabel26.TabIndex = 4;
-            this.guna2HtmlLabel26.Text = "TODAY MANAGED BOOKS";
-            // 
-            // guna2ShadowPanel14
-            // 
-            this.guna2ShadowPanel14.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2ShadowPanel14.Controls.Add(this.MembersLbl);
-            this.guna2ShadowPanel14.Controls.Add(this.RecentUpdate5Lbl);
-            this.guna2ShadowPanel14.Controls.Add(this.guna2PictureBox9);
-            this.guna2ShadowPanel14.Controls.Add(this.guna2PictureBox10);
-            this.guna2ShadowPanel14.Controls.Add(this.guna2HtmlLabel19);
-            this.guna2ShadowPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2ShadowPanel14.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel14.Location = new System.Drawing.Point(290, 3);
-            this.guna2ShadowPanel14.Name = "guna2ShadowPanel14";
-            this.guna2ShadowPanel14.Radius = 10;
-            this.guna2ShadowPanel14.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel14.ShadowDepth = 15;
-            this.guna2ShadowPanel14.ShadowShift = 10;
-            this.guna2ShadowPanel14.Size = new System.Drawing.Size(281, 199);
-            this.guna2ShadowPanel14.TabIndex = 12;
-            // 
-            // MembersLbl
-            // 
-            this.MembersLbl.BackColor = System.Drawing.Color.Transparent;
-            this.MembersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MembersLbl.Location = new System.Drawing.Point(134, 78);
-            this.MembersLbl.Name = "MembersLbl";
-            this.MembersLbl.Size = new System.Drawing.Size(49, 59);
-            this.MembersLbl.TabIndex = 9;
-            this.MembersLbl.Text = "20";
-            // 
-            // RecentUpdate5Lbl
-            // 
-            this.RecentUpdate5Lbl.BackColor = System.Drawing.Color.Transparent;
-            this.RecentUpdate5Lbl.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecentUpdate5Lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
-            this.RecentUpdate5Lbl.Location = new System.Drawing.Point(58, 156);
-            this.RecentUpdate5Lbl.Name = "RecentUpdate5Lbl";
-            this.RecentUpdate5Lbl.Size = new System.Drawing.Size(140, 22);
-            this.RecentUpdate5Lbl.TabIndex = 8;
-            this.RecentUpdate5Lbl.Text = "2022-07-14, 12:33:20";
-            this.RecentUpdate5Lbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2PictureBox9
-            // 
-            this.guna2PictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox9.Image")));
-            this.guna2PictureBox9.Location = new System.Drawing.Point(29, 155);
-            this.guna2PictureBox9.Name = "guna2PictureBox9";
-            this.guna2PictureBox9.ShadowDecoration.Parent = this.guna2PictureBox9;
-            this.guna2PictureBox9.Size = new System.Drawing.Size(23, 23);
-            this.guna2PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox9.TabIndex = 7;
-            this.guna2PictureBox9.TabStop = false;
-            // 
-            // guna2PictureBox10
-            // 
-            this.guna2PictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox10.Image")));
-            this.guna2PictureBox10.Location = new System.Drawing.Point(28, 66);
-            this.guna2PictureBox10.Name = "guna2PictureBox10";
-            this.guna2PictureBox10.ShadowDecoration.Parent = this.guna2PictureBox10;
-            this.guna2PictureBox10.Size = new System.Drawing.Size(75, 82);
-            this.guna2PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox10.TabIndex = 5;
-            this.guna2PictureBox10.TabStop = false;
-            // 
-            // guna2HtmlLabel19
-            // 
-            this.guna2HtmlLabel19.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel19.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel19.Location = new System.Drawing.Point(28, 25);
-            this.guna2HtmlLabel19.Name = "guna2HtmlLabel19";
-            this.guna2HtmlLabel19.Size = new System.Drawing.Size(147, 32);
-            this.guna2HtmlLabel19.TabIndex = 4;
-            this.guna2HtmlLabel19.Text = "ALL MEMBERS";
-            // 
-            // guna2ShadowPanel15
-            // 
-            this.guna2ShadowPanel15.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2ShadowPanel15.Controls.Add(this.IssuedBooksLbl);
-            this.guna2ShadowPanel15.Controls.Add(this.RecentUpdate2Lbl);
-            this.guna2ShadowPanel15.Controls.Add(this.guna2PictureBox11);
-            this.guna2ShadowPanel15.Controls.Add(this.guna2PictureBox12);
-            this.guna2ShadowPanel15.Controls.Add(this.guna2HtmlLabel23);
-            this.guna2ShadowPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2ShadowPanel15.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel15.Location = new System.Drawing.Point(3, 208);
-            this.guna2ShadowPanel15.Name = "guna2ShadowPanel15";
-            this.guna2ShadowPanel15.Radius = 10;
-            this.guna2ShadowPanel15.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel15.ShadowDepth = 15;
-            this.guna2ShadowPanel15.ShadowShift = 10;
-            this.guna2ShadowPanel15.Size = new System.Drawing.Size(281, 199);
-            this.guna2ShadowPanel15.TabIndex = 12;
-            // 
-            // IssuedBooksLbl
-            // 
-            this.IssuedBooksLbl.BackColor = System.Drawing.Color.Transparent;
-            this.IssuedBooksLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IssuedBooksLbl.Location = new System.Drawing.Point(134, 78);
-            this.IssuedBooksLbl.Name = "IssuedBooksLbl";
-            this.IssuedBooksLbl.Size = new System.Drawing.Size(49, 59);
-            this.IssuedBooksLbl.TabIndex = 9;
-            this.IssuedBooksLbl.Text = "20";
-            // 
-            // RecentUpdate2Lbl
-            // 
-            this.RecentUpdate2Lbl.BackColor = System.Drawing.Color.Transparent;
-            this.RecentUpdate2Lbl.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecentUpdate2Lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
-            this.RecentUpdate2Lbl.Location = new System.Drawing.Point(58, 156);
-            this.RecentUpdate2Lbl.Name = "RecentUpdate2Lbl";
-            this.RecentUpdate2Lbl.Size = new System.Drawing.Size(140, 22);
-            this.RecentUpdate2Lbl.TabIndex = 8;
-            this.RecentUpdate2Lbl.Text = "2022-07-14, 12:33:20";
-            this.RecentUpdate2Lbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2PictureBox11
-            // 
-            this.guna2PictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox11.Image")));
-            this.guna2PictureBox11.Location = new System.Drawing.Point(29, 155);
-            this.guna2PictureBox11.Name = "guna2PictureBox11";
-            this.guna2PictureBox11.ShadowDecoration.Parent = this.guna2PictureBox11;
-            this.guna2PictureBox11.Size = new System.Drawing.Size(23, 23);
-            this.guna2PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox11.TabIndex = 7;
-            this.guna2PictureBox11.TabStop = false;
-            // 
-            // guna2PictureBox12
-            // 
-            this.guna2PictureBox12.Image = global::LMS.Properties.Resources.Books;
-            this.guna2PictureBox12.Location = new System.Drawing.Point(28, 66);
-            this.guna2PictureBox12.Name = "guna2PictureBox12";
-            this.guna2PictureBox12.ShadowDecoration.Parent = this.guna2PictureBox12;
-            this.guna2PictureBox12.Size = new System.Drawing.Size(75, 82);
-            this.guna2PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox12.TabIndex = 5;
-            this.guna2PictureBox12.TabStop = false;
-            // 
-            // guna2HtmlLabel23
-            // 
-            this.guna2HtmlLabel23.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel23.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel23.Location = new System.Drawing.Point(28, 25);
-            this.guna2HtmlLabel23.Name = "guna2HtmlLabel23";
-            this.guna2HtmlLabel23.Size = new System.Drawing.Size(153, 32);
-            this.guna2HtmlLabel23.TabIndex = 4;
-            this.guna2HtmlLabel23.Text = "ISSUED BOOKS";
-            // 
             // guna2ShadowPanel13
             // 
             this.guna2ShadowPanel13.BackColor = System.Drawing.Color.Transparent;
@@ -1558,6 +1254,80 @@ namespace LMS {
             this.guna2HtmlLabel16.Size = new System.Drawing.Size(176, 32);
             this.guna2HtmlLabel16.TabIndex = 4;
             this.guna2HtmlLabel16.Text = "PENDING BOOKS";
+            // 
+            // guna2ShadowPanel16
+            // 
+            this.guna2ShadowPanel16.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2ShadowPanel16.Controls.Add(this.ManageBooksLbl);
+            this.guna2ShadowPanel16.Controls.Add(this.RecentUpdate3Lbl);
+            this.guna2ShadowPanel16.Controls.Add(this.guna2PictureBox13);
+            this.guna2ShadowPanel16.Controls.Add(this.guna2PictureBox14);
+            this.guna2ShadowPanel16.Controls.Add(this.guna2HtmlLabel26);
+            this.guna2ShadowPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2ShadowPanel16.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel16.Location = new System.Drawing.Point(577, 3);
+            this.guna2ShadowPanel16.Name = "guna2ShadowPanel16";
+            this.guna2ShadowPanel16.Radius = 10;
+            this.guna2ShadowPanel16.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel16.ShadowDepth = 15;
+            this.guna2ShadowPanel16.ShadowShift = 10;
+            this.guna2ShadowPanel16.Size = new System.Drawing.Size(281, 199);
+            this.guna2ShadowPanel16.TabIndex = 12;
+            // 
+            // ManageBooksLbl
+            // 
+            this.ManageBooksLbl.BackColor = System.Drawing.Color.Transparent;
+            this.ManageBooksLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageBooksLbl.Location = new System.Drawing.Point(134, 78);
+            this.ManageBooksLbl.Name = "ManageBooksLbl";
+            this.ManageBooksLbl.Size = new System.Drawing.Size(49, 59);
+            this.ManageBooksLbl.TabIndex = 9;
+            this.ManageBooksLbl.Text = "20";
+            // 
+            // RecentUpdate3Lbl
+            // 
+            this.RecentUpdate3Lbl.BackColor = System.Drawing.Color.Transparent;
+            this.RecentUpdate3Lbl.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecentUpdate3Lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
+            this.RecentUpdate3Lbl.Location = new System.Drawing.Point(58, 156);
+            this.RecentUpdate3Lbl.Name = "RecentUpdate3Lbl";
+            this.RecentUpdate3Lbl.Size = new System.Drawing.Size(140, 22);
+            this.RecentUpdate3Lbl.TabIndex = 8;
+            this.RecentUpdate3Lbl.Text = "2022-07-14, 12:33:20";
+            this.RecentUpdate3Lbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2PictureBox13
+            // 
+            this.guna2PictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox13.Image")));
+            this.guna2PictureBox13.Location = new System.Drawing.Point(29, 155);
+            this.guna2PictureBox13.Name = "guna2PictureBox13";
+            this.guna2PictureBox13.ShadowDecoration.Parent = this.guna2PictureBox13;
+            this.guna2PictureBox13.Size = new System.Drawing.Size(23, 23);
+            this.guna2PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox13.TabIndex = 7;
+            this.guna2PictureBox13.TabStop = false;
+            // 
+            // guna2PictureBox14
+            // 
+            this.guna2PictureBox14.Image = global::LMS.Properties.Resources.Books;
+            this.guna2PictureBox14.Location = new System.Drawing.Point(28, 66);
+            this.guna2PictureBox14.Name = "guna2PictureBox14";
+            this.guna2PictureBox14.ShadowDecoration.Parent = this.guna2PictureBox14;
+            this.guna2PictureBox14.Size = new System.Drawing.Size(75, 82);
+            this.guna2PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox14.TabIndex = 5;
+            this.guna2PictureBox14.TabStop = false;
+            // 
+            // guna2HtmlLabel26
+            // 
+            this.guna2HtmlLabel26.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel26.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel26.Location = new System.Drawing.Point(28, 25);
+            this.guna2HtmlLabel26.Name = "guna2HtmlLabel26";
+            this.guna2HtmlLabel26.Size = new System.Drawing.Size(269, 32);
+            this.guna2HtmlLabel26.TabIndex = 4;
+            this.guna2HtmlLabel26.Text = "TODAY MANAGED BOOKS";
             // 
             // guna2ShadowPanel12
             // 
@@ -1633,10 +1403,153 @@ namespace LMS {
             this.guna2HtmlLabel13.TabIndex = 4;
             this.guna2HtmlLabel13.Text = "ALL BOOKS";
             // 
-            // Grid2Elipse
+            // guna2ShadowPanel15
             // 
-            this.Grid2Elipse.BorderRadius = 10;
-            this.Grid2Elipse.TargetControl = this.Main2Dgv;
+            this.guna2ShadowPanel15.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2ShadowPanel15.Controls.Add(this.IssuedBooksLbl);
+            this.guna2ShadowPanel15.Controls.Add(this.RecentUpdate2Lbl);
+            this.guna2ShadowPanel15.Controls.Add(this.guna2PictureBox11);
+            this.guna2ShadowPanel15.Controls.Add(this.guna2PictureBox12);
+            this.guna2ShadowPanel15.Controls.Add(this.guna2HtmlLabel23);
+            this.guna2ShadowPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2ShadowPanel15.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel15.Location = new System.Drawing.Point(3, 208);
+            this.guna2ShadowPanel15.Name = "guna2ShadowPanel15";
+            this.guna2ShadowPanel15.Radius = 10;
+            this.guna2ShadowPanel15.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel15.ShadowDepth = 15;
+            this.guna2ShadowPanel15.ShadowShift = 10;
+            this.guna2ShadowPanel15.Size = new System.Drawing.Size(281, 199);
+            this.guna2ShadowPanel15.TabIndex = 12;
+            // 
+            // IssuedBooksLbl
+            // 
+            this.IssuedBooksLbl.BackColor = System.Drawing.Color.Transparent;
+            this.IssuedBooksLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IssuedBooksLbl.Location = new System.Drawing.Point(134, 78);
+            this.IssuedBooksLbl.Name = "IssuedBooksLbl";
+            this.IssuedBooksLbl.Size = new System.Drawing.Size(49, 59);
+            this.IssuedBooksLbl.TabIndex = 9;
+            this.IssuedBooksLbl.Text = "20";
+            // 
+            // RecentUpdate2Lbl
+            // 
+            this.RecentUpdate2Lbl.BackColor = System.Drawing.Color.Transparent;
+            this.RecentUpdate2Lbl.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecentUpdate2Lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
+            this.RecentUpdate2Lbl.Location = new System.Drawing.Point(58, 156);
+            this.RecentUpdate2Lbl.Name = "RecentUpdate2Lbl";
+            this.RecentUpdate2Lbl.Size = new System.Drawing.Size(140, 22);
+            this.RecentUpdate2Lbl.TabIndex = 8;
+            this.RecentUpdate2Lbl.Text = "2022-07-14, 12:33:20";
+            this.RecentUpdate2Lbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2PictureBox11
+            // 
+            this.guna2PictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox11.Image")));
+            this.guna2PictureBox11.Location = new System.Drawing.Point(29, 155);
+            this.guna2PictureBox11.Name = "guna2PictureBox11";
+            this.guna2PictureBox11.ShadowDecoration.Parent = this.guna2PictureBox11;
+            this.guna2PictureBox11.Size = new System.Drawing.Size(23, 23);
+            this.guna2PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox11.TabIndex = 7;
+            this.guna2PictureBox11.TabStop = false;
+            // 
+            // guna2PictureBox12
+            // 
+            this.guna2PictureBox12.Image = global::LMS.Properties.Resources.Books;
+            this.guna2PictureBox12.Location = new System.Drawing.Point(28, 66);
+            this.guna2PictureBox12.Name = "guna2PictureBox12";
+            this.guna2PictureBox12.ShadowDecoration.Parent = this.guna2PictureBox12;
+            this.guna2PictureBox12.Size = new System.Drawing.Size(75, 82);
+            this.guna2PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox12.TabIndex = 5;
+            this.guna2PictureBox12.TabStop = false;
+            // 
+            // guna2HtmlLabel23
+            // 
+            this.guna2HtmlLabel23.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel23.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel23.Location = new System.Drawing.Point(28, 25);
+            this.guna2HtmlLabel23.Name = "guna2HtmlLabel23";
+            this.guna2HtmlLabel23.Size = new System.Drawing.Size(153, 32);
+            this.guna2HtmlLabel23.TabIndex = 4;
+            this.guna2HtmlLabel23.Text = "ISSUED BOOKS";
+            // 
+            // guna2ShadowPanel14
+            // 
+            this.guna2ShadowPanel14.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2ShadowPanel14.Controls.Add(this.MembersLbl);
+            this.guna2ShadowPanel14.Controls.Add(this.RecentUpdate5Lbl);
+            this.guna2ShadowPanel14.Controls.Add(this.guna2PictureBox9);
+            this.guna2ShadowPanel14.Controls.Add(this.guna2PictureBox10);
+            this.guna2ShadowPanel14.Controls.Add(this.guna2HtmlLabel19);
+            this.guna2ShadowPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2ShadowPanel14.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel14.Location = new System.Drawing.Point(290, 3);
+            this.guna2ShadowPanel14.Name = "guna2ShadowPanel14";
+            this.guna2ShadowPanel14.Radius = 10;
+            this.guna2ShadowPanel14.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel14.ShadowDepth = 15;
+            this.guna2ShadowPanel14.ShadowShift = 10;
+            this.guna2ShadowPanel14.Size = new System.Drawing.Size(281, 199);
+            this.guna2ShadowPanel14.TabIndex = 12;
+            // 
+            // MembersLbl
+            // 
+            this.MembersLbl.BackColor = System.Drawing.Color.Transparent;
+            this.MembersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MembersLbl.Location = new System.Drawing.Point(134, 78);
+            this.MembersLbl.Name = "MembersLbl";
+            this.MembersLbl.Size = new System.Drawing.Size(49, 59);
+            this.MembersLbl.TabIndex = 9;
+            this.MembersLbl.Text = "20";
+            // 
+            // RecentUpdate5Lbl
+            // 
+            this.RecentUpdate5Lbl.BackColor = System.Drawing.Color.Transparent;
+            this.RecentUpdate5Lbl.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecentUpdate5Lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
+            this.RecentUpdate5Lbl.Location = new System.Drawing.Point(58, 156);
+            this.RecentUpdate5Lbl.Name = "RecentUpdate5Lbl";
+            this.RecentUpdate5Lbl.Size = new System.Drawing.Size(140, 22);
+            this.RecentUpdate5Lbl.TabIndex = 8;
+            this.RecentUpdate5Lbl.Text = "2022-07-14, 12:33:20";
+            this.RecentUpdate5Lbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2PictureBox9
+            // 
+            this.guna2PictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox9.Image")));
+            this.guna2PictureBox9.Location = new System.Drawing.Point(29, 155);
+            this.guna2PictureBox9.Name = "guna2PictureBox9";
+            this.guna2PictureBox9.ShadowDecoration.Parent = this.guna2PictureBox9;
+            this.guna2PictureBox9.Size = new System.Drawing.Size(23, 23);
+            this.guna2PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox9.TabIndex = 7;
+            this.guna2PictureBox9.TabStop = false;
+            // 
+            // guna2PictureBox10
+            // 
+            this.guna2PictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox10.Image")));
+            this.guna2PictureBox10.Location = new System.Drawing.Point(28, 66);
+            this.guna2PictureBox10.Name = "guna2PictureBox10";
+            this.guna2PictureBox10.ShadowDecoration.Parent = this.guna2PictureBox10;
+            this.guna2PictureBox10.Size = new System.Drawing.Size(75, 82);
+            this.guna2PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox10.TabIndex = 5;
+            this.guna2PictureBox10.TabStop = false;
+            // 
+            // guna2HtmlLabel19
+            // 
+            this.guna2HtmlLabel19.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel19.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel19.Location = new System.Drawing.Point(28, 25);
+            this.guna2HtmlLabel19.Name = "guna2HtmlLabel19";
+            this.guna2HtmlLabel19.Size = new System.Drawing.Size(147, 32);
+            this.guna2HtmlLabel19.TabIndex = 4;
+            this.guna2HtmlLabel19.Text = "ALL MEMBERS";
             // 
             // MainForm
             // 
@@ -1646,8 +1559,8 @@ namespace LMS {
             this.ClientSize = new System.Drawing.Size(1633, 1000);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.Controls.Add(this.guna2ShadowPanel1);
-            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.MainPanel);
+            this.Controls.Add(this.DashboardPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -1667,7 +1580,6 @@ namespace LMS {
             this.MainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainDgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Main2Dgv)).EndInit();
             this.DashboardPanel.ResumeLayout(false);
             this.guna2ShadowPanel10.ResumeLayout(false);
             this.guna2ShadowPanel10.PerformLayout();
@@ -1687,26 +1599,26 @@ namespace LMS {
             this.guna2ShadowPanel17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox18)).EndInit();
-            this.guna2ShadowPanel16.ResumeLayout(false);
-            this.guna2ShadowPanel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).EndInit();
-            this.guna2ShadowPanel14.ResumeLayout(false);
-            this.guna2ShadowPanel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox10)).EndInit();
-            this.guna2ShadowPanel15.ResumeLayout(false);
-            this.guna2ShadowPanel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).EndInit();
             this.guna2ShadowPanel13.ResumeLayout(false);
             this.guna2ShadowPanel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
+            this.guna2ShadowPanel16.ResumeLayout(false);
+            this.guna2ShadowPanel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).EndInit();
             this.guna2ShadowPanel12.ResumeLayout(false);
             this.guna2ShadowPanel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).EndInit();
+            this.guna2ShadowPanel15.ResumeLayout(false);
+            this.guna2ShadowPanel15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).EndInit();
+            this.guna2ShadowPanel14.ResumeLayout(false);
+            this.guna2ShadowPanel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1789,7 +1701,6 @@ namespace LMS {
         public Guna.UI2.WinForms.Guna2TextBox SearchTb;
         public Guna.UI2.WinForms.Guna2HtmlLabel FromLbl;
         public Guna.UI2.WinForms.Guna2HtmlLabel ToLbl;
-        public Guna.UI2.WinForms.Guna2DataGridView Main2Dgv;
         public Guna.UI.WinForms.GunaDateTimePicker ToDtp;
         public Guna.UI.WinForms.GunaDateTimePicker FromDtp;
         private Guna.UI2.WinForms.Guna2Elipse Grid2Elipse;

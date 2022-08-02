@@ -54,7 +54,6 @@ namespace LMS {
 
             DashboardPanel.Hide();
             MainPanel.Show();
-            ShowButtonGrid(value: true);
             BooksBtn.Checked = true;
             Action2Btn.Visible = true;
             MangeBooksBtn.Checked = false;
@@ -75,7 +74,7 @@ namespace LMS {
             Action2Btn.Text = "PUBLISHERS";
             DateTimePickers(isVisible: false);
 
-            MainDgv.Refresh();
+            MainDgv.Columns.Clear();
             if (MainDgv.ColumnCount == 0) {
                 dgv.GridButtons(dgv: MainDgv);
             }
@@ -266,7 +265,6 @@ namespace LMS {
 
             DashboardPanel.Hide();
             MainPanel.Show();
-            ShowButtonGrid(value: true);
             MembersBtn.Checked = true;
             MangeBooksBtn.Checked = false;
             DashboardBtn.Checked = false;
@@ -284,7 +282,7 @@ namespace LMS {
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
             DateTimePickers(isVisible: false);
 
-            MainDgv.Refresh();
+            MainDgv.Columns.Clear();
             if (MainDgv.ColumnCount == 0) {
                 dgv.GridButtons(dgv: MainDgv);
             }
@@ -324,7 +322,6 @@ namespace LMS {
 
             DashboardPanel.Hide();
             MainPanel.Show();
-            ShowButtonGrid(value: true);
             StaffsBtn.Checked = true;
             MangeBooksBtn.Checked = false;
             MembersBtn.Checked = false;
@@ -342,7 +339,7 @@ namespace LMS {
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
             DateTimePickers(isVisible: false);
 
-            MainDgv.Refresh();
+            MainDgv.Columns.Clear();
             if (MainDgv.ColumnCount == 0) {
                 dgv.GridButtons(dgv: MainDgv);
             }
@@ -372,8 +369,8 @@ namespace LMS {
                 dgv.ShowGrid(dgv: MainDgv, name: "Staffs", searchQuery: SearchTb.Text);
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
             } else if (ActionBtn.Text == "MANAGE BOOK") {
-                dgv.ShowGrid(dgv: Main2Dgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
-                dgv.GridWidth(dgv: Main2Dgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
+                dgv.ShowGrid(dgv: MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
             }
         }
 
@@ -392,7 +389,6 @@ namespace LMS {
             DateTimePickers(isVisible: true);
             DashboardPanel.Hide();
             MainPanel.Show();
-            ShowButtonGrid(value: false);
             MangeBooksBtn.Checked = true;
             StaffsBtn.Checked = false;
             MembersBtn.Checked = false;
@@ -410,23 +406,22 @@ namespace LMS {
             ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
             DateTimePickers(isVisible: true);
 
-            MainDgv.Refresh();
-            dgv.ShowGrid(dgv: Main2Dgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
-            dgv.GridWidth(dgv: Main2Dgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
+            MainDgv.Columns.Clear();
+            dgv.ShowGrid(dgv: MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
         }
 
         private void ShowButtonGrid(bool value) {
             if (value) {
                 MainDgv.Visible = value;
-                Main2Dgv.Visible = !value;
+                MainDgv.Visible = !value;
             } else {
-                Main2Dgv.Visible = !value;
+                MainDgv.Visible = !value;
                 MainDgv.Visible = value;
             }
         }
 
         private void BorrowBooksBtn_Click(object sender, EventArgs e) {
-            
         }
     }
 }

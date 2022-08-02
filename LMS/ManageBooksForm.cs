@@ -96,8 +96,9 @@ namespace LMS {
                         ActionCb.SelectedIndex = -1;
 
                         LoadGrid();
-                        dgv.ShowGrid(dgv: mf.Main2Dgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: mf.FromDtp.Value.ToString("yyyy-MM-dd"), toDate: mf.ToDtp.Value.ToString("yyyy-MM-dd"));
-                        dgv.GridWidth(dgv: mf.Main2Dgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
+                        mf.MainDgv.Columns.Clear();
+                        dgv.ShowGrid(dgv: mf.MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: mf.FromDtp.Value.ToString("yyyy-MM-dd"), toDate: mf.ToDtp.Value.ToString("yyyy-MM-dd"));
+                        dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
                     }
 
                 } catch (Exception ex) {

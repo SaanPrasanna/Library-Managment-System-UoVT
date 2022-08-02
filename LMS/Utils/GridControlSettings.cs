@@ -14,6 +14,7 @@ namespace LMS.Utils {
 
         public void ShowGrid(DataGridView dgv, string name, [Optional] string searchQuery, [Optional] string fromDate, [Optional] string toDate) {
 
+            dgv.DataSource = null;
             string query = "";
             switch (name) {
                 case "Books":
