@@ -13,8 +13,8 @@ using Guna.UI2.WinForms;
 
 namespace LMS {
     public partial class PublishersActionsForm : Form {
-        PublishersForm pf;
-        public PublishersActionsForm(PublishersForm form, string title, string pid) {
+        SecondForm pf;
+        public PublishersActionsForm(SecondForm form, string title, string pid) {
             InitializeComponent();
 
             this.pf = form;
@@ -91,11 +91,11 @@ namespace LMS {
 
                             GridControlSettings dgv = new GridControlSettings();
 
-                            if (pf.PublishersDgv.ColumnCount == 0) {
-                                dgv.GridButtons(dgv: pf.PublishersDgv);
+                            if (pf.SecondDgv.ColumnCount == 0) {
+                                dgv.GridButtons(dgv: pf.SecondDgv);
                             }
-                            dgv.ShowGrid(dgv: pf.PublishersDgv, name: "Publishers");
-                            dgv.GridWidth(dgv: pf.PublishersDgv, widths: new int[] { 0, 0, 150, 200, 150 });
+                            dgv.ShowGrid(dgv: pf.SecondDgv, name: "Publishers");
+                            dgv.GridWidth(dgv: pf.SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
 
                             pf.Title2Lbl.Text = "Total Publishers : " + fn.GetNumberOf(name: "Publishers").ToString();
                             pf.RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
@@ -128,11 +128,11 @@ namespace LMS {
 
                             GridControlSettings dgv = new GridControlSettings();
 
-                            if (pf.PublishersDgv.ColumnCount == 0) {
-                                dgv.GridButtons(dgv: pf.PublishersDgv);
+                            if (pf.SecondDgv.ColumnCount == 0) {
+                                dgv.GridButtons(dgv: pf.SecondDgv);
                             }
-                            dgv.ShowGrid(dgv: pf.PublishersDgv, name: "Publishers");
-                            dgv.GridWidth(dgv: pf.PublishersDgv, widths: new int[] { 0, 0, 150, 200, 150 });
+                            dgv.ShowGrid(dgv: pf.SecondDgv, name: "Publishers");
+                            dgv.GridWidth(dgv: pf.SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
 
                             MessageBox.Show("Publisher updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
