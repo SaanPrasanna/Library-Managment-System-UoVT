@@ -8,8 +8,13 @@ using Guna.UI2.WinForms;
 
 namespace LMS {
     public partial class ManageBooksForm : Form {
-        public ManageBooksForm() {
+
+        MainForm mf;
+
+        public ManageBooksForm(MainForm form) {
             InitializeComponent();
+
+            this.mf = form;
             LoadGrid();
         }
 
@@ -78,6 +83,7 @@ namespace LMS {
             if (ISBNTb.Text != string.Empty && AQtyTb.Text != string.Empty && ActionCb.Text != string.Empty && FQtyTb.Text != string.Empty) {
 
                 Functions fn = new Functions();
+                GridControlSettings dgv = new GridControlSettings();
                 SqlConnection conn = DBUtils.GetDBConnection();
                 conn.Open();
 
@@ -109,6 +115,8 @@ namespace LMS {
                         ActionCb.SelectedIndex = -1;
 
                         LoadGrid();
+                        dgv.ShowGrid(dgv: mf.Main2Dgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: mf.FromDtp.Value.ToString("yyyy-MM-dd"), toDate: mf.ToDtp.Value.ToString("yyyy-MM-dd"));
+                        dgv.GridWidth(dgv: mf.Main2Dgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
                     }
 
                 } catch (Exception ex) {
@@ -128,7 +136,7 @@ namespace LMS {
         }
 
         private void ManageBooksForm_KeyDown(object sender, KeyEventArgs e) {
-            if(e.KeyCode == Keys.Escape) {
+            if (e.KeyCode == Keys.Escape) {
                 this.Close();
             }
         }

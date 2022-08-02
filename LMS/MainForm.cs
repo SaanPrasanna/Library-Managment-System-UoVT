@@ -306,6 +306,10 @@ namespace LMS {
                     StaffsActionsForm staffsForm = new StaffsActionsForm(form: this, title: "Add Staff", fn.GetID("Staff"));
                     staffsForm.ShowDialog();
                     break;
+                case "MANAGE BOOK":
+                    ManageBooksForm manageBooksForm = new ManageBooksForm(form: this);
+                    manageBooksForm.ShowDialog();
+                    break;
             }
         }
 
