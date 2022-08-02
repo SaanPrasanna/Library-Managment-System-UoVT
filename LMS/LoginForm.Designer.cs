@@ -40,15 +40,18 @@ namespace LMS
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.CloseBtn = new Guna.UI2.WinForms.Guna2Button();
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaAnimateWindow1 = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
+            this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
+            this.guna2ShadowPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // UsernameTB
             // 
+            this.UsernameTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UsernameTB.Animated = true;
             this.UsernameTB.BorderRadius = 15;
             this.UsernameTB.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -64,13 +67,14 @@ namespace LMS
             this.UsernameTB.HoverState.Parent = this.UsernameTB;
             this.UsernameTB.IconLeftSize = new System.Drawing.Size(21, 21);
             this.UsernameTB.IconRight = ((System.Drawing.Image)(resources.GetObject("UsernameTB.IconRight")));
-            this.UsernameTB.Location = new System.Drawing.Point(300, 169);
+            this.UsernameTB.Location = new System.Drawing.Point(300, 207);
             this.UsernameTB.Name = "UsernameTB";
+            this.UsernameTB.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.UsernameTB.PasswordChar = '\0';
             this.UsernameTB.PlaceholderText = "Username";
             this.UsernameTB.SelectedText = "";
             this.UsernameTB.ShadowDecoration.Parent = this.UsernameTB;
-            this.UsernameTB.Size = new System.Drawing.Size(271, 36);
+            this.UsernameTB.Size = new System.Drawing.Size(301, 36);
             this.UsernameTB.TabIndex = 0;
             // 
             // LoginElipse
@@ -80,6 +84,7 @@ namespace LMS
             // 
             // PasswordTB
             // 
+            this.PasswordTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordTB.Animated = true;
             this.PasswordTB.BorderRadius = 15;
             this.PasswordTB.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -94,18 +99,19 @@ namespace LMS
             this.PasswordTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PasswordTB.HoverState.Parent = this.PasswordTB;
             this.PasswordTB.IconRight = ((System.Drawing.Image)(resources.GetObject("PasswordTB.IconRight")));
-            this.PasswordTB.IconRightSize = new System.Drawing.Size(18, 23);
-            this.PasswordTB.Location = new System.Drawing.Point(300, 222);
+            this.PasswordTB.Location = new System.Drawing.Point(300, 260);
             this.PasswordTB.Name = "PasswordTB";
+            this.PasswordTB.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.PasswordTB.PasswordChar = '●';
             this.PasswordTB.PlaceholderText = "Password";
             this.PasswordTB.SelectedText = "";
             this.PasswordTB.ShadowDecoration.Parent = this.PasswordTB;
-            this.PasswordTB.Size = new System.Drawing.Size(271, 36);
+            this.PasswordTB.Size = new System.Drawing.Size(301, 36);
             this.PasswordTB.TabIndex = 1;
             // 
             // LoginBtn
             // 
+            this.LoginBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LoginBtn.Animated = true;
             this.LoginBtn.AnimationHoverSpeed = 0.07F;
             this.LoginBtn.AnimationSpeed = 0.03F;
@@ -119,7 +125,7 @@ namespace LMS
             this.LoginBtn.ForeColor = System.Drawing.Color.White;
             this.LoginBtn.Image = ((System.Drawing.Image)(resources.GetObject("LoginBtn.Image")));
             this.LoginBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.LoginBtn.Location = new System.Drawing.Point(300, 275);
+            this.LoginBtn.Location = new System.Drawing.Point(330, 313);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(145)))), ((int)(((byte)(221)))));
             this.LoginBtn.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(255)))));
@@ -135,6 +141,7 @@ namespace LMS
             // 
             // ExitBtn
             // 
+            this.ExitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ExitBtn.Animated = true;
             this.ExitBtn.AnimationHoverSpeed = 0.07F;
             this.ExitBtn.AnimationSpeed = 0.03F;
@@ -148,7 +155,7 @@ namespace LMS
             this.ExitBtn.ForeColor = System.Drawing.Color.White;
             this.ExitBtn.Image = ((System.Drawing.Image)(resources.GetObject("ExitBtn.Image")));
             this.ExitBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.ExitBtn.Location = new System.Drawing.Point(486, 275);
+            this.ExitBtn.Location = new System.Drawing.Point(516, 313);
             this.ExitBtn.Name = "ExitBtn";
             this.ExitBtn.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(160)))), ((int)(((byte)(60)))));
             this.ExitBtn.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(160)))));
@@ -163,13 +170,14 @@ namespace LMS
             // 
             // LoginDragControl
             // 
-            this.LoginDragControl.TargetControl = this;
+            this.LoginDragControl.TargetControl = this.guna2ShadowPanel2;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 24);
+            this.label1.Location = new System.Drawing.Point(37, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(229, 40);
             this.label1.TabIndex = 7;
@@ -178,9 +186,10 @@ namespace LMS
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 64);
+            this.label2.Location = new System.Drawing.Point(18, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(262, 20);
             this.label2.TabIndex = 8;
@@ -189,38 +198,24 @@ namespace LMS
             // 
             // gunaPictureBox1
             // 
+            this.gunaPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
-            this.gunaPictureBox1.Location = new System.Drawing.Point(12, 87);
+            this.gunaPictureBox1.Location = new System.Drawing.Point(12, 132);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
             this.gunaPictureBox1.Size = new System.Drawing.Size(275, 234);
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox1.TabIndex = 9;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // CloseBtn
-            // 
-            this.CloseBtn.CheckedState.Parent = this.CloseBtn;
-            this.CloseBtn.CustomImages.Parent = this.CloseBtn;
-            this.CloseBtn.FillColor = System.Drawing.Color.Red;
-            this.CloseBtn.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.CloseBtn.ForeColor = System.Drawing.Color.White;
-            this.CloseBtn.HoverState.Parent = this.CloseBtn;
-            this.CloseBtn.Location = new System.Drawing.Point(545, 0);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
-            this.CloseBtn.Size = new System.Drawing.Size(42, 42);
-            this.CloseBtn.TabIndex = 4;
-            this.CloseBtn.Text = "X";
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
             // gunaPictureBox2
             // 
+            this.gunaPictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox2.Image")));
-            this.gunaPictureBox2.Location = new System.Drawing.Point(371, 10);
+            this.gunaPictureBox2.Location = new System.Drawing.Point(388, 74);
             this.gunaPictureBox2.Name = "gunaPictureBox2";
-            this.gunaPictureBox2.Size = new System.Drawing.Size(134, 132);
+            this.gunaPictureBox2.Size = new System.Drawing.Size(122, 114);
             this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox2.TabIndex = 11;
             this.gunaPictureBox2.TabStop = false;
@@ -231,13 +226,48 @@ namespace LMS
             this.gunaAnimateWindow1.Interval = 100;
             this.gunaAnimateWindow1.TargetControl = this;
             // 
+            // guna2ShadowPanel2
+            // 
+            this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2ShadowPanel2.Controls.Add(this.CloseBtn);
+            this.guna2ShadowPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel2.Location = new System.Drawing.Point(0, 0);
+            this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
+            this.guna2ShadowPanel2.Radius = 5;
+            this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel2.ShadowDepth = 15;
+            this.guna2ShadowPanel2.ShadowShift = 10;
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(618, 68);
+            this.guna2ShadowPanel2.TabIndex = 12;
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseBtn.Animated = true;
+            this.CloseBtn.CheckedState.Parent = this.CloseBtn;
+            this.CloseBtn.CustomImages.Parent = this.CloseBtn;
+            this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(83)))), ((int)(((byte)(79)))));
+            this.CloseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseBtn.ForeColor = System.Drawing.Color.White;
+            this.CloseBtn.HoverState.Parent = this.CloseBtn;
+            this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
+            this.CloseBtn.Location = new System.Drawing.Point(567, 17);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
+            this.CloseBtn.Size = new System.Drawing.Size(35, 35);
+            this.CloseBtn.TabIndex = 0;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click_1);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 332);
+            this.ClientSize = new System.Drawing.Size(618, 370);
+            this.Controls.Add(this.guna2ShadowPanel2);
             this.Controls.Add(this.gunaPictureBox2);
-            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.gunaPictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -254,6 +284,7 @@ namespace LMS
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
+            this.guna2ShadowPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,8 +301,9 @@ namespace LMS
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private System.Windows.Forms.Label label2;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox2;
-        private Guna.UI2.WinForms.Guna2Button CloseBtn;
         private Guna.UI.WinForms.GunaAnimateWindow gunaAnimateWindow1;
+        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
+        private Guna.UI2.WinForms.Guna2CircleButton CloseBtn;
     }
 }
 

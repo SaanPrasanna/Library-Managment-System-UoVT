@@ -44,8 +44,6 @@ namespace LMS {
             TitleLbl.Text = "Dashboard Oveview";
             DashboardPanel.Show();
             DashboardDetails();
-            FNameLbl.Text = Properties.Settings.Default.fname;
-            UsernameLbl.Text = Properties.Settings.Default.username;
         }
 
         private void BooksBtn_Click(object sender, EventArgs e) {
@@ -97,7 +95,8 @@ namespace LMS {
             foreach (var lbl in mainLabels.Select((name, index) => (name, index))) {
                 lbl.name.Text = fn.GetNumberOf(name: names[lbl.index]).ToString();
             }
-
+            FNameLbl.Text = Properties.Settings.Default.fname;
+            UsernameLbl.Text = Properties.Settings.Default.username;
         }
 
         private void MainDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {

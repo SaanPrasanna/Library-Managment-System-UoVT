@@ -28,11 +28,11 @@ namespace LMS {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashForm));
             this.ProgressBar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LoadingDigitLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.LoadingDigitLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.ProgressBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -67,16 +67,38 @@ namespace LMS {
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // LoadingDigitLbl
+            // 
+            this.LoadingDigitLbl.BackColor = System.Drawing.Color.Transparent;
+            this.LoadingDigitLbl.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoadingDigitLbl.ForeColor = System.Drawing.Color.White;
+            this.LoadingDigitLbl.Location = new System.Drawing.Point(234, 537);
+            this.LoadingDigitLbl.Name = "LoadingDigitLbl";
+            this.LoadingDigitLbl.Size = new System.Drawing.Size(67, 76);
+            this.LoadingDigitLbl.TabIndex = 0;
+            this.LoadingDigitLbl.Text = "10";
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(25, 539);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(192, 76);
+            this.guna2HtmlLabel2.TabIndex = 0;
+            this.guna2HtmlLabel2.Text = "System";
+            // 
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(36, 460);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(26, 456);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(327, 87);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(283, 76);
             this.guna2HtmlLabel1.TabIndex = 0;
-            this.guna2HtmlLabel1.Text = "It\'s time to";
+            this.guna2HtmlLabel1.Text = "Initializing";
             // 
             // timer1
             // 
@@ -88,28 +110,7 @@ namespace LMS {
             this.guna2Elipse1.BorderRadius = 15;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // guna2HtmlLabel2
-            // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(23, 548);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(181, 87);
-            this.guna2HtmlLabel2.TabIndex = 0;
-            this.guna2HtmlLabel2.Text = "wait...";
-            // 
-            // LoadingDigitLbl
-            // 
-            this.LoadingDigitLbl.BackColor = System.Drawing.Color.Transparent;
-            this.LoadingDigitLbl.Font = new System.Drawing.Font("Segoe UI", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadingDigitLbl.ForeColor = System.Drawing.Color.White;
-            this.LoadingDigitLbl.Location = new System.Drawing.Point(210, 548);
-            this.LoadingDigitLbl.Name = "LoadingDigitLbl";
-            this.LoadingDigitLbl.Size = new System.Drawing.Size(3, 2);
-            this.LoadingDigitLbl.TabIndex = 0;
-            // 
-            // LoadingForm
+            // SplashForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +118,7 @@ namespace LMS {
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ProgressBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "LoadingForm";
+            this.Name = "SplashForm";
             this.Text = "LoadingForm";
             this.ProgressBar.ResumeLayout(false);
             this.ProgressBar.PerformLayout();
