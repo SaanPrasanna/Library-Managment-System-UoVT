@@ -61,6 +61,7 @@ namespace LMS.Utils {
                 switch (name) {
                     case "Members":
                     case "Books":
+                    case "Staffs":
                         query = "SELECT COUNT(*) FROM " + name.ToLower() + " WHERE is_removed = 0;";
                         break;
                     case "Manage Books":

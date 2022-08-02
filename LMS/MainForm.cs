@@ -65,7 +65,7 @@ namespace LMS {
             SearchTb.PlaceholderText = "Search By Title";
             SearchTb.Text = string.Empty;
             TitleLbl.Text = "All Books";
-            Title2Lbl.Text = "Total Books: " + fn.GetNumberOf(name: "books");
+            Title2Lbl.Text = "Total Books: " + fn.GetNumberOf(name: "Books");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
 
             ActionBtn.Text = "ADD BOOK";
@@ -226,7 +226,7 @@ namespace LMS {
                                     }
                                     dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
                                     dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
-                                    Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
+                                    Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "Staffs");
 
                                 } else {
                                     MessageBox.Show("Something was went wrong!", "Exception Occur", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -277,7 +277,7 @@ namespace LMS {
             SearchTb.PlaceholderText = "Search By First Name";
             SearchTb.Text = string.Empty;
             TitleLbl.Text = "All Members";
-            Title2Lbl.Text = "Total Members: " + fn.GetNumberOf(name: "members");
+            Title2Lbl.Text = "Total Members: " + fn.GetNumberOf(name: "Members");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
             ActionBtn.Text = "ADD MEMBER";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
@@ -335,7 +335,7 @@ namespace LMS {
             SearchTb.PlaceholderText = "Search By Username";
             SearchTb.Text = string.Empty;
             TitleLbl.Text = "All Staffs Members";
-            Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
+            Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "Staffs");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
             ActionBtn.Text = "ADD STAFF";
             ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
@@ -403,7 +403,7 @@ namespace LMS {
             SearchTb.PlaceholderText = "Search By Name";
             SearchTb.Text = string.Empty;
             TitleLbl.Text = "Manage Books";
-            Title2Lbl.Text = "Today Manage Books: " + fn.GetNumberOf(name: "staffs");
+            Title2Lbl.Text = "Monthly Manage Books: " + fn.GetNumberOf(name: "Manage Books");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
             ActionBtn.Text = "MANAGE BOOK";
             ActionBtn.FillColor = Color.FromArgb(248, 187, 0);
