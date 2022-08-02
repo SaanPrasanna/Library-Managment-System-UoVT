@@ -26,11 +26,6 @@ namespace LMS {
                 return cp;
             }
         }
-
-        private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
-            LoadGrid();
-        }
-
         private void LoadGrid() {
             GridControlSettings dgv = new GridControlSettings();
 
@@ -62,20 +57,6 @@ namespace LMS {
                     }
                 }
             }
-        }
-
-        private void AQtyTb_KeyPress(object sender, KeyPressEventArgs e) {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
-                e.Handled = true;
-            }
-        }
-
-        private void AQtyTb_KeyUp(object sender, KeyEventArgs e) {
-            ActionCalculation();
-        }
-
-        private void ActionCb_SelectedIndexChanged(object sender, EventArgs e) {
-            ActionCalculation();
         }
 
         private void ManageBtn_Click(object sender, EventArgs e) {
@@ -130,6 +111,9 @@ namespace LMS {
 
             }
         }
+        private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
+            LoadGrid();
+        }
 
         private void CloseBtn_Click(object sender, EventArgs e) {
             this.Close();
@@ -139,6 +123,19 @@ namespace LMS {
             if (e.KeyCode == Keys.Escape) {
                 this.Close();
             }
+        }
+        private void AQtyTb_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
+
+        private void AQtyTb_KeyUp(object sender, KeyEventArgs e) {
+            ActionCalculation();
+        }
+
+        private void ActionCb_SelectedIndexChanged(object sender, EventArgs e) {
+            ActionCalculation();
         }
     }
 }
