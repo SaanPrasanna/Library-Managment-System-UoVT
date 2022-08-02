@@ -85,10 +85,14 @@ namespace LMS {
 
         private void DashboardDetails() {
             Functions fn = new Functions();
-            BooksLbl.Text = fn.GetNumberOf(name: "books").ToString();
-            Guna2HtmlLabel[] labels = new[] { RecentUpdate1Lbl, RecentUpdate2Lbl, RecentUpdate3Lbl, RecentUpdate4Lbl, RecentUpdate5Lbl, RecentUpdate6Lbl };
+            BooksLbl.Text = fn.GetNumberOf(name: "Books").ToString();
+            Guna2HtmlLabel[] labels = new[] { RecentUpdate1Lbl, RecentUpdate2Lbl, RecentUpdate3Lbl, RecentUpdate4Lbl, RecentUpdate5Lbl, RecentUpdate6Lbl, RecentUpdate7Lbl, RecentUpdate8Lbl };
             Array.ForEach(labels, x => { x.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt"); });
-            MembersLbl.Text = fn.GetNumberOf(name: "members").ToString();
+            MembersLbl.Text = fn.GetNumberOf(name: "Members").ToString();
+            ManageBooksLbl.Text = fn.GetNumberOf(name: "Manage Books").ToString();
+            PendingBooksLbl.Text = fn.GetNumberOf(name: "Pending Books").ToString();
+            ReturnBooksLbl.Text = fn.GetNumberOf(name: "Returned Books").ToString();
+            IssuedBooksLbl.Text = fn.GetNumberOf(name: "Issued Books").ToString();
         }
 
         private void MainDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
@@ -419,6 +423,10 @@ namespace LMS {
                 Main2Dgv.Visible = !value;
                 MainDgv.Visible = value;
             }
+        }
+
+        private void BorrowBooksBtn_Click(object sender, EventArgs e) {
+            
         }
     }
 }

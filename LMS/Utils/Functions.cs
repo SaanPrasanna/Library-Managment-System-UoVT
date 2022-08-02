@@ -56,9 +56,27 @@ namespace LMS.Utils {
             conn.Open();
 
             try {
+                string query = "";
 
-                string sql = "SELECT COUNT(*) FROM " + name + " WHERE is_removed = 0;";
-                SqlCommand cmd = new SqlCommand(sql, conn);
+                switch (name) {
+                    case "Members":
+                    case "Books":
+                        query = "SELECT COUNT(*) FROM " + name.ToLower() + " WHERE is_removed = 0;";
+                        break;
+                    case "Manage Books":
+                        query = "SELECT COUNT(*) FROM books_manage WHERE date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%';";
+                        break;
+                    case "Returned Books":
+                        query = "SELECT COUNT(*) FROM borrow_books WHERE status = 'Done'; ";
+                        break;
+                    case "Pending Books":
+                        query = "SELECT COUNT(*) FROM borrow_books WHERE status = 'Pending';";
+                        break;
+                    case "Issued Books":
+                        query = "SELECT COUNT(*) FROM borrow_books;";
+                        break;
+                }
+                SqlCommand cmd = new SqlCommand(query, conn);
                 return (Int32)cmd.ExecuteScalar();
 
             } catch (Exception e) {
