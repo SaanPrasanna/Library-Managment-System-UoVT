@@ -62,13 +62,14 @@ namespace LMS.Utils {
                     case "Members":
                     case "Books":
                     case "Staffs":
+                    case "Publishers":
                         query = "SELECT COUNT(*) FROM " + name.ToLower() + " WHERE is_removed = 0;";
                         break;
                     case "Manage Books":
                         query = "SELECT COUNT(*) FROM books_manage WHERE date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%';";
                         break;
                     case "Returned Books":
-                        query = "SELECT COUNT(*) FROM borrow_books WHERE status = 'Done'; ";
+                        query = "SELECT COUNT(*) FROM borrow_books WHERE status = 'Returned'; ";
                         break;
                     case "Pending Books":
                         query = "SELECT COUNT(*) FROM borrow_books WHERE status = 'Pending';";
@@ -114,6 +115,10 @@ namespace LMS.Utils {
                     case "Books Manage":
                         query = "SELECT COUNT(*) FROM books_manage;";
                         prefix = "R";
+                        break;
+                    case "Books Borrows":
+                        query = "SELECT COUNT(*) FROM borrow_books;";
+                        prefix = "B";
                         break;
                     default:
                         Console.WriteLine("Please double check ID name!");

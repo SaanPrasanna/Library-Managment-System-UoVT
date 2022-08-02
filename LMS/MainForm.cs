@@ -39,6 +39,7 @@ namespace LMS {
             DashboardBtn.Checked = true;
             BooksBtn.Checked = false;
             MembersBtn.Checked = false;
+            BorrowBooksBtn.Checked = false;
             TitlePb.Image = Properties.Resources.Dashboard;
             TitleLbl.Text = "Dashboard Oveview";
             DashboardPanel.Show();
@@ -56,6 +57,7 @@ namespace LMS {
             MainPanel.Show();
             BooksBtn.Checked = true;
             Action2Btn.Visible = true;
+            BorrowBooksBtn.Checked = false;
             MangeBooksBtn.Checked = false;
             DashboardBtn.Checked = false;
             MembersBtn.Checked = false;
@@ -270,6 +272,7 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             MembersBtn.Checked = true;
+            BorrowBooksBtn.Checked = false;
             MangeBooksBtn.Checked = false;
             DashboardBtn.Checked = false;
             BooksBtn.Checked = false;
@@ -327,6 +330,7 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             StaffsBtn.Checked = true;
+            BorrowBooksBtn.Checked = false;
             MangeBooksBtn.Checked = false;
             MembersBtn.Checked = false;
             DashboardBtn.Checked = false;
@@ -354,7 +358,7 @@ namespace LMS {
 
         private void Action2Btn_Click(object sender, EventArgs e) {
             if (Action2Btn.Text == "PUBLISHERS") {
-                PublishersForm publisherForm = new PublishersForm();
+                SecondForm publisherForm = new SecondForm(form: new MainForm(), title: "Publishers");
                 publisherForm.ShowDialog();
             }
         }
@@ -398,6 +402,7 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             MangeBooksBtn.Checked = true;
+            BorrowBooksBtn.Checked = false;
             StaffsBtn.Checked = false;
             MembersBtn.Checked = false;
             DashboardBtn.Checked = false;
@@ -420,8 +425,11 @@ namespace LMS {
         private void ManageDataGridLoad() {
             GridControlSettings dgv = new GridControlSettings();
             MainDgv.Columns.Clear();
-            dgv.ShowGrid(dgv: MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
-            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
+
+            if (ActionBtn.Text == "MANAGE BOOK") {
+                dgv.ShowGrid(dgv: MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
+            }
         }
 
         private void FromDtp_ValueChanged(object sender, EventArgs e) {
@@ -433,18 +441,44 @@ namespace LMS {
         }
 
         private void BorrowBooksBtn_Click(object sender, EventArgs e) {
+
+            Functions fn = new Functions();
             GridControlSettings dgv = new GridControlSettings();
 
+            DateTimePickers(isVisible: true);
+            DashboardPanel.Hide();
+            MainPanel.Show();
+            BorrowBooksBtn.Checked = true;
+            MangeBooksBtn.Checked = false;
+            StaffsBtn.Checked = false;
+            MembersBtn.Checked = false;
+            DashboardBtn.Checked = false;
+            BooksBtn.Checked = false;
+            Action2Btn.Visible = true;
+            TitlePb.Image = Properties.Resources.Members;
+            SearchTb.PlaceholderText = "Search By Name";
+            SearchTb.Text = string.Empty;
+            TitleLbl.Text = "Borrow Books";
+            Title2Lbl.Text = "Total Pending Books: " + fn.GetNumberOf(name: "Pending Books");
+            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
+
+            ActionBtn.Text = "NEW BORROW";
+            ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
+            ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+            Action2Btn.Text = "PENDING LIST";
+            Action2Btn.FillColor = Color.FromArgb(248, 187, 0);
+            Action2Btn.ForeColor = Color.FromArgb(255, 255, 255);
+            DateTimePickers(isVisible: true);
+
+            // TODO: Borrow Books Grid
             MainDgv.Columns.Clear();
-            dgv.ShowGrid(dgv: MainDgv, name: "Members");
-            if (MainDgv.ColumnCount == 8) {
-                dgv.GridSingleButton(dgv: MainDgv);
-            }
-            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 150, 200, 200, 250, 150, 150, 150 });
+            dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books");
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
             MainDgv.CurrentCell.Selected = false;
 
+            dgv.GridColor(MainDgv);
             // TODO: Cell Color Change
-            //MainDgv.Rows[0].DefaultCellStyle.BackColor = Color.FromArgb(77, 200, 86);
+            //MainDgv.Rows[0].DefaultCellStyle.BackColor = Color.FromArgb(255, 141, 141);
         }
     }
 }

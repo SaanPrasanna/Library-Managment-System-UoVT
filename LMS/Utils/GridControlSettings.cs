@@ -37,6 +37,9 @@ namespace LMS.Utils {
                 case "Books Limit Columns":
                     query = "SELECT ISBN, Title, Quantity FROM books  WHERE books.is_removed = 0" + ((searchQuery != string.Empty) ? " AND books.title LIKE '%" + searchQuery + "%';" : ";");
                     break;
+                case "Borrow Books":
+                    query = "SELECT refno AS 'Borrow Reference', b.Title AS 'Book Title', CONCAT(m.fname,' ',m.lname) AS 'Member Name', bb.issue_date AS 'Issued Date', bb.due_date As 'Due Date', return_date AS 'Returned Date', bb.Status  FROM borrow_books AS bb, members AS m, books AS b WHERE bb.mid = m.mid AND b.isbn = bb.isbn;";
+                    break;
                 default:
                     Console.WriteLine("Please double check Grid Name!");
                     break;
@@ -108,5 +111,14 @@ namespace LMS.Utils {
             }
         }
 
+        public void GridColor(DataGridView dgv) {
+            for (var i = 0; i < dgv.Rows.Count; i++) {
+                if ((DateTime.Now > DateTime.Parse(dgv.Rows[i].Cells[4].Value.ToString())) && (dgv.Rows[i].Cells[6].Value.ToString() == "Pending")) {
+                    dgv.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(252, 177, 177);
+                } else if (dgv.Rows[i].Cells[6].Value.ToString() == "Returned") {
+                    dgv.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(178, 247, 184);
+                }
+            }
+        }
     }
 }
