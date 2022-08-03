@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using LMS.Utils;
 using System.Threading;
 using Guna.UI2.WinForms;
+using System.Runtime.InteropServices;
 
 namespace LMS {
     public partial class MainForm : Form {
@@ -35,14 +36,15 @@ namespace LMS {
 
         private void DashboardBtn_Click(object sender, EventArgs e) {
 
+            DashboardPanel.Show();
             MainPanel.Hide();
             DashboardBtn.Checked = true;
-            BooksBtn.Checked = false;
-            MembersBtn.Checked = false;
-            BorrowBooksBtn.Checked = false;
+
+            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, BooksBtn, MembersBtn, StaffsBtn };
+            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
+
             TitlePb.Image = Properties.Resources.Dashboard;
             TitleLbl.Text = "Dashboard Oveview";
-            DashboardPanel.Show();
             DashboardDetails();
         }
 
@@ -55,11 +57,10 @@ namespace LMS {
             MainPanel.Show();
             BooksBtn.Checked = true;
             Action2Btn.Visible = true;
-            BorrowBooksBtn.Checked = false;
-            MangeBooksBtn.Checked = false;
-            DashboardBtn.Checked = false;
-            MembersBtn.Checked = false;
-            StaffsBtn.Checked = false;
+
+            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, StaffsBtn };
+            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
+
             TitlePb.Image = Properties.Resources.Books;
             SearchTb.PlaceholderText = "Search By Title";
             SearchTb.Text = string.Empty;
@@ -67,11 +68,10 @@ namespace LMS {
             Title2Lbl.Text = "Total Books: " + fn.GetNumberOf(name: "Books");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
 
-            ActionBtn.Text = "ADD BOOK";
-            ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
-            ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
 
-            Action2Btn.Text = "PUBLISHERS";
+            CustomizeButton(btn: ActionBtn, name: "ADD BOOK", fillColor: Color.FromArgb(77, 200, 86));
+            CustomizeButton(btn: Action2Btn, name: "PUBLISHERS", fillColor: Color.FromArgb(94, 148, 255));
+
             DateTimePickers(isVisible: false);
 
             MainDgv.Columns.Clear();
@@ -271,21 +271,19 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             MembersBtn.Checked = true;
-            BorrowBooksBtn.Checked = false;
-            MangeBooksBtn.Checked = false;
-            DashboardBtn.Checked = false;
-            BooksBtn.Checked = false;
-            StaffsBtn.Checked = false;
             Action2Btn.Visible = false;
+
+            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, BooksBtn, StaffsBtn };
+            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
+
             TitlePb.Image = Properties.Resources.Members;
             SearchTb.PlaceholderText = "Search By First Name";
             SearchTb.Text = string.Empty;
             TitleLbl.Text = "All Members";
             Title2Lbl.Text = "Total Members: " + fn.GetNumberOf(name: "Members");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
-            ActionBtn.Text = "ADD MEMBER";
-            ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
-            ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+
+            CustomizeButton(btn: ActionBtn, name: "ADD MEMBER", fillColor: Color.FromArgb(77, 200, 86));
             DateTimePickers(isVisible: false);
 
             MainDgv.Columns.Clear();
@@ -329,21 +327,19 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             StaffsBtn.Checked = true;
-            BorrowBooksBtn.Checked = false;
-            MangeBooksBtn.Checked = false;
-            MembersBtn.Checked = false;
-            DashboardBtn.Checked = false;
-            BooksBtn.Checked = false;
             Action2Btn.Visible = false;
+
+            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, BooksBtn };
+            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
+
             TitlePb.Image = Properties.Resources.Members;
             SearchTb.PlaceholderText = "Search By Username";
             SearchTb.Text = string.Empty;
             TitleLbl.Text = "All Staffs Members";
             Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "Staffs");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
-            ActionBtn.Text = "ADD STAFF";
-            ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
-            ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+
+            CustomizeButton(btn: ActionBtn, name: "ADD STAFF", fillColor: Color.FromArgb(77, 200, 86));
             DateTimePickers(isVisible: false);
 
             MainDgv.Columns.Clear();
@@ -401,21 +397,19 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             MangeBooksBtn.Checked = true;
-            BorrowBooksBtn.Checked = false;
-            StaffsBtn.Checked = false;
-            MembersBtn.Checked = false;
-            DashboardBtn.Checked = false;
-            BooksBtn.Checked = false;
             Action2Btn.Visible = false;
+
+            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn };
+            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
+
             TitlePb.Image = Properties.Resources.Members;
             SearchTb.PlaceholderText = "Search By Name";
             SearchTb.Text = string.Empty;
             TitleLbl.Text = "Manage Books";
             Title2Lbl.Text = "Monthly Manage Books: " + fn.GetNumberOf(name: "Manage Books");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
-            ActionBtn.Text = "MANAGE BOOK";
-            ActionBtn.FillColor = Color.FromArgb(248, 187, 0);
-            ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
+
+            CustomizeButton(btn: ActionBtn, name: "MANAGE BOOK", fillColor: Color.FromArgb(248, 187, 0));
             DateTimePickers(isVisible: true);
 
             ManageDataGridLoad();
@@ -448,12 +442,11 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             BorrowBooksBtn.Checked = true;
-            MangeBooksBtn.Checked = false;
-            StaffsBtn.Checked = false;
-            MembersBtn.Checked = false;
-            DashboardBtn.Checked = false;
-            BooksBtn.Checked = false;
             Action2Btn.Visible = true;
+
+            Guna2Button[] menuBtn = new[] { MangeBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn };
+            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
+
             TitlePb.Image = Properties.Resources.Members;
             SearchTb.PlaceholderText = "Search By Name";
             SearchTb.Text = string.Empty;
@@ -461,23 +454,22 @@ namespace LMS {
             Title2Lbl.Text = "Total Pending Books: " + fn.GetNumberOf(name: "Pending Books");
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
 
-            ActionBtn.Text = "NEW BORROW";
-            ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
-            ActionBtn.ForeColor = Color.FromArgb(255, 255, 255);
-            Action2Btn.Text = "PENDING LIST";
-            Action2Btn.FillColor = Color.FromArgb(248, 187, 0);
-            Action2Btn.ForeColor = Color.FromArgb(255, 255, 255);
+            CustomizeButton(btn: ActionBtn, name: "NEW BORROW", fillColor: Color.FromArgb(77, 200, 86));
+            CustomizeButton(btn: Action2Btn, name: "PENDING LIST", fillColor: Color.FromArgb(248, 187, 0));
             DateTimePickers(isVisible: true);
 
-            // TODO: Borrow Books Grid
             MainDgv.Columns.Clear();
             dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books");
             dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
             MainDgv.CurrentCell.Selected = false;
 
             dgv.GridColor(MainDgv);
-            // TODO: Cell Color Change
-            //MainDgv.Rows[0].DefaultCellStyle.BackColor = Color.FromArgb(255, 141, 141);
+        }
+
+        private void CustomizeButton(Guna2Button btn, string name, Color fillColor) {
+            btn.Text = name;
+            btn.FillColor = fillColor;
+            btn.ForeColor = Color.FromArgb(255, 255, 255);
         }
     }
 }

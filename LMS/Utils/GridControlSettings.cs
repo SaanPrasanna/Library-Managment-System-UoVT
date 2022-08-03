@@ -113,7 +113,7 @@ namespace LMS.Utils {
 
         public void GridColor(DataGridView dgv) {
             for (var i = 0; i < dgv.Rows.Count; i++) {
-                if ((DateTime.Now > DateTime.Parse(dgv.Rows[i].Cells[4].Value.ToString())) && (dgv.Rows[i].Cells[6].Value.ToString() == "Pending")) {
+                if ((DateTime.Now > DateTime.Parse(dgv.Rows[i].Cells[4].Value.ToString()).AddDays(1)) && (dgv.Rows[i].Cells[6].Value.ToString() == "Pending")) {
                     dgv.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(252, 177, 177);
                 } else if (dgv.Rows[i].Cells[6].Value.ToString() == "Returned") {
                     dgv.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(178, 247, 184);
