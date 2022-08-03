@@ -374,6 +374,11 @@ namespace LMS {
             } else if (ActionBtn.Text == "MANAGE BOOK") {
                 dgv.ShowGrid(dgv: MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
+            } else if (ActionBtn.Text == "NEW BORROW") {
+                dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
+                if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
+                dgv.GridColor(MainDgv);
             }
         }
 
@@ -422,6 +427,11 @@ namespace LMS {
             if (ActionBtn.Text == "MANAGE BOOK") {
                 dgv.ShowGrid(dgv: MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
+            } else if (ActionBtn.Text == "NEW BORROW") {
+                dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
+                if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
+                dgv.GridColor(MainDgv);
             }
         }
 
@@ -459,9 +469,9 @@ namespace LMS {
             DateTimePickers(isVisible: true);
 
             MainDgv.Columns.Clear();
-            dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books");
+            dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
             dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
-            MainDgv.CurrentCell.Selected = false;
+            if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
 
             dgv.GridColor(MainDgv);
         }

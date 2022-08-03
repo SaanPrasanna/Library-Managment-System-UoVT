@@ -36,9 +36,9 @@ namespace LMS {
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.UsernameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.FNameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.SettingsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ReportsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.StaffsBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -69,8 +69,6 @@ namespace LMS {
             this.guna2ShadowPanel10 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.OverviewChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.Grid2Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.tableLayoutPanel1 = new LMS.Utils.Components.DoubleBufferedTableLayoutPanel();
             this.guna2ShadowPanel19 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -122,6 +120,8 @@ namespace LMS {
             this.guna2PictureBox9 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox10 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.Grid2Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -203,17 +203,6 @@ namespace LMS {
             this.guna2GroupBox1.Size = new System.Drawing.Size(252, 79);
             this.guna2GroupBox1.TabIndex = 8;
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(21, 12);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(55, 55);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 5;
-            this.guna2PictureBox1.TabStop = false;
-            // 
             // UsernameLbl
             // 
             this.UsernameLbl.BackColor = System.Drawing.Color.Transparent;
@@ -236,6 +225,17 @@ namespace LMS {
             this.FNameLbl.TabIndex = 6;
             this.FNameLbl.Text = "First Name";
             this.FNameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(55, 55);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 5;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // SettingsBtn
             // 
@@ -889,10 +889,6 @@ namespace LMS {
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(111, 32);
             this.guna2HtmlLabel8.TabIndex = 3;
             this.guna2HtmlLabel8.Text = "OVERVIEW";
-            // 
-            // Grid2Elipse
-            // 
-            this.Grid2Elipse.BorderRadius = 10;
             // 
             // tableLayoutPanel1
             // 
@@ -1552,6 +1548,10 @@ namespace LMS {
             this.guna2HtmlLabel19.Size = new System.Drawing.Size(147, 32);
             this.guna2HtmlLabel19.TabIndex = 4;
             this.guna2HtmlLabel19.Text = "ALL MEMBERS";
+            // 
+            // Grid2Elipse
+            // 
+            this.Grid2Elipse.BorderRadius = 10;
             // 
             // MainForm
             // 

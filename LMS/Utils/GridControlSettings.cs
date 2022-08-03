@@ -36,9 +36,9 @@ namespace LMS.Utils {
                     break;
                 case "Books Limit Columns":
                     query = "SELECT ISBN, Title, Quantity FROM books  WHERE books.is_removed = 0" + ((searchQuery != string.Empty) ? " AND books.title LIKE '%" + searchQuery + "%';" : ";");
-                    break;
+                    break; 
                 case "Borrow Books":
-                    query = "SELECT refno AS 'Borrow Reference', b.Title AS 'Book Title', CONCAT(m.fname,' ',m.lname) AS 'Member Name', bb.issue_date AS 'Issued Date', bb.due_date As 'Due Date', return_date AS 'Returned Date', bb.Status  FROM borrow_books AS bb, members AS m, books AS b WHERE bb.mid = m.mid AND b.isbn = bb.isbn;";
+                    query = "SELECT refno AS 'Borrow Reference', b.Title AS 'Book Title', CONCAT(m.fname,' ',m.lname) AS 'Member Name', bb.issue_date AS 'Issued Date', bb.due_date As 'Due Date', return_date AS 'Returned Date', bb.Status  FROM borrow_books AS bb, members AS m, books AS b WHERE bb.mid = m.mid AND b.isbn = bb.isbn AND"+ ((searchQuery != string.Empty) ? " CONCAT(m.fname,' ',m.lname) LIKE '%" + searchQuery + "%' AND " : " ") + " issue_date BETWEEN '" + fromDate + "' AND '" + toDate + "';";
                     break;
                 default:
                     Console.WriteLine("Please double check Grid Name!");
