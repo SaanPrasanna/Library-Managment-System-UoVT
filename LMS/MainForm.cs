@@ -352,9 +352,16 @@ namespace LMS {
         }
 
         private void Action2Btn_Click(object sender, EventArgs e) {
-            if (Action2Btn.Text == "PUBLISHERS") {
-                SecondForm publisherForm = new SecondForm(form: new MainForm(), title: "Publishers");
-                publisherForm.ShowDialog();
+
+            switch (Action2Btn.Text) {
+                case "PUBLISHERS":
+                    SecondForm publisherForm = new SecondForm(form: new MainForm(), title: "Publishers");
+                    publisherForm.ShowDialog();
+                    break;
+                case "PENDING LIST":
+                    SecondForm pendingForm = new SecondForm(form: new MainForm(), title: "Pending List");
+                    pendingForm.ShowDialog();
+                    break;
             }
         }
 

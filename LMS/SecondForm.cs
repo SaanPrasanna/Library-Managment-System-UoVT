@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LMS.Utils;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
+using Guna.UI2.WinForms;
 
 namespace LMS {
     public partial class SecondForm : Form {
@@ -21,7 +22,6 @@ namespace LMS {
 
             this.mf = form;
             InitialForm(title);
-            Console.WriteLine(title);
         }
 
         private void InitialForm(string title) {
@@ -44,20 +44,43 @@ namespace LMS {
                 TitleLbl.Text = "Publishers";
                 Title2Lbl.Text = "Total Publishers : " + fn.GetNumberOf(name: "Publishers").ToString();
                 ActionBtn.Text = "ADD PUBLISHER";
+
+            } else if (title == "Pending List") {
+
+                SecondDgv.Columns.Clear();
+                if (SecondDgv.ColumnCount == 0) {
+                    dgv.GridSingleButton(dgv: SecondDgv, name: "Mark as Received");
+                }
+                dgv.ShowGrid(dgv: SecondDgv, name: "Pending Books", searchQuery: SearchTb.Text);
+                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 150, 150 });
+
+                TitleLbl.Text = title;
+                Title2Lbl.Text = "Total Pending Books : " + fn.GetNumberOf(name: "Pending Books").ToString();
+                ActionBtn.Visible = false;
+
             }
         }
 
         private void PublishersDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-            String pid = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            if (e.ColumnIndex == 0) {
+            if (TitleLbl.Text == "Publishers") {
 
-                PublishersActionsForm publisher = new PublishersActionsForm(form: this, title: "Modify Publisher", pid: pid );
-                publisher.ShowDialog();
+                String pid = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            } else if (e.ColumnIndex == 1) {
+                if (e.ColumnIndex == 0) {
+                    PublishersActionsForm publisher = new PublishersActionsForm(form: this, title: "Modify Publisher", pid: pid);
+                    publisher.ShowDialog();
+                } else if (e.ColumnIndex == 1) {
+                    MessageBox.Show("Publishers removed forbidden!", "Disabled Function", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
-                MessageBox.Show("Publishers removed forbidden!", "Disabled Function", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else if (TitleLbl.Text == "Pending List") {
+
+                String refNo = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+                if (e.ColumnIndex == 0) {
+                    MessageBox.Show(refNo, "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
             }
         }
@@ -76,8 +99,23 @@ namespace LMS {
             GridControlSettings dgv = new GridControlSettings();
 
             if (ActionBtn.Text == "ADD PUBLISHER") {
+
+                SecondDgv.Columns.Clear();
+                if (SecondDgv.ColumnCount == 0) {
+                    dgv.GridButtons(dgv: SecondDgv);
+                }
                 dgv.ShowGrid(dgv: SecondDgv, name: "Publishers", searchQuery: SearchTb.Text);
                 dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
+
+            } else if (TitleLbl.Text == "Pending List") {
+
+                SecondDgv.Columns.Clear();
+                if (SecondDgv.ColumnCount == 0) {
+                    dgv.GridSingleButton(dgv: SecondDgv, name: "Mark as Received");
+                }
+                dgv.ShowGrid(dgv: SecondDgv, name: "Pending Books", searchQuery: SearchTb.Text);
+                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 150, 150 });
+
             }
 
         }
