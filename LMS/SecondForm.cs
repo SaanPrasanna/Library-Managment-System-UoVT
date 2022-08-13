@@ -63,6 +63,8 @@ namespace LMS {
 
         private void PublishersDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
+            Functions fn = new Functions();
+
             if (TitleLbl.Text == "Publishers") {
 
                 String pid = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -79,7 +81,11 @@ namespace LMS {
                 String refNo = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
 
                 if (e.ColumnIndex == 0) {
-                    MessageBox.Show(refNo, "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    double fineFee = fn.GetFine(refNo);
+                    if (MessageBox.Show("Are you sure, \nYou want to release this Book name " + SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() +
+                        "?\nFine Fee : Rs " + fineFee + " /=", "Borrow Books", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                        // TODO: RELEASE BOOK (Update pending status and fine fee | Update books quantity )
+                    }
                 }
 
             }

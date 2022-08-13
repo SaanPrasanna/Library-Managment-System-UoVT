@@ -150,5 +150,38 @@ namespace LMS.Utils {
             }
             return null;
         }
+
+        public double GetFine(string refNo) {
+
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+
+            try {
+                string query = "SELECT bb.due_date, mc.fine FROM borrow_books AS bb, member_category AS mc, members AS m WHERE  bb.mid = m.mid AND m.category = mc.category and bb.refno = @refNo;";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add("@refNo", SqlDbType.VarChar, 6).Value = refNo;
+
+                SqlDataAdapter adupter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adupter.Fill(dt);
+
+                DateTime dueDate = DateTime.Parse(dt.Rows[0][0].ToString());
+                DateTime today = DateTime.Now;
+                int TotalDays = (int)(today - dueDate).TotalDays;
+
+                return (double)(TotalDays * double.Parse(dt.Rows[0][1].ToString()));
+
+            } catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.ToString());
+            } finally {
+                conn.Close();
+                conn.Dispose();
+                Console.ReadLine();
+            }
+
+            return 0;
+
+        }
     }
 }
