@@ -164,6 +164,7 @@ namespace LMS
             this.ExitBtn.Size = new System.Drawing.Size(85, 42);
             this.ExitBtn.TabIndex = 3;
             this.ExitBtn.Text = "Exit";
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
             // LoginDragControl
             // 

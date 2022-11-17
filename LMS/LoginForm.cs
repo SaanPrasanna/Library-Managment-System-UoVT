@@ -29,7 +29,6 @@ namespace LMS {
         private void LoginBtn_Click(object sender, EventArgs e) {
 
             // Need to Update Login Form UI
-            SplashForm splashForm = new SplashForm();
 
             try {
                 if (UsernameTB.Text != string.Empty && PasswordTB.Text != string.Empty) {
@@ -41,6 +40,7 @@ namespace LMS {
 
                         MessageBox.Show("Access Granted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        SplashForm splashForm = new SplashForm();
                         Properties.Settings.Default.sid = dt.Rows[0][0].ToString();
                         Properties.Settings.Default.username = dt.Rows[0][1].ToString();
                         Properties.Settings.Default.fname = dt.Rows[0][3].ToString();
@@ -51,7 +51,6 @@ namespace LMS {
                     } else {
                         MessageBox.Show("Access Denied!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-
                 } else {
                     MessageBox.Show("Username and Password can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -73,6 +72,13 @@ namespace LMS {
         private void CloseBtn_Click_1(object sender, EventArgs e) {
             Environment.Exit(Environment.ExitCode);
             this.Close();
+        }
+
+        private void ExitBtn_Click(object sender, EventArgs e) {
+            if (MessageBox.Show("Do you want to exit!", "Login", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                this.Close();
+                this.Dispose();
+            }
         }
     }
 }

@@ -119,6 +119,7 @@ namespace LMS {
             this.Controls.Add(this.ProgressBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SplashForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoadingForm";
             this.ProgressBar.ResumeLayout(false);
             this.ProgressBar.PerformLayout();
