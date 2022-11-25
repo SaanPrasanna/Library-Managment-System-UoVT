@@ -36,7 +36,13 @@ namespace LMS {
 
                 SecondDgv.Columns.Clear();
                 if (SecondDgv.ColumnCount == 0) {
-                    dgv.GridButtons(dgv: SecondDgv);
+
+                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                    string[] names = { "Modify", "Remove" };
+
+                    dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                    //dgv.GridButtons(dgv: SecondDgv);
                 }
                 dgv.ShowGrid(dgv: SecondDgv, name: "Publishers");
                 dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
@@ -108,7 +114,13 @@ namespace LMS {
 
                 SecondDgv.Columns.Clear();
                 if (SecondDgv.ColumnCount == 0) {
-                    dgv.GridButtons(dgv: SecondDgv);
+
+                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                    string[] names = { "Modify", "Remove" };
+
+                    dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                    //dgv.GridButtons(dgv: SecondDgv);
                 }
                 dgv.ShowGrid(dgv: SecondDgv, name: "Publishers", searchQuery: SearchTb.Text);
                 dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });

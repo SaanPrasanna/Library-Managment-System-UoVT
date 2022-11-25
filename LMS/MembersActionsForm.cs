@@ -105,7 +105,13 @@ namespace LMS {
                             GridControlSettings dgv = new GridControlSettings();
 
                             if (mf.MainDgv.ColumnCount == 0) {
-                                dgv.GridButtons(dgv: mf.MainDgv);
+
+                                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                                string[] names = { "Modify", "Remove" };
+
+                                dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                //dgv.GridButtons(dgv: mf.MainDgv);
                             }
                             dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");
                             dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
@@ -143,7 +149,13 @@ namespace LMS {
                             GridControlSettings dgv = new GridControlSettings();
 
                             if (mf.MainDgv.ColumnCount == 0) {
-                                dgv.GridButtons(dgv: mf.MainDgv);
+
+                                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                                string[] names = { "Modify", "Remove" };
+
+                                dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                //dgv.GridButtons(dgv: mf.MainDgv);
                             }
                             dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");
                             dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
