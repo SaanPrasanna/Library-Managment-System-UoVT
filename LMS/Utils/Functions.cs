@@ -151,16 +151,17 @@ namespace LMS.Utils {
             return null;
         }
 
-        public double GetFine(string refNo) {
+        public double GetFine(string refNo, string isbn) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 
             try {
-                string query = "SELECT bb.due_date, mc.fine FROM borrow_books AS bb, member_category AS mc, members AS m WHERE  bb.mid = m.mid AND m.category = mc.category and bb.refno = @refNo;";
+                string query = "SELECT bb.due_date, mc.fine FROM borrow_books AS bb, member_category AS mc, members AS m, books AS b WHERE  bb.mid = m.mid AND bb.isbn = b.isbn AND m.category = mc.category AND bb.refno = @refNo AND b.isbn = @isbn;";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.Add("@refNo", SqlDbType.VarChar, 6).Value = refNo;
+                cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
 
                 SqlDataAdapter adupter = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -169,7 +170,6 @@ namespace LMS.Utils {
                 DateTime dueDate = DateTime.Parse(dt.Rows[0][0].ToString());
                 DateTime today = DateTime.Now;
                 int TotalDays = (int)(today - dueDate).TotalDays;
-
                 return (double)(TotalDays * double.Parse(dt.Rows[0][1].ToString()));
 
             } catch (Exception ex) {
