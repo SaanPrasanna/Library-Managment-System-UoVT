@@ -48,6 +48,7 @@ namespace LMS {
             this.ProgressBar.FillColor = System.Drawing.Color.White;
             this.ProgressBar.FillThickness = 450;
             this.ProgressBar.Location = new System.Drawing.Point(20, -363);
+            this.ProgressBar.Maximum = 102;
             this.ProgressBar.Name = "ProgressBar";
             this.ProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(120)))));
             this.ProgressBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(129)))), ((int)(((byte)(197)))));
@@ -60,9 +61,9 @@ namespace LMS {
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(517, 485);
+            this.pictureBox1.Location = new System.Drawing.Point(487, 488);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(179, 229);
+            this.pictureBox1.Size = new System.Drawing.Size(226, 221);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -107,7 +108,7 @@ namespace LMS {
             // 
             // guna2Elipse1
             // 
-            this.guna2Elipse1.BorderRadius = 15;
+            this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
             // SplashForm

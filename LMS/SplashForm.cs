@@ -30,11 +30,11 @@ namespace LMS {
             ProgressBar.Increment(2);
             LoadingDigitLbl.Text = ProgressBar.Value.ToString() + " %...";
 
-            if (ProgressBar.Value == 100) {
+            if (ProgressBar.Value == 102) {
                 timer1.Stop();
                 MainForm mainForm = new MainForm();
-                mainForm.Show();
-                this.Close();
+                //mainForm.Show();
+                //this.Close();
             }
         }
     }
