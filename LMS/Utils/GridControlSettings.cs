@@ -69,12 +69,13 @@ namespace LMS.Utils {
             }
         }
 
-        public void GridButtons(DataGridView dgv, [Optional] string name1, [Optional] string name2) {
+        // Deprecated Functoin replaced by GridButtons
+        public void GridButtonsDeprecated(DataGridView dgv) {
 
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn {
                 UseColumnTextForButtonValue = true,
                 Name = "",
-                Text = (name1 == string.Empty) ? "Modify" : name1,
+                Text = "Modify",
                 FlatStyle = FlatStyle.Popup
             };
             btn.InheritedStyle.SelectionForeColor = Color.White;
@@ -86,7 +87,7 @@ namespace LMS.Utils {
             DataGridViewButtonColumn btn2 = new DataGridViewButtonColumn {
                 UseColumnTextForButtonValue = true,
                 Name = "",
-                Text = (name2 == string.Empty) ? "Remove" : name1,
+                Text = "Remove",
                 FlatStyle = FlatStyle.Popup
             };
             btn2.InheritedStyle.SelectionForeColor = Color.White;
@@ -110,6 +111,22 @@ namespace LMS.Utils {
             btn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgv.Columns.Add(btn);
 
+        }
+
+        public void GridButtons(DataGridView dgv, string[] names, Color[] backColors, Color[] selectionColors) {
+            for (int i = 0; i < names.Length; i++) {
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn {
+                    UseColumnTextForButtonValue = true,
+                    Name = "",
+                    Text = names[i],
+                    FlatStyle = FlatStyle.Popup
+                };
+                btn.InheritedStyle.SelectionForeColor = Color.White;
+                btn.InheritedStyle.SelectionBackColor = selectionColors[i];
+                btn.InheritedStyle.BackColor = backColors[i];
+                btn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgv.Columns.Add(btn);
+            }
         }
 
         public void GridWidth(DataGridView dgv, int[] widths) {
