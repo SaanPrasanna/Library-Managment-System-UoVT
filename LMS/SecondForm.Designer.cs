@@ -167,7 +167,7 @@ namespace LMS {
             this.RecentUpdateLbl.BackColor = System.Drawing.Color.Transparent;
             this.RecentUpdateLbl.Font = new System.Drawing.Font("Segoe UI", 10.69307F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecentUpdateLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
-            this.RecentUpdateLbl.Location = new System.Drawing.Point(65, 48);
+            this.RecentUpdateLbl.Location = new System.Drawing.Point(65, 50);
             this.RecentUpdateLbl.Name = "RecentUpdateLbl";
             this.RecentUpdateLbl.Size = new System.Drawing.Size(140, 22);
             this.RecentUpdateLbl.TabIndex = 6;
@@ -177,7 +177,7 @@ namespace LMS {
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
-            this.guna2PictureBox2.Location = new System.Drawing.Point(36, 47);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(36, 49);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
             this.guna2PictureBox2.Size = new System.Drawing.Size(22, 22);

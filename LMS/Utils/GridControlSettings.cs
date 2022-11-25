@@ -69,24 +69,26 @@ namespace LMS.Utils {
             }
         }
 
-        public void GridButtons(DataGridView dgv) {
+        public void GridButtons(DataGridView dgv, [Optional] string name1, [Optional] string name2) {
 
-            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.UseColumnTextForButtonValue = true;
-            btn.Name = "";
-            btn.Text = "Modify";
-            btn.FlatStyle = FlatStyle.Popup;
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn {
+                UseColumnTextForButtonValue = true,
+                Name = "",
+                Text = (name1 == string.Empty) ? "Modify" : name1,
+                FlatStyle = FlatStyle.Popup
+            };
             btn.InheritedStyle.SelectionForeColor = Color.White;
             btn.InheritedStyle.SelectionBackColor = Color.FromArgb(249, 200, 55);
             btn.InheritedStyle.BackColor = Color.FromArgb(249, 217, 55);
             btn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgv.Columns.Add(btn);
 
-            DataGridViewButtonColumn btn2 = new DataGridViewButtonColumn();
-            btn2.UseColumnTextForButtonValue = true;
-            btn2.Name = "";
-            btn2.Text = "Remove";
-            btn2.FlatStyle = FlatStyle.Popup;
+            DataGridViewButtonColumn btn2 = new DataGridViewButtonColumn {
+                UseColumnTextForButtonValue = true,
+                Name = "",
+                Text = (name2 == string.Empty) ? "Remove" : name1,
+                FlatStyle = FlatStyle.Popup
+            };
             btn2.InheritedStyle.SelectionForeColor = Color.White;
             btn2.InheritedStyle.SelectionBackColor = Color.FromArgb(230, 98, 91);
             btn2.InheritedStyle.BackColor = Color.FromArgb(253, 98, 91);
@@ -96,11 +98,12 @@ namespace LMS.Utils {
 
         public void GridSingleButton(DataGridView dgv, string name) {
 
-            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.UseColumnTextForButtonValue = true;
-            btn.Name = "";
-            btn.Text = name;
-            btn.FlatStyle = FlatStyle.Popup;
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn {
+                UseColumnTextForButtonValue = true,
+                Name = "",
+                Text = name,
+                FlatStyle = FlatStyle.Popup
+            };
             btn.InheritedStyle.SelectionForeColor = Color.White;
             btn.InheritedStyle.SelectionBackColor = Color.FromArgb(98, 222, 107);
             btn.InheritedStyle.BackColor = Color.FromArgb(77, 200, 86);
