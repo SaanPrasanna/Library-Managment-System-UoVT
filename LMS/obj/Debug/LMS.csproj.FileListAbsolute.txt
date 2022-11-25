@@ -50,3 +50,4 @@ C:\Users\Sandun\Source\Repos\LMS\bin\Debug\zxing.presentation.xml
 C:\Users\Sandun\Source\Repos\LMS\obj\Debug\LMS.csproj.CopyComplete
 C:\Users\Sandun\Source\Repos\LMS\obj\Debug\LMS.pdb
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.BookReturnForm.resources

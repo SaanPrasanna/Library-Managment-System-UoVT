@@ -63,9 +63,11 @@ namespace LMS {
 
         private void Login_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
-                Environment.Exit(Environment.ExitCode);
-                this.Close();
-                this.Dispose();
+                if (MessageBox.Show("Do you want to exit!", "Login Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                    Environment.Exit(Environment.ExitCode);
+                    this.Close();
+                    this.Dispose();
+                }
             }
         }
 
@@ -75,7 +77,7 @@ namespace LMS {
         }
 
         private void ExitBtn_Click(object sender, EventArgs e) {
-            if (MessageBox.Show("Do you want to exit!", "Login", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+            if (MessageBox.Show("Do you want to exit!", "Login Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
                 this.Close();
                 this.Dispose();
             }

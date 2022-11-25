@@ -38,7 +38,6 @@ namespace LMS
             this.ExitBtn = new Guna.UI.WinForms.GunaGradientButton();
             this.LoginDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaAnimateWindow1 = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
@@ -175,24 +174,12 @@ namespace LMS
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 9);
+            this.label1.Location = new System.Drawing.Point(79, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 40);
+            this.label1.Size = new System.Drawing.Size(105, 40);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Secure Login";
+            this.label1.Text = "Login";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(262, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Make sure your account is secure";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // gunaPictureBox1
             // 
@@ -232,7 +219,6 @@ namespace LMS
             this.ClientSize = new System.Drawing.Size(618, 316);
             this.Controls.Add(this.gunaPictureBox2);
             this.Controls.Add(this.gunaPictureBox1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.LoginBtn);
@@ -261,7 +247,6 @@ namespace LMS
         private Guna.UI2.WinForms.Guna2DragControl LoginDragControl;
         private System.Windows.Forms.Label label1;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-        private System.Windows.Forms.Label label2;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox2;
         private Guna.UI.WinForms.GunaAnimateWindow gunaAnimateWindow1;
     }

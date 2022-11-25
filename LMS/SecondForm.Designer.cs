@@ -65,7 +65,7 @@ namespace LMS {
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel2.ShadowDepth = 15;
             this.guna2ShadowPanel2.ShadowShift = 10;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(952, 68);
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(1002, 68);
             this.guna2ShadowPanel2.TabIndex = 8;
             // 
             // TitlePb
@@ -104,7 +104,7 @@ namespace LMS {
             this.CloseBtn.ForeColor = System.Drawing.Color.White;
             this.CloseBtn.HoverState.Parent = this.CloseBtn;
             this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
-            this.CloseBtn.Location = new System.Drawing.Point(901, 17);
+            this.CloseBtn.Location = new System.Drawing.Point(951, 17);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
@@ -130,7 +130,7 @@ namespace LMS {
             this.MainPanel.ShadowColor = System.Drawing.Color.Black;
             this.MainPanel.ShadowDepth = 15;
             this.MainPanel.ShadowShift = 10;
-            this.MainPanel.Size = new System.Drawing.Size(952, 580);
+            this.MainPanel.Size = new System.Drawing.Size(1002, 580);
             this.MainPanel.TabIndex = 9;
             // 
             // SearchTb
@@ -151,7 +151,7 @@ namespace LMS {
             this.SearchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SearchTb.HoverState.Parent = this.SearchTb;
             this.SearchTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.SearchTb.Location = new System.Drawing.Point(528, 36);
+            this.SearchTb.Location = new System.Drawing.Point(578, 36);
             this.SearchTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SearchTb.Name = "SearchTb";
             this.SearchTb.PasswordChar = '\0';
@@ -207,7 +207,7 @@ namespace LMS {
             this.ActionBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActionBtn.ForeColor = System.Drawing.Color.White;
             this.ActionBtn.HoverState.Parent = this.ActionBtn;
-            this.ActionBtn.Location = new System.Drawing.Point(796, 34);
+            this.ActionBtn.Location = new System.Drawing.Point(846, 34);
             this.ActionBtn.Name = "ActionBtn";
             this.ActionBtn.ShadowDecoration.Parent = this.ActionBtn;
             this.ActionBtn.Size = new System.Drawing.Size(119, 38);
@@ -270,7 +270,7 @@ namespace LMS {
             this.SecondDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SecondDgv.ShowEditingIcon = false;
             this.SecondDgv.ShowRowErrors = false;
-            this.SecondDgv.Size = new System.Drawing.Size(879, 449);
+            this.SecondDgv.Size = new System.Drawing.Size(929, 449);
             this.SecondDgv.TabIndex = 0;
             this.SecondDgv.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.SecondDgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.Empty;
@@ -314,7 +314,7 @@ namespace LMS {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 648);
+            this.ClientSize = new System.Drawing.Size(1002, 648);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

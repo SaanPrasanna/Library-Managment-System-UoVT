@@ -78,6 +78,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookReturnForm.Designer.cs">
+      <DependentUpon>BookReturnForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BooksActionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <Compile Include="Utils\Models\Member.cs" />
     <Compile Include="Utils\Models\Publisher.cs" />
     <Compile Include="Utils\Models\Staff.cs" />
+    <EmbeddedResource Include="BookReturnForm.resx">
+      <DependentUpon>BookReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BooksActionsForm.resx">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
     </EmbeddedResource>

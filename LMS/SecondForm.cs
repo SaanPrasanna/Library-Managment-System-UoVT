@@ -16,18 +16,21 @@ namespace LMS {
     public partial class SecondForm : Form {
 
         MainForm mf;
+        private string title;
+        private string mID;
+        readonly Functions fn = new Functions();
+        readonly GridControlSettings dgv = new GridControlSettings();
 
         public SecondForm(MainForm form, string title) {
             InitializeComponent();
 
             this.mf = form;
-            InitialForm(title);
+            this.title = title;
+            InitialForm();
         }
 
-        private void InitialForm(string title) {
+        private void InitialForm() {
 
-            Functions fn = new Functions();
-            GridControlSettings dgv = new GridControlSettings();
 
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
             SearchTb.PlaceholderText = "Search By Name";
@@ -42,7 +45,7 @@ namespace LMS {
                     string[] names = { "Modify", "Remove" };
 
                     dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                    //dgv.GridButtons(dgv: SecondDgv);
+
                 }
                 dgv.ShowGrid(dgv: SecondDgv, name: "Publishers");
                 dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
@@ -55,10 +58,16 @@ namespace LMS {
 
                 SecondDgv.Columns.Clear();
                 if (SecondDgv.ColumnCount == 0) {
-                    dgv.GridSingleButton(dgv: SecondDgv, name: "Mark as Received");
+
+                    Color[] backColors = { Color.FromArgb(77, 200, 86) };
+                    Color[] selectColors = { Color.FromArgb(98, 222, 107) };
+                    string[] names = { "Select Member" };
+
+                    dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+
                 }
-                dgv.ShowGrid(dgv: SecondDgv, name: "Pending Books", searchQuery: SearchTb.Text);
-                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 150, 150 });
+                dgv.ShowGrid(dgv: SecondDgv, name: "Pending Members", searchQuery: SearchTb.Text);
+                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 200 });
 
                 TitleLbl.Text = title;
                 Title2Lbl.Text = "Total Pending Books : " + fn.GetNumberOf(name: "Pending Books").ToString();
@@ -84,14 +93,45 @@ namespace LMS {
 
             } else if (TitleLbl.Text == "Pending List") {
 
-                String refNo = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                this.mID = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                String name = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+                int NOB = Convert.ToInt32(SecondDgv.Rows[e.RowIndex].Cells[3].Value);
 
                 if (e.ColumnIndex == 0) {
-                    double fineFee = fn.GetFine(refNo);
+
+                    SecondDgv.Columns.Clear();
+                    if (SecondDgv.ColumnCount == 0) {
+
+                        Color[] backColors = { Color.FromArgb(94, 148, 255) };
+                        Color[] selectColors = { Color.FromArgb(120, 160, 255) };
+                        string[] names = { "Release" };
+
+                        dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+
+                    }
+                    dgv.ShowGrid(dgv: SecondDgv, name: "Pending Books", searchQuery: SearchTb.Text, searchQuery2: this.mID);
+                    dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 110, 150, 200, 150, 150 });
+
+                    TitleLbl.Text = "Pending Books";
+                    Title2Lbl.Text = name + "'s Book(s) : " + NOB.ToString();
+                    ActionBtn.Visible = true;
+                    ActionBtn.Text = "RELEASE ALL";
+                    SearchTb.Text = string.Empty;
+
+                }
+
+            } else if (TitleLbl.Text == "Pending Books") {
+                string refNo = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                string isbn = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                if (e.ColumnIndex == 0) {
+
+                    double fineFee = fn.GetFine(refNo: refNo, isbn: isbn);
                     if (MessageBox.Show("Are you sure, \nYou want to release this Book name " + SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() +
                         "?\nFine Fee : Rs " + fineFee + " /=", "Borrow Books", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
                         // TODO: RELEASE BOOK (Update pending status and fine fee | Update books quantity )
                     }
+
                 }
 
             }
@@ -103,6 +143,8 @@ namespace LMS {
             if (ActionBtn.Text == "ADD PUBLISHER") {
                 PublishersActionsForm publisherForm = new PublishersActionsForm(form: this, title: "Add Publisher", fn.GetID(name: "Publisher"));
                 publisherForm.ShowDialog();
+            } else if (ActionBtn.Text == "RELEASE ALL") {
+
             }
         }
 
@@ -129,11 +171,30 @@ namespace LMS {
 
                 SecondDgv.Columns.Clear();
                 if (SecondDgv.ColumnCount == 0) {
-                    dgv.GridSingleButton(dgv: SecondDgv, name: "Mark as Received");
-                }
-                dgv.ShowGrid(dgv: SecondDgv, name: "Pending Books", searchQuery: SearchTb.Text);
-                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 150, 150 });
 
+                    Color[] backColors = { Color.FromArgb(77, 200, 86) };
+                    Color[] selectColors = { Color.FromArgb(98, 222, 107) };
+                    string[] names = { "Select Member" };
+
+                    dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+
+                }
+                dgv.ShowGrid(dgv: SecondDgv, name: "Pending Members", searchQuery: SearchTb.Text);
+                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 200 });
+
+            } else if (TitleLbl.Text == "Pending Books") {
+                SecondDgv.Columns.Clear();
+                if (SecondDgv.ColumnCount == 0) {
+
+                    Color[] backColors = { Color.FromArgb(94, 148, 255) };
+                    Color[] selectColors = { Color.FromArgb(120, 160, 255) };
+                    string[] names = { "Release" };
+
+                    dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+
+                }
+                dgv.ShowGrid(dgv: SecondDgv, name: "Pending Books", searchQuery: SearchTb.Text, searchQuery2: this.mID);
+                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 110, 150, 200, 150, 150 });
             }
 
         }
@@ -153,7 +214,28 @@ namespace LMS {
 
         private void PublishersForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
-                this.Close();
+                if (ActionBtn.Text == "RELEASE ALL" && ActionBtn.Visible == true) {
+                    SecondDgv.Columns.Clear();
+                    if (SecondDgv.ColumnCount == 0) {
+
+                        Color[] backColors = { Color.FromArgb(77, 200, 86) };
+                        Color[] selectColors = { Color.FromArgb(98, 222, 107) };
+                        string[] names = { "Select Member" };
+
+                        dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+
+                    }
+                    dgv.ShowGrid(dgv: SecondDgv, name: "Pending Members", searchQuery: SearchTb.Text);
+                    dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 200 });
+
+                    TitleLbl.Text = title;
+                    Title2Lbl.Text = "Total Pending Books : " + fn.GetNumberOf(name: "Pending Books").ToString();
+                    ActionBtn.Visible = false;
+                    SearchTb.Text = string.Empty;
+
+                } else {
+                    this.Close();
+                }
             }
         }
     }
