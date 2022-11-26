@@ -16,8 +16,8 @@ namespace LMS {
     public partial class SecondForm : Form {
 
         MainForm mf;
-        private string title;
-        private string mID;
+        private string title, name, mID;
+        public int NOB;
         readonly Functions fn = new Functions();
         readonly GridControlSettings dgv = new GridControlSettings();
 
@@ -94,8 +94,8 @@ namespace LMS {
             } else if (TitleLbl.Text == "Pending List") {
 
                 this.mID = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
-                String name = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
-                int NOB = Convert.ToInt32(SecondDgv.Rows[e.RowIndex].Cells[3].Value);
+                name = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+                NOB = Convert.ToInt32(SecondDgv.Rows[e.RowIndex].Cells[3].Value);
 
                 if (e.ColumnIndex == 0) {
 
@@ -126,11 +126,8 @@ namespace LMS {
 
                 if (e.ColumnIndex == 0) {
 
-                    double fineFee = fn.GetFine(refNo: refNo, isbn: isbn);
-                    if (MessageBox.Show("Are you sure, \nYou want to release this Book name " + SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() +
-                        "?\nFine Fee : Rs " + fineFee + " /=", "Borrow Books", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                        // TODO: RELEASE BOOK (Update pending status and fine fee | Update books quantity )
-                    }
+                    BooksAcceptForm baf = new BooksAcceptForm(this, new string[] { refNo, isbn, mID, name, NOB.ToString() }); // 0 - RefNo, 1 - ISBN, 2 - MemberID
+                    baf.ShowDialog();
 
                 }
 
@@ -144,7 +141,6 @@ namespace LMS {
                 PublishersActionsForm publisherForm = new PublishersActionsForm(form: this, title: "Add Publisher", fn.GetID(name: "Publisher"));
                 publisherForm.ShowDialog();
             } else if (ActionBtn.Text == "RELEASE ALL") {
-
             }
         }
 

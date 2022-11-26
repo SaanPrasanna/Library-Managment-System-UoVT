@@ -338,7 +338,6 @@ namespace LMS {
 
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
         private Guna.UI2.WinForms.Guna2PictureBox TitlePb;
-        private Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
         private Guna.UI2.WinForms.Guna2CircleButton CloseBtn;
         private Guna.UI2.WinForms.Guna2ShadowPanel MainPanel;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
@@ -350,5 +349,6 @@ namespace LMS {
         public Guna.UI2.WinForms.Guna2HtmlLabel RecentUpdateLbl;
         public Guna.UI2.WinForms.Guna2TextBox SearchTb;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
+        public Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
     }
 }
