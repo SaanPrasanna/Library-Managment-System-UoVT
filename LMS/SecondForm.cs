@@ -58,7 +58,7 @@ namespace LMS {
                 return cp;
             }
         }
-        
+
         private void SecoundDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
             if (TitleLbl.Text == "Publishers") {
@@ -89,12 +89,41 @@ namespace LMS {
                 }
 
             } else if (TitleLbl.Text == "Pending Books") {
-                string refNo = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
-                string isbn = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+                string refNo = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+                string isbn = SecondDgv.Rows[e.RowIndex].Cells[3].Value.ToString();
 
                 if (e.ColumnIndex == 0) {
                     BooksAcceptForm baf = new BooksAcceptForm(this, new string[] { refNo, isbn, mID, name, NOB.ToString() }); // 0 - RefNo, 1 - ISBN, 2 - MemberID
                     baf.ShowDialog();
+                } else if (e.ColumnIndex == 1) {
+                    if (MessageBox.Show("Do you want to extend for 1 Week(7 Days)?", "Extend Date", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+
+                        SqlConnection conn = DBUtils.GetDBConnection();
+                        conn.Open();
+
+                        try {
+
+                            string query = "UPDATE borrow_books SET due_date = @dueDate WHERE refno = @refNo AND mid = @mid AND isbn = @isbn;";
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.Add("@dueDate", SqlDbType.Date).Value = fn.GetDueDate(refNo, isbn, mID).AddDays(7);
+                            cmd.Parameters.Add("@refNo", SqlDbType.VarChar, 12).Value = refNo;
+                            cmd.Parameters.Add("@mid", SqlDbType.VarChar, 6).Value = mID;
+                            cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+
+
+                            if (cmd.ExecuteNonQuery() > 0) {
+                                PendingBooks();
+                                MainGridRefresh();
+                            }
+
+                        } catch (Exception ex) {
+                            Console.WriteLine("Error: " + ex.ToString());
+                        } finally {
+                            conn.Close();
+                            conn.Dispose();
+                            Console.ReadLine();
+                        }
+                    }
                 }
             }
         }
@@ -126,6 +155,8 @@ namespace LMS {
 
         private void PublishersForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
+
+                MainGridRefresh();
                 if (ActionBtn.Text == "RELEASE") {
 
                     PendingList();
@@ -146,16 +177,16 @@ namespace LMS {
             SecondDgv.Columns.Clear();
             if (SecondDgv.ColumnCount == 0) {
 
-                Color[] backColors = { Color.FromArgb(94, 148, 255) };
-                Color[] selectColors = { Color.FromArgb(120, 160, 255) };
-                string[] names = { "Release" };
+                Color[] backColors = { Color.FromArgb(94, 148, 255), Color.FromArgb(77, 200, 86) };
+                Color[] selectColors = { Color.FromArgb(120, 160, 255), Color.FromArgb(98, 222, 107) };
+                string[] names = { "Release", "Extend" };
 
                 dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
 
             }
 
             dgv.ShowGrid(dgv: SecondDgv, name: "Pending Books", searchQuery: SearchTb.Text, searchQuery2: this.mID);
-            dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 110, 150, 200, 150, 150 });
+            dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 0, 110, 150, 200, 150, 150 });
         }
 
         public void PendingList() {
@@ -190,6 +221,19 @@ namespace LMS {
 
             dgv.ShowGrid(dgv: SecondDgv, name: "Publishers");
             dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
+        }
+
+        public void MainGridRefresh() {
+
+            Title2Lbl.Text = "Total Pending Books: " + fn.GetNumberOf(name: "Pending Books");
+            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
+
+            mf.MainDgv.Columns.Clear();
+            dgv.ShowGrid(dgv: mf.MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: mf.FromDtp.Value.ToString("yyyy-MM-dd"), toDate: mf.ToDtp.Value.ToString("yyyy-MM-dd"));
+            dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
+            if (mf.MainDgv.RowCount > 0) mf.MainDgv.CurrentCell.Selected = false;
+
+            dgv.GridColor(mf.MainDgv);
         }
     }
 }

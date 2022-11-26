@@ -100,6 +100,7 @@ namespace LMS {
             foreach (var lbl in mainLabels.Select((name, index) => (name, index))) {
                 lbl.name.Text = fn.GetNumberOf(name: names[lbl.index]).ToString();
             }
+
             FNameLbl.Text = Properties.Settings.Default.fname;
             UsernameLbl.Text = Properties.Settings.Default.username;
         }
@@ -394,7 +395,7 @@ namespace LMS {
                     publisherForm.ShowDialog();
                     break;
                 case "PENDING LIST":
-                    SecondForm pendingForm = new SecondForm(form: new MainForm(), title: "Pending List");
+                    SecondForm pendingForm = new SecondForm(form: this, title: "Pending List");
                     pendingForm.ShowDialog();
                     break;
             }
@@ -431,7 +432,7 @@ namespace LMS {
             ToLbl.Visible = isVisible;
 
             // Changing Mainage Books DateTimePicker values
-            FromDtp.Value = DateTime.Now;
+            FromDtp.Value = DateTime.Now.AddDays(-30);
             ToDtp.Value = DateTime.Now;
         }
 
