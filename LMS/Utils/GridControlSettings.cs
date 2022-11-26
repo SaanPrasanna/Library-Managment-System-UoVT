@@ -44,7 +44,7 @@ namespace LMS.Utils {
                     query = "SELECT m.mid AS 'Borrow Reference', CONCAT(m.fname, ' ', m.lname) AS 'Full Name', count(*) AS 'Number of Books' FROM borrow_books AS bb, members as m WHERE bb.mid = m.mid AND bb.status = 'Pending'" + ((searchQuery != string.Empty) ? " AND CONCAT(m.fname, ' ', m.lname) LIKE '%" + searchQuery + "%' " : " ") + "GROUP BY m.mid, fname, lname;";
                     break;
                 case "Pending Books":
-                    query = "SELECT bb.refno AS 'Ref No', bb.ISBN, b.Title, bb.issue_date AS 'Issued Date', bb.due_date AS 'Due Date' FROM borrow_books AS bb, members AS m, books AS b WHERE bb.isbn = b.isbn AND bb.mid = m.mid AND m.mid = '" + searchQuery2 + "'" + ((searchQuery != string.Empty) ? " AND b.title LIKE '%" + searchQuery + "%'" : ";");
+                    query = "SELECT bb.refno AS 'Ref No', bb.ISBN, b.Title, bb.issue_date AS 'Issued Date', bb.due_date AS 'Due Date' FROM borrow_books AS bb, members AS m, books AS b WHERE bb.isbn = b.isbn AND bb.mid = m.mid AND bb.status = 'Pending'  AND m.mid = '" + searchQuery2 + "'" + ((searchQuery != string.Empty) ? " AND b.title LIKE '%" + searchQuery + "%'" : ";");
                     Console.WriteLine(query);
                     break;
                 default:

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
+using System.Runtime.InteropServices;
 
 namespace LMS.Utils {
     class Functions {
@@ -50,7 +51,7 @@ namespace LMS.Utils {
             }
         }
 
-        public int GetNumberOf(string name) {
+        public int GetNumberOf(string name, [Optional] string value) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
@@ -76,6 +77,9 @@ namespace LMS.Utils {
                         break;
                     case "Issued Books":
                         query = "SELECT COUNT(*) FROM borrow_books;";
+                        break;
+                    case "Specified Book":
+                        query = "SELECT quantity FROM books WHERE isbn = " + value + ";";
                         break;
                 }
                 SqlCommand cmd = new SqlCommand(query, conn);
