@@ -294,7 +294,7 @@ namespace LMS {
             this.SecondDgv.ThemeStyle.RowsStyle.Height = 50;
             this.SecondDgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.SecondDgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.SecondDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PublishersDgv_CellContentClick);
+            this.SecondDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SecoundDgv_CellContentClick);
             // 
             // guna2Elipse1
             // 

@@ -23,7 +23,6 @@ namespace LMS {
 
         public SecondForm(MainForm form, string title) {
             InitializeComponent();
-
             this.mf = form;
             this.title = title;
             InitialForm();
@@ -37,18 +36,7 @@ namespace LMS {
 
             if (title == "Publishers") {
 
-                SecondDgv.Columns.Clear();
-                if (SecondDgv.ColumnCount == 0) {
-
-                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                    string[] names = { "Modify", "Remove" };
-
-                    dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
-
-                }
-                dgv.ShowGrid(dgv: SecondDgv, name: "Publishers");
-                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
+                Publishers();
 
                 TitleLbl.Text = "Publishers";
                 Title2Lbl.Text = "Total Publishers : " + fn.GetNumberOf(name: "Publishers").ToString();
@@ -56,29 +44,24 @@ namespace LMS {
 
             } else if (title == "Pending List") {
 
-                SecondDgv.Columns.Clear();
-                if (SecondDgv.ColumnCount == 0) {
-
-                    Color[] backColors = { Color.FromArgb(77, 200, 86) };
-                    Color[] selectColors = { Color.FromArgb(98, 222, 107) };
-                    string[] names = { "Select Member" };
-
-                    dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
-
-                }
-                dgv.ShowGrid(dgv: SecondDgv, name: "Pending Members", searchQuery: SearchTb.Text);
-                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 200 });
+                PendingList();
 
                 TitleLbl.Text = title;
                 Title2Lbl.Text = "Total Pending Books : " + fn.GetNumberOf(name: "Pending Books").ToString();
                 ActionBtn.Visible = false;
-
             }
         }
 
-        private void PublishersDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+        protected override CreateParams CreateParams {
+            get {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
 
-            Functions fn = new Functions();
+        private void SecoundDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
             if (TitleLbl.Text == "Publishers") {
 
@@ -99,25 +82,12 @@ namespace LMS {
 
                 if (e.ColumnIndex == 0) {
 
-                    SecondDgv.Columns.Clear();
-                    if (SecondDgv.ColumnCount == 0) {
-
-                        Color[] backColors = { Color.FromArgb(94, 148, 255) };
-                        Color[] selectColors = { Color.FromArgb(120, 160, 255) };
-                        string[] names = { "Release" };
-
-                        dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
-
-                    }
-                    dgv.ShowGrid(dgv: SecondDgv, name: "Pending Books", searchQuery: SearchTb.Text, searchQuery2: this.mID);
-                    dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 110, 150, 200, 150, 150 });
+                    PendingBooks();
 
                     TitleLbl.Text = "Pending Books";
                     Title2Lbl.Text = name + "'s Book(s) : " + NOB.ToString();
-                    ActionBtn.Visible = true;
-                    ActionBtn.Text = "RELEASE ALL";
+                    ActionBtn.Text = "RELEASE";
                     SearchTb.Text = string.Empty;
-
                 }
 
             } else if (TitleLbl.Text == "Pending Books") {
@@ -125,12 +95,9 @@ namespace LMS {
                 string isbn = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
 
                 if (e.ColumnIndex == 0) {
-
                     BooksAcceptForm baf = new BooksAcceptForm(this, new string[] { refNo, isbn, mID, name, NOB.ToString() }); // 0 - RefNo, 1 - ISBN, 2 - MemberID
                     baf.ShowDialog();
-
                 }
-
             }
         }
 
@@ -140,68 +107,19 @@ namespace LMS {
             if (ActionBtn.Text == "ADD PUBLISHER") {
                 PublishersActionsForm publisherForm = new PublishersActionsForm(form: this, title: "Add Publisher", fn.GetID(name: "Publisher"));
                 publisherForm.ShowDialog();
-            } else if (ActionBtn.Text == "RELEASE ALL") {
             }
         }
 
         private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
 
-            GridControlSettings dgv = new GridControlSettings();
-
             if (ActionBtn.Text == "ADD PUBLISHER") {
-
-                SecondDgv.Columns.Clear();
-                if (SecondDgv.ColumnCount == 0) {
-
-                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                    string[] names = { "Modify", "Remove" };
-
-                    dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                    //dgv.GridButtons(dgv: SecondDgv);
-                }
-                dgv.ShowGrid(dgv: SecondDgv, name: "Publishers", searchQuery: SearchTb.Text);
-                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
-
+                Publishers();
             } else if (TitleLbl.Text == "Pending List") {
-
-                SecondDgv.Columns.Clear();
-                if (SecondDgv.ColumnCount == 0) {
-
-                    Color[] backColors = { Color.FromArgb(77, 200, 86) };
-                    Color[] selectColors = { Color.FromArgb(98, 222, 107) };
-                    string[] names = { "Select Member" };
-
-                    dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
-
-                }
-                dgv.ShowGrid(dgv: SecondDgv, name: "Pending Members", searchQuery: SearchTb.Text);
-                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 200 });
-
+                PendingList();
             } else if (TitleLbl.Text == "Pending Books") {
-                SecondDgv.Columns.Clear();
-                if (SecondDgv.ColumnCount == 0) {
-
-                    Color[] backColors = { Color.FromArgb(94, 148, 255) };
-                    Color[] selectColors = { Color.FromArgb(120, 160, 255) };
-                    string[] names = { "Release" };
-
-                    dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
-
-                }
-                dgv.ShowGrid(dgv: SecondDgv, name: "Pending Books", searchQuery: SearchTb.Text, searchQuery2: this.mID);
-                dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 110, 150, 200, 150, 150 });
+                PendingBooks();
             }
 
-        }
-
-        protected override CreateParams CreateParams {
-            get {
-                const int CS_DROPSHADOW = 0x20000;
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
         }
 
         private void CloseBtn_Click(object sender, EventArgs e) {
@@ -210,29 +128,70 @@ namespace LMS {
 
         private void PublishersForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
-                if (ActionBtn.Text == "RELEASE ALL" && ActionBtn.Visible == true) {
-                    SecondDgv.Columns.Clear();
-                    if (SecondDgv.ColumnCount == 0) {
+                if (ActionBtn.Text == "RELEASE") {
 
-                        Color[] backColors = { Color.FromArgb(77, 200, 86) };
-                        Color[] selectColors = { Color.FromArgb(98, 222, 107) };
-                        string[] names = { "Select Member" };
-
-                        dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
-
-                    }
-                    dgv.ShowGrid(dgv: SecondDgv, name: "Pending Members", searchQuery: SearchTb.Text);
-                    dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 200 });
+                    PendingList();
 
                     TitleLbl.Text = title;
                     Title2Lbl.Text = "Total Pending Books : " + fn.GetNumberOf(name: "Pending Books").ToString();
-                    ActionBtn.Visible = false;
+                    ActionBtn.Text = "SAMPLE TEXT";
                     SearchTb.Text = string.Empty;
 
                 } else {
                     this.Close();
                 }
             }
+        }
+
+        public void PendingBooks() {
+
+            SecondDgv.Columns.Clear();
+            if (SecondDgv.ColumnCount == 0) {
+
+                Color[] backColors = { Color.FromArgb(94, 148, 255) };
+                Color[] selectColors = { Color.FromArgb(120, 160, 255) };
+                string[] names = { "Release" };
+
+                dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+
+            }
+
+            dgv.ShowGrid(dgv: SecondDgv, name: "Pending Books", searchQuery: SearchTb.Text, searchQuery2: this.mID);
+            dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 110, 150, 200, 150, 150 });
+        }
+
+        public void PendingList() {
+
+            SecondDgv.Columns.Clear();
+            if (SecondDgv.ColumnCount == 0) {
+
+                Color[] backColors = { Color.FromArgb(77, 200, 86) };
+                Color[] selectColors = { Color.FromArgb(98, 222, 107) };
+                string[] names = { "Select Member" };
+
+                dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+
+            }
+
+            dgv.ShowGrid(dgv: SecondDgv, name: "Pending Members", searchQuery: SearchTb.Text);
+            dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 200 });
+        }
+
+        public void Publishers() {
+
+            SecondDgv.Columns.Clear();
+            if (SecondDgv.ColumnCount == 0) {
+
+                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                string[] names = { "Modify", "Remove" };
+
+                dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+
+            }
+
+            dgv.ShowGrid(dgv: SecondDgv, name: "Publishers");
+            dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
         }
     }
 }
