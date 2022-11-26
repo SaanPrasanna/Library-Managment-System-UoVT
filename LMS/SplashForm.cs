@@ -33,8 +33,8 @@ namespace LMS {
             if (ProgressBar.Value == 102) {
                 timer1.Stop();
                 MainForm mainForm = new MainForm();
-                //mainForm.Show();
-                //this.Close();
+                mainForm.Show();
+                this.Close();
             }
         }
     }
