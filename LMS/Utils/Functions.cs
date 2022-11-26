@@ -187,5 +187,31 @@ namespace LMS.Utils {
             return 0;
 
         }
+
+        public DateTime GetDueDate(string refNo, string isbn, string mID) {
+
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+
+            try {
+
+
+                string query = "SELECT due_date FROM borrow_books WHERE refno = @refNo AND mid = @mid AND isbn = @isbn;";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add("@refNo", SqlDbType.VarChar, 12).Value = refNo;
+                cmd.Parameters.Add("@mid", SqlDbType.VarChar, 6).Value = mID;
+                cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+
+                return (DateTime)cmd.ExecuteScalar();
+
+            } catch (Exception e) {
+                Console.WriteLine("Error: " + e.ToString());
+            } finally {
+                conn.Close();
+                conn.Dispose();
+                Console.ReadLine();
+            }
+            return DateTime.Now;
+        }
     }
 }
