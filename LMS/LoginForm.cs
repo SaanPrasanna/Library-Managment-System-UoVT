@@ -52,7 +52,7 @@ namespace LMS {
                         MessageBox.Show("Access Denied!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 } else {
-                    MessageBox.Show("Username and Password can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Username or Password can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             } catch (Exception ex) {
                 MessageBox.Show("Internal Error!\nError: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -90,8 +90,6 @@ namespace LMS {
                                 sf.ActionBtn.Visible = false;
                             }
 
-
-
                             MessageBox.Show("Book Released!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
 
