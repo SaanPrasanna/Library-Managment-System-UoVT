@@ -29,8 +29,6 @@ namespace LMS {
         }
 
         private void InitialForm() {
-
-
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
             SearchTb.PlaceholderText = "Search By Name";
 
@@ -54,13 +52,13 @@ namespace LMS {
 
         protected override CreateParams CreateParams {
             get {
-                const int CS_DROPSHADOW = 0x20000;
+                const int CS_DROPSHADOW = 0x00020000;
                 CreateParams cp = base.CreateParams;
                 cp.ClassStyle |= CS_DROPSHADOW;
                 return cp;
             }
         }
-
+        
         private void SecoundDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
             if (TitleLbl.Text == "Publishers") {
