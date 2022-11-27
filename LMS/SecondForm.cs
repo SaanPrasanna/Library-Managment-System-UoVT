@@ -16,16 +16,28 @@ namespace LMS {
     public partial class SecondForm : Form {
 
         MainForm mf;
+        BorrowBooksForm bbf;
         private string title, name, mID;
         public int NOB;
         readonly Functions fn = new Functions();
         readonly GridControlSettings dgv = new GridControlSettings();
 
-        public SecondForm(MainForm form, string title) {
+        public SecondForm([Optional] MainForm form, [Optional] BorrowBooksForm bbf, [Optional] string title) {
             InitializeComponent();
             this.mf = form;
+            this.bbf = bbf;
             this.title = title;
+            Console.WriteLine(title);
             InitialForm();
+        }
+
+        protected override CreateParams CreateParams {
+            get {
+                const int CS_DROPSHADOW = 0x00020000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
         }
 
         private void InitialForm() {
@@ -47,15 +59,20 @@ namespace LMS {
                 TitleLbl.Text = title;
                 Title2Lbl.Text = "Total Pending Books : " + fn.GetNumberOf(name: "Pending Books").ToString();
                 ActionBtn.Visible = false;
-            }
-        }
+            } else if (title == "Choose Member") {
 
-        protected override CreateParams CreateParams {
-            get {
-                const int CS_DROPSHADOW = 0x00020000;
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
+                Members();
+
+                TitleLbl.Text = title;
+                Title2Lbl.Text = "Total Members : " + fn.GetNumberOf(name: "Members").ToString();
+                ActionBtn.Visible = false;
+            } else if (title == "Choose Book") {
+
+                Books();
+
+                TitleLbl.Text = title;
+                Title2Lbl.Text = "Total Books : " + fn.GetNumberOf(name: "Books").ToString();
+                ActionBtn.Visible = false;
             }
         }
 
@@ -125,6 +142,16 @@ namespace LMS {
                         }
                     }
                 }
+            } else if (title == "Books") {
+
+            } else if (title == "Choose Member") {
+                if (e.ColumnIndex == 0) {
+
+                    bbf.MemberIDLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    bbf.MemberNameLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    SearchTb.Text = string.Empty;
+                    this.Close();
+                }
             }
         }
 
@@ -145,6 +172,8 @@ namespace LMS {
                 PendingList();
             } else if (TitleLbl.Text == "Pending Books") {
                 PendingBooks();
+            }else if(title == "Choose Member") {
+                Members();
             }
 
         }
@@ -156,7 +185,12 @@ namespace LMS {
         private void PublishersForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
 
-                MainGridRefresh();
+                if (mf != null) {
+                    MainGridRefresh();
+                } else {
+                    BorrowGridRefresh();
+                }
+
                 if (ActionBtn.Text == "RELEASE") {
 
                     PendingList();
@@ -223,6 +257,40 @@ namespace LMS {
             dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
         }
 
+        public void Members() {
+
+            SecondDgv.Columns.Clear();
+            if (SecondDgv.ColumnCount == 0) {
+
+                Color[] backColors = { Color.FromArgb(77, 200, 86) };
+                Color[] selectColors = { Color.FromArgb(98, 222, 107) };
+                string[] names = { "Select Member" };
+
+                dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+
+            }
+
+            dgv.ShowGrid(dgv: SecondDgv, name: "Choose Member", searchQuery: SearchTb.Text);
+            dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 200 });
+        }
+
+        public void Books() {
+
+            SecondDgv.Columns.Clear();
+            if (SecondDgv.ColumnCount == 0) {
+
+                Color[] backColors = { Color.FromArgb(77, 200, 86) };
+                Color[] selectColors = { Color.FromArgb(98, 222, 107) };
+                string[] names = { "Choose Book" };
+
+                dgv.GridButtons(dgv: SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+
+            }
+
+            dgv.ShowGrid(dgv: SecondDgv, name: "Pending Members", searchQuery: SearchTb.Text);
+            dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 200 });
+        }
+
         public void MainGridRefresh() {
 
             Title2Lbl.Text = "Total Pending Books: " + fn.GetNumberOf(name: "Pending Books");
@@ -234,6 +302,22 @@ namespace LMS {
             if (mf.MainDgv.RowCount > 0) mf.MainDgv.CurrentCell.Selected = false;
 
             dgv.GridColor(mf.MainDgv);
+        }
+
+        public void BorrowGridRefresh() {
+            bbf.BorrowDgv.Columns.Clear();
+            if (bbf.BorrowDgv.ColumnCount == 0) {
+                Color[] backColors = { Color.FromArgb(253, 98, 91) };
+                Color[] selectColors = { Color.FromArgb(230, 98, 91) };
+                string[] names = { "Remove" };
+
+                dgv.GridButtons(dgv: bbf.BorrowDgv, names: names, backColors: backColors, selectionColors: selectColors);
+            }
+            dgv.ShowGrid(dgv: bbf.BorrowDgv, name: "Borrow Checkout");
+            dgv.GridWidth(dgv: bbf.BorrowDgv, widths: new int[] { 0, 150, 250, 250, 250 });
+
+            bbf.BorrowIDLbl.Text = "BORROW ID: " + fn.GetID("Books Borrows");
+            bbf.DueDateLbl.Text = "DUE DATE: " + DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change
         }
     }
 }
