@@ -47,6 +47,15 @@ namespace LMS.Utils {
                     query = "SELECT bb.refno AS 'Ref No', bb.ISBN, b.Title, bb.issue_date AS 'Issued Date', bb.due_date AS 'Due Date' FROM borrow_books AS bb, members AS m, books AS b WHERE bb.isbn = b.isbn AND bb.mid = m.mid AND bb.status = 'Pending'  AND m.mid = '" + searchQuery2 + "'" + ((searchQuery != string.Empty) ? " AND b.title LIKE '%" + searchQuery + "%'" : ";");
                     Console.WriteLine(query);
                     break;
+                case "Borrow Checkout":
+                    query = "SELECT b.isbn AS 'ISBN Number', b.title AS 'Book Title', b.author AS Author, p.name AS Publisher FROM books AS b, borrow_temp As bt, publishers AS p WHERE b.isbn = bt.isbn AND b.pid = p.pid;";
+                    break;
+                case "Choose Member":
+                    query = "SELECT mid AS 'Member ID', CONCAT(fname, ' ', lname) AS 'Full Name', Category AS 'Account Type' FROM members WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND  CONCAT(fname, ' ', lname) LIKE '%" + searchQuery + "%';" : ";");
+                    break;
+                case "Choose Book":
+                    query = "SELECT ISBN, Title, Author, publishers.name AS Publisher FROM books, publishers  WHERE books.pid = publishers.pid AND books.is_removed = 0" + ((searchQuery != string.Empty) ? " AND books.title LIKE '%" + searchQuery + "%';" : ";");
+                    break;
                 default:
                     Console.WriteLine("Please double check Grid Name!");
                     break;
