@@ -71,5 +71,10 @@ namespace LMS {
             SecondForm sf = new SecondForm(bbf: this, title: "Choose Member");
             sf.ShowDialog();
         }
+
+        private void BooksBtn_Click(object sender, EventArgs e) {
+            SecondForm sf = new SecondForm(bbf: this, title: "Choose Books");
+            sf.ShowDialog();
+        }
     }
 }

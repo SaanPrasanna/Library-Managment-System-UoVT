@@ -142,12 +142,18 @@ namespace LMS {
                         }
                     }
                 }
-            } else if (title == "Books") {
-
-            } else if (title == "Choose Member") {
+            } else if (title == "Choose Books") {
                 if (e.ColumnIndex == 0) {
 
                     bbf.MemberIDLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    bbf.MemberNameLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    SearchTb.Text = string.Empty;
+                    this.Close();
+                }
+            } else if (title == "Choose Member") {
+                string isbn = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                if (e.ColumnIndex == 0) {
+
                     bbf.MemberNameLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
                     SearchTb.Text = string.Empty;
                     this.Close();
@@ -172,8 +178,10 @@ namespace LMS {
                 PendingList();
             } else if (TitleLbl.Text == "Pending Books") {
                 PendingBooks();
-            }else if(title == "Choose Member") {
+            } else if (title == "Choose Member") {
                 Members();
+            } else if (title == "Choose Books") {
+                Books();
             }
 
         }
@@ -206,6 +214,7 @@ namespace LMS {
             }
         }
 
+        #region Grid Methods
         public void PendingBooks() {
 
             SecondDgv.Columns.Clear();
@@ -319,5 +328,6 @@ namespace LMS {
             bbf.BorrowIDLbl.Text = "BORROW ID: " + fn.GetID("Books Borrows");
             bbf.DueDateLbl.Text = "DUE DATE: " + DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change
         }
+        #endregion Grid Methods
     }
 }

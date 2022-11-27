@@ -36,8 +36,12 @@ namespace LMS {
             this.MinimizeBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.MainPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.BorrowDgv = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.MainPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.MemberNameLbl = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.MemberIDLbl = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
             this.BorrowBtn = new Guna.UI2.WinForms.Guna2TileButton();
@@ -52,14 +56,10 @@ namespace LMS {
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.DueDateLbl = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.BorrowIDLbl = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.MemberIDLbl = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.MemberNameLbl = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
-            this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowDgv)).BeginInit();
+            this.MainPanel.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
@@ -154,28 +154,6 @@ namespace LMS {
             this.guna2Elipse2.BorderRadius = 15;
             this.guna2Elipse2.TargetControl = this.BorrowDgv;
             // 
-            // MainPanel
-            // 
-            this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MainPanel.BackColor = System.Drawing.Color.Transparent;
-            this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.MainPanel.Controls.Add(this.MemberNameLbl);
-            this.MainPanel.Controls.Add(this.MemberIDLbl);
-            this.MainPanel.Controls.Add(this.BorrowDgv);
-            this.MainPanel.Controls.Add(this.bunifuCustomLabel2);
-            this.MainPanel.Controls.Add(this.bunifuCustomLabel1);
-            this.MainPanel.FillColor = System.Drawing.Color.White;
-            this.MainPanel.Location = new System.Drawing.Point(0, 68);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Radius = 10;
-            this.MainPanel.ShadowColor = System.Drawing.Color.Black;
-            this.MainPanel.ShadowDepth = 15;
-            this.MainPanel.ShadowShift = 10;
-            this.MainPanel.Size = new System.Drawing.Size(1181, 721);
-            this.MainPanel.TabIndex = 5;
-            // 
             // BorrowDgv
             // 
             this.BorrowDgv.AllowUserToAddRows = false;
@@ -255,6 +233,70 @@ namespace LMS {
             this.BorrowDgv.ThemeStyle.RowsStyle.Height = 50;
             this.BorrowDgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.BorrowDgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainPanel.BackColor = System.Drawing.Color.Transparent;
+            this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MainPanel.Controls.Add(this.MemberNameLbl);
+            this.MainPanel.Controls.Add(this.MemberIDLbl);
+            this.MainPanel.Controls.Add(this.BorrowDgv);
+            this.MainPanel.Controls.Add(this.bunifuCustomLabel2);
+            this.MainPanel.Controls.Add(this.bunifuCustomLabel1);
+            this.MainPanel.FillColor = System.Drawing.Color.White;
+            this.MainPanel.Location = new System.Drawing.Point(0, 68);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Radius = 10;
+            this.MainPanel.ShadowColor = System.Drawing.Color.Black;
+            this.MainPanel.ShadowDepth = 15;
+            this.MainPanel.ShadowShift = 10;
+            this.MainPanel.Size = new System.Drawing.Size(1181, 721);
+            this.MainPanel.TabIndex = 5;
+            // 
+            // MemberNameLbl
+            // 
+            this.MemberNameLbl.AutoSize = true;
+            this.MemberNameLbl.Font = new System.Drawing.Font("Noto Serif Sinhala", 19.96039F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MemberNameLbl.ForeColor = System.Drawing.Color.Black;
+            this.MemberNameLbl.Location = new System.Drawing.Point(705, 29);
+            this.MemberNameLbl.Name = "MemberNameLbl";
+            this.MemberNameLbl.Size = new System.Drawing.Size(0, 37);
+            this.MemberNameLbl.TabIndex = 11;
+            // 
+            // MemberIDLbl
+            // 
+            this.MemberIDLbl.AutoSize = true;
+            this.MemberIDLbl.Font = new System.Drawing.Font("Noto Serif Sinhala", 19.96039F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MemberIDLbl.ForeColor = System.Drawing.Color.Black;
+            this.MemberIDLbl.Location = new System.Drawing.Point(212, 29);
+            this.MemberIDLbl.Name = "MemberIDLbl";
+            this.MemberIDLbl.Size = new System.Drawing.Size(0, 37);
+            this.MemberIDLbl.TabIndex = 11;
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(467, 29);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(234, 32);
+            this.bunifuCustomLabel2.TabIndex = 11;
+            this.bunifuCustomLabel2.Text = "MEMBER NAME:";
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(29, 29);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(180, 32);
+            this.bunifuCustomLabel1.TabIndex = 11;
+            this.bunifuCustomLabel1.Text = "MEMBER ID:";
             // 
             // guna2ShadowPanel1
             // 
@@ -337,6 +379,7 @@ namespace LMS {
             this.BooksBtn.Size = new System.Drawing.Size(180, 180);
             this.BooksBtn.TabIndex = 1;
             this.BooksBtn.Text = "Books";
+            this.BooksBtn.Click += new System.EventHandler(this.BooksBtn_Click);
             // 
             // ClearAllBtn
             // 
@@ -501,48 +544,6 @@ namespace LMS {
             this.BorrowIDLbl.TabIndex = 11;
             this.BorrowIDLbl.Text = "BORROW ID";
             // 
-            // bunifuCustomLabel1
-            // 
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(29, 29);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(180, 32);
-            this.bunifuCustomLabel1.TabIndex = 11;
-            this.bunifuCustomLabel1.Text = "MEMBER ID:";
-            // 
-            // MemberIDLbl
-            // 
-            this.MemberIDLbl.AutoSize = true;
-            this.MemberIDLbl.Font = new System.Drawing.Font("Noto Serif Sinhala", 19.96039F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MemberIDLbl.ForeColor = System.Drawing.Color.Black;
-            this.MemberIDLbl.Location = new System.Drawing.Point(212, 29);
-            this.MemberIDLbl.Name = "MemberIDLbl";
-            this.MemberIDLbl.Size = new System.Drawing.Size(0, 37);
-            this.MemberIDLbl.TabIndex = 11;
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(467, 29);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(234, 32);
-            this.bunifuCustomLabel2.TabIndex = 11;
-            this.bunifuCustomLabel2.Text = "MEMBER NAME:";
-            // 
-            // MemberNameLbl
-            // 
-            this.MemberNameLbl.AutoSize = true;
-            this.MemberNameLbl.Font = new System.Drawing.Font("Noto Serif Sinhala", 19.96039F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MemberNameLbl.ForeColor = System.Drawing.Color.Black;
-            this.MemberNameLbl.Location = new System.Drawing.Point(705, 29);
-            this.MemberNameLbl.Name = "MemberNameLbl";
-            this.MemberNameLbl.Size = new System.Drawing.Size(0, 37);
-            this.MemberNameLbl.TabIndex = 11;
-            // 
             // BorrowBooksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,9 +562,9 @@ namespace LMS {
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BorrowDgv)).EndInit();
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BorrowDgv)).EndInit();
             this.guna2ShadowPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
             this.guna2GroupBox1.ResumeLayout(false);
