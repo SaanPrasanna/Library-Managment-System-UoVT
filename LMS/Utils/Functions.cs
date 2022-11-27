@@ -254,14 +254,17 @@ namespace LMS.Utils {
             conn.Open();
 
             try {
-                string query = "SELECT bb.due_date, mc.fine FROM borrow_books AS bb, member_category AS mc, members AS m, books AS b WHERE  bb.mid = m.mid AND bb.isbn = b.isbn AND m.category = mc.category AND bb.refno = @refNo AND b.isbn = @isbn;";
-
+                string query = "SELECT COUNT(*) FROM borrow_temp WHERE is_removed = '0' AND isbn = @isbn";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
-                return true;
+                if ((int)cmd.ExecuteScalar() > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
 
             } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.ToString());
+                Console.WriteLine("Error: || ISAlreadyAdd || \n" + ex.ToString());
             } finally {
                 conn.Close();
                 conn.Dispose();
