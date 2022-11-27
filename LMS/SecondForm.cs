@@ -157,33 +157,37 @@ namespace LMS {
             } else if (title == "Choose Books") {
                 string isbn = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
                 if (e.ColumnIndex == 0) {
-                    SqlConnection conn = DBUtils.GetDBConnection();
-                    conn.Open();
-                    try {
+                    if (!fn.IsAlreadyAdd(isbn)) {
+                        SqlConnection conn = DBUtils.GetDBConnection();
+                        conn.Open();
+                        try {
 
-                        string query = "INSERT INTO borrow_temp VALUES(@id, @isbn, @mid, '0');";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(fn.GetID("Temp"));
-                        cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
-                        cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = bbf.MemberIDLbl.Text;
-                        if (cmd.ExecuteNonQuery() > 0) {
-                            bbf.BorrowBtn.Enabled = true;
+                            string query = "INSERT INTO borrow_temp VALUES(@id, @isbn, @mid, '0');";
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(fn.GetID("Temp"));
+                            cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+                            cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = bbf.MemberIDLbl.Text;
+                            if (cmd.ExecuteNonQuery() > 0) {
+                                bbf.BorrowBtn.Enabled = true;
+                            }
+
+                        } catch (Exception ex) {
+                            Console.WriteLine("Error: || Choose Memeber || \n" + ex.ToString());
+                        } finally {
+                            conn.Close();
+                            conn.Dispose();
                         }
+                        BorrowGridRefresh();
 
-                    } catch (Exception ex) {
-                        Console.WriteLine("Error: || Choose Memeber || \n" + ex.ToString());
-                    } finally {
-                        conn.Close();
-                        conn.Dispose();
-                    }
-                    BorrowGridRefresh();
+                        if (fn.GetNumberOf("Temp Books") >= 2) { // TODO: Properties.Settings.Default.NOB | Maximum number of books
 
-                    if (fn.GetNumberOf("Temp Books") >= 2) { // TODO: Properties.Settings.Default.NOB | Maximum number of books
-                        
-                        SearchTb.Text = string.Empty;
-                        bbf.BooksBtn.Enabled = false;
+                            SearchTb.Text = string.Empty;
+                            bbf.BooksBtn.Enabled = false;
 
-                        this.Close();
+                            this.Close();
+                        }
+                    } else {
+                        // TODO: Message
                     }
                 }
             }
