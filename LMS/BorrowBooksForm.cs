@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 
 namespace LMS {
     public partial class BorrowBooksForm : Form {
 
         readonly Functions fn = new Functions();
-        readonly SqlConnection conn = DBUtils.GetDBConnection();
         GridControlSettings dgv = new GridControlSettings();
 
         public BorrowBooksForm() {
@@ -35,21 +35,11 @@ namespace LMS {
 
         private void NewBorrowBtn_Click(object sender, EventArgs e) {
             if (MessageBox.Show("Do you want to clear? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                try {
-                    conn.Open();
-                    string query = "DELETE FROM borrow_temp;";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.ExecuteNonQuery();
-                } catch (Exception ex) {
-                    Console.WriteLine("Error: " + ex.ToString());
-                } finally {
-                    conn.Close();
-                    conn.Dispose();
-                }
+                ClearGrid();
             }
         }
 
-        public void InitialLoad() {
+        public void InitialLoad([Optional] string condition) {
 
             // Loading DataGridView
             BorrowDgv.Columns.Clear();
@@ -63,8 +53,10 @@ namespace LMS {
             dgv.ShowGrid(dgv: BorrowDgv, name: "Borrow Checkout");
             dgv.GridWidth(dgv: BorrowDgv, widths: new int[] { 0, 150, 250, 250, 250 });
 
-            BorrowIDLbl.Text = "BORROW ID: " + fn.GetID("Books Borrows");
-            DueDateLbl.Text = "DUE DATE: " + DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change
+            if (condition == "partial") {
+                BorrowIDLbl.Text = "BORROW ID: " + fn.GetID("Books Borrows");
+                DueDateLbl.Text = "DUE DATE: " + DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change
+            }
         }
 
         private void MemberBtn_Click(object sender, EventArgs e) {
@@ -75,6 +67,51 @@ namespace LMS {
         private void BooksBtn_Click(object sender, EventArgs e) {
             SecondForm sf = new SecondForm(bbf: this, title: "Choose Books");
             sf.ShowDialog();
+        }
+
+        private void BorrowDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+            string isbn = BorrowDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+            if (e.ColumnIndex == 0) {
+                SqlConnection conn = DBUtils.GetDBConnection();
+                conn.Open();
+                try {
+                    string query = "UPDATE borrow_temp SET is_removed = '1' WHERE isbn = @isbn;";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+
+                    if (cmd.ExecuteNonQuery() > 0) {
+                        BooksBtn.Enabled = true;
+                        InitialLoad(condition: "partial");
+                    }
+
+
+                } catch (Exception ex) {
+                    Console.WriteLine("Error: || Borrow Books Remove ||\n" + ex.ToString());
+                } finally {
+                    conn.Close();
+                    conn.Dispose();
+                }
+            }
+        }
+
+        public void ClearGrid() {
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+            try {
+                string query = "DELETE FROM borrow_temp;";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                if (cmd.ExecuteNonQuery() > 0) {
+                    InitialLoad();
+                }
+
+            } catch (Exception ex) {
+                Console.WriteLine("Error: || Delete Borrow Temp ||\n" + ex.ToString());
+            } finally {
+                conn.Close();
+                conn.Dispose();
+            }
         }
     }
 }

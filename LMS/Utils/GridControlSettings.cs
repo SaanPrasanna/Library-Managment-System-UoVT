@@ -48,7 +48,7 @@ namespace LMS.Utils {
                     Console.WriteLine(query);
                     break;
                 case "Borrow Checkout":
-                    query = "SELECT b.isbn AS 'ISBN Number', b.title AS 'Book Title', b.author AS Author, p.name AS Publisher FROM books AS b, borrow_temp As bt, publishers AS p WHERE b.isbn = bt.isbn AND b.pid = p.pid;";
+                    query = "SELECT b.isbn AS 'ISBN Number', b.title AS 'Book Title', b.author AS Author, p.name AS Publisher FROM books AS b, borrow_temp As bt, publishers AS p WHERE b.isbn = bt.isbn AND b.pid = p.pid AND bt.is_removed = 0;";
                     break;
                 case "Choose Member":
                     query = "SELECT mid AS 'Member ID', CONCAT(fname, ' ', lname) AS 'Full Name', Category AS 'Account Type' FROM members WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND  CONCAT(fname, ' ', lname) LIKE '%" + searchQuery + "%';" : ";");

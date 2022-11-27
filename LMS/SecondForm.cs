@@ -66,7 +66,7 @@ namespace LMS {
                 TitleLbl.Text = title;
                 Title2Lbl.Text = "Total Members : " + fn.GetNumberOf(name: "Members").ToString();
                 ActionBtn.Visible = false;
-            } else if (title == "Choose Book") {
+            } else if (title == "Choose Books") {
 
                 Books();
 
@@ -75,7 +75,7 @@ namespace LMS {
                 ActionBtn.Visible = false;
             }
         }
-
+        #region Environment Change
         private void SecoundDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
             if (TitleLbl.Text == "Publishers") {
@@ -142,24 +142,53 @@ namespace LMS {
                         }
                     }
                 }
-            } else if (title == "Choose Books") {
+            } else if (title == "Choose Member") {
                 if (e.ColumnIndex == 0) {
 
                     bbf.MemberIDLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
                     bbf.MemberNameLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+
                     SearchTb.Text = string.Empty;
+                    bbf.MemberBtn.Enabled = false;
+                    bbf.BooksBtn.Enabled = true;
+
                     this.Close();
                 }
-            } else if (title == "Choose Member") {
+            } else if (title == "Choose Books") {
                 string isbn = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
                 if (e.ColumnIndex == 0) {
+                    SqlConnection conn = DBUtils.GetDBConnection();
+                    conn.Open();
+                    try {
 
-                    bbf.MemberNameLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    SearchTb.Text = string.Empty;
-                    this.Close();
+                        string query = "INSERT INTO borrow_temp VALUES(@id, @isbn, @mid, '0');";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(fn.GetID("Temp"));
+                        cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+                        cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = bbf.MemberIDLbl.Text;
+                        if (cmd.ExecuteNonQuery() > 0) {
+                            bbf.BorrowBtn.Enabled = true;
+                        }
+
+                    } catch (Exception ex) {
+                        Console.WriteLine("Error: || Choose Memeber || \n" + ex.ToString());
+                    } finally {
+                        conn.Close();
+                        conn.Dispose();
+                    }
+                    BorrowGridRefresh();
+
+                    if (fn.GetNumberOf("Temp Books") >= 2) { // TODO: Properties.Settings.Default.NOB | Maximum number of books
+                        
+                        SearchTb.Text = string.Empty;
+                        bbf.BooksBtn.Enabled = false;
+
+                        this.Close();
+                    }
                 }
             }
         }
+        #endregion Environment Change
 
         private void ActionBtn_Click(object sender, EventArgs e) {
 
@@ -183,7 +212,6 @@ namespace LMS {
             } else if (title == "Choose Books") {
                 Books();
             }
-
         }
 
         private void CloseBtn_Click(object sender, EventArgs e) {
@@ -296,8 +324,8 @@ namespace LMS {
 
             }
 
-            dgv.ShowGrid(dgv: SecondDgv, name: "Pending Members", searchQuery: SearchTb.Text);
-            dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 200 });
+            dgv.ShowGrid(dgv: SecondDgv, name: "Choose Book", searchQuery: SearchTb.Text);
+            dgv.GridWidth(dgv: SecondDgv, widths: new int[] { 0, 150, 200, 150, 150 });
         }
 
         public void MainGridRefresh() {

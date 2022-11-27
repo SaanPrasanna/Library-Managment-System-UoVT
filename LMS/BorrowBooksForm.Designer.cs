@@ -233,6 +233,7 @@ namespace LMS {
             this.BorrowDgv.ThemeStyle.RowsStyle.Height = 50;
             this.BorrowDgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.BorrowDgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.BorrowDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BorrowDgv_CellContentClick);
             // 
             // MainPanel
             // 
@@ -343,6 +344,7 @@ namespace LMS {
             this.BorrowBtn.CustomImages.ImageOffset = new System.Drawing.Point(10, -60);
             this.BorrowBtn.CustomImages.ImageSize = new System.Drawing.Size(23, 18);
             this.BorrowBtn.CustomImages.Parent = this.BorrowBtn;
+            this.BorrowBtn.Enabled = false;
             this.BorrowBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(181)))), ((int)(((byte)(74)))));
             this.BorrowBtn.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BorrowBtn.ForeColor = System.Drawing.Color.White;
@@ -366,6 +368,7 @@ namespace LMS {
             this.BooksBtn.CustomImages.ImageOffset = new System.Drawing.Point(10, -60);
             this.BooksBtn.CustomImages.ImageSize = new System.Drawing.Size(23, 18);
             this.BooksBtn.CustomImages.Parent = this.BooksBtn;
+            this.BooksBtn.Enabled = false;
             this.BooksBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(199)))));
             this.BooksBtn.Font = new System.Drawing.Font("Proxima Nova Rg", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BooksBtn.ForeColor = System.Drawing.Color.White;
@@ -390,6 +393,7 @@ namespace LMS {
             this.ClearAllBtn.CustomImages.ImageOffset = new System.Drawing.Point(10, -60);
             this.ClearAllBtn.CustomImages.ImageSize = new System.Drawing.Size(23, 18);
             this.ClearAllBtn.CustomImages.Parent = this.ClearAllBtn;
+            this.ClearAllBtn.Enabled = false;
             this.ClearAllBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(199)))));
             this.ClearAllBtn.Font = new System.Drawing.Font("Proxima Nova Rg", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearAllBtn.ForeColor = System.Drawing.Color.White;
@@ -587,17 +591,12 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox2;
-        private Guna.UI2.WinForms.Guna2TileButton BorrowBtn;
-        private Guna.UI2.WinForms.Guna2TileButton ClearAllBtn;
-        private Guna.UI2.WinForms.Guna2TileButton NewBorrowBtn;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel UsernameLbl;
         private Guna.UI2.WinForms.Guna2HtmlLabel FNameLbl;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2ShadowPanel MainPanel;
         public Guna.UI2.WinForms.Guna2DataGridView BorrowDgv;
-        private Guna.UI2.WinForms.Guna2TileButton BooksBtn;
-        private Guna.UI2.WinForms.Guna2TileButton MemberBtn;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel3;
         internal Bunifu.Framework.UI.BunifuCustomLabel DueDateLbl;
         internal Bunifu.Framework.UI.BunifuCustomLabel BorrowIDLbl;
@@ -605,5 +604,10 @@ namespace LMS {
         public Bunifu.Framework.UI.BunifuCustomLabel MemberIDLbl;
         public Bunifu.Framework.UI.BunifuCustomLabel MemberNameLbl;
         internal Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
+        public Guna.UI2.WinForms.Guna2TileButton BorrowBtn;
+        public Guna.UI2.WinForms.Guna2TileButton ClearAllBtn;
+        public Guna.UI2.WinForms.Guna2TileButton NewBorrowBtn;
+        public Guna.UI2.WinForms.Guna2TileButton BooksBtn;
+        public Guna.UI2.WinForms.Guna2TileButton MemberBtn;
     }
 }

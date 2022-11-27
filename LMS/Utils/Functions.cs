@@ -81,6 +81,9 @@ namespace LMS.Utils {
                     case "Specified Book":
                         query = "SELECT quantity FROM books WHERE isbn = " + value + ";";
                         break;
+                    case "Temp Books":
+                        query = "SELECT COUNT(*) FROM borrow_temp WHERE is_removed = 0;";
+                        break;
                 }
                 SqlCommand cmd = new SqlCommand(query, conn);
                 return (Int32)cmd.ExecuteScalar();
@@ -123,6 +126,9 @@ namespace LMS.Utils {
                     case "Books Borrows":
                         query = "SELECT COUNT(*) FROM borrow_books;";
                         prefix = "B";
+                        break;
+                    case "Temp":
+                        query = "SELECT COUNT(*) FROM borrow_temp";
                         break;
                     default:
                         Console.WriteLine("Please double check ID name!");
@@ -239,6 +245,31 @@ namespace LMS.Utils {
             }
 
             return null;
+        }
+
+        // TODO: Not Completed
+        public bool IsAlreadyAdd(string isbn) {
+
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+
+            try {
+                string query = "SELECT bb.due_date, mc.fine FROM borrow_books AS bb, member_category AS mc, members AS m, books AS b WHERE  bb.mid = m.mid AND bb.isbn = b.isbn AND m.category = mc.category AND bb.refno = @refNo AND b.isbn = @isbn;";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+                return true;
+
+            } catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.ToString());
+            } finally {
+                conn.Close();
+                conn.Dispose();
+                Console.ReadLine();
+            }
+
+            return false;
+
         }
     }
 }

@@ -13,7 +13,6 @@ namespace LMS {
 
         public ManageBooksForm(MainForm form) {
             InitializeComponent();
-
             this.mf = form;
             LoadGrid();
         }
