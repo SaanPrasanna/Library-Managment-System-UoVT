@@ -90,6 +90,12 @@
     <Compile Include="BooksActionsForm.Designer.cs">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BorrowBooksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowBooksForm.Designer.cs">
+      <DependentUpon>BorrowBooksForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChooseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BooksActionsForm.resx">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BorrowBooksForm.resx">
+      <DependentUpon>BorrowBooksForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChooseForm.resx">
       <DependentUpon>ChooseForm.cs</DependentUpon>

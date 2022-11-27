@@ -213,5 +213,32 @@ namespace LMS.Utils {
             }
             return DateTime.Now;
         }
+
+        public DataTable GetBooksNames() {
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+
+            string sql = "SELECT title FROM books";
+
+            try {
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataAdapter adupter = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                ds.Tables.Add(dt);
+                adupter.Fill(dt);
+                return dt;
+
+            } catch {
+
+            } finally {
+                conn.Close();
+                conn.Dispose();
+            }
+
+            return null;
+        }
     }
 }
