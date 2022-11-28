@@ -124,7 +124,7 @@ namespace LMS.Utils {
                         prefix = "R";
                         break;
                     case "Books Borrows":
-                        query = "SELECT COUNT(*) FROM borrow_books;";
+                        query = "SELECT COUNT(DISTINCT refno) FROM borrow_books;";
                         prefix = "B";
                         break;
                     case "Temp":
