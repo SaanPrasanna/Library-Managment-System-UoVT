@@ -346,6 +346,10 @@ namespace LMS {
                     ManageBooksForm manageBooksForm = new ManageBooksForm(form: this);
                     manageBooksForm.ShowDialog();
                     break;
+                case "NEW BORROW":
+                    BorrowBooksForm borrowBooksForm = new BorrowBooksForm();
+                    borrowBooksForm.Show();
+                    break;
             }
         }
 

@@ -124,10 +124,8 @@ namespace LMS {
 
         private void CloseBtn_Click(object sender, EventArgs e) {
             if (MessageBox.Show("Do you want to close?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                MainForm mainForm = new MainForm();
                 this.Hide();
                 this.Dispose();
-                mainForm.Show();
             }
         }
 
@@ -137,10 +135,8 @@ namespace LMS {
         private void BorrowBooksForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 if (MessageBox.Show("Do you want to close?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                    MainForm mainForm = new MainForm();
                     this.Hide();
                     this.Dispose();
-                    mainForm.Show();
                 }
             } else if (e.KeyCode == Keys.F1 && NewBorrowBtn.Enabled == true) {
                 NewBorrowBtn_Click(sender, e);
