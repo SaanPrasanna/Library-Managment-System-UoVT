@@ -375,8 +375,8 @@ namespace LMS {
             dgv.ShowGrid(dgv: bbf.BorrowDgv, name: "Borrow Checkout");
             dgv.GridWidth(dgv: bbf.BorrowDgv, widths: new int[] { 0, 150, 250, 250, 250 });
 
-            bbf.BorrowIDLbl.Text = "BORROW ID: " + fn.GetID("Books Borrows");
-            bbf.DueDateLbl.Text = "DUE DATE: " + DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change if want
+            bbf.BorrowIDLbl.Text = fn.GetID("Books Borrows");
+            bbf.DueDateLbl.Text = DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change if want
         }
         #endregion Grid Methods
     }
