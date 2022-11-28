@@ -27,7 +27,6 @@ namespace LMS {
             this.mf = form;
             this.bbf = bbf;
             this.title = title;
-            Console.WriteLine(title);
             InitialForm();
         }
 
@@ -158,36 +157,41 @@ namespace LMS {
                 string isbn = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
                 if (e.ColumnIndex == 0) {
                     if (!fn.IsAlreadyAdd(isbn)) {
-                        SqlConnection conn = DBUtils.GetDBConnection();
-                        conn.Open();
-                        try {
+                        if (Convert.ToInt32(SecondDgv.Rows[e.RowIndex].Cells[4].Value) > 0) {
+                            SqlConnection conn = DBUtils.GetDBConnection();
+                            conn.Open();
+                            try {
 
-                            string query = "INSERT INTO borrow_temp VALUES(@id, @isbn, @mid, '0');";
-                            SqlCommand cmd = new SqlCommand(query, conn);
-                            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(fn.GetID("Temp"));
-                            cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
-                            cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = bbf.MemberIDLbl.Text;
-                            if (cmd.ExecuteNonQuery() > 0) {
-                                bbf.BorrowBtn.Enabled = true;
+                                string query = "INSERT INTO borrow_temp VALUES(@id, @isbn, @mid, '0');";
+                                SqlCommand cmd = new SqlCommand(query, conn);
+                                cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(fn.GetID("Temp"));
+                                cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+                                cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = bbf.MemberIDLbl.Text;
+                                if (cmd.ExecuteNonQuery() > 0) {
+                                    bbf.BorrowBtn.Enabled = true;
+                                    bbf.ClearAllBtn.Enabled = true;
+                                }
+
+                            } catch (Exception ex) {
+                                Console.WriteLine("Error: || Choose Memeber || \n" + ex.ToString());
+                            } finally {
+                                conn.Close();
+                                conn.Dispose();
                             }
+                            BorrowGridRefresh();
 
-                        } catch (Exception ex) {
-                            Console.WriteLine("Error: || Choose Memeber || \n" + ex.ToString());
-                        } finally {
-                            conn.Close();
-                            conn.Dispose();
-                        }
-                        BorrowGridRefresh();
+                            if (fn.GetNumberOf("Temp Books") >= 2) { // TODO: Properties.Settings.Default.NOB | Maximum number of books
 
-                        if (fn.GetNumberOf("Temp Books") >= 2) { // TODO: Properties.Settings.Default.NOB | Maximum number of books
+                                SearchTb.Text = string.Empty;
+                                bbf.BooksBtn.Enabled = false;
 
-                            SearchTb.Text = string.Empty;
-                            bbf.BooksBtn.Enabled = false;
-
-                            this.Close();
+                                this.Close();
+                            }
+                        } else {
+                            MessageBox.Show("Sorry!\n" + SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " all books are empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     } else {
-                        // TODO: Message
+                        MessageBox.Show(SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " is already added!", "Choose Book", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -358,7 +362,7 @@ namespace LMS {
             dgv.GridWidth(dgv: bbf.BorrowDgv, widths: new int[] { 0, 150, 250, 250, 250 });
 
             bbf.BorrowIDLbl.Text = "BORROW ID: " + fn.GetID("Books Borrows");
-            bbf.DueDateLbl.Text = "DUE DATE: " + DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change
+            bbf.DueDateLbl.Text = "DUE DATE: " + DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change if want
         }
         #endregion Grid Methods
     }
