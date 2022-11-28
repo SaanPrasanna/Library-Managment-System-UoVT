@@ -274,5 +274,34 @@ namespace LMS.Utils {
             return false;
 
         }
+
+        public DataTable GetDataTable(string name) {
+
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+
+            string query = "";
+
+            try {
+                switch (name) {
+                    case "Temp Checkout":
+                        query = "SELECT id, isbn, mid, is_removed FROM borrow_temp";
+                        break;
+                }
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                SqlDataAdapter adupter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adupter.Fill(dt);
+                return dt;
+
+            } catch {
+
+            } finally {
+                conn.Close();
+                conn.Dispose();
+            }
+            return null;
+        }
     }
 }
