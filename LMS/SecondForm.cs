@@ -19,8 +19,8 @@ namespace LMS {
         BorrowBooksForm bbf;
         private string title, name, mID;
         public int NOB;
-        readonly Functions fn = new Functions();
         readonly GridControlSettings dgv = new GridControlSettings();
+        readonly Functions fn = new Functions();
 
         public SecondForm([Optional] MainForm form, [Optional] BorrowBooksForm bbf, [Optional] string title) {
             InitializeComponent();
@@ -144,54 +144,68 @@ namespace LMS {
             } else if (title == "Choose Member") {
                 if (e.ColumnIndex == 0) {
 
-                    bbf.MemberIDLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    bbf.MemberNameLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    this.mID = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-                    SearchTb.Text = string.Empty;
-                    bbf.MemberBtn.Enabled = false;
-                    bbf.BooksBtn.Enabled = true;
+                    if ((fn.GetNumberOf(name: "Already Borrowed Books", value: this.mID) + fn.GetNumberOf(name: "Already Choose Books", value: mID)) < 2) {
 
-                    this.Close();
+                        bbf.MemberIDLbl.Text = this.mID;
+                        bbf.MemberNameLbl.Text = SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                        SearchTb.Text = string.Empty;
+                        bbf.MemberBtn.Enabled = false;
+                        bbf.BooksBtn.Enabled = true;
+
+                        this.Close();
+                    } else {
+                        MessageBox.Show("Reached maximum number of books borrowing", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             } else if (title == "Choose Books") {
                 string isbn = SecondDgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                this.mID = bbf.MemberIDLbl.Text;
+
                 if (e.ColumnIndex == 0) {
-                    if (!fn.IsAlreadyAdd(isbn)) {
-                        if (Convert.ToInt32(SecondDgv.Rows[e.RowIndex].Cells[4].Value) > 0) {
-                            SqlConnection conn = DBUtils.GetDBConnection();
-                            conn.Open();
-                            try {
+                    if ((fn.GetNumberOf(name: "Already Borrowed Books", value: this.mID) + fn.GetNumberOf(name: "Already Choose Books", value: mID)) < 2) {
+                        if (fn.IsAlreadyAdd(isbn, mID)) {
+                            if (Convert.ToInt32(SecondDgv.Rows[e.RowIndex].Cells[4].Value) > 0) {
+                                SqlConnection conn = DBUtils.GetDBConnection();
+                                conn.Open();
+                                try {
 
-                                string query = "INSERT INTO borrow_temp VALUES(@id, @isbn, @mid, '0');";
-                                SqlCommand cmd = new SqlCommand(query, conn);
-                                cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(fn.GetID("Temp"));
-                                cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
-                                cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = bbf.MemberIDLbl.Text;
-                                if (cmd.ExecuteNonQuery() > 0) {
-                                    bbf.BorrowBtn.Enabled = true;
-                                    bbf.ClearAllBtn.Enabled = true;
+                                    string query = "INSERT INTO borrow_temp VALUES(@id, @isbn, @mid, '0');";
+                                    SqlCommand cmd = new SqlCommand(query, conn);
+                                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(fn.GetID("Temp"));
+                                    cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+                                    cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = bbf.MemberIDLbl.Text;
+                                    if (cmd.ExecuteNonQuery() > 0) {
+                                        bbf.BorrowBtn.Enabled = true;
+                                        bbf.ClearAllBtn.Enabled = true;
+                                    }
+
+                                } catch (Exception ex) {
+                                    Console.WriteLine("Error: || Choose Memeber || \n" + ex.ToString());
+                                } finally {
+                                    conn.Close();
+                                    conn.Dispose();
                                 }
+                                BorrowGridRefresh();
 
-                            } catch (Exception ex) {
-                                Console.WriteLine("Error: || Choose Memeber || \n" + ex.ToString());
-                            } finally {
-                                conn.Close();
-                                conn.Dispose();
-                            }
-                            BorrowGridRefresh();
+                                if (fn.GetNumberOf(name: "Temp Books", value: isbn) >= 2) { // TODO: Properties.Settings.Default.NOB | Maximum number of books
 
-                            if (fn.GetNumberOf("Temp Books") >= 2) { // TODO: Properties.Settings.Default.NOB | Maximum number of books
+                                    SearchTb.Text = string.Empty;
+                                    bbf.BooksBtn.Enabled = false;
 
-                                SearchTb.Text = string.Empty;
-                                bbf.BooksBtn.Enabled = false;
-
-                                this.Close();
+                                    this.Close();
+                                }
+                            } else {
+                                MessageBox.Show("Sorry!\n" + SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " all books are empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         } else {
-                            MessageBox.Show("Sorry!\n" + SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " all books are empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show(SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " is already added!", "Choose Book", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     } else {
-                        MessageBox.Show(SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " is already added!", "Choose Book", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Reached maximum number of books borrowing", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Close();
                     }
                 }
             }

@@ -51,7 +51,7 @@ namespace LMS.Utils {
             }
         }
 
-        public int GetNumberOf(string name, [Optional] string value) {
+        public int GetNumberOf(string name, [Optional] string value, [Optional] string value2) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
@@ -83,6 +83,18 @@ namespace LMS.Utils {
                         break;
                     case "Temp Books":
                         query = "SELECT COUNT(*) FROM borrow_temp WHERE is_removed = 0;";
+                        break;
+                    case "Already Borrowed Books":
+                        query = "SELECT COUNT(refno) FROM borrow_books WHERE status = 'Pending' AND mid = '" + value + "';";
+                        break;
+                    case "Already Choose Books":
+                        query = "SELECT COUNT(*) FROM borrow_temp WHERE is_removed = '0' AND mid = '" + value + "';";
+                        break;
+                    case "Already Add to Borrow Temp":
+                        query = "SELECT COUNT(*) FROM borrow_temp WHERE is_removed = '0' AND isbn = '" + value + "'";
+                        break;
+                    case "Already Add to Borrow Books":
+                        query = "SELECT COUNT(*) FROM borrow_books WHERE status = 'Pending' AND isbn = '" + value + "' AND mid = '" + value2 + "'";
                         break;
                 }
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -247,7 +259,21 @@ namespace LMS.Utils {
             return null;
         }
 
-        // TODO: Not Completed
+        public bool IsAlreadyAdd(string isbn, string mID) {
+            try {
+
+                int count = GetNumberOf(name: "Already Add to Borrow Temp", value: isbn) + GetNumberOf(name: "Already Add to Borrow Books", value: isbn, value2: mID);
+                return (count < 1);
+
+            } catch (Exception ex) {
+                Console.WriteLine("Error: || ISAlreadyAdd || \n" + ex.ToString());
+            } finally {
+                Console.ReadLine();
+            }
+            return false;
+        }
+
+        /*
         public bool IsAlreadyAdd(string isbn) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
@@ -274,6 +300,7 @@ namespace LMS.Utils {
             return false;
 
         }
+        */
 
         public DataTable GetDataTable(string name) {
 

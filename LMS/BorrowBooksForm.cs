@@ -15,7 +15,7 @@ namespace LMS {
     public partial class BorrowBooksForm : Form {
 
         readonly Functions fn = new Functions();
-        GridControlSettings dgv = new GridControlSettings();
+        readonly GridControlSettings dgv = new GridControlSettings();
 
         public BorrowBooksForm() {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace LMS {
                 this.SetBounds(withBlock.Left, withBlock.Top, withBlock.Width, withBlock.Height);
             }
 
-            InitialLoad();
+            InitialLoad(condition: "Full");
             ClearGrid();
             MemberIDLbl.Text = string.Empty; // TODO: if want set globle variable and set memory for after closed
             MemberNameLbl.Text = string.Empty;
@@ -66,7 +66,9 @@ namespace LMS {
             dgv.ShowGrid(dgv: BorrowDgv, name: "Borrow Checkout");
             dgv.GridWidth(dgv: BorrowDgv, widths: new int[] { 0, 150, 250, 250, 250 });
 
-            if (condition == "partial") {
+            if (condition == "Full") {
+                MemberIDLbl.Text = string.Empty;
+                MemberNameLbl.Text = string.Empty;
                 BorrowIDLbl.Text = "BORROW ID: " + fn.GetID("Books Borrows");
                 DueDateLbl.Text = "DUE DATE: " + DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change if want
             }
@@ -97,7 +99,7 @@ namespace LMS {
                     if (cmd.ExecuteNonQuery() > 0) {
                         BooksBtn.Enabled = true;
                         ClearAllBtn.Enabled = true;
-                        InitialLoad(condition: "partial");
+                        InitialLoad(condition: "Full");
                     }
 
 
@@ -142,12 +144,41 @@ namespace LMS {
 
                 try {
                     DataTable table = fn.GetDataTable("Temp Checkout");
+                    string borrowID = fn.GetID("Books Borrows");
 
                     for (int i = 0; i < (Convert.ToInt32(fn.GetID("Temp")) - 1); i++) {
                         if (Convert.ToInt32(table.Rows[i][3]) != 1) {
-                            Console.WriteLine(table.Rows[i][1].ToString());
+                            string query = "INSERT INTO borrow_books VALUES (@refno, @mid, @isbn, @issueDate, @time, @dueDate, @returnDate, @status, @fineFee, @sid);";
+                            
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.Add("@refno", SqlDbType.VarChar, 12).Value = borrowID;
+                            cmd.Parameters.Add("@mid", SqlDbType.VarChar, 6).Value = MemberIDLbl.Text;
+                            cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = table.Rows[i][1].ToString();
+                            cmd.Parameters.Add("@issueDate", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
+                            cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
+                            cmd.Parameters.Add("@dueDate", SqlDbType.Date).Value = DateTime.Now.AddDays(7).ToString(""); // TODO: Dynamic using global variable
+                            cmd.Parameters.Add("@returnDate", SqlDbType.Date).Value = default(DateTime);
+                            cmd.Parameters.Add("@status", SqlDbType.VarChar, 10).Value = "Pending";
+                            cmd.Parameters.Add("@fineFee", SqlDbType.Decimal).Value = default(decimal);
+                            cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = "S00001";
+
+                            cmd.ExecuteNonQuery();
+
+                            string query2 = "UPDATE books SET quantity = @qty WHERE isbn = @isbn;";
+
+                            SqlCommand cmd2 = new SqlCommand(query2, conn);
+                            cmd2.Parameters.Add("@qty", SqlDbType.Int).Value = Convert.ToInt32(fn.GetNumberOf("Specified Book", value: table.Rows[i][1].ToString()).ToString()) - 1;
+                            cmd2.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = table.Rows[i][1].ToString();
+                            
+                            cmd2.ExecuteNonQuery();
                         }
                     }
+                    ClearGrid();
+                    InitialLoad(condition: "Full");
+
+                    BorrowBtn.Enabled = false;
+
+                    MessageBox.Show("Books Borrowed Complete!", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } catch (Exception ex) {
                     Console.WriteLine("Error: || Borrow Books ||\n" + ex.ToString());
                 } finally {
