@@ -25,10 +25,10 @@ namespace LMS {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorrowBooksForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -56,6 +56,8 @@ namespace LMS {
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.DueDateLbl = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.BorrowIDLbl = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowDgv)).BeginInit();
@@ -130,6 +132,7 @@ namespace LMS {
             this.MinimizeBtn.ShadowDecoration.Parent = this.MinimizeBtn;
             this.MinimizeBtn.Size = new System.Drawing.Size(35, 35);
             this.MinimizeBtn.TabIndex = 0;
+            this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // CloseBtn
             // 
@@ -148,6 +151,7 @@ namespace LMS {
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
             this.CloseBtn.Size = new System.Drawing.Size(35, 35);
             this.CloseBtn.TabIndex = 1;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // guna2Elipse2
             // 
@@ -168,40 +172,40 @@ namespace LMS {
             this.BorrowDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BorrowDgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.BorrowDgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BorrowDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BorrowDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.BorrowDgv.ColumnHeadersHeight = 60;
             this.BorrowDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.NullValue = null;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BorrowDgv.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.NullValue = null;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BorrowDgv.DefaultCellStyle = dataGridViewCellStyle14;
             this.BorrowDgv.EnableHeadersVisualStyles = false;
             this.BorrowDgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.BorrowDgv.Location = new System.Drawing.Point(36, 82);
             this.BorrowDgv.MultiSelect = false;
             this.BorrowDgv.Name = "BorrowDgv";
             this.BorrowDgv.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.841584F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BorrowDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.841584F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BorrowDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.BorrowDgv.RowHeadersVisible = false;
             this.BorrowDgv.RowHeadersWidth = 43;
             this.BorrowDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -516,6 +520,8 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2ShadowPanel3.Controls.Add(this.bunifuCustomLabel4);
+            this.guna2ShadowPanel3.Controls.Add(this.bunifuCustomLabel3);
             this.guna2ShadowPanel3.Controls.Add(this.DueDateLbl);
             this.guna2ShadowPanel3.Controls.Add(this.BorrowIDLbl);
             this.guna2ShadowPanel3.FillColor = System.Drawing.Color.White;
@@ -533,22 +539,42 @@ namespace LMS {
             this.DueDateLbl.AutoSize = true;
             this.DueDateLbl.Font = new System.Drawing.Font("Proxima Nova Rg", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DueDateLbl.ForeColor = System.Drawing.Color.Black;
-            this.DueDateLbl.Location = new System.Drawing.Point(577, 68);
+            this.DueDateLbl.Location = new System.Drawing.Point(743, 68);
             this.DueDateLbl.Name = "DueDateLbl";
-            this.DueDateLbl.Size = new System.Drawing.Size(193, 41);
+            this.DueDateLbl.Size = new System.Drawing.Size(0, 41);
             this.DueDateLbl.TabIndex = 10;
-            this.DueDateLbl.Text = "DUE DATE";
             // 
             // BorrowIDLbl
             // 
             this.BorrowIDLbl.AutoSize = true;
             this.BorrowIDLbl.Font = new System.Drawing.Font("Proxima Nova Rg", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BorrowIDLbl.ForeColor = System.Drawing.Color.Black;
-            this.BorrowIDLbl.Location = new System.Drawing.Point(48, 68);
+            this.BorrowIDLbl.Location = new System.Drawing.Point(237, 68);
             this.BorrowIDLbl.Name = "BorrowIDLbl";
-            this.BorrowIDLbl.Size = new System.Drawing.Size(222, 41);
+            this.BorrowIDLbl.Size = new System.Drawing.Size(0, 41);
             this.BorrowIDLbl.TabIndex = 11;
-            this.BorrowIDLbl.Text = "BORROW ID";
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(49, 75);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(186, 32);
+            this.bunifuCustomLabel3.TabIndex = 12;
+            this.bunifuCustomLabel3.Text = "BORROW ID:";
+            // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(578, 75);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(163, 32);
+            this.bunifuCustomLabel4.TabIndex = 12;
+            this.bunifuCustomLabel4.Text = "DUE DATE:";
             // 
             // BorrowBooksForm
             // 
@@ -560,11 +586,13 @@ namespace LMS {
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "BorrowBooksForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BorrowBooksForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BorrowBooksForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BorrowBooksForm_KeyDown);
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).EndInit();
@@ -611,5 +639,7 @@ namespace LMS {
         public Guna.UI2.WinForms.Guna2TileButton NewBorrowBtn;
         public Guna.UI2.WinForms.Guna2TileButton BooksBtn;
         public Guna.UI2.WinForms.Guna2TileButton MemberBtn;
+        internal Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
+        internal Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
     }
 }
