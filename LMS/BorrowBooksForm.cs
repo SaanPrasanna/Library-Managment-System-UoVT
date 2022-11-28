@@ -31,11 +31,24 @@ namespace LMS {
             }
 
             InitialLoad();
+            ClearGrid();
+            MemberIDLbl.Text = string.Empty; // TODO: if want set globle variable and set memory for after closed
+            MemberNameLbl.Text = string.Empty;
+            MemberBtn.Enabled = true;
+            BooksBtn.Enabled = false;
+            BorrowBtn.Enabled = false;
+            ClearAllBtn.Enabled = false;
         }
 
         private void NewBorrowBtn_Click(object sender, EventArgs e) {
             if (MessageBox.Show("Do you want to clear? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 ClearGrid();
+                MemberIDLbl.Text = string.Empty;
+                MemberNameLbl.Text = string.Empty;
+                MemberBtn.Enabled = true;
+                BooksBtn.Enabled = false;
+                BorrowBtn.Enabled = false;
+                ClearAllBtn.Enabled = false;
             }
         }
 
@@ -55,7 +68,7 @@ namespace LMS {
 
             if (condition == "partial") {
                 BorrowIDLbl.Text = "BORROW ID: " + fn.GetID("Books Borrows");
-                DueDateLbl.Text = "DUE DATE: " + DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change
+                DueDateLbl.Text = "DUE DATE: " + DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change if want
             }
         }
 
@@ -83,6 +96,7 @@ namespace LMS {
 
                     if (cmd.ExecuteNonQuery() > 0) {
                         BooksBtn.Enabled = true;
+                        ClearAllBtn.Enabled = true;
                         InitialLoad(condition: "partial");
                     }
 
@@ -111,6 +125,35 @@ namespace LMS {
             } finally {
                 conn.Close();
                 conn.Dispose();
+            }
+        }
+
+        private void ClearAllBtn_Click(object sender, EventArgs e) {
+            ClearGrid();
+            ClearAllBtn.Enabled = false;
+            BooksBtn.Enabled = true;
+        }
+
+        private void BorrowBtn_Click(object sender, EventArgs e) {
+            if (MessageBox.Show("Are you sure ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+
+                SqlConnection conn = DBUtils.GetDBConnection();
+                conn.Open();
+
+                try {
+                    DataTable table = fn.GetDataTable("Temp Checkout");
+
+                    for (int i = 0; i < (Convert.ToInt32(fn.GetID("Temp")) - 1); i++) {
+                        if (Convert.ToInt32(table.Rows[i][3]) != 1) {
+                            Console.WriteLine(table.Rows[i][1].ToString());
+                        }
+                    }
+                } catch (Exception ex) {
+                    Console.WriteLine("Error: || Borrow Books ||\n" + ex.ToString());
+                } finally {
+                    conn.Close();
+                    conn.Dispose();
+                }
             }
         }
     }
