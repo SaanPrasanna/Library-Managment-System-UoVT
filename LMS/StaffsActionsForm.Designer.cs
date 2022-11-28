@@ -124,6 +124,7 @@ namespace LMS {
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 15;
+            this.guna2Elipse1.TargetControl = this;
             // 
             // label2
             // 
