@@ -54,7 +54,7 @@ namespace LMS.Utils {
                     query = "SELECT mid AS 'Member ID', CONCAT(fname, ' ', lname) AS 'Full Name', Category AS 'Account Type' FROM members WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND  CONCAT(fname, ' ', lname) LIKE '%" + searchQuery + "%';" : ";");
                     break;
                 case "Choose Book":
-                    query = "SELECT ISBN, Title, Author, publishers.name AS Publisher FROM books, publishers  WHERE books.pid = publishers.pid AND books.is_removed = 0" + ((searchQuery != string.Empty) ? " AND books.title LIKE '%" + searchQuery + "%';" : ";");
+                    query = "SELECT ISBN, Title, Author, Quantity FROM books  WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND title LIKE '%" + searchQuery + "%';" : ";");
                     break;
                 default:
                     Console.WriteLine("Please double check Grid Name!");
