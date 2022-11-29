@@ -36,7 +36,7 @@ namespace LMS {
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
             try {
-                string query = "SELECT fname, lname, address, category, renew_date  FROM members WHERE mid = @mid;";
+                string query = "SELECT fname, lname, address, email, telephone, category, renew_date  FROM members WHERE mid = @mid;";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = mid;
@@ -45,13 +45,13 @@ namespace LMS {
                 DataTable table = new DataTable();
                 adapter.Fill(table);
 
-                CategoryCb.Text = table.Rows[0][3].ToString();
-                ReNewDateTb.Text = DateTime.Parse(table.Rows[0][4].ToString()).ToString("yyyy-MM-dd");
-                if (DateTime.Parse(table.Rows[0][4].ToString()) < DateTime.Now) {
+                CategoryCb.Text = table.Rows[0][5].ToString();
+                ReNewDateTb.Text = DateTime.Parse(table.Rows[0][6].ToString()).ToString("yyyy-MM-dd");
+                if (DateTime.Parse(table.Rows[0][6].ToString()) < DateTime.Now) {
                     UpdateBtn.Visible = true;
                 }
 
-                Guna2TextBox[] tb = new[] { FnameTb, LnameTb, AddressTb };
+                Guna2TextBox[] tb = new[] { FnameTb, LnameTb, AddressTb, EmailTB, TelephoneTB };
                 foreach (var textBox in tb.Select((name, index) => (name, index))) {
                     textBox.name.Text = table.Rows[0][textBox.index].ToString();
                 }
@@ -85,7 +85,7 @@ namespace LMS {
                     try {
 
                         string query = "INSERT INTO members VALUES(@mid, @fname, @lname, @address, @category, " +
-                            "@date, @time, @renewDate, @sid, @isRemoved);";
+                            "@date, @time, @renewDate, @sid, @email, @telephone, @isRemoved);";
 
                         SqlCommand cmd = new SqlCommand(query, conn);
                         cmd.Parameters.Add("@mid", SqlDbType.VarChar, 6).Value = MIDTb.Text;
@@ -97,6 +97,8 @@ namespace LMS {
                         cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
                         cmd.Parameters.Add("@renewDate", SqlDbType.Date).Value = DateTime.Parse(ReNewDateTb.Text);
                         cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = "S00001"; // TODO: After all functionalities are completed
+                        cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = EmailTB.Text;
+                        cmd.Parameters.Add("@telephone", SqlDbType.Char, 10).Value = TelephoneTB.Text;
                         cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
 
                         int rowCount = cmd.ExecuteNonQuery();
@@ -133,7 +135,7 @@ namespace LMS {
                     try {
 
                         string query = "UPDATE members SET fname = @fname, lname = @lname, address = @address, category = @category, " +
-                            "renew_date = @renewDate WHERE mid = @mid;";
+                            "renew_date = @renewDate, email = @email, telephone = @telephone WHERE mid = @mid;";
 
                         SqlCommand cmd = new SqlCommand(query, conn);
                         cmd.Parameters.Add("@fname", SqlDbType.NVarChar, 50).Value = FnameTb.Text;
@@ -141,6 +143,8 @@ namespace LMS {
                         cmd.Parameters.Add("@address", SqlDbType.VarChar, 100).Value = AddressTb.Text;
                         cmd.Parameters.Add("@category", SqlDbType.VarChar, 10).Value = CategoryCb.Text;
                         cmd.Parameters.Add("@renewDate", SqlDbType.Date).Value = DateTime.Parse(ReNewDateTb.Text);
+                        cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = EmailTB.Text;
+                        cmd.Parameters.Add("@telephone", SqlDbType.Char, 10).Value = TelephoneTB.Text;
                         cmd.Parameters.Add("@mid", SqlDbType.VarChar, 6).Value = MIDTb.Text;
 
                         int rowCount = cmd.ExecuteNonQuery();

@@ -28,6 +28,7 @@ namespace LMS {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersActionsForm));
             this.label2 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.ActionBtn = new Guna.UI2.WinForms.Guna2Button();
             this.AddressTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.LnameTb = new Guna.UI2.WinForms.Guna2TextBox();
@@ -40,13 +41,16 @@ namespace LMS {
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.TitlePanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.CategoryCb = new Guna.UI2.WinForms.Guna2ComboBox();
             this.ReNewDateTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.UpdateBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.EmailTB = new Guna.UI2.WinForms.Guna2TextBox();
+            this.TelephoneTB = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.TitlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +69,26 @@ namespace LMS {
             this.label2.TabIndex = 209;
             this.label2.Text = "Address";
             // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseBtn.Animated = true;
+            this.CloseBtn.CheckedState.Parent = this.CloseBtn;
+            this.CloseBtn.CustomImages.Parent = this.CloseBtn;
+            this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(83)))), ((int)(((byte)(79)))));
+            this.CloseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseBtn.ForeColor = System.Drawing.Color.White;
+            this.CloseBtn.HoverState.Parent = this.CloseBtn;
+            this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
+            this.CloseBtn.Location = new System.Drawing.Point(429, 17);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
+            this.CloseBtn.Size = new System.Drawing.Size(35, 35);
+            this.CloseBtn.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.CloseBtn, "Press Esc to close");
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
             // ActionBtn
             // 
             this.ActionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -76,7 +100,7 @@ namespace LMS {
             this.ActionBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActionBtn.ForeColor = System.Drawing.Color.White;
             this.ActionBtn.HoverState.Parent = this.ActionBtn;
-            this.ActionBtn.Location = new System.Drawing.Point(342, 345);
+            this.ActionBtn.Location = new System.Drawing.Point(342, 434);
             this.ActionBtn.Name = "ActionBtn";
             this.ActionBtn.ShadowDecoration.Parent = this.ActionBtn;
             this.ActionBtn.Size = new System.Drawing.Size(119, 38);
@@ -286,6 +310,18 @@ namespace LMS {
             this.TitlePanel.Size = new System.Drawing.Size(480, 68);
             this.TitlePanel.TabIndex = 6;
             // 
+            // TitlePb
+            // 
+            this.TitlePb.Enabled = false;
+            this.TitlePb.Image = global::LMS.Properties.Resources.Members;
+            this.TitlePb.Location = new System.Drawing.Point(23, 17);
+            this.TitlePb.Name = "TitlePb";
+            this.TitlePb.ShadowDecoration.Parent = this.TitlePb;
+            this.TitlePb.Size = new System.Drawing.Size(40, 35);
+            this.TitlePb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TitlePb.TabIndex = 4;
+            this.TitlePb.TabStop = false;
+            // 
             // gunaDragControl1
             // 
             this.gunaDragControl1.TargetControl = this.TitlePanel;
@@ -369,7 +405,7 @@ namespace LMS {
             this.UpdateBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateBtn.HoverState.Parent = this.UpdateBtn;
-            this.UpdateBtn.Location = new System.Drawing.Point(341, 293);
+            this.UpdateBtn.Location = new System.Drawing.Point(341, 295);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.ShadowDecoration.Parent = this.UpdateBtn;
             this.UpdateBtn.Size = new System.Drawing.Size(120, 38);
@@ -378,54 +414,110 @@ namespace LMS {
             this.UpdateBtn.Visible = false;
             this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
-            // TitlePb
+            // label4
             // 
-            this.TitlePb.Enabled = false;
-            this.TitlePb.Image = global::LMS.Properties.Resources.Members;
-            this.TitlePb.Location = new System.Drawing.Point(23, 17);
-            this.TitlePb.Name = "TitlePb";
-            this.TitlePb.ShadowDecoration.Parent = this.TitlePb;
-            this.TitlePb.Size = new System.Drawing.Size(40, 35);
-            this.TitlePb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.TitlePb.TabIndex = 4;
-            this.TitlePb.TabStop = false;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(17, 346);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 20);
+            this.label4.TabIndex = 208;
+            this.label4.Text = "Email";
             // 
-            // CloseBtn
+            // EmailTB
             // 
-            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseBtn.Animated = true;
-            this.CloseBtn.CheckedState.Parent = this.CloseBtn;
-            this.CloseBtn.CustomImages.Parent = this.CloseBtn;
-            this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(83)))), ((int)(((byte)(79)))));
-            this.CloseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseBtn.ForeColor = System.Drawing.Color.White;
-            this.CloseBtn.HoverState.Parent = this.CloseBtn;
-            this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
-            this.CloseBtn.Location = new System.Drawing.Point(429, 17);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
-            this.CloseBtn.Size = new System.Drawing.Size(35, 35);
-            this.CloseBtn.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.CloseBtn, "Press Esc to close");
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            this.EmailTB.Animated = true;
+            this.EmailTB.BorderRadius = 15;
+            this.EmailTB.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EmailTB.DefaultText = "";
+            this.EmailTB.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.EmailTB.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.EmailTB.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.EmailTB.DisabledState.Parent = this.EmailTB;
+            this.EmailTB.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.EmailTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.EmailTB.FocusedState.Parent = this.EmailTB;
+            this.EmailTB.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.EmailTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.EmailTB.HoverState.Parent = this.EmailTB;
+            this.EmailTB.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.EmailTB.Location = new System.Drawing.Point(127, 340);
+            this.EmailTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EmailTB.MaxLength = 100;
+            this.EmailTB.Name = "EmailTB";
+            this.EmailTB.PasswordChar = '\0';
+            this.EmailTB.PlaceholderText = "";
+            this.EmailTB.SelectedText = "";
+            this.EmailTB.ShadowDecoration.Parent = this.EmailTB;
+            this.EmailTB.Size = new System.Drawing.Size(333, 36);
+            this.EmailTB.TabIndex = 2;
+            // 
+            // TelephoneTB
+            // 
+            this.TelephoneTB.Animated = true;
+            this.TelephoneTB.BorderRadius = 15;
+            this.TelephoneTB.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TelephoneTB.DefaultText = "";
+            this.TelephoneTB.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TelephoneTB.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TelephoneTB.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TelephoneTB.DisabledState.Parent = this.TelephoneTB;
+            this.TelephoneTB.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TelephoneTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TelephoneTB.FocusedState.Parent = this.TelephoneTB;
+            this.TelephoneTB.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.TelephoneTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TelephoneTB.HoverState.Parent = this.TelephoneTB;
+            this.TelephoneTB.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.TelephoneTB.Location = new System.Drawing.Point(126, 385);
+            this.TelephoneTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TelephoneTB.MaxLength = 10;
+            this.TelephoneTB.Name = "TelephoneTB";
+            this.TelephoneTB.PasswordChar = '\0';
+            this.TelephoneTB.PlaceholderText = "";
+            this.TelephoneTB.SelectedText = "";
+            this.TelephoneTB.ShadowDecoration.Parent = this.TelephoneTB;
+            this.TelephoneTB.Size = new System.Drawing.Size(334, 36);
+            this.TelephoneTB.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 391);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 20);
+            this.label5.TabIndex = 209;
+            this.label5.Text = "Telephone";
             // 
             // MembersActionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 392);
+            this.ClientSize = new System.Drawing.Size(475, 481);
             this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.CategoryCb);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ReNewDateTb);
             this.Controls.Add(this.ActionBtn);
+            this.Controls.Add(this.TelephoneTB);
+            this.Controls.Add(this.EmailTB);
             this.Controls.Add(this.AddressTb);
             this.Controls.Add(this.LnameTb);
             this.Controls.Add(this.FnameTb);
             this.Controls.Add(this.MIDTb);
             this.Controls.Add(this.Label8);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Label7);
             this.Controls.Add(this.Label6);
             this.Controls.Add(this.Label1);
@@ -466,5 +558,9 @@ namespace LMS {
         internal System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox ReNewDateTb;
         private Guna.UI2.WinForms.Guna2Button UpdateBtn;
+        internal System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2TextBox TelephoneTB;
+        private Guna.UI2.WinForms.Guna2TextBox EmailTB;
+        internal System.Windows.Forms.Label label4;
     }
 }
