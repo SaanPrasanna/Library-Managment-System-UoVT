@@ -17,9 +17,10 @@ namespace LMS {
         private readonly List<Book> _books;
         private readonly List<Member> _member;
 
-        internal PrintPreviewForm([Optional] List<Book> books) {
+        internal PrintPreviewForm([Optional] List<Book> books, [Optional] List<Member> members) {
             InitializeComponent();
             _books = books;
+            _member = members;
         }
 
         private void PrintPreviewForm_Load(object sender, EventArgs e) {
@@ -29,8 +30,9 @@ namespace LMS {
             if (_books != null) {
                 booksReport.SetDataSource(_books);
                 PrintReportViewer.ReportSource = booksReport;
-            } else if (false) {
-
+            } else if (_member != null) {
+                memberReport.SetDataSource(_member);
+                PrintReportViewer.ReportSource = memberReport;
             } else if (false) {
             }
         }

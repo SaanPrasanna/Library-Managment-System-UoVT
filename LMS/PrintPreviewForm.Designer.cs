@@ -34,6 +34,7 @@ namespace LMS {
             this.PrintReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.guna2ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.booksReport = new LMS.Reports.BooksReport();
+            this.memberReport = new LMS.Reports.MemberReport();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.SuspendLayout();
@@ -153,5 +154,6 @@ namespace LMS {
         private CrystalDecisions.Windows.Forms.CrystalReportViewer PrintReportViewer;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm;
         private Reports.BooksReport booksReport;
+        private Reports.MemberReport memberReport;
     }
 }
