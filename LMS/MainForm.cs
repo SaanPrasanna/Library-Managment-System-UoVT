@@ -441,19 +441,30 @@ namespace LMS {
         private void Action3Btn_Click(object sender, EventArgs e) {
             switch (ActionBtn.Text) {
                 case "NEW BORROW":
+                    var reader = fn.GetReader("");
                     break;
                 case "ADD BOOK":
-                    var reader = fn.GetReader("Books");
+                    reader = fn.GetReader("Books");
                     var bookList = fn.GetList<Book>(reader);
 
-                    PrintPreviewForm ppf = new PrintPreviewForm(books: bookList);
-                    ppf.ShowDialog();
+                    PrintPreviewForm ppfBooks = new PrintPreviewForm(books: bookList);
+                    ppfBooks.ShowDialog();
                     break;
                 case "MANAGE BOOK":
                     break;
                 case "ADD MEMBER":
+                    reader = fn.GetReader("Members");
+                    var memberList = fn.GetList<Member>(reader);
+                    
+                    PrintPreviewForm ppfMembers = new PrintPreviewForm(members: memberList);
+                    ppfMembers.ShowDialog();
+                    
                     break;
                 case "ADD STAFF":
+                    reader = fn.GetReader("Staffs");
+                    var staffList = fn.GetList<Staff>(reader);
+                    MessageBox.Show(staffList.Count.ToString());
+
                     break;
             }
         }
