@@ -15,8 +15,10 @@ namespace LMS {
             // Need to Update Login Form UI
 
             try {
+                // Check the Username and Password are not empty!
                 if (UsernameTB.Text != string.Empty && PasswordTB.Text != string.Empty) {
 
+                    // Create a object to Functions.cs 
                     Functions fn = new Functions();
                     DataTable dt = fn.Authentication(username: UsernameTB.Text, password: PasswordTB.Text);
 
@@ -33,6 +35,7 @@ namespace LMS {
                         splashForm.Show();
 
                     } else {
+                        // Wrong username or Password
                         MessageBox.Show("Access Denied!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 } else {

@@ -64,7 +64,7 @@ namespace LMS {
                     cmd2.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;
                     cmd2.Parameters.Add("@qty", SqlDbType.Int).Value = Int32.Parse(FQtyTb.Text);
 
-                    // If the both queries are Executed successfully
+                    // If the both queries are Executed successfully | ExecuteNonQuery -> Insert, Update, Delete
                     if ((Int32)cmd.ExecuteNonQuery() > 0 && (Int32)cmd2.ExecuteNonQuery() > 0) {
 
                         MessageBox.Show("Book(s) " + ActionCb.Text + ((ActionCb.Text == "Add") ? "ed!" : "d!"), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -83,7 +83,7 @@ namespace LMS {
                     }
 
                 } catch (Exception ex) {
-                    // If the exception occur
+                    // If the exception occur | Add + ed = Added, Remove + d = Removed
                     MessageBox.Show("Book(s) " + ActionCb.Text + ((ActionCb.Text == "Add") ? "ed!" : "d!") + " Failed : \n" + ex.ToString(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 } finally {
                     conn.Close();
@@ -163,7 +163,7 @@ namespace LMS {
             // Check the Action is selected and Adjust Quantity is not empty
             if (ActionCb.Text != string.Empty && AQtyTb.Text != string.Empty) {
                 // The Action is Add then
-                if (ActionCb.Text == "Add") {
+                if (ActionCb.Text == "Add") { // string -> int | Int32.Parse(string) || Convert.ToInt32(string)
                     FQtyTb.Text = (Int32.Parse(QtyTb.Text) + ((AQtyTb.Text != string.Empty) ? Int32.Parse(AQtyTb.Text) : 0)).ToString();
                 } else { // The Actoin is Removed then
                     if (Int32.Parse(QtyTb.Text) >= Int32.Parse(AQtyTb.Text)) {
