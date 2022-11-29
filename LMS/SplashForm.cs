@@ -16,16 +16,8 @@ namespace LMS {
 
         }
 
-        protected override CreateParams CreateParams {
-            get {
-                const int CS_DROPSHADOW = 0x20000;
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e) {
+        #region Special Events
+        private void Timer1_Tick(object sender, EventArgs e) {
 
             ProgressBar.Increment(2);
             LoadingDigitLbl.Text = ProgressBar.Value.ToString() + " %...";
@@ -37,5 +29,17 @@ namespace LMS {
                 this.Close();
             }
         }
+        #endregion Special Events
+
+        #region Methods
+        protected override CreateParams CreateParams {
+            get {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+        #endregion Methods
     }
 }

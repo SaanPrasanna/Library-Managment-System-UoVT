@@ -61,6 +61,7 @@ namespace LMS {
             MainPanel.Show();
             BooksBtn.Checked = true;
             Action2Btn.Visible = true;
+            Action3Btn.Visible = true;
 
             Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, StaffsBtn };
             Array.ForEach(menuBtn, btn => { btn.Checked = false; });
@@ -100,6 +101,7 @@ namespace LMS {
             MainPanel.Show();
             MembersBtn.Checked = true;
             Action2Btn.Visible = false;
+            Action3Btn.Visible = true;
 
             Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, BooksBtn, StaffsBtn };
             Array.ForEach(menuBtn, btn => { btn.Checked = false; });
@@ -138,6 +140,7 @@ namespace LMS {
             MainPanel.Show();
             StaffsBtn.Checked = true;
             Action2Btn.Visible = false;
+            Action3Btn.Visible = true;
 
             Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, BooksBtn };
             Array.ForEach(menuBtn, btn => { btn.Checked = false; });
@@ -176,6 +179,7 @@ namespace LMS {
             MainPanel.Show();
             MangeBooksBtn.Checked = true;
             Action2Btn.Visible = false;
+            Action3Btn.Visible = true;
 
             Guna2Button[] menuBtn = new[] { BorrowBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn };
             Array.ForEach(menuBtn, btn => { btn.Checked = false; });
@@ -203,6 +207,7 @@ namespace LMS {
             MainPanel.Show();
             BorrowBooksBtn.Checked = true;
             Action2Btn.Visible = true;
+            Action3Btn.Visible = true;
 
             Guna2Button[] menuBtn = new[] { MangeBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn };
             Array.ForEach(menuBtn, btn => { btn.Checked = false; });
@@ -456,16 +461,22 @@ namespace LMS {
             }
         }
 
-        private void DateTimePickers(bool isVisible) {
-            FromDtp.Visible = isVisible;
-            ToDtp.Visible = isVisible;
-            FromLbl.Visible = isVisible;
-            ToLbl.Visible = isVisible;
-
-            // Changing Mainage Books DateTimePicker values
-            FromDtp.Value = DateTime.Now.AddDays(-30);
-            ToDtp.Value = DateTime.Now;
+        // TODO: Printing 
+        private void Action3Btn_Click(object sender, EventArgs e) {
+            switch (ActionBtn.Text) {
+                case "NEW BORROW":
+                    break;
+                case "ADD BOOK":
+                    break;
+                case "MANAGE BOOK":
+                    break;
+                case "ADD MEMBER":
+                    break;
+                case "ADD STAFF":
+                    break;
+            }
         }
+
 
         #endregion Control Buttons
 
@@ -542,6 +553,17 @@ namespace LMS {
             btn.Text = name;
             btn.FillColor = fillColor;
             btn.ForeColor = Color.FromArgb(255, 255, 255);
+        }
+
+        private void DateTimePickers(bool isVisible) {
+            FromDtp.Visible = isVisible;
+            ToDtp.Visible = isVisible;
+            FromLbl.Visible = isVisible;
+            ToLbl.Visible = isVisible;
+
+            // Changing Mainage Books DateTimePicker values
+            FromDtp.Value = DateTime.Now.AddDays(-30);
+            ToDtp.Value = DateTime.Now;
         }
         #endregion Methods
 

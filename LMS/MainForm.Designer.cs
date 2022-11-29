@@ -26,14 +26,14 @@ namespace LMS {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.UsernameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -122,6 +122,7 @@ namespace LMS {
             this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.Grid2Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.Action3Btn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -529,6 +530,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MainPanel.BackColor = System.Drawing.Color.Transparent;
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MainPanel.Controls.Add(this.Action3Btn);
             this.MainPanel.Controls.Add(this.MainDgv);
             this.MainPanel.Controls.Add(this.ToLbl);
             this.MainPanel.Controls.Add(this.FromLbl);
@@ -564,40 +566,40 @@ namespace LMS {
             this.MainDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MainDgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.MainDgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MainDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MainDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.MainDgv.ColumnHeadersHeight = 60;
             this.MainDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MainDgv.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle20.NullValue = null;
+            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MainDgv.DefaultCellStyle = dataGridViewCellStyle20;
             this.MainDgv.EnableHeadersVisualStyles = false;
             this.MainDgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.MainDgv.Location = new System.Drawing.Point(36, 95);
             this.MainDgv.MultiSelect = false;
             this.MainDgv.Name = "MainDgv";
             this.MainDgv.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.841584F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MainDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.841584F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MainDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.MainDgv.RowHeadersVisible = false;
             this.MainDgv.RowHeadersWidth = 43;
             this.MainDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -636,7 +638,7 @@ namespace LMS {
             this.ToLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ToLbl.BackColor = System.Drawing.Color.Transparent;
             this.ToLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ToLbl.Location = new System.Drawing.Point(583, 47);
+            this.ToLbl.Location = new System.Drawing.Point(439, 47);
             this.ToLbl.Name = "ToLbl";
             this.ToLbl.Size = new System.Drawing.Size(20, 22);
             this.ToLbl.TabIndex = 9;
@@ -648,7 +650,7 @@ namespace LMS {
             this.FromLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FromLbl.BackColor = System.Drawing.Color.Transparent;
             this.FromLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FromLbl.Location = new System.Drawing.Point(405, 47);
+            this.FromLbl.Location = new System.Drawing.Point(261, 47);
             this.FromLbl.Name = "FromLbl";
             this.FromLbl.Size = new System.Drawing.Size(39, 22);
             this.FromLbl.TabIndex = 9;
@@ -666,7 +668,7 @@ namespace LMS {
             this.FromDtp.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FromDtp.ForeColor = System.Drawing.Color.Black;
             this.FromDtp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FromDtp.Location = new System.Drawing.Point(455, 42);
+            this.FromDtp.Location = new System.Drawing.Point(311, 42);
             this.FromDtp.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.FromDtp.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.FromDtp.Name = "FromDtp";
@@ -691,7 +693,7 @@ namespace LMS {
             this.ToDtp.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ToDtp.ForeColor = System.Drawing.Color.Black;
             this.ToDtp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ToDtp.Location = new System.Drawing.Point(614, 42);
+            this.ToDtp.Location = new System.Drawing.Point(470, 42);
             this.ToDtp.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.ToDtp.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.ToDtp.Name = "ToDtp";
@@ -740,7 +742,7 @@ namespace LMS {
             this.RecentUpdateLbl.BackColor = System.Drawing.Color.Transparent;
             this.RecentUpdateLbl.Font = new System.Drawing.Font("Segoe UI", 10.69307F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecentUpdateLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
-            this.RecentUpdateLbl.Location = new System.Drawing.Point(65, 48);
+            this.RecentUpdateLbl.Location = new System.Drawing.Point(65, 51);
             this.RecentUpdateLbl.Name = "RecentUpdateLbl";
             this.RecentUpdateLbl.Size = new System.Drawing.Size(140, 22);
             this.RecentUpdateLbl.TabIndex = 6;
@@ -750,7 +752,7 @@ namespace LMS {
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
-            this.guna2PictureBox2.Location = new System.Drawing.Point(36, 47);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(36, 50);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
             this.guna2PictureBox2.Size = new System.Drawing.Size(22, 22);
@@ -848,34 +850,34 @@ namespace LMS {
             // 
             // OverviewChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.OverviewChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.OverviewChart.Legends.Add(legend1);
+            chartArea7.Name = "ChartArea1";
+            this.OverviewChart.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.OverviewChart.Legends.Add(legend7);
             this.OverviewChart.Location = new System.Drawing.Point(19, 69);
             this.OverviewChart.Name = "OverviewChart";
             this.OverviewChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(60)))));
-            series1.Legend = "Legend1";
-            series1.Name = "Issued Books";
-            series1.YValuesPerPoint = 4;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(93)))), ((int)(((byte)(85)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Pending Books";
-            series2.YValuesPerPoint = 2;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(202)))), ((int)(((byte)(51)))));
-            series3.Legend = "Legend1";
-            series3.Name = "Returned Books";
-            series3.YValuesPerPoint = 2;
-            this.OverviewChart.Series.Add(series1);
-            this.OverviewChart.Series.Add(series2);
-            this.OverviewChart.Series.Add(series3);
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+            series19.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(60)))));
+            series19.Legend = "Legend1";
+            series19.Name = "Issued Books";
+            series19.YValuesPerPoint = 4;
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+            series20.Color = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(93)))), ((int)(((byte)(85)))));
+            series20.Legend = "Legend1";
+            series20.Name = "Pending Books";
+            series20.YValuesPerPoint = 2;
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+            series21.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(202)))), ((int)(((byte)(51)))));
+            series21.Legend = "Legend1";
+            series21.Name = "Returned Books";
+            series21.YValuesPerPoint = 2;
+            this.OverviewChart.Series.Add(series19);
+            this.OverviewChart.Series.Add(series20);
+            this.OverviewChart.Series.Add(series21);
             this.OverviewChart.Size = new System.Drawing.Size(891, 371);
             this.OverviewChart.TabIndex = 4;
             this.OverviewChart.Text = "chart1";
@@ -902,9 +904,9 @@ namespace LMS {
             this.tableLayoutPanel1.Controls.Add(this.guna2ShadowPanel17, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.guna2ShadowPanel13, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.guna2ShadowPanel16, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.guna2ShadowPanel12, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2ShadowPanel15, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.guna2ShadowPanel14, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.guna2ShadowPanel12, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -1554,6 +1556,25 @@ namespace LMS {
             this.Grid2Elipse.BorderRadius = 10;
             this.Grid2Elipse.TargetControl = this;
             // 
+            // Action3Btn
+            // 
+            this.Action3Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Action3Btn.Animated = true;
+            this.Action3Btn.BorderRadius = 10;
+            this.Action3Btn.CheckedState.Parent = this.Action3Btn;
+            this.Action3Btn.CustomImages.Parent = this.Action3Btn;
+            this.Action3Btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Action3Btn.ForeColor = System.Drawing.Color.White;
+            this.Action3Btn.HoverState.Parent = this.Action3Btn;
+            this.Action3Btn.Location = new System.Drawing.Point(672, 36);
+            this.Action3Btn.Name = "Action3Btn";
+            this.Action3Btn.ShadowDecoration.Parent = this.Action3Btn;
+            this.Action3Btn.Size = new System.Drawing.Size(119, 38);
+            this.Action3Btn.TabIndex = 10;
+            this.Action3Btn.Text = "PRINT";
+            this.Action3Btn.Visible = false;
+            this.Action3Btn.Click += new System.EventHandler(this.Action3Btn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1717,5 +1738,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox15;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox16;
         private Guna.UI2.WinForms.Guna2HtmlLabel RecentUpdateLbl;
+        public Guna.UI2.WinForms.Guna2Button Action3Btn;
     }
 }

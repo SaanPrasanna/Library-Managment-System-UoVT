@@ -196,6 +196,8 @@ namespace LMS {
             if (e.KeyCode == Keys.Escape) {
                 this.Close();
                 //this.Dispose();
+            } else if (e.Control && e.KeyCode == Keys.S) {
+                ActionBtn_Click(sender, e);
             }
         }
 

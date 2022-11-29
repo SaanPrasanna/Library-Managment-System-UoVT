@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using LMS.Utils;
 
 namespace LMS {
@@ -17,15 +9,7 @@ namespace LMS {
             InitializeComponent();
         }
 
-        protected override CreateParams CreateParams {
-            get {
-                const int CS_DROPSHADOW = 0x20000;
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-
+        #region Button Click
         private void LoginBtn_Click(object sender, EventArgs e) {
 
             // Need to Update Login Form UI
@@ -61,6 +45,15 @@ namespace LMS {
             }
         }
 
+        private void ExitBtn_Click(object sender, EventArgs e) {
+            if (MessageBox.Show("Do you want to exit!", "Login Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                this.Close();
+                this.Dispose();
+            }
+        }
+        #endregion Button Click
+
+        #region Key Events
         private void Login_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 if (MessageBox.Show("Do you want to exit!", "Login Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
@@ -70,17 +63,17 @@ namespace LMS {
                 }
             }
         }
+        #endregion Key Events
 
-        private void CloseBtn_Click_1(object sender, EventArgs e) {
-            Environment.Exit(Environment.ExitCode);
-            this.Close();
-        }
-
-        private void ExitBtn_Click(object sender, EventArgs e) {
-            if (MessageBox.Show("Do you want to exit!", "Login Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                this.Close();
-                this.Dispose();
+        #region Methods
+        protected override CreateParams CreateParams {
+            get {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
             }
         }
+        #endregion Methods
     }
 }
