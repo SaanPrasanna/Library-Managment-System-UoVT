@@ -13,9 +13,10 @@ namespace LMS.Utils {
     class GridControlSettings {
 
         public void ShowGrid(DataGridView dgv, string name, [Optional] string searchQuery, [Optional] string fromDate, [Optional] string toDate, [Optional] string searchQuery2) {
-
+            
             dgv.DataSource = null;
             string query = "";
+
             switch (name) {
                 case "Books":
                     query = "SELECT ISBN, Title, Author, Category, publishers.name AS Publisher, Price, Quantity, Date, Time  FROM books, publishers  WHERE books.pid = publishers.pid AND books.is_removed = 0" + ((searchQuery != string.Empty) ? " AND books.title LIKE '%" + searchQuery + "%';" : ";");
@@ -45,7 +46,6 @@ namespace LMS.Utils {
                     break;
                 case "Pending Books":
                     query = "SELECT bb.refno AS 'Ref No', bb.ISBN, b.Title, bb.issue_date AS 'Issued Date', bb.due_date AS 'Due Date' FROM borrow_books AS bb, members AS m, books AS b WHERE bb.isbn = b.isbn AND bb.mid = m.mid AND bb.status = 'Pending'  AND m.mid = '" + searchQuery2 + "'" + ((searchQuery != string.Empty) ? " AND b.title LIKE '%" + searchQuery + "%'" : ";");
-                    Console.WriteLine(query);
                     break;
                 case "Borrow Checkout":
                     query = "SELECT b.isbn AS 'ISBN Number', b.title AS 'Book Title', b.author AS Author, p.name AS Publisher FROM books AS b, borrow_temp As bt, publishers AS p WHERE b.isbn = bt.isbn AND b.pid = p.pid AND bt.is_removed = 0;";

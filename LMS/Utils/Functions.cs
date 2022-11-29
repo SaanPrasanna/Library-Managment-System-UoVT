@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
+using LMS.Utils.Models;
 
 namespace LMS.Utils {
     class Functions {
@@ -273,35 +274,6 @@ namespace LMS.Utils {
             return false;
         }
 
-        /*
-        public bool IsAlreadyAdd(string isbn) {
-
-            SqlConnection conn = DBUtils.GetDBConnection();
-            conn.Open();
-
-            try {
-                string query = "SELECT COUNT(*) FROM borrow_temp WHERE is_removed = '0' AND isbn = @isbn";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
-                if ((int)cmd.ExecuteScalar() > 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-
-            } catch (Exception ex) {
-                Console.WriteLine("Error: || ISAlreadyAdd || \n" + ex.ToString());
-            } finally {
-                conn.Close();
-                conn.Dispose();
-                Console.ReadLine();
-            }
-
-            return false;
-
-        }
-        */
-
         public DataTable GetDataTable(string name) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
@@ -329,6 +301,68 @@ namespace LMS.Utils {
                 conn.Dispose();
             }
             return null;
+        }
+
+        public SqlDataReader GetReader(string name, [Optional] string searchQuery, [Optional] string fromDate, [Optional] string toDate, [Optional] string searchQuery2) {
+            string query = "";
+
+            switch (name) {
+                case "Books":
+                    query = "SELECT ISBN, Title, Author, Category,  Price, Quantity, Date, Time  FROM books WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND title LIKE '%" + searchQuery + "%';" : ";");
+                    break;
+                case "Members":
+                    query = "SELECT m.mid AS 'Member ID', m.fname AS 'First Name', m.lname AS 'Last Name', m.Address, m.Category AS 'Account Type', Date AS 'Registered Date', m.renew_date AS 'Re-New Date', s.fname AS 'Added By' FROM members AS m, staffs AS s WHERE m.sid = s.sid AND m.is_removed = 0" + ((searchQuery != string.Empty) ? " AND  m.fname LIKE '%" + searchQuery + "%';" : ";");
+                    break;
+                case "Staffs":
+                    query = "SELECT sid AS 'Staff ID', Username, fname AS 'First Name', lname AS 'Last Name', Address, type AS 'Account Type' FROM staffs WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND username LIKE '%" + searchQuery + "%';" : ";");
+                    break;
+                case "Publishers":
+                    query = "SELECT p.pid AS 'Publisher ID', p.Name, pn.Number FROM publishers AS p, publishers_number AS pn WHERE p.pid = pn.pid AND is_removed = 0" + ((searchQuery != string.Empty) ? "AND p.name LIKE '%" + searchQuery + "%';" : ";");
+                    break;
+                case "Manage Books":
+                    query = "SELECT bm.ISBN, b.Title, bm.Quantity, Action, Description, bm.Date, bm.Time, s.Username  FROM books_manage AS bm, staffs AS s, books AS b WHERE bm.sid=s.sid AND bm.isbn = b.isbn AND" + ((searchQuery != string.Empty) ? " b.title LIKE '%" + searchQuery + "%' AND" : " ") + " bm.date BETWEEN '" + fromDate + "' AND '" + toDate + "';";
+                    break;
+                case "Borrow Books":
+                    query = "SELECT refno AS 'Borrow Reference', b.Title AS 'Book Title', CONCAT(m.fname,' ',m.lname) AS 'Member Name', bb.issue_date AS 'Issued Date', bb.due_date As 'Due Date', return_date AS 'Returned Date', bb.Status  FROM borrow_books AS bb, members AS m, books AS b WHERE bb.mid = m.mid AND b.isbn = bb.isbn AND" + ((searchQuery != string.Empty) ? " CONCAT(m.fname,' ',m.lname) LIKE '%" + searchQuery + "%' AND " : " ") + " issue_date BETWEEN '" + fromDate + "' AND '" + toDate + "';";
+                    break;
+                case "Pending Members":
+                    query = "SELECT m.mid AS 'Borrow Reference', CONCAT(m.fname, ' ', m.lname) AS 'Full Name', count(*) AS 'Number of Books' FROM borrow_books AS bb, members as m WHERE bb.mid = m.mid AND bb.status = 'Pending'" + ((searchQuery != string.Empty) ? " AND CONCAT(m.fname, ' ', m.lname) LIKE '%" + searchQuery + "%' " : " ") + "GROUP BY m.mid, fname, lname;";
+                    break;
+                case "Pending Books":
+                    query = "SELECT bb.refno AS 'Ref No', bb.ISBN, b.Title, bb.issue_date AS 'Issued Date', bb.due_date AS 'Due Date' FROM borrow_books AS bb, members AS m, books AS b WHERE bb.isbn = b.isbn AND bb.mid = m.mid AND bb.status = 'Pending'  AND m.mid = '" + searchQuery2 + "'" + ((searchQuery != string.Empty) ? " AND b.title LIKE '%" + searchQuery + "%'" : ";");
+                    break;
+                default:
+                    Console.WriteLine("Please double check Reader Name!");
+                    break;
+            }
+
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+            try {
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                var dataReader = cmd.ExecuteReader();
+                return dataReader;
+
+            } catch (Exception ex) {
+                conn.Close();
+                Console.WriteLine("Error: || GetReader ||\n" + ex.ToString());
+                return null;
+            }
+        }
+
+        public List<T> GetList<T>(IDataReader reader) {
+            List<T> list = new List<T>();
+            while (reader.Read()) {
+                var type = typeof(T);
+                T obj = (T)Activator.CreateInstance(type);
+                foreach (var prop in type.GetProperties()) {
+                    var propType = prop.PropertyType;
+                    prop.SetValue(obj, Convert.ChangeType(reader[prop.Name].ToString(), propType));
+                }
+                list.Add(obj);
+            }
+            return list;
         }
     }
 }

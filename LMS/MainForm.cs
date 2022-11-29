@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using System.Data.SqlClient;
 using LMS.Utils;
-using System.Threading;
 using Guna.UI2.WinForms;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using LMS.Utils.Models;
 
 namespace LMS {
     public partial class MainForm : Form {
+
+        private readonly Functions fn = new Functions();
+        private readonly GridControlSettings dgv = new GridControlSettings();
+
         public MainForm() {
             InitializeComponent();
         }
@@ -54,9 +53,6 @@ namespace LMS {
 
         private void BooksBtn_Click(object sender, EventArgs e) {
 
-            Functions fn = new Functions();
-            GridControlSettings dgv = new GridControlSettings();
-
             DashboardPanel.Hide();
             MainPanel.Show();
             BooksBtn.Checked = true;
@@ -94,9 +90,6 @@ namespace LMS {
 
         private void MembersBtn_Click(object sender, EventArgs e) {
 
-            Functions fn = new Functions();
-            GridControlSettings dgv = new GridControlSettings();
-
             DashboardPanel.Hide();
             MainPanel.Show();
             MembersBtn.Checked = true;
@@ -133,9 +126,6 @@ namespace LMS {
 
         private void StaffsBtn_Click(object sender, EventArgs e) {
 
-            Functions fn = new Functions();
-            GridControlSettings dgv = new GridControlSettings();
-
             DashboardPanel.Hide();
             MainPanel.Show();
             StaffsBtn.Checked = true;
@@ -171,9 +161,6 @@ namespace LMS {
 
         private void MangeBooksBtn_Click(object sender, EventArgs e) {
 
-            Functions fn = new Functions();
-            GridControlSettings dgv = new GridControlSettings();
-
             DateTimePickers(isVisible: true);
             DashboardPanel.Hide();
             MainPanel.Show();
@@ -198,9 +185,6 @@ namespace LMS {
         }
 
         private void BorrowBooksBtn_Click(object sender, EventArgs e) {
-
-            Functions fn = new Functions();
-            GridControlSettings dgv = new GridControlSettings();
 
             DateTimePickers(isVisible: true);
             DashboardPanel.Hide();
@@ -261,9 +245,6 @@ namespace LMS {
                             int rowCount = cmd.ExecuteNonQuery();
                             if (rowCount > 0) {
 
-                                GridControlSettings dgv = new GridControlSettings();
-                                Console.WriteLine(MainDgv.ColumnCount);
-
                                 if (MainDgv.ColumnCount == 0) {
 
                                     Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
@@ -314,9 +295,6 @@ namespace LMS {
 
                             int rowCount = cmd.ExecuteNonQuery();
                             if (rowCount > 0) {
-
-                                GridControlSettings dgv = new GridControlSettings();
-                                Console.WriteLine(MainDgv.ColumnCount);
 
                                 if (MainDgv.ColumnCount == 0) {
 
@@ -369,8 +347,6 @@ namespace LMS {
 
                                 int rowCount = (Int32)cmd.ExecuteNonQuery();
                                 if (rowCount > 0) {
-
-                                    GridControlSettings dgv = new GridControlSettings();
 
                                     if (MainDgv.ColumnCount == 0) {
 
@@ -467,6 +443,11 @@ namespace LMS {
                 case "NEW BORROW":
                     break;
                 case "ADD BOOK":
+                    var reader = fn.GetReader("Books");
+                    var bookList = fn.GetList<Book>(reader);
+
+                    PrintPreviewForm ppf = new PrintPreviewForm(books: bookList);
+                    ppf.ShowDialog();
                     break;
                 case "MANAGE BOOK":
                     break;
@@ -477,14 +458,11 @@ namespace LMS {
             }
         }
 
-
         #endregion Control Buttons
 
         #region Special Events
 
         private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
-
-            GridControlSettings dgv = new GridControlSettings();
 
             if (ActionBtn.Text == "ADD BOOK") {
                 dgv.ShowGrid(dgv: MainDgv, name: "Books", searchQuery: SearchTb.Text);
@@ -535,7 +513,7 @@ namespace LMS {
         }
 
         private void ManageDataGridLoad() {
-            GridControlSettings dgv = new GridControlSettings();
+
             MainDgv.Columns.Clear();
 
             if (ActionBtn.Text == "MANAGE BOOK") {

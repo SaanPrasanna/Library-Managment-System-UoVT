@@ -11,5 +11,8 @@ namespace LMS.Utils.Models {
         public string Author { get; set; }
         public string Category { get; set; }
         public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public DateTime Date { get; set; }
+        public DateTime Time { get; set; }
     }
 }

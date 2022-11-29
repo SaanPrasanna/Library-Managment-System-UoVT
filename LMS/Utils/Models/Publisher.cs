@@ -8,5 +8,6 @@ namespace LMS.Utils.Models {
     internal class Publisher {
         public string PID { get; set; }
         public string Name { get; set; }
+        public string Phone { get; set; }
     }
 }

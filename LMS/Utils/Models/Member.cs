@@ -10,6 +10,9 @@ namespace LMS.Utils.Models {
         public string Fname { get; set; }
         public string Lname { get; set; }
         public string Address { get; set; }
+        public string Email { get; set; }
+        public string Telephone { get; set; }
         public string Category { get; set; }
+        public DateTime Date { get; set; }
     }
 }
