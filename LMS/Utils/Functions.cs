@@ -311,10 +311,10 @@ namespace LMS.Utils {
                     query = "SELECT ISBN, Title, Author, Category,  Price, Quantity, Date, Time  FROM books WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND title LIKE '%" + searchQuery + "%';" : ";");
                     break;
                 case "Members":
-                    query = "SELECT m.mid AS 'Member ID', m.fname AS 'First Name', m.lname AS 'Last Name', m.Address, m.Category AS 'Account Type', Date AS 'Registered Date', m.renew_date AS 'Re-New Date', s.fname AS 'Added By' FROM members AS m, staffs AS s WHERE m.sid = s.sid AND m.is_removed = 0" + ((searchQuery != string.Empty) ? " AND  m.fname LIKE '%" + searchQuery + "%';" : ";");
+                    query = "SELECT mid, CONCAT(fname,' ',lname) AS 'FullName', Address, Email, Telephone, Category, renew_date AS 'RenewDate' FROM members WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND  CONCAT(fname,' ',lname) LIKE '%" + searchQuery + "%';" : ";");
                     break;
                 case "Staffs":
-                    query = "SELECT sid AS 'Staff ID', Username, fname AS 'First Name', lname AS 'Last Name', Address, type AS 'Account Type' FROM staffs WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND username LIKE '%" + searchQuery + "%';" : ";");
+                    query = "SELECT sid, Username, CONCAT(fname,' ',lname) AS 'FullName', Address, Type FROM staffs WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND username LIKE '%" + searchQuery + "%';" : ";");
                     break;
                 case "Publishers":
                     query = "SELECT p.pid AS 'Publisher ID', p.Name, pn.Number FROM publishers AS p, publishers_number AS pn WHERE p.pid = pn.pid AND is_removed = 0" + ((searchQuery != string.Empty) ? "AND p.name LIKE '%" + searchQuery + "%';" : ";");
