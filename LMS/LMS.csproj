@@ -84,40 +84,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BooksAcceptForm.cs">
+    <Compile Include="Screens\Helper\BooksAcceptForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BooksAcceptForm.Designer.cs">
+    <Compile Include="Screens\Helper\BooksAcceptForm.Designer.cs">
       <DependentUpon>BooksAcceptForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BooksActionsForm.cs">
+    <Compile Include="Screens\Helper\BooksActionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BooksActionsForm.Designer.cs">
+    <Compile Include="Screens\Helper\BooksActionsForm.Designer.cs">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BorrowBooksForm.cs">
+    <Compile Include="Screens\Primary\BorrowBooksForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BorrowBooksForm.Designer.cs">
+    <Compile Include="Screens\Primary\BorrowBooksForm.Designer.cs">
       <DependentUpon>BorrowBooksForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChooseForm.cs">
+    <Compile Include="Screens\Helper\ChooseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChooseForm.Designer.cs">
+    <Compile Include="Screens\Helper\ChooseForm.Designer.cs">
       <DependentUpon>ChooseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageBooksForm.cs">
+    <Compile Include="Screens\Helper\ManageBooksForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageBooksForm.Designer.cs">
+    <Compile Include="Screens\Helper\ManageBooksForm.Designer.cs">
       <DependentUpon>ManageBooksForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintPreviewForm.cs">
+    <Compile Include="Screens\Helper\PrintPreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrintPreviewForm.Designer.cs">
+    <Compile Include="Screens\Helper\PrintPreviewForm.Designer.cs">
       <DependentUpon>PrintPreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\BooksReport.cs">
@@ -150,28 +150,28 @@
       <DependentUpon>StaffsReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SplashForm.cs">
+    <Compile Include="Screens\Helper\SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SplashForm.Designer.cs">
+    <Compile Include="Screens\Helper\SplashForm.Designer.cs">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Screens\Primary\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Screens\Primary\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Screens\Primary\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Screens\Primary\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MembersActionsForm.cs">
+    <Compile Include="Screens\Helper\MembersActionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MembersActionsForm.Designer.cs">
+    <Compile Include="Screens\Helper\MembersActionsForm.Designer.cs">
       <DependentUpon>MembersActionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -181,22 +181,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="PublishersActionsForm.cs">
+    <Compile Include="Screens\Helper\PublishersActionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PublishersActionsForm.Designer.cs">
+    <Compile Include="Screens\Helper\PublishersActionsForm.Designer.cs">
       <DependentUpon>PublishersActionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SecondForm.cs">
+    <Compile Include="Screens\Primary\SecondForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecondForm.Designer.cs">
+    <Compile Include="Screens\Primary\SecondForm.Designer.cs">
       <DependentUpon>SecondForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffsActionsForm.cs">
+    <Compile Include="Screens\Helper\StaffsActionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StaffsActionsForm.Designer.cs">
+    <Compile Include="Screens\Helper\StaffsActionsForm.Designer.cs">
       <DependentUpon>StaffsActionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Components\DoubleBufferedTableLayoutPanel.cs">
@@ -211,22 +211,22 @@
     <Compile Include="Utils\Models\Member.cs" />
     <Compile Include="Utils\Models\Publisher.cs" />
     <Compile Include="Utils\Models\Staff.cs" />
-    <EmbeddedResource Include="BooksAcceptForm.resx">
+    <EmbeddedResource Include="Screens\Helper\BooksAcceptForm.resx">
       <DependentUpon>BooksAcceptForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BooksActionsForm.resx">
+    <EmbeddedResource Include="Screens\Helper\BooksActionsForm.resx">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrowBooksForm.resx">
+    <EmbeddedResource Include="Screens\Primary\BorrowBooksForm.resx">
       <DependentUpon>BorrowBooksForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChooseForm.resx">
+    <EmbeddedResource Include="Screens\Helper\ChooseForm.resx">
       <DependentUpon>ChooseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageBooksForm.resx">
+    <EmbeddedResource Include="Screens\Helper\ManageBooksForm.resx">
       <DependentUpon>ManageBooksForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintPreviewForm.resx">
+    <EmbeddedResource Include="Screens\Helper\PrintPreviewForm.resx">
       <DependentUpon>PrintPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\BooksReport.rpt">
@@ -249,16 +249,16 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>StaffsReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SplashForm.resx">
+    <EmbeddedResource Include="Screens\Helper\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Screens\Primary\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Screens\Primary\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MembersActionsForm.resx">
+    <EmbeddedResource Include="Screens\Helper\MembersActionsForm.resx">
       <DependentUpon>MembersActionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -266,13 +266,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="PublishersActionsForm.resx">
+    <EmbeddedResource Include="Screens\Helper\PublishersActionsForm.resx">
       <DependentUpon>PublishersActionsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecondForm.resx">
+    <EmbeddedResource Include="Screens\Primary\SecondForm.resx">
       <DependentUpon>SecondForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffsActionsForm.resx">
+    <EmbeddedResource Include="Screens\Helper\StaffsActionsForm.resx">
       <DependentUpon>StaffsActionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -320,6 +320,8 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

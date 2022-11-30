@@ -13,7 +13,7 @@ using LMS.Utils;
 using Guna.UI2.WinForms;
 using System.Runtime.InteropServices;
 
-namespace LMS {
+namespace LMS{
     public partial class BooksActionsForm : Form {
 
         MainForm Mf;

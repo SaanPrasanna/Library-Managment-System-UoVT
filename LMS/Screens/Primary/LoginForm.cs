@@ -1,19 +1,28 @@
-﻿using System;
+﻿using LMS.Utils;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using LMS.Utils;
 
-namespace LMS {
+namespace LMS.Screens.Primary {
     public partial class LoginForm : Form {
         public LoginForm() {
             InitializeComponent();
         }
 
+        #region Form Load
+        private void Login_Load(object sender, EventArgs e) {
+            guna2ShadowForm1.SetShadowForm(this);
+        }
+        #endregion Form Load
+
         #region Button Click
         private void LoginBtn_Click(object sender, EventArgs e) {
-
-            // Need to Update Login Form UI
-
             try {
                 // Check the Username and Password are not empty!
                 if (UsernameTB.Text != string.Empty && PasswordTB.Text != string.Empty) {
@@ -48,11 +57,15 @@ namespace LMS {
             }
         }
 
-        private void ExitBtn_Click(object sender, EventArgs e) {
+        private void CloseBtn_Click(object sender, EventArgs e) {
             if (MessageBox.Show("Do you want to exit!", "Login Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
                 this.Close();
                 this.Dispose();
             }
+        }
+
+        private void InfoBtn_Click(object sender, EventArgs e) {
+
         }
         #endregion Button Click
 
@@ -68,15 +81,5 @@ namespace LMS {
         }
         #endregion Key Events
 
-        #region Methods
-        protected override CreateParams CreateParams {
-            get {
-                const int CS_DROPSHADOW = 0x20000;
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-        #endregion Methods
     }
 }

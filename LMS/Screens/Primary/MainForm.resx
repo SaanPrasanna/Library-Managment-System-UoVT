@@ -199,34 +199,6 @@
         1R+n9l2IA2Sl1j5wfiM9vMCm6VQyjTA/Sc32LZHJ/AGJiBoYCEwntQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="ReportsBtn.HoverState.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5gcMCAcogNheEgAAAYZJREFU
-        WEftljFLxDAYhqvgJoc/QQ43lwNnNx1cBcXhZkXBH+DkKg53i4OCu/oTRBRBcBTBUUQnnVQQFEGwPl/y
-        5Yhnz+YuvaHiAw+lTb7khaZpEp80TSt4h7G8Y12HDYeimikvhqYOGw5F/wHaA1zgUYa3mEd0gGN9/APa
-        hvDF9OqMCcBVxpxTJ8wAndDOjidcxcUMNzEPF6Bpbw2fWDWTZUFj4WtArva2Rc1MloU02j6GV9zCjS68
-        Qkd0gEN9HAw187bUEB3gA/dwJ9BdfEBHdIBYogPc4yxOBTqN++iIDnCOA9oUBP1XTKWlkFcg7/QmUNkd
-        5Tt3lH8NXOKINuVC30Fck0IlOsA1jmM10DHcRkf5X0Eez+j/ok/wDR19DzCpZS14tmCbDH0PcID+L3oJ
-        z9Dx99dAHuUMMGr7FMK6junvDULnAAIdZtBfXL1Yx2GU3dE/JQm/BygKJpKTc8NM+Z3uA1C0jP6mk+cp
-        PmIWPQVoX0gxlDOAbLFySI1FDi0VHRaS5AuTD0H1a6cvZAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="ReportsBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5gcMCAcZ0QZeKAAAAfVJREFU
-        WEftlztLxEAUhQNaKQpqIyLWioULYmelYmOziI/K/2BvERARYUUw81jiZhIUqzT+BhsLEWxsZS0srURE
-        RVnvncxCSGbdxIyrhQcOmTzOnW/D3SRjxeU4p/2UiTtww5AfSTWYU+Xbi7GgJINcPMH2tqAfwA1KxaYq
-        315NAMbEmTr0beHEfwOAiX3Oa9NoqD+sTuv1QwBxvzlObVRdklYSIAzDLhgvEu6tJs2YNyFDLRQDuGbM
-        D2F7H9UOSuqStJIAEFxRRXR+tm27WwY1SvYA1sT9XACUHg/BeIdSfy9tb0OGWsgIQBEZATjwvEEY2/o7
-        kDb0xS4hYgqzRgDa9IDWkK1i1ggANhnnYkn3L2jhshCiD7NGAIrICAAhwTjsn1PmX2WzuCTcX8esEQBo
-        qnnY/5CFMpowfwuzRgBQlcpJL+d8IIvxda5i5gBc1+3RTaazcQD8mIDxqyyU0YSJbcyaAYia8ELfcDpj
-        E3plzBoBKKKOABy67tivPojgtt/ISWKGHjiS5zoBAM+J5eTLiNKjSTzXEYCv9A9QCABch6BbyPL5kRMA
-        vmZG4KJ3GTRlKtawdiYAFHaxw/0FNCzRuCwC2+axPIbJZlTZ7ABx4e1Tv0LexiIqBhAtNHUL0OyOFrz5
-        AIB6FkIvGDTkevyVbVmW9QnfwyxtG4QN5AAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="StaffsBtn.HoverState.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -560,7 +532,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="guna2PictureBox13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="guna2PictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5gcOBzA6QjMA2AAAA3lJREFU
@@ -582,7 +554,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="guna2PictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="guna2PictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5gcOBzA6QjMA2AAAA3lJREFU
@@ -665,7 +637,7 @@
         9B9E9D9S5FqlHHpFmQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="guna2PictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="guna2PictureBox13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5gcOBzA6QjMA2AAAA3lJREFU
@@ -687,9 +659,6 @@
         RK5CYII=
 </value>
   </data>
-  <metadata name="MainToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 17</value>
-  </metadata>
   <metadata name="Grid2Elipse.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>249, 17</value>
   </metadata>

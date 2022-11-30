@@ -50,7 +50,6 @@ namespace LMS {
                 TitleLbl.Text = "Publishers";
                 Title2Lbl.Text = "Total Publishers : " + fn.GetNumberOf(name: "Publishers").ToString();
                 ActionBtn.Text = "ADD PUBLISHER";
-
             } else if (title == "Pending List") {
 
                 PendingList();

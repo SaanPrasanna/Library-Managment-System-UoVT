@@ -8,6 +8,7 @@ using LMS.Utils;
 using Guna.UI2.WinForms;
 using System.Collections.Generic;
 using LMS.Utils.Models;
+using LMS.Screens.Primary;
 
 namespace LMS {
     public partial class MainForm : Form {
@@ -30,6 +31,7 @@ namespace LMS {
                 this.SetBounds(withBlock.Left, withBlock.Top, withBlock.Width, withBlock.Height);
             }
 
+            TitlePb.Image = Properties.Resources.Dashboard;
             MainPanel.Hide();
             DashboardDetails();
         }
@@ -437,7 +439,6 @@ namespace LMS {
             }
         }
 
-        // TODO: Printing 
         private void Action3Btn_Click(object sender, EventArgs e) {
             switch (ActionBtn.Text) {
                 case "NEW BORROW":
@@ -474,6 +475,7 @@ namespace LMS {
                 case "ADD STAFF":
                     reader = fn.GetReader(name: "Staffs", searchQuery: SearchTb.Text);
                     var staffList = fn.GetList<Staff>(reader);
+
                     PrintPreviewForm ppfStaffs = new PrintPreviewForm(staffs: staffList);
                     ppfStaffs.ShowDialog();
                     break;
@@ -566,6 +568,5 @@ namespace LMS {
             ToDtp.Value = DateTime.Now;
         }
         #endregion Methods
-
     }
 }

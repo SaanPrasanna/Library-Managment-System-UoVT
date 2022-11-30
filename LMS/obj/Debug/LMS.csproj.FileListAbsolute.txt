@@ -1,14 +1,12 @@
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\LMS.exe.config
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\LMS.exe
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\LMS.pdb
-C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.csproj.AssemblyReference.cache
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.Properties.Resources.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.csproj.GenerateResource.cache
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.csproj.CoreCompileInputs.cache
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.exe
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.pdb
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.csproj.CopyComplete
-C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.LoginForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.MainForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\zxing.dll
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\zxing.presentation.dll
@@ -70,3 +68,5 @@ C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\CrystalDecisions.ReportAppServer.
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\stdole.dll
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.csproj.AssemblyReference.cache
+C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.Screens.Primary.LoginForm.resources
