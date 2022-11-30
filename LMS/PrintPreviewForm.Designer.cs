@@ -33,8 +33,12 @@ namespace LMS {
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PrintReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.guna2ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
-            this.booksReport = new LMS.Reports.BooksReport();
             this.memberReport = new LMS.Reports.MemberReport();
+            this.staffsReport = new LMS.Reports.StaffsReport();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.booksReport = new LMS.Reports.BooksReport();
+            this.borrowBooksReport = new LMS.Reports.BorrowBooksReport();
+            this.manageBooksReport = new LMS.Reports.ManageBooksReport();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.SuspendLayout();
@@ -123,6 +127,10 @@ namespace LMS {
             this.PrintReportViewer.TabIndex = 3;
             this.PrintReportViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.TargetControl = this.guna2ShadowPanel2;
+            // 
             // PrintPreviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,5 +163,9 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm;
         private Reports.BooksReport booksReport;
         private Reports.MemberReport memberReport;
+        private Reports.StaffsReport staffsReport;
+        private Reports.BorrowBooksReport borrowBooksReport;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private Reports.ManageBooksReport manageBooksReport;
     }
 }

@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace LMS.Utils.Models {
     class BorrowBook {
+        //bb.issue_date AS 'Issued Date', bb.due_date As 'Due Date', return_date AS 'Returned Date', bb.Status
         public string RefNo { get; set; }
         public string MID { get; set; }
-        public string ISBN { get; set; }
-        public DateTime IssueDate { get; set; }
+        public string Title { get; set; }
+        public string FullName { get; set; }
+        public DateTime IssuedDate { get; set; }
         public DateTime DueDate { get; set; }
-        public DateTime ReturnDate { get; set; }
+        public DateTime ReturnedDate { get; set; }
         public string Status { get; set; }
-        public decimal FineFee { get; set; }
     }
 }

@@ -320,10 +320,10 @@ namespace LMS.Utils {
                     query = "SELECT p.pid AS 'Publisher ID', p.Name, pn.Number FROM publishers AS p, publishers_number AS pn WHERE p.pid = pn.pid AND is_removed = 0" + ((searchQuery != string.Empty) ? "AND p.name LIKE '%" + searchQuery + "%';" : ";");
                     break;
                 case "Manage Books":
-                    query = "SELECT bm.ISBN, b.Title, bm.Quantity, Action, Description, bm.Date, bm.Time, s.Username  FROM books_manage AS bm, staffs AS s, books AS b WHERE bm.sid=s.sid AND bm.isbn = b.isbn AND" + ((searchQuery != string.Empty) ? " b.title LIKE '%" + searchQuery + "%' AND" : " ") + " bm.date BETWEEN '" + fromDate + "' AND '" + toDate + "';";
+                    query = "SELECT b.Title, bm.Quantity, Action, Description, bm.Date, s.Username  FROM books_manage AS bm, staffs AS s, books AS b WHERE bm.sid=s.sid AND bm.isbn = b.isbn AND" + ((searchQuery != string.Empty) ? " b.title LIKE '%" + searchQuery + "%' AND" : " ") + " bm.date BETWEEN '" + fromDate + "' AND '" + toDate + "';";
                     break;
                 case "Borrow Books":
-                    query = "SELECT refno AS 'Borrow Reference', b.Title AS 'Book Title', CONCAT(m.fname,' ',m.lname) AS 'Member Name', bb.issue_date AS 'Issued Date', bb.due_date As 'Due Date', return_date AS 'Returned Date', bb.Status  FROM borrow_books AS bb, members AS m, books AS b WHERE bb.mid = m.mid AND b.isbn = bb.isbn AND" + ((searchQuery != string.Empty) ? " CONCAT(m.fname,' ',m.lname) LIKE '%" + searchQuery + "%' AND " : " ") + " issue_date BETWEEN '" + fromDate + "' AND '" + toDate + "';";
+                    query = "SELECT refno, m.mid, b.Title, CONCAT(m.fname,' ',m.lname) AS 'FullName', bb.issue_date AS 'IssuedDate', bb.due_date As 'DueDate', return_date AS 'ReturnedDate', bb.Status FROM borrow_books AS bb, members AS m, books AS b WHERE bb.mid = m.mid AND b.isbn = bb.isbn AND" + ((searchQuery != string.Empty) ? " CONCAT(m.fname,' ',m.lname) LIKE '%" + searchQuery + "%' AND " : " ") + " issue_date BETWEEN '" + fromDate + "' AND '" + toDate + "';";
                     break;
                 case "Pending Members":
                     query = "SELECT m.mid AS 'Borrow Reference', CONCAT(m.fname, ' ', m.lname) AS 'Full Name', count(*) AS 'Number of Books' FROM borrow_books AS bb, members as m WHERE bb.mid = m.mid AND bb.status = 'Pending'" + ((searchQuery != string.Empty) ? " AND CONCAT(m.fname, ' ', m.lname) LIKE '%" + searchQuery + "%' " : " ") + "GROUP BY m.mid, fname, lname;";

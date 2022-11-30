@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LMS.Utils {
+namespace LMS.Utils.Models {
     internal class Staff {
         public string SID { get; set; }
         public string Username { get; set; }

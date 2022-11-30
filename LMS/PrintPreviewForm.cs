@@ -16,11 +16,17 @@ namespace LMS {
 
         private readonly List<Book> _books;
         private readonly List<Member> _member;
+        private readonly List<Staff> _staff;
+        private readonly List<BorrowBook> _borrowBook;
+        private readonly List<ManageBooks> _manageBook;
 
-        internal PrintPreviewForm([Optional] List<Book> books, [Optional] List<Member> members) {
+        internal PrintPreviewForm([Optional] List<Book> books, [Optional] List<Member> members, [Optional] List<Staff> staffs, [Optional] List<BorrowBook> borrowBooks, [Optional] List<ManageBooks> manageBooks) {
             InitializeComponent();
             _books = books;
             _member = members;
+            _staff = staffs;
+            _borrowBook = borrowBooks;
+            _manageBook = manageBooks;
         }
 
         private void PrintPreviewForm_Load(object sender, EventArgs e) {
@@ -33,7 +39,15 @@ namespace LMS {
             } else if (_member != null) {
                 memberReport.SetDataSource(_member);
                 PrintReportViewer.ReportSource = memberReport;
-            } else if (false) {
+            } else if (_staff != null) {
+                staffsReport.SetDataSource(_staff);
+                PrintReportViewer.ReportSource = staffsReport;
+            } else if (_borrowBook != null) {
+                borrowBooksReport.SetDataSource(_borrowBook);
+                PrintReportViewer.ReportSource = borrowBooksReport;
+            }else if(_manageBook != null) {
+                manageBooksReport.SetDataSource(_manageBook);
+                PrintReportViewer.ReportSource = manageBooksReport;
             }
         }
 

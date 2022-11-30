@@ -442,29 +442,40 @@ namespace LMS {
             switch (ActionBtn.Text) {
                 case "NEW BORROW":
                     var reader = fn.GetReader("");
+                    reader = fn.GetReader(name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
+                    var borrowList = fn.GetList<BorrowBook>(reader);
+
+                    PrintPreviewForm ppfBooksBorrow = new PrintPreviewForm(borrowBooks: borrowList);
+                    ppfBooksBorrow.ShowDialog();
                     break;
                 case "ADD BOOK":
-                    reader = fn.GetReader("Books");
+                    reader = fn.GetReader(name: "Books", searchQuery: SearchTb.Text);
                     var bookList = fn.GetList<Book>(reader);
 
                     PrintPreviewForm ppfBooks = new PrintPreviewForm(books: bookList);
                     ppfBooks.ShowDialog();
                     break;
                 case "MANAGE BOOK":
+                    reader = fn.GetReader(name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
+                    var manageList = fn.GetList<ManageBooks>(reader);
+                    //MessageBox.Show(manageList.Count.ToString());
+
+                    PrintPreviewForm ppfManageBooks = new PrintPreviewForm(manageBooks: manageList);
+                    ppfManageBooks.ShowDialog();
                     break;
                 case "ADD MEMBER":
-                    reader = fn.GetReader("Members");
+                    reader = fn.GetReader(name: "Members", searchQuery: SearchTb.Text);
                     var memberList = fn.GetList<Member>(reader);
-                    
+
                     PrintPreviewForm ppfMembers = new PrintPreviewForm(members: memberList);
                     ppfMembers.ShowDialog();
-                    
+
                     break;
                 case "ADD STAFF":
-                    reader = fn.GetReader("Staffs");
+                    reader = fn.GetReader(name: "Staffs", searchQuery: SearchTb.Text);
                     var staffList = fn.GetList<Staff>(reader);
-                    MessageBox.Show(staffList.Count.ToString());
-
+                    PrintPreviewForm ppfStaffs = new PrintPreviewForm(staffs: staffList);
+                    ppfStaffs.ShowDialog();
                     break;
             }
         }
