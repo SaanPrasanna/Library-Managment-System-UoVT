@@ -1557,8 +1557,8 @@ namespace LMS {
             this.ClientSize = new System.Drawing.Size(1633, 1000);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.Controls.Add(this.guna2ShadowPanel1);
-            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.DashboardPanel);
+            this.Controls.Add(this.MainPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;

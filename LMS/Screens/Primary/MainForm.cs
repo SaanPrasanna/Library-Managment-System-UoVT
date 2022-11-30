@@ -35,6 +35,7 @@ namespace LMS {
             TitlePb.Image = Properties.Resources.Dashboard;
             MainPanel.Hide();
             DashboardDetails();
+            guna2ShadowPanel10.Hide(); // TODO: 
         }
         #endregion Form Load
 
