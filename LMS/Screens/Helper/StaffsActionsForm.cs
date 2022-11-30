@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using LMS.Utils;
 using Guna.UI2.WinForms;
-using System.Security.Cryptography;
+using LMS.Utils.Core;
+using LMS.Utils.Connection;
 
 namespace LMS {
     public partial class StaffsActionsForm : Form {
         MainForm mf;
+        private readonly Functions fn = new Functions();
+        private readonly GridControlSettings dgv = new GridControlSettings();
+
         public StaffsActionsForm(MainForm form, string title, string sid) {
             InitializeComponent();
 
@@ -73,7 +73,6 @@ namespace LMS {
 
         private void ActionBtn_Click(object sender, EventArgs e) {
 
-            Functions fn = new Functions();
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 
@@ -98,8 +97,6 @@ namespace LMS {
 
                         int rowCount = (Int32)cmd.ExecuteNonQuery();
                         if (rowCount > 0) {
-
-                            GridControlSettings dgv = new GridControlSettings();
 
                             if (mf.MainDgv.ColumnCount == 0) {
 

@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
 using System.Runtime.InteropServices;
+using LMS.Utils.Connection;
 
-namespace LMS.Utils {
+namespace LMS.Utils.Core {
     class GridControlSettings {
 
         public void ShowGrid(DataGridView dgv, string name, [Optional] string searchQuery, [Optional] string fromDate, [Optional] string toDate, [Optional] string searchQuery2) {

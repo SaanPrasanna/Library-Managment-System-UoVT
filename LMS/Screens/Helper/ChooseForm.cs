@@ -1,25 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using LMS.Utils;
+using LMS.Utils.Core;
 
 namespace LMS {
     public partial class ChooseForm : Form {
 
+        private readonly GridControlSettings dgv = new GridControlSettings();
         public BooksActionsForm booksActions;
         public MembersActionsForm membersActions;
 
         public ChooseForm([Optional] BooksActionsForm booksActions, [Optional] MembersActionsForm membersActions) {
             InitializeComponent();
 
-            GridControlSettings dgv = new GridControlSettings();
             if (booksActions != null) {
                 this.booksActions = booksActions;
                 TitleLbl.Text = "Choose Publisher";
@@ -55,7 +48,6 @@ namespace LMS {
 
         private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
 
-            GridControlSettings dgv = new GridControlSettings();
             if (booksActions != null) {
                 dgv.ShowGrid(dgv: ChooseDgv, name: "Publishers", searchQuery: SearchTb.Text);
             }

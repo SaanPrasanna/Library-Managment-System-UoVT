@@ -145,7 +145,6 @@ namespace LMS {
             this.ISBNTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.ISBNTb.Location = new System.Drawing.Point(128, 70);
             this.ISBNTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ISBNTb.MaxLength = 13;
             this.ISBNTb.Name = "ISBNTb";
             this.ISBNTb.PasswordChar = '\0';
             this.ISBNTb.PlaceholderText = "";

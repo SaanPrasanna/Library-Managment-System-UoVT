@@ -9,12 +9,14 @@ using System.Runtime.InteropServices;
 using Guna.UI2.WinForms;
 using Bunifu.Framework.UI;
 using System.Threading;
+using LMS.Utils.Core;
+using LMS.Utils.Connection;
 
 namespace LMS {
     public partial class BorrowBooksForm : Form {
 
-        readonly Functions fn = new Functions();
-        readonly GridControlSettings dgv = new GridControlSettings();
+        private readonly Functions fn = new Functions();
+        private readonly GridControlSettings dgv = new GridControlSettings();
 
         public BorrowBooksForm() {
             InitializeComponent();

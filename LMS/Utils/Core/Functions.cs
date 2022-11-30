@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
-using LMS.Utils.Models;
+using LMS.Utils.Connection;
 
-namespace LMS.Utils {
+namespace LMS.Utils.Core {
     class Functions {
         public DataTable Authentication(string username, string password) {
             SqlConnection conn = DBUtils.GetDBConnection();
@@ -330,6 +328,9 @@ namespace LMS.Utils {
                     break;
                 case "Pending Books":
                     query = "SELECT bb.refno AS 'Ref No', bb.ISBN, b.Title, bb.issue_date AS 'Issued Date', bb.due_date AS 'Due Date' FROM borrow_books AS bb, members AS m, books AS b WHERE bb.isbn = b.isbn AND bb.mid = m.mid AND bb.status = 'Pending'  AND m.mid = '" + searchQuery2 + "'" + ((searchQuery != string.Empty) ? " AND b.title LIKE '%" + searchQuery + "%'" : ";");
+                    break;
+                case "FineFee":
+                    query = "SELECT category, fine FROM member_category;";
                     break;
                 default:
                     Console.WriteLine("Please double check Reader Name!");

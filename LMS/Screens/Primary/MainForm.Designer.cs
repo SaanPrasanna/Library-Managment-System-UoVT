@@ -260,6 +260,7 @@ namespace LMS {
             this.SettingsBtn.Text = "Settings";
             this.SettingsBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SettingsBtn.TextOffset = new System.Drawing.Point(35, 0);
+            this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
             // 
             // StaffsBtn
             // 

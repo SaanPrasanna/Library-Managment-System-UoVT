@@ -87,7 +87,7 @@ namespace LMS.Screens.Primary {
             this.panel1.Location = new System.Drawing.Point(-1, -3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(452, 581);
-            this.panel1.TabIndex = 11;
+            this.panel1.TabIndex = 0;
             // 
             // label3
             // 
@@ -117,7 +117,7 @@ namespace LMS.Screens.Primary {
             this.panel2.Location = new System.Drawing.Point(427, -6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(37, 578);
-            this.panel2.TabIndex = 13;
+            this.panel2.TabIndex = 6;
             // 
             // gunaElipsePanel1
             // 
@@ -128,7 +128,7 @@ namespace LMS.Screens.Primary {
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Radius = 25;
             this.gunaElipsePanel1.Size = new System.Drawing.Size(235, 49);
-            this.gunaElipsePanel1.TabIndex = 14;
+            this.gunaElipsePanel1.TabIndex = 5;
             // 
             // label1
             // 

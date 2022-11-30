@@ -10,10 +10,17 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using LMS.Utils;
 using Guna.UI2.WinForms;
+using Salaros.Configuration;
+using LMS.Utils.Core;
+using LMS.Utils.Connection;
 
 namespace LMS {
     public partial class MembersActionsForm : Form {
+
         MainForm mf;
+        private readonly GridControlSettings dgv = new GridControlSettings();
+        private readonly ConfigParser config = new ConfigParser(Application.StartupPath + @"\settings.cnf");
+
         public MembersActionsForm(MainForm form, string title, string mid) {
             InitializeComponent();
 
@@ -23,7 +30,12 @@ namespace LMS {
             MIDTb.Text = mid;
 
             if (title == "Add Member") {
-                ReNewDateTb.Text = DateTime.Now.AddDays(365).ToString("yyyy-MM-dd");
+                if (config.GetValue("Numbers", "RenewDate") == null) {
+                    config.SetValue("Numbers", "RenewDate", 365);
+                    config.Save();
+                }
+
+                ReNewDateTb.Text = DateTime.Now.AddDays(Convert.ToInt32(config.GetValue("Numbers", "RenewDate"))).ToString("yyyy-MM-dd");
                 ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
             } else if (title == "Modify Member") {
                 LoadData(mid: mid);
@@ -104,8 +116,6 @@ namespace LMS {
                         int rowCount = cmd.ExecuteNonQuery();
                         if (rowCount > 0) {
 
-                            GridControlSettings dgv = new GridControlSettings();
-
                             if (mf.MainDgv.ColumnCount == 0) {
 
                                 Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
@@ -150,8 +160,6 @@ namespace LMS {
                         int rowCount = cmd.ExecuteNonQuery();
                         if (rowCount > 0) {
 
-                            GridControlSettings dgv = new GridControlSettings();
-
                             if (mf.MainDgv.ColumnCount == 0) {
 
                                 Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
@@ -193,7 +201,12 @@ namespace LMS {
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e) {
-            ReNewDateTb.Text = DateTime.Now.AddDays(365).ToString("yyyy-MM-dd");
+            if (config.GetValue("Numbers", "RenewDate") == null) {
+                config.SetValue("Numbers", "RenewDate", 365);
+                config.Save();
+            }
+
+            ReNewDateTb.Text = DateTime.Now.AddDays(Convert.ToInt32(config.GetValue("Numbers", "RenewDate"))).ToString("yyyy-MM-dd");
             UpdateBtn.Enabled = false;
         }
     }

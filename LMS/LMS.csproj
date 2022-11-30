@@ -51,6 +51,9 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>E:\Software\Bunifu UI and Guna UI\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="ConfigParser, Version=0.3.8.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Salaros.ConfigParser.0.3.8\lib\net45\ConfigParser.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -199,14 +202,21 @@
     <Compile Include="Screens\Helper\StaffsActionsForm.Designer.cs">
       <DependentUpon>StaffsActionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Primary\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Primary\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Components\DoubleBufferedTableLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\DBUtils.cs" />
-    <Compile Include="Utils\Functions.cs" />
-    <Compile Include="Utils\GridControlSettings.cs" />
+    <Compile Include="Utils\Connection\DBUtils.cs" />
+    <Compile Include="Utils\Core\Functions.cs" />
+    <Compile Include="Utils\Core\GridControlSettings.cs" />
     <Compile Include="Utils\Models\Book.cs" />
     <Compile Include="Utils\Models\BorrowBook.cs" />
+    <Compile Include="Utils\Models\FineFee.cs" />
     <Compile Include="Utils\Models\ManageBooks.cs" />
     <Compile Include="Utils\Models\Member.cs" />
     <Compile Include="Utils\Models\Publisher.cs" />
@@ -275,6 +285,9 @@
     <EmbeddedResource Include="Screens\Helper\StaffsActionsForm.resx">
       <DependentUpon>StaffsActionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Primary\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -285,7 +298,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Utils\DBSQLServerUtils.cs" />
+    <Compile Include="Utils\Connection\DBSQLServerUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

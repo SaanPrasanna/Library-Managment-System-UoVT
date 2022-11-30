@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LMS.Utils;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
-using Guna.UI2.WinForms;
+using LMS.Utils.Core;
+using LMS.Utils.Connection;
 
 namespace LMS {
     public partial class SecondForm : Form {
@@ -19,8 +15,8 @@ namespace LMS {
         BorrowBooksForm bbf;
         private string title, name, mID;
         public int NOB;
-        readonly GridControlSettings dgv = new GridControlSettings();
-        readonly Functions fn = new Functions();
+        private readonly GridControlSettings dgv = new GridControlSettings();
+        private readonly Functions fn = new Functions();
 
         public SecondForm([Optional] MainForm form, [Optional] BorrowBooksForm bbf, [Optional] string title) {
             InitializeComponent();

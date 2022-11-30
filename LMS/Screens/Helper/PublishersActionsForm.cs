@@ -1,19 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using LMS.Utils;
 using Guna.UI2.WinForms;
+using LMS.Utils.Core;
+using LMS.Utils.Connection;
 
 namespace LMS {
     public partial class PublishersActionsForm : Form {
         SecondForm pf;
+        private readonly Functions fn = new Functions();
+        private readonly GridControlSettings dgv = new GridControlSettings();
+
         public PublishersActionsForm(SecondForm form, string title, string pid) {
             InitializeComponent();
 
@@ -68,7 +69,6 @@ namespace LMS {
 
         private void ActionBtn_Click(object sender, EventArgs e) {
 
-            Functions fn = new Functions();
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 
@@ -88,8 +88,6 @@ namespace LMS {
                         cmd2.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
 
                         if ((Int32)cmd.ExecuteNonQuery() > 0 && (Int32)cmd2.ExecuteNonQuery() > 0) {
-
-                            GridControlSettings dgv = new GridControlSettings();
 
                             if (pf.SecondDgv.ColumnCount == 0) {
 

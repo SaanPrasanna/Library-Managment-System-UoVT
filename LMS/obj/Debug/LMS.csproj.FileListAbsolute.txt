@@ -70,3 +70,5 @@ C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\stdole.dll
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\CrystalDecisions.Windows.Forms.dll
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.csproj.AssemblyReference.cache
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.Screens.Primary.LoginForm.resources
+C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.Screens.Primary.SettingsForm.resources
+C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\ConfigParser.dll

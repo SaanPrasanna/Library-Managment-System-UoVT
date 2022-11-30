@@ -5,14 +5,14 @@ using System.Windows.Forms;
 using LMS.Utils;
 using System.Data.SqlClient;
 using Guna.UI2.WinForms;
+using LMS.Utils.Core;
+using LMS.Utils.Connection;
 
 namespace LMS {
     public partial class ManageBooksForm : Form {
 
         MainForm mf;
-        // Object for the Functions.cs which locate LMS/Utils
         readonly Functions fn = new Functions();
-        // Object for the GridControlSettings.cs locate LMS/Utils
         readonly GridControlSettings dgv = new GridControlSettings();
 
         public ManageBooksForm(MainForm form) {

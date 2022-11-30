@@ -1,4 +1,6 @@
 ﻿using LMS.Utils;
+using LMS.Utils.Connection;
+using LMS.Utils.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +17,7 @@ namespace LMS {
 
         SecondForm sf;
         private string[] values; // 0 - RefNo, 1 - ISBN, 2 - MemberID, 3 - Name, 4 - NOB
-        readonly Functions fn = new Functions();
+        private readonly Functions fn = new Functions();
 
         public BooksAcceptForm(SecondForm sf, string[] values) {
             this.sf = sf;

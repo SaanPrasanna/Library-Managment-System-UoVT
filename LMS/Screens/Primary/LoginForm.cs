@@ -1,16 +1,13 @@
-﻿using LMS.Utils;
+﻿using LMS.Utils.Core;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LMS.Screens.Primary {
     public partial class LoginForm : Form {
+
+        private readonly Functions fn = new Functions();
+
         public LoginForm() {
             InitializeComponent();
         }
@@ -27,8 +24,6 @@ namespace LMS.Screens.Primary {
                 // Check the Username and Password are not empty!
                 if (UsernameTB.Text != string.Empty && PasswordTB.Text != string.Empty) {
 
-                    // Create a object to Functions.cs 
-                    Functions fn = new Functions();
                     DataTable dt = fn.Authentication(username: UsernameTB.Text, password: PasswordTB.Text);
 
                     if (dt.Rows.Count == 1) {

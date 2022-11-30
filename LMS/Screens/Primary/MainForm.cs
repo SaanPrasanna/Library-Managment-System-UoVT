@@ -6,9 +6,10 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using LMS.Utils;
 using Guna.UI2.WinForms;
-using System.Collections.Generic;
 using LMS.Utils.Models;
 using LMS.Screens.Primary;
+using LMS.Utils.Core;
+using LMS.Utils.Connection;
 
 namespace LMS {
     public partial class MainForm : Form {
@@ -217,6 +218,10 @@ namespace LMS {
             dgv.GridColor(MainDgv);
         }
 
+        private void SettingsBtn_Click(object sender, EventArgs e) {
+            SettingsForm sf = new SettingsForm();
+            sf.ShowDialog();
+        }
         #endregion Navigation Buttons
 
         #region Main Grid CellContentClick

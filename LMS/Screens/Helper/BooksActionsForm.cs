@@ -4,19 +4,19 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using ZXing;
 using LMS.Utils;
 using Guna.UI2.WinForms;
-using System.Runtime.InteropServices;
+using LMS.Utils.Core;
+using LMS.Utils.Connection;
 
 namespace LMS{
     public partial class BooksActionsForm : Form {
 
         MainForm Mf;
+        private readonly GridControlSettings dgv = new GridControlSettings();
 
         protected override CreateParams CreateParams {
             get {
@@ -111,8 +111,6 @@ namespace LMS{
                         int rowCount = cmd.ExecuteNonQuery();
                         if (rowCount > 0) {
 
-                            GridControlSettings dgv = new GridControlSettings();
-
                             dgv.ShowGrid(dgv: Mf.MainDgv, name: "Books");
                             if (Mf.MainDgv.ColumnCount == 0) {
 
@@ -155,8 +153,6 @@ namespace LMS{
 
                         int rowCount = cmd.ExecuteNonQuery();
                         if (rowCount > 0) {
-
-                            GridControlSettings dgv = new GridControlSettings();
 
                             dgv.ShowGrid(dgv: Mf.MainDgv, name: "Books");
                             if (Mf.MainDgv.ColumnCount == 0) {
