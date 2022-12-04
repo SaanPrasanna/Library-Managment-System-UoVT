@@ -42,8 +42,9 @@ namespace LMS.Screens.Primary {
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SaveDaysBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.dropShadow = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -337,10 +338,14 @@ namespace LMS.Screens.Primary {
             this.SaveDaysBtn.Text = "SAVE";
             this.SaveDaysBtn.Click += new System.EventHandler(this.SaveDaysBtn_Click);
             // 
-            // guna2Elipse1
+            // bunifuElipse1
             // 
-            this.guna2Elipse1.BorderRadius = 15;
-            this.guna2Elipse1.TargetControl = this;
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.TargetControl = this.guna2ShadowPanel2;
             // 
             // SettingsForm
             // 
@@ -377,7 +382,6 @@ namespace LMS.Screens.Primary {
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Button SaveFeeBtn;
         private Guna.UI2.WinForms.Guna2Button SaveDaysBtn;
         private Guna.UI2.WinForms.Guna2TextBox OthersTB;
@@ -388,5 +392,7 @@ namespace LMS.Screens.Primary {
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2ShadowForm dropShadow;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

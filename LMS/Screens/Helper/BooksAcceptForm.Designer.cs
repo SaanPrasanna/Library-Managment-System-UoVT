@@ -26,12 +26,12 @@ namespace LMS {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.Label6 = new System.Windows.Forms.Label();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.FineFeeTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.RemainTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.RecievedTB = new Guna.UI2.WinForms.Guna2TextBox();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.SuspendLayout();
             // 
             // Label6
@@ -48,11 +48,6 @@ namespace LMS {
             this.Label6.Size = new System.Drawing.Size(101, 25);
             this.Label6.TabIndex = 3;
             this.Label6.Text = "Fine Fee";
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this;
             // 
             // FineFeeTB
             // 
@@ -167,6 +162,11 @@ namespace LMS {
             this.RecievedTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecievedTB_KeyPress);
             this.RecievedTB.KeyUp += new System.Windows.Forms.KeyEventHandler(this.RecievedTB_KeyUp);
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 25;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // BooksAcceptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,11 +192,11 @@ namespace LMS {
 
         #endregion
         internal System.Windows.Forms.Label Label6;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2TextBox FineFeeTB;
         internal System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox RemainTB;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2TextBox RecievedTB;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

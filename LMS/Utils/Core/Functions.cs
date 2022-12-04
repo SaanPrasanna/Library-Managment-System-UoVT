@@ -95,9 +95,12 @@ namespace LMS.Utils.Core {
                     case "Already Add to Borrow Books":
                         query = "SELECT COUNT(*) FROM borrow_books WHERE status = 'Pending' AND isbn = '" + value + "' AND mid = '" + value2 + "'";
                         break;
+                    case "Monthly FineFees":
+                        query = "SELECT fines_fee FROM borrow_books WHERE return_date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%'";
+                        break;
                 }
                 SqlCommand cmd = new SqlCommand(query, conn);
-                return (Int32)cmd.ExecuteScalar();
+                return Convert.ToInt32(cmd.ExecuteScalar());
 
             } catch (Exception e) {
                 Console.WriteLine("Error: " + e.ToString());
@@ -190,7 +193,7 @@ namespace LMS.Utils.Core {
 
                 DateTime dueDate = DateTime.Parse(dt.Rows[0][0].ToString());
                 DateTime today = DateTime.Now;
-                int TotalDays = (int)(today - dueDate).TotalDays;
+                int TotalDays = (dueDate <= today) ? (int)(today - dueDate).TotalDays : 0;
                 return (double)(TotalDays * double.Parse(dt.Rows[0][1].ToString()));
 
             } catch (Exception ex) {

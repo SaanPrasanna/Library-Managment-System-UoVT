@@ -31,7 +31,6 @@ namespace LMS {
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.ActionBtn = new Guna.UI2.WinForms.Guna2Button();
             this.LnameTb = new Guna.UI2.WinForms.Guna2TextBox();
@@ -49,6 +48,7 @@ namespace LMS {
             this.label3 = new System.Windows.Forms.Label();
             this.UsernameTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.ChangeBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TitlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.SuspendLayout();
@@ -120,11 +120,6 @@ namespace LMS {
             this.CloseBtn.TabIndex = 0;
             this.toolTip1.SetToolTip(this.CloseBtn, "Press Esc to close");
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 15;
-            this.guna2Elipse1.TargetControl = this;
             // 
             // label2
             // 
@@ -452,6 +447,11 @@ namespace LMS {
             this.ChangeBtn.Visible = false;
             this.ChangeBtn.Click += new System.EventHandler(this.ChangeBtn_Click);
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // StaffsActionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,7 +495,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
         private Guna.UI2.WinForms.Guna2CircleButton CloseBtn;
         private System.Windows.Forms.ToolTip toolTip1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         internal System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button ActionBtn;
         private Guna.UI2.WinForms.Guna2TextBox LnameTb;
@@ -512,5 +511,6 @@ namespace LMS {
         internal System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox UsernameTb;
         private Guna.UI2.WinForms.Guna2Button ChangeBtn;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

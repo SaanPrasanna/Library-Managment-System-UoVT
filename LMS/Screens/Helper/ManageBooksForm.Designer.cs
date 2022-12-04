@@ -51,9 +51,9 @@ namespace LMS {
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SelectionDgv)).BeginInit();
             this.guna2ShadowPanel2.SuspendLayout();
@@ -570,11 +570,6 @@ namespace LMS {
             this.CloseBtn.TabIndex = 0;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 15;
-            this.guna2Elipse1.TargetControl = this;
-            // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.TargetControl = this.guna2ShadowPanel2;
@@ -582,6 +577,11 @@ namespace LMS {
             // guna2Elipse2
             // 
             this.guna2Elipse2.TargetControl = this.SelectionDgv;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // ManageBooksForm
             // 
@@ -615,7 +615,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2PictureBox TitlePb;
         public Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
         private Guna.UI2.WinForms.Guna2CircleButton CloseBtn;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2TextBox ISBNTb;
         internal System.Windows.Forms.Label Label1;
@@ -633,5 +632,6 @@ namespace LMS {
         internal System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button ManageBtn;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

@@ -208,6 +208,12 @@
     <Compile Include="Screens\Primary\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Widgets\AlertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Widgets\AlertForm.Designer.cs">
+      <DependentUpon>AlertForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Components\DoubleBufferedTableLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -288,6 +294,9 @@
     <EmbeddedResource Include="Screens\Primary\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Widgets\AlertForm.resx">
+      <DependentUpon>AlertForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -335,6 +344,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InfoAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WarningAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SuccessAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ErrorAlert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

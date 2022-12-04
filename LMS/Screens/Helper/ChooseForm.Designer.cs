@@ -34,10 +34,10 @@ namespace LMS {
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.MainPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.ChooseDgv = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.SearchTb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ChooseDgv = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -123,6 +123,35 @@ namespace LMS {
             this.MainPanel.Size = new System.Drawing.Size(841, 527);
             this.MainPanel.TabIndex = 10;
             // 
+            // SearchTb
+            // 
+            this.SearchTb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchTb.Animated = true;
+            this.SearchTb.BorderRadius = 15;
+            this.SearchTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.SearchTb.DefaultText = "";
+            this.SearchTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.SearchTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.SearchTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SearchTb.DisabledState.Parent = this.SearchTb;
+            this.SearchTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SearchTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SearchTb.FocusedState.Parent = this.SearchTb;
+            this.SearchTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.SearchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SearchTb.HoverState.Parent = this.SearchTb;
+            this.SearchTb.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.SearchTb.Location = new System.Drawing.Point(555, 23);
+            this.SearchTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SearchTb.Name = "SearchTb";
+            this.SearchTb.PasswordChar = '\0';
+            this.SearchTb.PlaceholderText = "Search here";
+            this.SearchTb.SelectedText = "";
+            this.SearchTb.ShadowDecoration.Parent = this.SearchTb;
+            this.SearchTb.Size = new System.Drawing.Size(249, 36);
+            this.SearchTb.TabIndex = 8;
+            this.SearchTb.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SearchTb_KeyUp);
+            // 
             // ChooseDgv
             // 
             this.ChooseDgv.AllowUserToAddRows = false;
@@ -204,43 +233,14 @@ namespace LMS {
             this.ChooseDgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.ChooseDgv.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChooseDgv_CellEnter);
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 15;
-            this.guna2Elipse1.TargetControl = this;
-            // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.TargetControl = this.guna2ShadowPanel2;
             // 
-            // SearchTb
+            // bunifuElipse1
             // 
-            this.SearchTb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchTb.Animated = true;
-            this.SearchTb.BorderRadius = 15;
-            this.SearchTb.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.SearchTb.DefaultText = "";
-            this.SearchTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.SearchTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.SearchTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.SearchTb.DisabledState.Parent = this.SearchTb;
-            this.SearchTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.SearchTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchTb.FocusedState.Parent = this.SearchTb;
-            this.SearchTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
-            this.SearchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SearchTb.HoverState.Parent = this.SearchTb;
-            this.SearchTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.SearchTb.Location = new System.Drawing.Point(555, 23);
-            this.SearchTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.SearchTb.Name = "SearchTb";
-            this.SearchTb.PasswordChar = '\0';
-            this.SearchTb.PlaceholderText = "Search here";
-            this.SearchTb.SelectedText = "";
-            this.SearchTb.ShadowDecoration.Parent = this.SearchTb;
-            this.SearchTb.Size = new System.Drawing.Size(249, 36);
-            this.SearchTb.TabIndex = 8;
-            this.SearchTb.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SearchTb_KeyUp);
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // ChooseForm
             // 
@@ -272,8 +272,8 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2CircleButton CloseBtn;
         private Guna.UI2.WinForms.Guna2ShadowPanel MainPanel;
         public Guna.UI2.WinForms.Guna2DataGridView ChooseDgv;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         public Guna.UI2.WinForms.Guna2TextBox SearchTb;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

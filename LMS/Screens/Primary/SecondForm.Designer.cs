@@ -40,9 +40,9 @@ namespace LMS {
             this.Title2Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.ActionBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SecondDgv = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -296,19 +296,19 @@ namespace LMS {
             this.SecondDgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.SecondDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SecoundDgv_CellContentClick);
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 15;
-            this.guna2Elipse1.TargetControl = this;
-            // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.TargetControl = this.guna2ShadowPanel2;
             // 
-            // guna2Elipse2
+            // bunifuElipse1
             // 
-            this.guna2Elipse2.BorderRadius = 15;
-            this.guna2Elipse2.TargetControl = this.SecondDgv;
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 15;
+            this.bunifuElipse2.TargetControl = this.SecondDgv;
             // 
             // SecondForm
             // 
@@ -344,11 +344,11 @@ namespace LMS {
         public Guna.UI2.WinForms.Guna2HtmlLabel Title2Lbl;
         public Guna.UI2.WinForms.Guna2Button ActionBtn;
         public Guna.UI2.WinForms.Guna2DataGridView SecondDgv;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         public Guna.UI2.WinForms.Guna2HtmlLabel RecentUpdateLbl;
         public Guna.UI2.WinForms.Guna2TextBox SearchTb;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         public Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
     }
 }

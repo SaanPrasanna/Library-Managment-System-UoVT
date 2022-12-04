@@ -540,6 +540,8 @@ namespace LMS {
 
             FNameLbl.Text = Properties.Settings.Default.fname;
             UsernameLbl.Text = Properties.Settings.Default.username;
+            TypeLbl.Text = Properties.Settings.Default.accountType;
+            FineFeesLbl.Text = "Rs. " + fn.GetNumberOf("Monthly FineFees").ToString("0.00");
         }
 
         private void ManageDataGridLoad() {

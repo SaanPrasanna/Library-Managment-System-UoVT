@@ -131,6 +131,7 @@ namespace LMS {
         }
 
         private void BooksAcceptForm_Load(object sender, EventArgs e) {
+            MessageBox.Show(values[0] +" "+ values[1]);
             FineFeeTB.Text = fn.GetFine(refNo: values[0], isbn: values[1]).ToString("00.00");
         }
 

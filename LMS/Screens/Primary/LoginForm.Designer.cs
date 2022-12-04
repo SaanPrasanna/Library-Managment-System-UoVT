@@ -40,9 +40,9 @@ namespace LMS.Screens.Primary {
             this.InfoBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.gunaElipsePanel1.SuspendLayout();
@@ -250,11 +250,6 @@ namespace LMS.Screens.Primary {
             this.gunaPictureBox1.TabIndex = 16;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 35;
-            this.guna2Elipse1.TargetControl = this;
-            // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.TargetControl = this.guna2PictureBox1;
@@ -262,6 +257,11 @@ namespace LMS.Screens.Primary {
             // guna2DragControl2
             // 
             this.guna2DragControl2.TargetControl = this;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 25;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // LoginForm
             // 
@@ -313,8 +313,8 @@ namespace LMS.Screens.Primary {
         private Guna.UI2.WinForms.Guna2CircleButton InfoBtn;
         private Guna.UI2.WinForms.Guna2CircleButton CloseBtn;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

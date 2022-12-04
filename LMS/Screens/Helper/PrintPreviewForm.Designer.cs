@@ -30,7 +30,6 @@ namespace LMS {
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PrintReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.guna2ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.memberReport = new LMS.Reports.MemberReport();
@@ -39,6 +38,7 @@ namespace LMS {
             this.booksReport = new LMS.Reports.BooksReport();
             this.borrowBooksReport = new LMS.Reports.BorrowBooksReport();
             this.manageBooksReport = new LMS.Reports.ManageBooksReport();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.SuspendLayout();
@@ -105,11 +105,6 @@ namespace LMS {
             this.CloseBtn.TabIndex = 0;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 15;
-            this.guna2Elipse1.TargetControl = this;
-            // 
             // PrintReportViewer
             // 
             this.PrintReportViewer.ActiveViewIndex = -1;
@@ -130,6 +125,11 @@ namespace LMS {
             // guna2DragControl1
             // 
             this.guna2DragControl1.TargetControl = this.guna2ShadowPanel2;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // PrintPreviewForm
             // 
@@ -158,7 +158,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2PictureBox TitlePb;
         public Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
         private Guna.UI2.WinForms.Guna2CircleButton CloseBtn;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer PrintReportViewer;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm;
         private Reports.BooksReport booksReport;
@@ -167,5 +166,6 @@ namespace LMS {
         private Reports.BorrowBooksReport borrowBooksReport;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Reports.ManageBooksReport manageBooksReport;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

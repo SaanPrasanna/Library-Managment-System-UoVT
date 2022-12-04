@@ -136,4 +136,22 @@
   <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cancelH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancelW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ErrorAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ErrorAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InfoAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InfoAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SuccessAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SuccessAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WarningAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WarningAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

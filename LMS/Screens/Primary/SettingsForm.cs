@@ -20,6 +20,7 @@ namespace LMS.Screens.Primary {
 
         public SettingsForm() {
             InitializeComponent();
+            this.TopMost = true;
         }
 
         private void SettingsForm_Load(object sender, EventArgs e) {

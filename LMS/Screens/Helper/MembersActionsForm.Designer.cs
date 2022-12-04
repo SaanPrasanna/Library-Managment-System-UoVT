@@ -38,7 +38,6 @@ namespace LMS {
             this.Label7 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.TitlePanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -51,6 +50,7 @@ namespace LMS {
             this.EmailTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.TelephoneTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TitlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.SuspendLayout();
@@ -273,11 +273,6 @@ namespace LMS {
             this.Label1.TabIndex = 207;
             this.Label1.Text = "Member ID";
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 15;
-            this.guna2Elipse1.TargetControl = this;
-            // 
             // TitleLbl
             // 
             this.TitleLbl.BackColor = System.Drawing.Color.Transparent;
@@ -447,7 +442,6 @@ namespace LMS {
             this.EmailTB.IconLeftSize = new System.Drawing.Size(21, 21);
             this.EmailTB.Location = new System.Drawing.Point(127, 340);
             this.EmailTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.EmailTB.MaxLength = 100;
             this.EmailTB.Name = "EmailTB";
             this.EmailTB.PasswordChar = '\0';
             this.EmailTB.PlaceholderText = "";
@@ -475,7 +469,6 @@ namespace LMS {
             this.TelephoneTB.IconLeftSize = new System.Drawing.Size(21, 21);
             this.TelephoneTB.Location = new System.Drawing.Point(126, 385);
             this.TelephoneTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TelephoneTB.MaxLength = 10;
             this.TelephoneTB.Name = "TelephoneTB";
             this.TelephoneTB.PasswordChar = '\0';
             this.TelephoneTB.PlaceholderText = "";
@@ -497,6 +490,11 @@ namespace LMS {
             this.label5.Size = new System.Drawing.Size(80, 20);
             this.label5.TabIndex = 209;
             this.label5.Text = "Telephone";
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // MembersActionsForm
             // 
@@ -549,7 +547,6 @@ namespace LMS {
         internal System.Windows.Forms.Label Label7;
         internal System.Windows.Forms.Label Label6;
         internal System.Windows.Forms.Label Label1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2PictureBox TitlePb;
         private Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
         private Guna.UI2.WinForms.Guna2ShadowPanel TitlePanel;
@@ -562,5 +559,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2TextBox TelephoneTB;
         private Guna.UI2.WinForms.Guna2TextBox EmailTB;
         internal System.Windows.Forms.Label label4;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

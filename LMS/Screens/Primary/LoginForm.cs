@@ -1,4 +1,5 @@
-﻿using LMS.Utils.Core;
+﻿using LMS.Screens.Widgets;
+using LMS.Utils.Core;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -21,32 +22,30 @@ namespace LMS.Screens.Primary {
         #region Button Click
         private void LoginBtn_Click(object sender, EventArgs e) {
             try {
-                // Check the Username and Password are not empty!
                 if (UsernameTB.Text != string.Empty && PasswordTB.Text != string.Empty) {
 
                     DataTable dt = fn.Authentication(username: UsernameTB.Text, password: PasswordTB.Text);
 
                     if (dt.Rows.Count == 1) {
 
-                        MessageBox.Show("Access Granted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        SplashForm splashForm = new SplashForm();
                         Properties.Settings.Default.sid = dt.Rows[0][0].ToString();
                         Properties.Settings.Default.username = dt.Rows[0][1].ToString();
-                        Properties.Settings.Default.fname = dt.Rows[0][3].ToString();
+                        Properties.Settings.Default.fname = dt.Rows[0][3].ToString() + " " + dt.Rows[0][4].ToString();
                         Properties.Settings.Default.accountType = dt.Rows[0][6].ToString();
+                        this.Alert("Information!", "Access Granted for " + Properties.Settings.Default.fname + "!", AlertForm.EnmType.Info);
+
+                        SplashForm splashForm = new SplashForm();
                         this.Hide();
                         splashForm.Show();
 
                     } else {
-                        // Wrong username or Password
-                        MessageBox.Show("Access Denied!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Alert("Warning!", "Invalid Username or Password!", AlertForm.EnmType.Warning);
                     }
                 } else {
-                    MessageBox.Show("Username or Password can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Alert("Warning!", "Username or Password can't be empty!", AlertForm.EnmType.Warning);
                 }
             } catch (Exception ex) {
-                MessageBox.Show("Internal Error!\nError: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Alert("Error", "Internal Error!", AlertForm.EnmType.Error);
             } finally {
                 Console.ReadLine();
             }
@@ -60,7 +59,8 @@ namespace LMS.Screens.Primary {
         }
 
         private void InfoBtn_Click(object sender, EventArgs e) {
-
+            // TODO
+            this.Alert("Success Alert", "Testing Body here", AlertForm.EnmType.Info);
         }
         #endregion Button Click
 
@@ -76,5 +76,11 @@ namespace LMS.Screens.Primary {
         }
         #endregion Key Events
 
+        #region Methods
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
+        }
+        #endregion
     }
 }

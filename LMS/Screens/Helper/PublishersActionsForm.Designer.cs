@@ -31,7 +31,6 @@ namespace LMS {
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.ActionBtn = new Guna.UI2.WinForms.Guna2Button();
             this.NumberTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.NameTb = new Guna.UI2.WinForms.Guna2TextBox();
@@ -40,6 +39,7 @@ namespace LMS {
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PIDTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.Label6 = new System.Windows.Forms.Label();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TitlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.SuspendLayout();
@@ -111,11 +111,6 @@ namespace LMS {
             this.toolTip1.SetToolTip(this.CloseBtn, "Press Esc to close");
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 15;
-            this.guna2Elipse1.TargetControl = this;
-            // 
             // ActionBtn
             // 
             this.ActionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -154,7 +149,6 @@ namespace LMS {
             this.NumberTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.NumberTb.Location = new System.Drawing.Point(128, 160);
             this.NumberTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.NumberTb.MaxLength = 10;
             this.NumberTb.Name = "NumberTb";
             this.NumberTb.PasswordChar = '\0';
             this.NumberTb.PlaceholderText = "";
@@ -183,7 +177,6 @@ namespace LMS {
             this.NameTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.NameTb.Location = new System.Drawing.Point(128, 115);
             this.NameTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.NameTb.MaxLength = 100;
             this.NameTb.Name = "NameTb";
             this.NameTb.PasswordChar = '\0';
             this.NameTb.PlaceholderText = "";
@@ -262,6 +255,11 @@ namespace LMS {
             this.Label6.TabIndex = 223;
             this.Label6.Text = "Telephone";
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // PublishersActionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,7 +294,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
         private Guna.UI2.WinForms.Guna2CircleButton CloseBtn;
         private System.Windows.Forms.ToolTip toolTip1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Button ActionBtn;
         private Guna.UI2.WinForms.Guna2TextBox NumberTb;
         private Guna.UI2.WinForms.Guna2TextBox NameTb;
@@ -304,5 +301,6 @@ namespace LMS {
         internal System.Windows.Forms.Label Label1;
         private Guna.UI2.WinForms.Guna2TextBox PIDTb;
         internal System.Windows.Forms.Label Label6;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }
