@@ -51,6 +51,10 @@ namespace LMS {
             this.TelephoneTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.PwBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.PasswordTB = new Guna.UI2.WinForms.Guna2TextBox();
+            this.PasswordLbl = new System.Windows.Forms.Label();
+            this.ShowPasswordSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.TitlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +66,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 213);
+            this.label2.Location = new System.Drawing.Point(17, 216);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 20);
@@ -100,11 +104,11 @@ namespace LMS {
             this.ActionBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActionBtn.ForeColor = System.Drawing.Color.White;
             this.ActionBtn.HoverState.Parent = this.ActionBtn;
-            this.ActionBtn.Location = new System.Drawing.Point(342, 434);
+            this.ActionBtn.Location = new System.Drawing.Point(342, 485);
             this.ActionBtn.Name = "ActionBtn";
             this.ActionBtn.ShadowDecoration.Parent = this.ActionBtn;
             this.ActionBtn.Size = new System.Drawing.Size(119, 38);
-            this.ActionBtn.TabIndex = 5;
+            this.ActionBtn.TabIndex = 12;
             this.ActionBtn.Text = "Action Button";
             this.ActionBtn.Click += new System.EventHandler(this.ActionBtn_Click);
             // 
@@ -125,7 +129,7 @@ namespace LMS {
             this.AddressTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AddressTb.HoverState.Parent = this.AddressTb;
             this.AddressTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.AddressTb.Location = new System.Drawing.Point(127, 205);
+            this.AddressTb.Location = new System.Drawing.Point(127, 208);
             this.AddressTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddressTb.Name = "AddressTb";
             this.AddressTb.PasswordChar = '\0';
@@ -152,14 +156,14 @@ namespace LMS {
             this.LnameTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.LnameTb.HoverState.Parent = this.LnameTb;
             this.LnameTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.LnameTb.Location = new System.Drawing.Point(128, 160);
+            this.LnameTb.Location = new System.Drawing.Point(128, 162);
             this.LnameTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LnameTb.Name = "LnameTb";
             this.LnameTb.PasswordChar = '\0';
             this.LnameTb.PlaceholderText = "";
             this.LnameTb.SelectedText = "";
             this.LnameTb.ShadowDecoration.Parent = this.LnameTb;
-            this.LnameTb.Size = new System.Drawing.Size(307, 36);
+            this.LnameTb.Size = new System.Drawing.Size(331, 36);
             this.LnameTb.TabIndex = 2;
             // 
             // FnameTb
@@ -179,14 +183,14 @@ namespace LMS {
             this.FnameTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.FnameTb.HoverState.Parent = this.FnameTb;
             this.FnameTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.FnameTb.Location = new System.Drawing.Point(128, 115);
+            this.FnameTb.Location = new System.Drawing.Point(128, 116);
             this.FnameTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FnameTb.Name = "FnameTb";
             this.FnameTb.PasswordChar = '\0';
             this.FnameTb.PlaceholderText = "";
             this.FnameTb.SelectedText = "";
             this.FnameTb.ShadowDecoration.Parent = this.FnameTb;
-            this.FnameTb.Size = new System.Drawing.Size(307, 36);
+            this.FnameTb.Size = new System.Drawing.Size(331, 36);
             this.FnameTb.TabIndex = 1;
             // 
             // MIDTb
@@ -224,7 +228,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label8.AutoSize = true;
             this.Label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label8.Location = new System.Drawing.Point(17, 258);
+            this.Label8.Location = new System.Drawing.Point(17, 262);
             this.Label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(72, 20);
@@ -238,7 +242,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label7.AutoSize = true;
             this.Label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label7.Location = new System.Drawing.Point(17, 123);
+            this.Label7.Location = new System.Drawing.Point(17, 124);
             this.Label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(83, 20);
@@ -252,7 +256,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label6.AutoSize = true;
             this.Label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label6.Location = new System.Drawing.Point(17, 168);
+            this.Label6.Location = new System.Drawing.Point(17, 170);
             this.Label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(80, 20);
@@ -303,7 +307,7 @@ namespace LMS {
             this.TitlePanel.ShadowDepth = 15;
             this.TitlePanel.ShadowShift = 10;
             this.TitlePanel.Size = new System.Drawing.Size(480, 68);
-            this.TitlePanel.TabIndex = 6;
+            this.TitlePanel.TabIndex = 13;
             // 
             // TitlePb
             // 
@@ -342,7 +346,7 @@ namespace LMS {
             "Student",
             "Other"});
             this.CategoryCb.ItemsAppearance.Parent = this.CategoryCb;
-            this.CategoryCb.Location = new System.Drawing.Point(128, 250);
+            this.CategoryCb.Location = new System.Drawing.Point(128, 254);
             this.CategoryCb.Name = "CategoryCb";
             this.CategoryCb.ShadowDecoration.Parent = this.CategoryCb;
             this.CategoryCb.Size = new System.Drawing.Size(206, 36);
@@ -366,7 +370,7 @@ namespace LMS {
             this.ReNewDateTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ReNewDateTb.HoverState.Parent = this.ReNewDateTb;
             this.ReNewDateTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.ReNewDateTb.Location = new System.Drawing.Point(127, 295);
+            this.ReNewDateTb.Location = new System.Drawing.Point(127, 300);
             this.ReNewDateTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ReNewDateTb.Name = "ReNewDateTb";
             this.ReNewDateTb.PasswordChar = '\0';
@@ -374,7 +378,7 @@ namespace LMS {
             this.ReNewDateTb.SelectedText = "";
             this.ReNewDateTb.ShadowDecoration.Parent = this.ReNewDateTb;
             this.ReNewDateTb.Size = new System.Drawing.Size(207, 36);
-            this.ReNewDateTb.TabIndex = 3;
+            this.ReNewDateTb.TabIndex = 5;
             // 
             // label3
             // 
@@ -383,7 +387,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 303);
+            this.label3.Location = new System.Drawing.Point(17, 308);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 20);
@@ -400,11 +404,11 @@ namespace LMS {
             this.UpdateBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateBtn.HoverState.Parent = this.UpdateBtn;
-            this.UpdateBtn.Location = new System.Drawing.Point(341, 295);
+            this.UpdateBtn.Location = new System.Drawing.Point(341, 300);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.ShadowDecoration.Parent = this.UpdateBtn;
             this.UpdateBtn.Size = new System.Drawing.Size(120, 38);
-            this.UpdateBtn.TabIndex = 213;
+            this.UpdateBtn.TabIndex = 6;
             this.UpdateBtn.Text = "UPDATE";
             this.UpdateBtn.Visible = false;
             this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
@@ -416,7 +420,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 346);
+            this.label4.Location = new System.Drawing.Point(17, 400);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 20);
@@ -440,7 +444,7 @@ namespace LMS {
             this.EmailTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EmailTB.HoverState.Parent = this.EmailTB;
             this.EmailTB.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.EmailTB.Location = new System.Drawing.Point(127, 340);
+            this.EmailTB.Location = new System.Drawing.Point(126, 392);
             this.EmailTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EmailTB.Name = "EmailTB";
             this.EmailTB.PasswordChar = '\0';
@@ -448,7 +452,7 @@ namespace LMS {
             this.EmailTB.SelectedText = "";
             this.EmailTB.ShadowDecoration.Parent = this.EmailTB;
             this.EmailTB.Size = new System.Drawing.Size(333, 36);
-            this.EmailTB.TabIndex = 2;
+            this.EmailTB.TabIndex = 8;
             // 
             // TelephoneTB
             // 
@@ -467,7 +471,7 @@ namespace LMS {
             this.TelephoneTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TelephoneTB.HoverState.Parent = this.TelephoneTB;
             this.TelephoneTB.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.TelephoneTB.Location = new System.Drawing.Point(126, 385);
+            this.TelephoneTB.Location = new System.Drawing.Point(125, 346);
             this.TelephoneTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TelephoneTB.Name = "TelephoneTB";
             this.TelephoneTB.PasswordChar = '\0';
@@ -475,7 +479,7 @@ namespace LMS {
             this.TelephoneTB.SelectedText = "";
             this.TelephoneTB.ShadowDecoration.Parent = this.TelephoneTB;
             this.TelephoneTB.Size = new System.Drawing.Size(334, 36);
-            this.TelephoneTB.TabIndex = 3;
+            this.TelephoneTB.TabIndex = 7;
             // 
             // label5
             // 
@@ -484,7 +488,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 391);
+            this.label5.Location = new System.Drawing.Point(17, 354);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 20);
@@ -496,11 +500,95 @@ namespace LMS {
             this.bunifuElipse1.ElipseRadius = 15;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // PwBtn
+            // 
+            this.PwBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PwBtn.Animated = true;
+            this.PwBtn.BorderRadius = 10;
+            this.PwBtn.CheckedState.Parent = this.PwBtn;
+            this.PwBtn.CustomImages.Parent = this.PwBtn;
+            this.PwBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PwBtn.ForeColor = System.Drawing.Color.White;
+            this.PwBtn.HoverState.Parent = this.PwBtn;
+            this.PwBtn.Location = new System.Drawing.Point(373, 436);
+            this.PwBtn.Name = "PwBtn";
+            this.PwBtn.ShadowDecoration.Parent = this.PwBtn;
+            this.PwBtn.Size = new System.Drawing.Size(86, 38);
+            this.PwBtn.TabIndex = 11;
+            this.PwBtn.Text = "GENERATE";
+            this.PwBtn.Click += new System.EventHandler(this.PwBtn_Click);
+            // 
+            // PasswordTB
+            // 
+            this.PasswordTB.Animated = true;
+            this.PasswordTB.BorderRadius = 15;
+            this.PasswordTB.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PasswordTB.DefaultText = "";
+            this.PasswordTB.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.PasswordTB.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.PasswordTB.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PasswordTB.DisabledState.Parent = this.PasswordTB;
+            this.PasswordTB.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PasswordTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PasswordTB.FocusedState.Parent = this.PasswordTB;
+            this.PasswordTB.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.PasswordTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PasswordTB.HoverState.Parent = this.PasswordTB;
+            this.PasswordTB.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.PasswordTB.Location = new System.Drawing.Point(126, 438);
+            this.PasswordTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PasswordTB.Name = "PasswordTB";
+            this.PasswordTB.PasswordChar = '●';
+            this.PasswordTB.PlaceholderText = "";
+            this.PasswordTB.SelectedText = "";
+            this.PasswordTB.ShadowDecoration.Parent = this.PasswordTB;
+            this.PasswordTB.Size = new System.Drawing.Size(193, 36);
+            this.PasswordTB.TabIndex = 9;
+            // 
+            // PasswordLbl
+            // 
+            this.PasswordLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordLbl.AutoSize = true;
+            this.PasswordLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordLbl.Location = new System.Drawing.Point(17, 446);
+            this.PasswordLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PasswordLbl.Name = "PasswordLbl";
+            this.PasswordLbl.Size = new System.Drawing.Size(73, 20);
+            this.PasswordLbl.TabIndex = 230;
+            this.PasswordLbl.Text = "Password";
+            // 
+            // ShowPasswordSwitch
+            // 
+            this.ShowPasswordSwitch.Animated = true;
+            this.ShowPasswordSwitch.AutoRoundedCorners = true;
+            this.ShowPasswordSwitch.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ShowPasswordSwitch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ShowPasswordSwitch.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.ShowPasswordSwitch.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.ShowPasswordSwitch.CheckedState.Parent = this.ShowPasswordSwitch;
+            this.ShowPasswordSwitch.Location = new System.Drawing.Point(327, 445);
+            this.ShowPasswordSwitch.Name = "ShowPasswordSwitch";
+            this.ShowPasswordSwitch.ShadowDecoration.Parent = this.ShowPasswordSwitch;
+            this.ShowPasswordSwitch.Size = new System.Drawing.Size(35, 20);
+            this.ShowPasswordSwitch.TabIndex = 10;
+            this.ShowPasswordSwitch.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.ShowPasswordSwitch.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.ShowPasswordSwitch.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.ShowPasswordSwitch.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.ShowPasswordSwitch.UncheckedState.Parent = this.ShowPasswordSwitch;
+            this.ShowPasswordSwitch.CheckedChanged += new System.EventHandler(this.ShowPasswordSwitch_CheckedChanged);
+            // 
             // MembersActionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 481);
+            this.ClientSize = new System.Drawing.Size(475, 532);
+            this.Controls.Add(this.ShowPasswordSwitch);
+            this.Controls.Add(this.PwBtn);
+            this.Controls.Add(this.PasswordTB);
+            this.Controls.Add(this.PasswordLbl);
             this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.CategoryCb);
             this.Controls.Add(this.label3);
@@ -560,5 +648,9 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2TextBox EmailTB;
         internal System.Windows.Forms.Label label4;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Guna.UI2.WinForms.Guna2Button PwBtn;
+        private Guna.UI2.WinForms.Guna2TextBox PasswordTB;
+        internal System.Windows.Forms.Label PasswordLbl;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch ShowPasswordSwitch;
     }
 }
