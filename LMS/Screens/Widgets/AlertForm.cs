@@ -18,6 +18,7 @@ namespace LMS.Screens.Widgets {
         public AlertForm() {
             InitializeComponent();
             ShadowForm.SetShadowForm(this);
+            this.TopMost = true;
         }
 
         public enum EnmAction {

@@ -114,14 +114,20 @@ namespace LMS.Screens.Widgets {
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 78);
+            this.ControlBox = false;
             this.Controls.Add(this.BodyLbl);
             this.Controls.Add(this.guna2VSeparator);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.IconPB);
             this.Controls.Add(this.TitleLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AlertForm";
-            this.Text = "AlertForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "Alert";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.IconPB)).EndInit();
             this.ResumeLayout(false);
 
