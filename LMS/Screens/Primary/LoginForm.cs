@@ -39,12 +39,12 @@ namespace LMS.Screens.Primary {
                         splashForm.Show();
 
                     } else {
-                        this.Alert("Warning!", "Invalid Username or Password!", AlertForm.EnmType.Warning);
+                        this.Alert("Warning!", "Invalid Username or Password!", AlertForm.EnmType.Error);
                     }
                 } else {
                     this.Alert("Warning!", "Username or Password can't be empty!", AlertForm.EnmType.Warning);
                 }
-            } catch (Exception ex) {
+            } catch {
                 this.Alert("Error", "Internal Error!", AlertForm.EnmType.Error);
             } finally {
                 Console.ReadLine();
