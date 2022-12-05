@@ -26,14 +26,14 @@ namespace LMS {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.ProfileGB = new Guna.UI2.WinForms.Guna2GroupBox();
             this.UsernameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -69,9 +69,6 @@ namespace LMS {
             this.guna2ShadowPanel10 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.OverviewChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.tableLayoutPanel1 = new LMS.Utils.Components.DoubleBufferedTableLayoutPanel();
             this.guna2ShadowPanel19 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -123,6 +120,30 @@ namespace LMS {
             this.guna2PictureBox13 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox14 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.MDashboardPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.MDashboardPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.MJoinDateLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox19 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.MPendingBooksLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2PictureBox21 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.MNameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox20 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox22 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.MTpLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox23 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.MEmailLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox24 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.MAddressLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox25 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.MIDLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ShadowPanel1.SuspendLayout();
             this.ProfileGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePB)).BeginInit();
@@ -160,6 +181,18 @@ namespace LMS {
             this.guna2ShadowPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).BeginInit();
+            this.MDashboardPanel.SuspendLayout();
+            this.MDashboardPanel2.SuspendLayout();
+            this.guna2GradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.guna2GradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox25)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel1
@@ -235,11 +268,11 @@ namespace LMS {
             // 
             this.FullNameLbl.BackColor = System.Drawing.Color.Transparent;
             this.FullNameLbl.Enabled = false;
-            this.FullNameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FullNameLbl.Font = new System.Drawing.Font("Noto Serif Sinhala", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FullNameLbl.ForeColor = System.Drawing.Color.Black;
             this.FullNameLbl.Location = new System.Drawing.Point(21, 71);
             this.FullNameLbl.Name = "FullNameLbl";
-            this.FullNameLbl.Size = new System.Drawing.Size(87, 27);
+            this.FullNameLbl.Size = new System.Drawing.Size(96, 26);
             this.FullNameLbl.TabIndex = 6;
             this.FullNameLbl.Text = "Full Name";
             this.FullNameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -525,7 +558,6 @@ namespace LMS {
             this.MainPanel.BackColor = System.Drawing.Color.Transparent;
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MainPanel.Controls.Add(this.Action3Btn);
-            this.MainPanel.Controls.Add(this.MainDgv);
             this.MainPanel.Controls.Add(this.ToLbl);
             this.MainPanel.Controls.Add(this.FromLbl);
             this.MainPanel.Controls.Add(this.FromDtp);
@@ -536,6 +568,9 @@ namespace LMS {
             this.MainPanel.Controls.Add(this.Title2Lbl);
             this.MainPanel.Controls.Add(this.Action2Btn);
             this.MainPanel.Controls.Add(this.ActionBtn);
+            this.MainPanel.Controls.Add(this.MainDgv);
+            this.MainPanel.Controls.Add(this.MDashboardPanel2);
+            this.MainPanel.Controls.Add(this.MDashboardPanel);
             this.MainPanel.FillColor = System.Drawing.Color.White;
             this.MainPanel.Location = new System.Drawing.Point(268, 68);
             this.MainPanel.Name = "MainPanel";
@@ -579,40 +614,40 @@ namespace LMS {
             this.MainDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MainDgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.MainDgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MainDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.69307F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MainDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.MainDgv.ColumnHeadersHeight = 60;
             this.MainDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MainDgv.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Noto Serif Sinhala", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.NullValue = null;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MainDgv.DefaultCellStyle = dataGridViewCellStyle14;
             this.MainDgv.EnableHeadersVisualStyles = false;
             this.MainDgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.MainDgv.Location = new System.Drawing.Point(36, 95);
+            this.MainDgv.Location = new System.Drawing.Point(36, 93);
             this.MainDgv.MultiSelect = false;
             this.MainDgv.Name = "MainDgv";
             this.MainDgv.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.841584F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MainDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.841584F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MainDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.MainDgv.RowHeadersVisible = false;
             this.MainDgv.RowHeadersWidth = 43;
             this.MainDgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -858,34 +893,34 @@ namespace LMS {
             // 
             // OverviewChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.OverviewChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.OverviewChart.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.OverviewChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.OverviewChart.Legends.Add(legend5);
             this.OverviewChart.Location = new System.Drawing.Point(19, 69);
             this.OverviewChart.Name = "OverviewChart";
             this.OverviewChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(60)))));
-            series1.Legend = "Legend1";
-            series1.Name = "Issued Books";
-            series1.YValuesPerPoint = 4;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(93)))), ((int)(((byte)(85)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Pending Books";
-            series2.YValuesPerPoint = 2;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(202)))), ((int)(((byte)(51)))));
-            series3.Legend = "Legend1";
-            series3.Name = "Returned Books";
-            series3.YValuesPerPoint = 2;
-            this.OverviewChart.Series.Add(series1);
-            this.OverviewChart.Series.Add(series2);
-            this.OverviewChart.Series.Add(series3);
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+            series13.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(60)))));
+            series13.Legend = "Legend1";
+            series13.Name = "Issued Books";
+            series13.YValuesPerPoint = 4;
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+            series14.Color = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(93)))), ((int)(((byte)(85)))));
+            series14.Legend = "Legend1";
+            series14.Name = "Pending Books";
+            series14.YValuesPerPoint = 2;
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+            series15.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(202)))), ((int)(((byte)(51)))));
+            series15.Legend = "Legend1";
+            series15.Name = "Returned Books";
+            series15.YValuesPerPoint = 2;
+            this.OverviewChart.Series.Add(series13);
+            this.OverviewChart.Series.Add(series14);
+            this.OverviewChart.Series.Add(series15);
             this.OverviewChart.Size = new System.Drawing.Size(891, 371);
             this.OverviewChart.TabIndex = 4;
             this.OverviewChart.Text = "chart1";
@@ -899,16 +934,6 @@ namespace LMS {
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(111, 32);
             this.guna2HtmlLabel8.TabIndex = 3;
             this.guna2HtmlLabel8.Text = "OVERVIEW";
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 15;
-            this.bunifuElipse1.TargetControl = this;
-            // 
-            // bunifuElipse2
-            // 
-            this.bunifuElipse2.ElipseRadius = 15;
-            this.bunifuElipse2.TargetControl = this.MainDgv;
             // 
             // tableLayoutPanel1
             // 
@@ -1569,6 +1594,284 @@ namespace LMS {
             this.guna2HtmlLabel26.TabIndex = 4;
             this.guna2HtmlLabel26.Text = "TODAY MANAGED BOOKS";
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 15;
+            this.bunifuElipse2.TargetControl = this.MainDgv;
+            // 
+            // MDashboardPanel
+            // 
+            this.MDashboardPanel.BackColor = System.Drawing.Color.Transparent;
+            this.MDashboardPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MDashboardPanel.Controls.Add(this.guna2GradientPanel2);
+            this.MDashboardPanel.FillColor = System.Drawing.Color.White;
+            this.MDashboardPanel.Location = new System.Drawing.Point(28, 89);
+            this.MDashboardPanel.Name = "MDashboardPanel";
+            this.MDashboardPanel.Radius = 10;
+            this.MDashboardPanel.ShadowColor = System.Drawing.Color.Black;
+            this.MDashboardPanel.ShadowShift = 10;
+            this.MDashboardPanel.Size = new System.Drawing.Size(896, 385);
+            this.MDashboardPanel.TabIndex = 12;
+            this.MDashboardPanel.Visible = false;
+            // 
+            // MDashboardPanel2
+            // 
+            this.MDashboardPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.MDashboardPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MDashboardPanel2.Controls.Add(this.guna2GradientPanel1);
+            this.MDashboardPanel2.FillColor = System.Drawing.Color.White;
+            this.MDashboardPanel2.Location = new System.Drawing.Point(27, 480);
+            this.MDashboardPanel2.Name = "MDashboardPanel2";
+            this.MDashboardPanel2.Radius = 10;
+            this.MDashboardPanel2.ShadowColor = System.Drawing.Color.Black;
+            this.MDashboardPanel2.ShadowShift = 10;
+            this.MDashboardPanel2.Size = new System.Drawing.Size(896, 243);
+            this.MDashboardPanel2.TabIndex = 12;
+            this.MDashboardPanel2.Visible = false;
+            // 
+            // guna2GradientPanel1
+            // 
+            this.guna2GradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientPanel1.BorderRadius = 20;
+            this.guna2GradientPanel1.Controls.Add(this.MPendingBooksLbl);
+            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel2);
+            this.guna2GradientPanel1.Controls.Add(this.MJoinDateLbl);
+            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel6);
+            this.guna2GradientPanel1.Controls.Add(this.guna2PictureBox1);
+            this.guna2GradientPanel1.Controls.Add(this.guna2PictureBox19);
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(93)))), ((int)(((byte)(85)))));
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(202)))), ((int)(((byte)(51)))));
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(27, 25);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.ShadowDecoration.BorderRadius = 20;
+            this.guna2GradientPanel1.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2GradientPanel1.ShadowDecoration.Depth = 5;
+            this.guna2GradientPanel1.ShadowDecoration.Enabled = true;
+            this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
+            this.guna2GradientPanel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(10);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(843, 188);
+            this.guna2GradientPanel1.TabIndex = 3;
+            // 
+            // MJoinDateLbl
+            // 
+            this.MJoinDateLbl.BackColor = System.Drawing.Color.Transparent;
+            this.MJoinDateLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MJoinDateLbl.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.MJoinDateLbl.Location = new System.Drawing.Point(112, 94);
+            this.MJoinDateLbl.Name = "MJoinDateLbl";
+            this.MJoinDateLbl.Size = new System.Drawing.Size(145, 40);
+            this.MJoinDateLbl.TabIndex = 9;
+            this.MJoinDateLbl.Text = "2022/10/01";
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Proxima Nova Rg", 15.68317F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(114, 61);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(172, 27);
+            this.guna2HtmlLabel6.TabIndex = 4;
+            this.guna2HtmlLabel6.Text = "JOINED WITH US";
+            // 
+            // guna2PictureBox19
+            // 
+            this.guna2PictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox19.Image")));
+            this.guna2PictureBox19.Location = new System.Drawing.Point(18, 61);
+            this.guna2PictureBox19.Name = "guna2PictureBox19";
+            this.guna2PictureBox19.ShadowDecoration.Parent = this.guna2PictureBox19;
+            this.guna2PictureBox19.Size = new System.Drawing.Size(75, 82);
+            this.guna2PictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox19.TabIndex = 5;
+            this.guna2PictureBox19.TabStop = false;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(432, 61);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 82);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 5;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Proxima Nova Rg", 15.68317F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(533, 61);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(242, 27);
+            this.guna2HtmlLabel2.TabIndex = 4;
+            this.guna2HtmlLabel2.Text = "YOUR PENDING BOOKS";
+            // 
+            // MPendingBooksLbl
+            // 
+            this.MPendingBooksLbl.BackColor = System.Drawing.Color.Transparent;
+            this.MPendingBooksLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MPendingBooksLbl.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.MPendingBooksLbl.Location = new System.Drawing.Point(535, 94);
+            this.MPendingBooksLbl.Name = "MPendingBooksLbl";
+            this.MPendingBooksLbl.Size = new System.Drawing.Size(35, 40);
+            this.MPendingBooksLbl.TabIndex = 9;
+            this.MPendingBooksLbl.Text = "02";
+            // 
+            // guna2GradientPanel2
+            // 
+            this.guna2GradientPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GradientPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientPanel2.BorderRadius = 20;
+            this.guna2GradientPanel2.Controls.Add(this.MIDLbl);
+            this.guna2GradientPanel2.Controls.Add(this.MAddressLbl);
+            this.guna2GradientPanel2.Controls.Add(this.guna2PictureBox25);
+            this.guna2GradientPanel2.Controls.Add(this.guna2PictureBox24);
+            this.guna2GradientPanel2.Controls.Add(this.MEmailLbl);
+            this.guna2GradientPanel2.Controls.Add(this.guna2PictureBox23);
+            this.guna2GradientPanel2.Controls.Add(this.MTpLbl);
+            this.guna2GradientPanel2.Controls.Add(this.guna2PictureBox22);
+            this.guna2GradientPanel2.Controls.Add(this.MNameLbl);
+            this.guna2GradientPanel2.Controls.Add(this.guna2PictureBox20);
+            this.guna2GradientPanel2.Controls.Add(this.guna2PictureBox21);
+            this.guna2GradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(81)))), ((int)(((byte)(137)))));
+            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(188)))), ((int)(((byte)(193)))));
+            this.guna2GradientPanel2.Location = new System.Drawing.Point(26, 25);
+            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
+            this.guna2GradientPanel2.ShadowDecoration.BorderRadius = 20;
+            this.guna2GradientPanel2.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2GradientPanel2.ShadowDecoration.Depth = 5;
+            this.guna2GradientPanel2.ShadowDecoration.Enabled = true;
+            this.guna2GradientPanel2.ShadowDecoration.Parent = this.guna2GradientPanel2;
+            this.guna2GradientPanel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(10);
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(843, 333);
+            this.guna2GradientPanel2.TabIndex = 3;
+            // 
+            // guna2PictureBox21
+            // 
+            this.guna2PictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox21.Image")));
+            this.guna2PictureBox21.Location = new System.Drawing.Point(46, 30);
+            this.guna2PictureBox21.Name = "guna2PictureBox21";
+            this.guna2PictureBox21.ShadowDecoration.Parent = this.guna2PictureBox21;
+            this.guna2PictureBox21.Size = new System.Drawing.Size(241, 221);
+            this.guna2PictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox21.TabIndex = 5;
+            this.guna2PictureBox21.TabStop = false;
+            // 
+            // MNameLbl
+            // 
+            this.MNameLbl.BackColor = System.Drawing.Color.Transparent;
+            this.MNameLbl.Font = new System.Drawing.Font("Noto Serif Sinhala", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MNameLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.MNameLbl.Location = new System.Drawing.Point(345, 83);
+            this.MNameLbl.Name = "MNameLbl";
+            this.MNameLbl.Size = new System.Drawing.Size(3, 2);
+            this.MNameLbl.TabIndex = 4;
+            // 
+            // guna2PictureBox20
+            // 
+            this.guna2PictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox20.Image")));
+            this.guna2PictureBox20.Location = new System.Drawing.Point(297, 81);
+            this.guna2PictureBox20.Name = "guna2PictureBox20";
+            this.guna2PictureBox20.ShadowDecoration.Parent = this.guna2PictureBox20;
+            this.guna2PictureBox20.Size = new System.Drawing.Size(38, 27);
+            this.guna2PictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox20.TabIndex = 5;
+            this.guna2PictureBox20.TabStop = false;
+            // 
+            // guna2PictureBox22
+            // 
+            this.guna2PictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox22.Image")));
+            this.guna2PictureBox22.Location = new System.Drawing.Point(297, 128);
+            this.guna2PictureBox22.Name = "guna2PictureBox22";
+            this.guna2PictureBox22.ShadowDecoration.Parent = this.guna2PictureBox22;
+            this.guna2PictureBox22.Size = new System.Drawing.Size(38, 27);
+            this.guna2PictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox22.TabIndex = 5;
+            this.guna2PictureBox22.TabStop = false;
+            // 
+            // MTpLbl
+            // 
+            this.MTpLbl.BackColor = System.Drawing.Color.Transparent;
+            this.MTpLbl.Font = new System.Drawing.Font("Noto Serif Sinhala", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MTpLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.MTpLbl.Location = new System.Drawing.Point(345, 130);
+            this.MTpLbl.Name = "MTpLbl";
+            this.MTpLbl.Size = new System.Drawing.Size(3, 2);
+            this.MTpLbl.TabIndex = 4;
+            // 
+            // guna2PictureBox23
+            // 
+            this.guna2PictureBox23.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox23.Image")));
+            this.guna2PictureBox23.Location = new System.Drawing.Point(297, 175);
+            this.guna2PictureBox23.Name = "guna2PictureBox23";
+            this.guna2PictureBox23.ShadowDecoration.Parent = this.guna2PictureBox23;
+            this.guna2PictureBox23.Size = new System.Drawing.Size(38, 27);
+            this.guna2PictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox23.TabIndex = 5;
+            this.guna2PictureBox23.TabStop = false;
+            // 
+            // MEmailLbl
+            // 
+            this.MEmailLbl.BackColor = System.Drawing.Color.Transparent;
+            this.MEmailLbl.Font = new System.Drawing.Font("Noto Serif Sinhala", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MEmailLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.MEmailLbl.Location = new System.Drawing.Point(345, 177);
+            this.MEmailLbl.Name = "MEmailLbl";
+            this.MEmailLbl.Size = new System.Drawing.Size(3, 2);
+            this.MEmailLbl.TabIndex = 4;
+            // 
+            // guna2PictureBox24
+            // 
+            this.guna2PictureBox24.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox24.Image")));
+            this.guna2PictureBox24.Location = new System.Drawing.Point(297, 222);
+            this.guna2PictureBox24.Name = "guna2PictureBox24";
+            this.guna2PictureBox24.ShadowDecoration.Parent = this.guna2PictureBox24;
+            this.guna2PictureBox24.Size = new System.Drawing.Size(38, 27);
+            this.guna2PictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox24.TabIndex = 5;
+            this.guna2PictureBox24.TabStop = false;
+            // 
+            // MAddressLbl
+            // 
+            this.MAddressLbl.BackColor = System.Drawing.Color.Transparent;
+            this.MAddressLbl.Font = new System.Drawing.Font("Noto Serif Sinhala", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MAddressLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.MAddressLbl.Location = new System.Drawing.Point(345, 224);
+            this.MAddressLbl.Name = "MAddressLbl";
+            this.MAddressLbl.Size = new System.Drawing.Size(3, 2);
+            this.MAddressLbl.TabIndex = 4;
+            // 
+            // guna2PictureBox25
+            // 
+            this.guna2PictureBox25.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox25.Image")));
+            this.guna2PictureBox25.Location = new System.Drawing.Point(92, 270);
+            this.guna2PictureBox25.Name = "guna2PictureBox25";
+            this.guna2PictureBox25.ShadowDecoration.Parent = this.guna2PictureBox25;
+            this.guna2PictureBox25.Size = new System.Drawing.Size(42, 40);
+            this.guna2PictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox25.TabIndex = 5;
+            this.guna2PictureBox25.TabStop = false;
+            // 
+            // MIDLbl
+            // 
+            this.MIDLbl.BackColor = System.Drawing.Color.Transparent;
+            this.MIDLbl.Font = new System.Drawing.Font("Proxima Nova Rg", 19.9604F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MIDLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.MIDLbl.Location = new System.Drawing.Point(150, 275);
+            this.MIDLbl.Name = "MIDLbl";
+            this.MIDLbl.Size = new System.Drawing.Size(106, 33);
+            this.MIDLbl.TabIndex = 4;
+            this.MIDLbl.Text = "M00001";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1637,6 +1940,20 @@ namespace LMS {
             this.guna2ShadowPanel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).EndInit();
+            this.MDashboardPanel.ResumeLayout(false);
+            this.MDashboardPanel2.ResumeLayout(false);
+            this.guna2GradientPanel1.ResumeLayout(false);
+            this.guna2GradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.guna2GradientPanel2.ResumeLayout(false);
+            this.guna2GradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox25)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1733,5 +2050,26 @@ namespace LMS {
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         public Guna.UI2.WinForms.Guna2HtmlLabel FullNameLbl;
+        private Guna.UI2.WinForms.Guna2ShadowPanel MDashboardPanel;
+        private Guna.UI2.WinForms.Guna2ShadowPanel MDashboardPanel2;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel MJoinDateLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox19;
+        private Guna.UI2.WinForms.Guna2HtmlLabel MPendingBooksLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel MIDLbl;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox25;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox24;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox23;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox22;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox20;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox21;
+        public Guna.UI2.WinForms.Guna2HtmlLabel MAddressLbl;
+        public Guna.UI2.WinForms.Guna2HtmlLabel MEmailLbl;
+        public Guna.UI2.WinForms.Guna2HtmlLabel MTpLbl;
+        public Guna.UI2.WinForms.Guna2HtmlLabel MNameLbl;
     }
 }

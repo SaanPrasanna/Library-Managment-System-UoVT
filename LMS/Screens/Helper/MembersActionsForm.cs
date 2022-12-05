@@ -49,6 +49,8 @@ namespace LMS {
                 PasswordTB.Enabled = false;
                 ShowPasswordSwitch.Enabled = false;
                 EmailTB.Enabled = false;
+                PwBtn.Enabled = fn.IsStaff();
+                CategoryCb.Enabled = fn.IsStaff();
             }
         }
 
@@ -68,7 +70,7 @@ namespace LMS {
                 CategoryCb.Text = table.Rows[0][6].ToString();
                 ReNewDateTb.Text = DateTime.Parse(table.Rows[0][7].ToString()).ToString("yyyy-MM-dd");
                 if (DateTime.Parse(table.Rows[0][7].ToString()) < DateTime.Now) {
-                    UpdateBtn.Visible = true; // TODO: Visible only Admins or moderator
+                    if (fn.IsStaff()) { UpdateBtn.Visible = true; }
                 }
 
                 Guna2TextBox[] tb = new[] { FnameTb, LnameTb, AddressTb, EmailTB, TelephoneTB, PasswordTB };
@@ -185,6 +187,14 @@ namespace LMS {
                             dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");
                             dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
 
+                            if (Properties.Settings.Default.id == MIDTb.Text) {
+                                string fullName = FnameTb.Text + " " + LnameTb.Text;
+                                Properties.Settings.Default.fullName = fullName;
+                                mf.FullNameLbl.Text = fullName;
+                                mf.MNameLbl.Text = fullName;
+                                mf.MTpLbl.Text = TelephoneTB.Text;
+                                mf.MAddressLbl.Text = AddressTb.Text;
+                            }
                             this.Alert("Information!", "Member updated!", AlertForm.EnmType.Info);
                             //MessageBox.Show("Member updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
