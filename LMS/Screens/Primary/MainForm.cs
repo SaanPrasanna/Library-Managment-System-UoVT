@@ -94,15 +94,18 @@ namespace LMS {
                 DateTimePickers(isVisible: false);
 
                 MainDgv.Columns.Clear();
-                if (MainDgv.ColumnCount == 0) {
-                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                    string[] names = { "Modify", "Remove" };
 
+                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                string[] names = { "Modify", "Remove" };
+                int[] widths = new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 };
+
+                if (MainDgv.ColumnCount == 0) {
                     dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
                 }
                 dgv.ShowGrid(dgv: MainDgv, name: "Books");
-                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
+                dgv.GridWidth(dgv: MainDgv, widths: widths);
+
             } else {
                 Guna2Button[] menuBtns = new[] { BorrowBooksBtn, DashboardBtn };
                 Array.ForEach(menuBtns, btn => { btn.Checked = false; });
@@ -140,7 +143,7 @@ namespace LMS {
 
                 MainDgv.Columns.Clear();
                 dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
-                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 175, 300, 250, 200, 200, 200, 150 });
                 if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
 
                 dgv.GridColor(MainDgv);
@@ -195,7 +198,7 @@ namespace LMS {
         }
 
         private void StaffsBtn_Click(object sender, EventArgs e) {
-            if (Properties.Settings.Default.accountType == "Admin") {
+            if (fn.IsAdmin()) {
                 DashboardPanel.Hide();
                 MainPanel.Show();
                 StaffsBtn.Checked = true;
@@ -227,7 +230,7 @@ namespace LMS {
                 dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
             } else {
-                this.Alert("Warning!", "You do not have enough privileges to access staff details!", AlertForm.EnmType.Warning);
+                this.Alert("Access Denied!", "You do not have enough privileges to access staff details!", AlertForm.EnmType.Error);
             }
         }
 
@@ -276,46 +279,48 @@ namespace LMS {
                     ab.ShowDialog();
 
                 } else if (e.ColumnIndex == 1) {
+                    if (fn.IsAdmin()) {
+                        if (MessageBox.Show("Do you want to delete this book [" + isbn + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+                            SqlConnection conn = DBUtils.GetDBConnection();
+                            conn.Open();
+                            String query = "UPDATE books SET is_removed = @number WHERE isbn = @isbn;";
 
-                    if (MessageBox.Show("Do you want to delete this book [" + isbn + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
-                        SqlConnection conn = DBUtils.GetDBConnection();
-                        conn.Open();
-                        String query = "UPDATE books SET is_removed = @number WHERE isbn = @isbn;";
+                            try {
 
-                        try {
+                                SqlCommand cmd = new SqlCommand(query, conn);
+                                cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
+                                cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
 
-                            SqlCommand cmd = new SqlCommand(query, conn);
-                            cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
-                            cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
+                                int rowCount = cmd.ExecuteNonQuery();
+                                if (rowCount > 0) {
 
-                            int rowCount = cmd.ExecuteNonQuery();
-                            if (rowCount > 0) {
+                                    if (MainDgv.ColumnCount == 0) {
 
-                                if (MainDgv.ColumnCount == 0) {
+                                        Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                                        Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                                        string[] names = { "Modify", "Remove" };
 
-                                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                                    string[] names = { "Modify", "Remove" };
+                                        dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                    }
+                                    dgv.ShowGrid(dgv: MainDgv, name: "Books");
+                                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
+                                    RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
 
-                                    dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                } else {
+                                    MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-                                dgv.ShowGrid(dgv: MainDgv, name: "Books");
-                                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
-                                RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
 
-                            } else {
-                                MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            } catch (Exception ex) {
+                                Console.WriteLine("Book Remove Error: " + ex.ToString());
+                            } finally {
+                                conn.Close();
+                                conn.Dispose();
+                                Console.Read();
                             }
-
-                        } catch (Exception ex) {
-                            Console.WriteLine("Book Remove Error: " + ex.ToString());
-                        } finally {
-                            conn.Close();
-                            conn.Dispose();
-                            Console.Read();
                         }
+                    } else {
+                        this.Alert("Access Denied!", "You do not have enough privilages to Remove Books!", AlertForm.EnmType.Error);
                     }
-
                 }
             } else if (ActionBtn.Text == "ADD MEMBER") {
                 String mid = MainDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -326,43 +331,46 @@ namespace LMS {
                     membersForm.ShowDialog();
 
                 } else if (e.ColumnIndex == 1) {
+                    if (fn.IsAdmin()) {
+                        if (MessageBox.Show("Do you want to delete this member [" + mid + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
+                            SqlConnection conn = DBUtils.GetDBConnection();
+                            conn.Open();
+                            String query = "UPDATE members SET is_removed = @number WHERE mid = @mid;";
 
-                    if (MessageBox.Show("Do you want to delete this member [" + mid + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
-                        SqlConnection conn = DBUtils.GetDBConnection();
-                        conn.Open();
-                        String query = "UPDATE members SET is_removed = @number WHERE mid = @mid;";
+                            try {
 
-                        try {
+                                SqlCommand cmd = new SqlCommand(query, conn);
+                                cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
+                                cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = mid;
 
-                            SqlCommand cmd = new SqlCommand(query, conn);
-                            cmd.Parameters.Add("@number", SqlDbType.TinyInt).Value = 1;
-                            cmd.Parameters.Add("@mid", SqlDbType.VarChar, 13).Value = mid;
+                                int rowCount = cmd.ExecuteNonQuery();
+                                if (rowCount > 0) {
 
-                            int rowCount = cmd.ExecuteNonQuery();
-                            if (rowCount > 0) {
+                                    if (MainDgv.ColumnCount == 0) {
 
-                                if (MainDgv.ColumnCount == 0) {
+                                        Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                                        Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                                        string[] names = { "Modify", "Remove" };
 
-                                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                                    string[] names = { "Modify", "Remove" };
+                                        dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                    }
+                                    dgv.ShowGrid(dgv: MainDgv, name: "Members");
+                                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
 
-                                    dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                } else {
+                                    MessageBox.Show("Something was went wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-                                dgv.ShowGrid(dgv: MainDgv, name: "Members");
-                                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
 
-                            } else {
-                                MessageBox.Show("Something was went wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            } catch (Exception ex) {
+                                Console.WriteLine("Member Removed Error: " + ex.ToString());
+                            } finally {
+                                conn.Close();
+                                conn.Dispose();
+                                Console.Read();
                             }
-
-                        } catch (Exception ex) {
-                            Console.WriteLine("Member Removed Error: " + ex.ToString());
-                        } finally {
-                            conn.Close();
-                            conn.Dispose();
-                            Console.Read();
                         }
+                    } else {
+                        this.Alert("Access Denied!", "You do not have enough privilages to Remove Member!", AlertForm.EnmType.Error);
                     }
                 }
             } else if (ActionBtn.Text == "ADD STAFF") {
@@ -500,7 +508,6 @@ namespace LMS {
                 case "MANAGE BOOK":
                     reader = fn.GetReader(name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
                     var manageList = fn.GetList<ManageBooks>(reader);
-                    //MessageBox.Show(manageList.Count.ToString());
 
                     PrintPreviewForm ppfManageBooks = new PrintPreviewForm(manageBooks: manageList);
                     ppfManageBooks.ShowDialog();
@@ -557,7 +564,7 @@ namespace LMS {
 
                 if (fn.IsStaff()) {
                     dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
-                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
+                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 175, 300, 250, 200, 200, 200, 150 });
                     if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
                     dgv.GridColor(MainDgv);
                 } else {
@@ -607,7 +614,7 @@ namespace LMS {
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 250, 150, 150, 250, 150, 150, 150 });
             } else if (ActionBtn.Text == "NEW BORROW") {
                 dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
-                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 175, 300, 250, 200, 200, 200, 150 });
                 if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
                 dgv.GridColor(MainDgv);
             }
