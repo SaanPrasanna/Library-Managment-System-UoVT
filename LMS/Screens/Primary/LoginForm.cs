@@ -36,10 +36,14 @@ namespace LMS.Screens.Primary {
                         Properties.Settings.Default.accountType = dt.Rows[0][4].ToString();
                         this.Alert("Information!", "Access Granted for " + Properties.Settings.Default.fullName + "!", AlertForm.EnmType.Info);
 
+                        MainForm mf = new MainForm();
+                        this.Hide();
+                        mf.Show();
+                        /*
                         SplashForm splashForm = new SplashForm();
                         this.Hide();
                         splashForm.Show();
-
+                        */
                     } else {
                         this.Alert("Warning!", "Invalid Username or Password!", AlertForm.EnmType.Error);
                     }

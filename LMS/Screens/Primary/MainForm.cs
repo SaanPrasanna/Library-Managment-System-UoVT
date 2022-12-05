@@ -36,23 +36,32 @@ namespace LMS {
             MainPanel.Hide();
             DashboardDetails();
             guna2ShadowPanel10.Hide(); // TODO: 
+            MemberHiddenWidgets();
         }
         #endregion Form Load
 
         #region Navigation Buttons
 
         private void DashboardBtn_Click(object sender, EventArgs e) {
-
-            DashboardPanel.Show();
-            MainPanel.Hide();
             DashboardBtn.Checked = true;
-
-            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, BooksBtn, MembersBtn, StaffsBtn };
-            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
-
-            TitlePb.Image = Properties.Resources.Dashboard;
             TitleLbl.Text = "Dashboard Oveview";
-            DashboardDetails();
+            TitlePb.Image = Properties.Resources.Dashboard;
+
+            if (IsStaff()) {
+                MainPanel.Hide();
+                DashboardPanel.Show();
+
+                Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, BooksBtn, MembersBtn, StaffsBtn };
+                Array.ForEach(menuBtn, btn => { btn.Checked = false; });
+
+                DashboardDetails();
+            } else {
+                Guna2Button[] menuBtns = new[] { BorrowBooksBtn, BooksBtn };
+                Array.ForEach(menuBtns, btn => { btn.Checked = false; });
+
+                MemberHiddenWidgets();
+                MemberDashboard();
+            }
         }
 
         private void BooksBtn_Click(object sender, EventArgs e) {
@@ -60,36 +69,85 @@ namespace LMS {
             DashboardPanel.Hide();
             MainPanel.Show();
             BooksBtn.Checked = true;
-            Action2Btn.Visible = true;
-            Action3Btn.Visible = true;
-
-            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, StaffsBtn };
-            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
-
-            TitlePb.Image = Properties.Resources.Books;
             SearchTb.PlaceholderText = "Search By Title";
             SearchTb.Text = string.Empty;
             TitleLbl.Text = "All Books";
             Title2Lbl.Text = "Total Books: " + fn.GetNumberOf(name: "Books");
+            TitlePb.Image = Properties.Resources.Books;
+            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
+
+            if (IsStaff()) {
+                Action2Btn.Visible = true;
+                Action3Btn.Visible = true;
+
+                Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, StaffsBtn };
+                Array.ForEach(menuBtn, btn => { btn.Checked = false; });
+
+                CustomizeButton(btn: ActionBtn, name: "ADD BOOK", fillColor: Color.FromArgb(77, 200, 86));
+                CustomizeButton(btn: Action2Btn, name: "PUBLISHERS", fillColor: Color.FromArgb(94, 148, 255));
+
+                DateTimePickers(isVisible: false);
+
+                MainDgv.Columns.Clear();
+                if (MainDgv.ColumnCount == 0) {
+                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                    string[] names = { "Modify", "Remove" };
+
+                    dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                }
+                dgv.ShowGrid(dgv: MainDgv, name: "Books");
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
+            } else {
+                Guna2Button[] menuBtns = new[] { BorrowBooksBtn, DashboardBtn };
+                Array.ForEach(menuBtns, btn => { btn.Checked = false; });
+
+                MemberHiddenWidgets();
+                MemberBooks();
+            }
+        }
+
+        private void BorrowBooksBtn_Click(object sender, EventArgs e) {
+
+            TitlePb.Image = Properties.Resources.Books;
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
 
 
-            CustomizeButton(btn: ActionBtn, name: "ADD BOOK", fillColor: Color.FromArgb(77, 200, 86));
-            CustomizeButton(btn: Action2Btn, name: "PUBLISHERS", fillColor: Color.FromArgb(94, 148, 255));
+            if (IsStaff()) {
+                DateTimePickers(isVisible: true);
+                DashboardPanel.Hide();
+                MainPanel.Show();
+                BorrowBooksBtn.Checked = true;
+                Action2Btn.Visible = true;
+                Action3Btn.Visible = true;
 
-            DateTimePickers(isVisible: false);
+                Guna2Button[] menuBtn = new[] { MangeBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn };
+                Array.ForEach(menuBtn, btn => { btn.Checked = false; });
 
-            MainDgv.Columns.Clear();
-            if (MainDgv.ColumnCount == 0) {
-                //dgv.GridButtons(dgv: MainDgv);
-                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                string[] names = { "Modify", "Remove" };
+                SearchTb.PlaceholderText = "Search By Name";
+                SearchTb.Text = string.Empty;
+                TitleLbl.Text = "Borrow Books";
+                Title2Lbl.Text = "Total Pending Books: " + fn.GetNumberOf(name: "Pending Books");
 
-                dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                CustomizeButton(btn: ActionBtn, name: "NEW BORROW", fillColor: Color.FromArgb(77, 200, 86));
+                CustomizeButton(btn: Action2Btn, name: "PENDING LIST", fillColor: Color.FromArgb(248, 187, 0));
+
+                MainDgv.Columns.Clear();
+                dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
+                if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
+
+                dgv.GridColor(MainDgv);
+            } else {
+                Guna2Button[] menuBtns = new[] { BooksBtn, DashboardBtn };
+                Array.ForEach(menuBtns, btn => { btn.Checked = false; });
+
+                SearchTb.PlaceholderText = "Search By Title";
+                SearchTb.Text = string.Empty;
+                TitleLbl.Text = "My Books List";
+                Title2Lbl.Text = "My Pending Books: " + fn.GetNumberOf(name: "Already Borrowed Books", value: Properties.Settings.Default.id);
+                MemberHiddenWidgets();
             }
-            dgv.ShowGrid(dgv: MainDgv, name: "Books");
-            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
         }
 
         private void MembersBtn_Click(object sender, EventArgs e) {
@@ -188,36 +246,6 @@ namespace LMS {
             ManageDataGridLoad();
         }
 
-        private void BorrowBooksBtn_Click(object sender, EventArgs e) {
-
-            DateTimePickers(isVisible: true);
-            DashboardPanel.Hide();
-            MainPanel.Show();
-            BorrowBooksBtn.Checked = true;
-            Action2Btn.Visible = true;
-            Action3Btn.Visible = true;
-
-            Guna2Button[] menuBtn = new[] { MangeBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn };
-            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
-
-            TitlePb.Image = Properties.Resources.Members;
-            SearchTb.PlaceholderText = "Search By Name";
-            SearchTb.Text = string.Empty;
-            TitleLbl.Text = "Borrow Books";
-            Title2Lbl.Text = "Total Pending Books: " + fn.GetNumberOf(name: "Pending Books");
-            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
-
-            CustomizeButton(btn: ActionBtn, name: "NEW BORROW", fillColor: Color.FromArgb(77, 200, 86));
-            CustomizeButton(btn: Action2Btn, name: "PENDING LIST", fillColor: Color.FromArgb(248, 187, 0));
-            DateTimePickers(isVisible: true);
-
-            MainDgv.Columns.Clear();
-            dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
-            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
-            if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
-
-            dgv.GridColor(MainDgv);
-        }
 
         private void SettingsBtn_Click(object sender, EventArgs e) {
             SettingsForm sf = new SettingsForm();
@@ -578,8 +606,49 @@ namespace LMS {
         #endregion Methods
 
         private void ProfileGB_Click(object sender, EventArgs e) {
+            // TODO: Add member functions
             StaffsActionsForm saf = new StaffsActionsForm(form: this, "Modify Staff", Properties.Settings.Default.id);
             saf.ShowDialog();
         }
+
+
+        private bool IsStaff() {
+            return (Properties.Settings.Default.accountType == "Admin" || Properties.Settings.Default.accountType == "Moderator");
+        }
+
+        #region Member Area
+        private void MemberDashboard() {
+            MemberHiddenWidgets();
+            MainPanel.Show();
+            MemberDynamicWidgets(visible: false);
+        }
+
+        private void MemberBooks() {
+            MemberHiddenWidgets();
+            MemberDynamicWidgets(visible: true);
+        }
+
+        private void MemberDynamicWidgets(bool visible) {
+            MainDgv.Visible = visible;
+            SearchTb.Visible = visible;
+            guna2PictureBox2.Visible = visible;
+            RecentUpdateLbl.Visible = visible;
+            Title2Lbl.Visible = visible;
+        }
+
+        private void MemberHiddenWidgets() {
+            if (!IsStaff()) {
+                BorrowBooksBtn.Text = "My Books List";
+                BooksBtn.Text = "Books Details";
+
+                Guna2Button[] btns = { MangeBooksBtn, MembersBtn, StaffsBtn, SettingsBtn, ActionBtn, Action2Btn, Action3Btn };
+                foreach (var btn in btns) { btn.Visible = false; }
+
+                DashboardPanel.Visible = false;
+                DateTimePickers(isVisible: false);
+            }
+        }
+
+        #endregion
     }
 }
