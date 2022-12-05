@@ -10,6 +10,7 @@ using LMS.Utils.Models;
 using LMS.Screens.Primary;
 using LMS.Utils.Core;
 using LMS.Utils.Connection;
+using LMS.Screens.Widgets;
 
 namespace LMS {
     public partial class MainForm : Form {
@@ -187,7 +188,6 @@ namespace LMS {
                 string[] names = { "Modify", "Remove" };
 
                 dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                //dgv.GridButtons(dgv: MainDgv);
             }
             dgv.ShowGrid(dgv: MainDgv, name: "Members");
             dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 200, 200, 250, 150, 150, 150 });
@@ -195,38 +195,40 @@ namespace LMS {
         }
 
         private void StaffsBtn_Click(object sender, EventArgs e) {
+            if (Properties.Settings.Default.accountType == "Admin") {
+                DashboardPanel.Hide();
+                MainPanel.Show();
+                StaffsBtn.Checked = true;
+                Action2Btn.Visible = false;
+                Action3Btn.Visible = true;
 
-            DashboardPanel.Hide();
-            MainPanel.Show();
-            StaffsBtn.Checked = true;
-            Action2Btn.Visible = false;
-            Action3Btn.Visible = true;
+                Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, BooksBtn };
+                Array.ForEach(menuBtn, btn => { btn.Checked = false; });
 
-            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, BooksBtn };
-            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
+                TitlePb.Image = Properties.Resources.Members;
+                SearchTb.PlaceholderText = "Search By Username";
+                SearchTb.Text = string.Empty;
+                TitleLbl.Text = "All Staffs Members";
+                Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "Staffs");
+                RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
 
-            TitlePb.Image = Properties.Resources.Members;
-            SearchTb.PlaceholderText = "Search By Username";
-            SearchTb.Text = string.Empty;
-            TitleLbl.Text = "All Staffs Members";
-            Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "Staffs");
-            RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
+                CustomizeButton(btn: ActionBtn, name: "ADD STAFF", fillColor: Color.FromArgb(77, 200, 86));
+                DateTimePickers(isVisible: false);
 
-            CustomizeButton(btn: ActionBtn, name: "ADD STAFF", fillColor: Color.FromArgb(77, 200, 86));
-            DateTimePickers(isVisible: false);
+                MainDgv.Columns.Clear();
+                if (MainDgv.ColumnCount == 0) {
 
-            MainDgv.Columns.Clear();
-            if (MainDgv.ColumnCount == 0) {
+                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                    string[] names = { "Modify", "Remove" };
 
-                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                string[] names = { "Modify", "Remove" };
-
-                dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                //dgv.GridButtons(dgv: MainDgv);
+                    dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                }
+                dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
+            } else {
+                this.Alert("Warning!", "You do not have enough privileges to access staff details!", AlertForm.EnmType.Warning);
             }
-            dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
-            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
         }
 
         private void MangeBooksBtn_Click(object sender, EventArgs e) {
@@ -296,7 +298,6 @@ namespace LMS {
                                     string[] names = { "Modify", "Remove" };
 
                                     dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                    //dgv.GridButtons(dgv: MainDgv);
                                 }
                                 dgv.ShowGrid(dgv: MainDgv, name: "Books");
                                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
@@ -347,7 +348,6 @@ namespace LMS {
                                     string[] names = { "Modify", "Remove" };
 
                                     dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                    //dgv.GridButtons(dgv: MainDgv);
                                 }
                                 dgv.ShowGrid(dgv: MainDgv, name: "Members");
                                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
@@ -399,7 +399,6 @@ namespace LMS {
                                         string[] names = { "Modify", "Remove" };
 
                                         dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                        //dgv.GridButtons(dgv: MainDgv);
                                     }
                                     dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
                                     dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
@@ -630,6 +629,12 @@ namespace LMS {
             FromDtp.Value = DateTime.Now.AddDays(-30);
             ToDtp.Value = DateTime.Now;
         }
+
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
+        }
+
         #endregion Methods
 
         private void ProfileGB_Click(object sender, EventArgs e) {
