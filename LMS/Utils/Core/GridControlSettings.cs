@@ -10,7 +10,7 @@ namespace LMS.Utils.Core {
     class GridControlSettings {
 
         public void ShowGrid(DataGridView dgv, string name, [Optional] string searchQuery, [Optional] string fromDate, [Optional] string toDate, [Optional] string searchQuery2) {
-            
+
             dgv.DataSource = null;
             string query = "";
 
@@ -52,6 +52,12 @@ namespace LMS.Utils.Core {
                     break;
                 case "Choose Book":
                     query = "SELECT ISBN, Title, Author, Quantity FROM books  WHERE is_removed = 0" + ((searchQuery != string.Empty) ? " AND title LIKE '%" + searchQuery + "%';" : ";");
+                    break;
+                case "Member Books":
+                    query = "SELECT ISBN, Title, Category, Author, p.name AS 'Publisher', dbo.booksStatus(isbn) AS Status FROM books AS b, publishers as p  WHERE p.pid = b.pid AND b.is_removed = '0'" + ((searchQuery != string.Empty) ? " AND b.title LIKE '%" + searchQuery + "%';" : ";");
+                    break;
+                case "Member Borrow Books":
+                    query = "SELECT bb.refno AS 'Ref No', bb.ISBN, b.Title, bb.issue_date AS 'Issued Date', bb.due_date AS 'Due Date', bb.return_date, bb.Status FROM borrow_books AS bb, members AS m, books AS b WHERE bb.isbn = b.isbn AND bb.mid = m.mid AND m.mid = '" + searchQuery + "'" + ((searchQuery2 != string.Empty) ? " AND b.title LIKE '%" + searchQuery2 + "%'" : ";");
                     break;
                 default:
                     Console.WriteLine("Please double check Grid Name!");
