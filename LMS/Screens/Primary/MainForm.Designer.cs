@@ -35,11 +35,11 @@ namespace LMS {
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.ProfileGB = new Guna.UI2.WinForms.Guna2GroupBox();
             this.UsernameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.TypeLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.FNameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.FullNameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ProfilePB = new Guna.UI2.WinForms.Guna2PictureBox();
             this.SettingsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.StaffsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.MembersBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -69,6 +69,9 @@ namespace LMS {
             this.guna2ShadowPanel10 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.OverviewChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.tableLayoutPanel1 = new LMS.Utils.Components.DoubleBufferedTableLayoutPanel();
             this.guna2ShadowPanel19 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -120,12 +123,9 @@ namespace LMS {
             this.guna2PictureBox13 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox14 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2ShadowPanel1.SuspendLayout();
-            this.guna2GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.ProfileGB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePB)).BeginInit();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -166,7 +166,7 @@ namespace LMS {
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2ShadowPanel1.Controls.Add(this.guna2GroupBox1);
+            this.guna2ShadowPanel1.Controls.Add(this.ProfileGB);
             this.guna2ShadowPanel1.Controls.Add(this.SettingsBtn);
             this.guna2ShadowPanel1.Controls.Add(this.StaffsBtn);
             this.guna2ShadowPanel1.Controls.Add(this.MembersBtn);
@@ -186,27 +186,29 @@ namespace LMS {
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(273, 1000);
             this.guna2ShadowPanel1.TabIndex = 0;
             // 
-            // guna2GroupBox1
+            // ProfileGB
             // 
-            this.guna2GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2GroupBox1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox1.Controls.Add(this.UsernameLbl);
-            this.guna2GroupBox1.Controls.Add(this.TypeLbl);
-            this.guna2GroupBox1.Controls.Add(this.FNameLbl);
-            this.guna2GroupBox1.Controls.Add(this.guna2PictureBox1);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(10, 882);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(252, 107);
-            this.guna2GroupBox1.TabIndex = 8;
+            this.ProfileGB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ProfileGB.BorderColor = System.Drawing.Color.Transparent;
+            this.ProfileGB.Controls.Add(this.UsernameLbl);
+            this.ProfileGB.Controls.Add(this.TypeLbl);
+            this.ProfileGB.Controls.Add(this.FullNameLbl);
+            this.ProfileGB.Controls.Add(this.ProfilePB);
+            this.ProfileGB.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.ProfileGB.FillColor = System.Drawing.Color.Transparent;
+            this.ProfileGB.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ProfileGB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.ProfileGB.Location = new System.Drawing.Point(10, 882);
+            this.ProfileGB.Name = "ProfileGB";
+            this.ProfileGB.ShadowDecoration.Parent = this.ProfileGB;
+            this.ProfileGB.Size = new System.Drawing.Size(252, 107);
+            this.ProfileGB.TabIndex = 8;
+            this.ProfileGB.Click += new System.EventHandler(this.ProfileGB_Click);
             // 
             // UsernameLbl
             // 
             this.UsernameLbl.BackColor = System.Drawing.Color.Transparent;
+            this.UsernameLbl.Enabled = false;
             this.UsernameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(149)))), ((int)(((byte)(157)))));
             this.UsernameLbl.Location = new System.Drawing.Point(83, 41);
@@ -219,6 +221,7 @@ namespace LMS {
             // TypeLbl
             // 
             this.TypeLbl.BackColor = System.Drawing.Color.Transparent;
+            this.TypeLbl.Enabled = false;
             this.TypeLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TypeLbl.ForeColor = System.Drawing.Color.Black;
             this.TypeLbl.Location = new System.Drawing.Point(82, 15);
@@ -228,28 +231,30 @@ namespace LMS {
             this.TypeLbl.Text = "Admin";
             this.TypeLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // FNameLbl
+            // FullNameLbl
             // 
-            this.FNameLbl.BackColor = System.Drawing.Color.Transparent;
-            this.FNameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FNameLbl.ForeColor = System.Drawing.Color.Black;
-            this.FNameLbl.Location = new System.Drawing.Point(21, 71);
-            this.FNameLbl.Name = "FNameLbl";
-            this.FNameLbl.Size = new System.Drawing.Size(87, 27);
-            this.FNameLbl.TabIndex = 6;
-            this.FNameLbl.Text = "Full Name";
-            this.FNameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FullNameLbl.BackColor = System.Drawing.Color.Transparent;
+            this.FullNameLbl.Enabled = false;
+            this.FullNameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FullNameLbl.ForeColor = System.Drawing.Color.Black;
+            this.FullNameLbl.Location = new System.Drawing.Point(21, 71);
+            this.FullNameLbl.Name = "FullNameLbl";
+            this.FullNameLbl.Size = new System.Drawing.Size(87, 27);
+            this.FullNameLbl.TabIndex = 6;
+            this.FullNameLbl.Text = "Full Name";
+            this.FullNameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // guna2PictureBox1
+            // ProfilePB
             // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(21, 12);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(55, 55);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 5;
-            this.guna2PictureBox1.TabStop = false;
+            this.ProfilePB.Enabled = false;
+            this.ProfilePB.Image = ((System.Drawing.Image)(resources.GetObject("ProfilePB.Image")));
+            this.ProfilePB.Location = new System.Drawing.Point(21, 12);
+            this.ProfilePB.Name = "ProfilePB";
+            this.ProfilePB.ShadowDecoration.Parent = this.ProfilePB;
+            this.ProfilePB.Size = new System.Drawing.Size(55, 55);
+            this.ProfilePB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ProfilePB.TabIndex = 5;
+            this.ProfilePB.TabStop = false;
             // 
             // SettingsBtn
             // 
@@ -894,6 +899,16 @@ namespace LMS {
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(111, 32);
             this.guna2HtmlLabel8.TabIndex = 3;
             this.guna2HtmlLabel8.Text = "OVERVIEW";
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 15;
+            this.bunifuElipse2.TargetControl = this.MainDgv;
             // 
             // tableLayoutPanel1
             // 
@@ -1554,16 +1569,6 @@ namespace LMS {
             this.guna2HtmlLabel26.TabIndex = 4;
             this.guna2HtmlLabel26.Text = "TODAY MANAGED BOOKS";
             // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 15;
-            this.bunifuElipse1.TargetControl = this;
-            // 
-            // bunifuElipse2
-            // 
-            this.bunifuElipse2.ElipseRadius = 15;
-            this.bunifuElipse2.TargetControl = this.MainDgv;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1583,9 +1588,9 @@ namespace LMS {
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
-            this.guna2GroupBox1.ResumeLayout(false);
-            this.guna2GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.ProfileGB.ResumeLayout(false);
+            this.ProfileGB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePB)).EndInit();
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).EndInit();
@@ -1653,9 +1658,8 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
         private Guna.UI2.WinForms.Guna2PictureBox TitlePb;
         private Guna.UI2.WinForms.Guna2HtmlLabel UsernameLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel FNameLbl;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox ProfilePB;
+        private Guna.UI2.WinForms.Guna2GroupBox ProfileGB;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         public Guna.UI2.WinForms.Guna2DataGridView MainDgv;
         private Guna.UI2.WinForms.Guna2ShadowPanel DashboardPanel;
@@ -1728,5 +1732,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2HtmlLabel TypeLbl;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        public Guna.UI2.WinForms.Guna2HtmlLabel FullNameLbl;
     }
 }

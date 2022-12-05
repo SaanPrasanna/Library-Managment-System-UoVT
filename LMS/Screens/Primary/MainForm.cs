@@ -339,7 +339,7 @@ namespace LMS {
 
                 } else if (e.ColumnIndex == 1) {
 
-                    if (Properties.Settings.Default.accountType.ToLower() == "admin" && Properties.Settings.Default.sid != sid) {
+                    if (Properties.Settings.Default.accountType.ToLower() == "admin" && Properties.Settings.Default.id != sid) {
                         if (MessageBox.Show("Do you want to delete this staff member [" + sid + "]?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No) {
 
                             Functions fn = new Functions();
@@ -381,7 +381,7 @@ namespace LMS {
                                 Console.Read();
                             }
                         }
-                    } else if (Properties.Settings.Default.sid == sid && Properties.Settings.Default.accountType.ToLower() == "admin") {
+                    } else if (Properties.Settings.Default.id == sid && Properties.Settings.Default.accountType.ToLower() == "admin") {
                         MessageBox.Show("Sorry, you can't delete your account!", "Access Denied!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     } else if (Properties.Settings.Default.accountType.ToLower() == "moderator") {
                         MessageBox.Show("You doesn't have permission to delete accounts!", "Access Denied!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -538,7 +538,7 @@ namespace LMS {
                 lbl.name.Text = fn.GetNumberOf(name: names[lbl.index]).ToString();
             }
 
-            FNameLbl.Text = Properties.Settings.Default.fname;
+            FullNameLbl.Text = Properties.Settings.Default.fullName;
             UsernameLbl.Text = Properties.Settings.Default.username;
             TypeLbl.Text = Properties.Settings.Default.accountType;
             FineFeesLbl.Text = "Rs. " + fn.GetNumberOf("Monthly FineFees").ToString("0.00");
@@ -576,5 +576,10 @@ namespace LMS {
             ToDtp.Value = DateTime.Now;
         }
         #endregion Methods
+
+        private void ProfileGB_Click(object sender, EventArgs e) {
+            StaffsActionsForm saf = new StaffsActionsForm(form: this, "Modify Staff", Properties.Settings.Default.id);
+            saf.ShowDialog();
+        }
     }
 }

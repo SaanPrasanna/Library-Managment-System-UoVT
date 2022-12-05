@@ -38,12 +38,12 @@ namespace LMS.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string fname {
+        public string fullName {
             get {
-                return ((string)(this["fname"]));
+                return ((string)(this["fullName"]));
             }
             set {
-                this["fname"] = value;
+                this["fullName"] = value;
             }
         }
         
@@ -62,12 +62,12 @@ namespace LMS.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string sid {
+        public string id {
             get {
-                return ((string)(this["sid"]));
+                return ((string)(this["id"]));
             }
             set {
-                this["sid"] = value;
+                this["id"] = value;
             }
         }
     }

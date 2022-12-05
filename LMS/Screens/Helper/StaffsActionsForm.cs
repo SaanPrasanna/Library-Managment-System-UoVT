@@ -31,6 +31,7 @@ namespace LMS {
                 PasswordTb.Enabled = false;
                 UsernameTb.Enabled = false;
                 ActionBtn.FillColor = Color.FromArgb(248, 187, 0);
+                TypeCb.Enabled = Properties.Settings.Default.id != SIDTb.Text;
             }
         }
 
@@ -155,6 +156,10 @@ namespace LMS {
                             dgv.ShowGrid(dgv: mf.MainDgv, name: "Staffs");
                             dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
 
+                            if (Properties.Settings.Default.id == SIDTb.Text) {
+                                Properties.Settings.Default.id = SIDTb.Text;
+                                mf.FullNameLbl.Text = FnameTb.Text + " " + LnameTb.Text;
+                            }
                             MessageBox.Show("Staff updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }

@@ -5,13 +5,13 @@
     <Setting Name="username" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="fname" Type="System.String" Scope="User">
+    <Setting Name="fullName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="accountType" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="sid" Type="System.String" Scope="User">
+    <Setting Name="id" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

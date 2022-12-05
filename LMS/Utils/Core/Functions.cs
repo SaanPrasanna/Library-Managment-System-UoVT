@@ -6,20 +6,30 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using LMS.Utils.Connection;
+using System.Net.Mail;
 
 namespace LMS.Utils.Core {
     class Functions {
-        public DataTable Authentication(string username, string password) {
+        public DataTable Authentication(string type, string username, string password) {
+
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
+            string sql = "";
 
-            string sql = "SELECT * FROM staffs WHERE username = @username AND password = @password AND is_removed = 0";
+            switch (type) {
+                case "Staff":
+                    sql = "SELECT sid, username, fname, lname, type FROM staffs WHERE username = @username AND password = @password AND is_removed = '0'";
+                    break;
+                case "Member":
+                    sql = "SELECT mid, email, fname, lname, category FROM members WHERE email = @username AND password = @password AND is_removed = '0';";
+                    break;
+            }
             password = GetSHA1Hash(input: password).ToLower();
 
             try {
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.Add("@username", SqlDbType.VarChar, 20).Value = username;
+                cmd.Parameters.Add("@username", SqlDbType.VarChar, 100).Value = username;
                 cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = password;
 
                 SqlDataAdapter adupter = new SqlDataAdapter(cmd);
@@ -367,6 +377,20 @@ namespace LMS.Utils.Core {
                 list.Add(obj);
             }
             return list;
+        }
+
+        public bool IsEmail(string email) {
+            var trimmedEmail = email.Trim();
+
+            if (trimmedEmail.EndsWith(".")) {
+                return false;
+            }
+            try {
+                var addr = new MailAddress(email);
+                return addr.Address == trimmedEmail;
+            } catch {
+                return false;
+            }
         }
     }
 }

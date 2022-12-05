@@ -22,17 +22,19 @@ namespace LMS.Screens.Primary {
         #region Button Click
         private void LoginBtn_Click(object sender, EventArgs e) {
             try {
-                if (UsernameTB.Text != string.Empty && PasswordTB.Text != string.Empty) {
+                if (!string.IsNullOrEmpty(UsernameTB.Text) && !string.IsNullOrEmpty(PasswordTB.Text)) {
 
-                    DataTable dt = fn.Authentication(username: UsernameTB.Text, password: PasswordTB.Text);
+                    DataTable dt = fn.Authentication(type: fn.IsEmail(UsernameTB.Text) ? "Member" : "Staff", username: UsernameTB.Text, password: PasswordTB.Text);
+
 
                     if (dt.Rows.Count == 1) {
 
-                        Properties.Settings.Default.sid = dt.Rows[0][0].ToString();
+                        // 0- id, 1-username, 2-first name, 3 - last name, 4 - account type
+                        Properties.Settings.Default.id = dt.Rows[0][0].ToString();
                         Properties.Settings.Default.username = dt.Rows[0][1].ToString();
-                        Properties.Settings.Default.fname = dt.Rows[0][3].ToString() + " " + dt.Rows[0][4].ToString();
-                        Properties.Settings.Default.accountType = dt.Rows[0][6].ToString();
-                        this.Alert("Information!", "Access Granted for " + Properties.Settings.Default.fname + "!", AlertForm.EnmType.Info);
+                        Properties.Settings.Default.fullName = dt.Rows[0][2].ToString() + " " + dt.Rows[0][3].ToString();
+                        Properties.Settings.Default.accountType = dt.Rows[0][4].ToString();
+                        this.Alert("Information!", "Access Granted for " + Properties.Settings.Default.fullName + "!", AlertForm.EnmType.Info);
 
                         SplashForm splashForm = new SplashForm();
                         this.Hide();

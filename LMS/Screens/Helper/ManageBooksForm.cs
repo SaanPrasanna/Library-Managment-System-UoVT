@@ -51,7 +51,7 @@ namespace LMS {
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.Add("@refID", SqlDbType.VarChar, 6).Value = fn.GetID("Books Manage");
                     cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;
-                    cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = Properties.Settings.Default.sid; // Implemented SID
+                    cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = Properties.Settings.Default.id; // Implemented SID
                     cmd.Parameters.Add("@qty", SqlDbType.Int).Value = Int32.Parse(AQtyTb.Text);
                     cmd.Parameters.Add("@action", SqlDbType.VarChar, 10).Value = ActionCb.Text;
                     cmd.Parameters.Add("@description", SqlDbType.VarChar, 50).Value = DescriptionTb.Text;

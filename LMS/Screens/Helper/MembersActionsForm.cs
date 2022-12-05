@@ -117,7 +117,7 @@ namespace LMS {
                         cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
                         cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
                         cmd.Parameters.Add("@renewDate", SqlDbType.Date).Value = DateTime.Parse(ReNewDateTb.Text);
-                        cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = Properties.Settings.Default.sid; //Implemented
+                        cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = Properties.Settings.Default.id; //Implemented
                         cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = EmailTB.Text;
                         cmd.Parameters.Add("@password", SqlDbType.VarChar, 100).Value = PasswordTB.Text;
                         cmd.Parameters.Add("@telephone", SqlDbType.Char, 10).Value = TelephoneTB.Text;
