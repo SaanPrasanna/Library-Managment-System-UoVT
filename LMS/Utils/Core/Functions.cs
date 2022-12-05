@@ -285,7 +285,7 @@ namespace LMS.Utils.Core {
             return false;
         }
 
-        public DataTable GetDataTable(string name) {
+        public DataTable GetDataTable(string name, [Optional]string value) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
@@ -296,6 +296,9 @@ namespace LMS.Utils.Core {
                 switch (name) {
                     case "Temp Checkout":
                         query = "SELECT id, isbn, mid, is_removed FROM borrow_temp";
+                        break;
+                    case "Member":
+                        query = "SELECT mid, email, CONCAT(fname, ' ', lname), telephone, address, date FROM members WHERE mid = '" + value + "';";
                         break;
                 }
                 SqlCommand cmd = new SqlCommand(query, conn);
