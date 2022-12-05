@@ -108,6 +108,9 @@ namespace LMS.Utils.Core {
                     case "Monthly FineFees":
                         query = "SELECT fines_fee FROM borrow_books WHERE return_date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%'";
                         break;
+                    case "Member by Email":
+                        query = "SELECT COUNT(*) FROM members WHERE is_removed = '0' AND email = '" + value + "'";
+                        break;
                 }
                 SqlCommand cmd = new SqlCommand(query, conn);
                 return Convert.ToInt32(cmd.ExecuteScalar());
@@ -285,7 +288,7 @@ namespace LMS.Utils.Core {
             return false;
         }
 
-        public DataTable GetDataTable(string name, [Optional]string value) {
+        public DataTable GetDataTable(string name, [Optional] string value) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
