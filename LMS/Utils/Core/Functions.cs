@@ -392,5 +392,9 @@ namespace LMS.Utils.Core {
                 return false;
             }
         }
+
+        public bool IsStaff() {
+            return (Properties.Settings.Default.accountType == "Admin" || Properties.Settings.Default.accountType == "Moderator");
+        }
     }
 }
