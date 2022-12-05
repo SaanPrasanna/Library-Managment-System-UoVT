@@ -39,7 +39,7 @@ namespace LMS {
             MemberHiddenWidgets();
 
             if (!fn.IsStaff()) {
-                MemberDashboard();
+                MemberDashboard(visible: true);
             }
         }
         #endregion Form Load
@@ -64,7 +64,7 @@ namespace LMS {
                 Array.ForEach(menuBtns, btn => { btn.Checked = false; });
 
                 MemberHiddenWidgets();
-                MemberDashboard();
+                MemberDashboard(visible: true);
             }
         }
 
@@ -106,8 +106,7 @@ namespace LMS {
                 Guna2Button[] menuBtns = new[] { BorrowBooksBtn, DashboardBtn };
                 Array.ForEach(menuBtns, btn => { btn.Checked = false; });
 
-                MemberBooks();
-
+                MemberDashboard(visible: false);
                 dgv.ShowGrid(dgv: MainDgv, name: "Member Books", searchQuery: SearchTb.Text);
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 100, 300, 150, 200, 200, 150 });
             }
@@ -153,7 +152,7 @@ namespace LMS {
                 TitleLbl.Text = "My Books List";
                 Title2Lbl.Text = "My Pending Books: " + fn.GetNumberOf(name: "Already Borrowed Books", value: Properties.Settings.Default.id);
 
-                MemberBooks();
+                MemberDashboard(visible: false);
                 dgv.ShowGrid(dgv: MainDgv, name: "Member Borrow Books", searchQuery: Properties.Settings.Default.id, searchQuery2: SearchTb.Text);
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200, 200 });
             }
@@ -553,7 +552,7 @@ namespace LMS {
             } else if (MangeBooksBtn.Checked == true) {
 
                 dgv.ShowGrid(dgv: MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
-                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 250, 150, 150, 250, 150, 150, 150 });
 
             } else if (BorrowBooksBtn.Checked == true) {
 
@@ -606,7 +605,7 @@ namespace LMS {
 
             if (ActionBtn.Text == "MANAGE BOOK") {
                 dgv.ShowGrid(dgv: MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
-                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 250, 150, 150, 250, 150, 150, 150 });
             } else if (ActionBtn.Text == "NEW BORROW") {
                 dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
@@ -644,15 +643,25 @@ namespace LMS {
         }
 
         #region Member Area
-        private void MemberDashboard() {
+        private void MemberDashboard(bool visible) {
             MainPanel.Show();
             MemberHiddenWidgets();
-            MemberDynamicWidgets(visible: false);
-        }
+            MemberDynamicWidgets(visible: !visible);
+            MDashboardPanel.Visible = visible;
+            MDashboardPanel2.Visible = visible;
+            MainDgv.Visible = !visible;
 
-        private void MemberBooks() {
-            MemberHiddenWidgets();
-            MemberDynamicWidgets(visible: true);
+            // Load Data
+            //mid, email, CONCAT(fname, ' ', lname), date, address, telephone
+            DataTable dt = fn.GetDataTable(name: "Member", value: Properties.Settings.Default.id);
+
+            Guna2HtmlLabel[] labels = { MIDLbl, MEmailLbl, MNameLbl, MTpLbl, MAddressLbl };
+            foreach (var lbl in labels.Select((name, index) => (name, index))) {
+                lbl.name.Text = dt.Rows[0][lbl.index].ToString();
+            }
+
+            MJoinDateLbl.Text = Convert.ToDateTime(dt.Rows[0][5]).ToString("yyyy-MM-dd");
+            MPendingBooksLbl.Text = fn.GetNumberOf(name: "Already Borrowed Books", value: Properties.Settings.Default.id).ToString();
         }
 
         private void MemberDynamicWidgets(bool visible) {
