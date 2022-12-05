@@ -48,7 +48,7 @@ namespace LMS {
                 PwBtn.Text = "CHANGE";
                 PasswordTB.Enabled = false;
                 ShowPasswordSwitch.Enabled = false;
-
+                EmailTB.Enabled = false;
             }
         }
 

@@ -37,6 +37,10 @@ namespace LMS {
             DashboardDetails();
             guna2ShadowPanel10.Hide(); // TODO: 
             MemberHiddenWidgets();
+
+            if (!fn.IsStaff()) {
+                MemberDashboard();
+            }
         }
         #endregion Form Load
 
@@ -47,7 +51,7 @@ namespace LMS {
             TitleLbl.Text = "Dashboard Oveview";
             TitlePb.Image = Properties.Resources.Dashboard;
 
-            if (IsStaff()) {
+            if (fn.IsStaff()) {
                 MainPanel.Hide();
                 DashboardPanel.Show();
 
@@ -76,7 +80,7 @@ namespace LMS {
             TitlePb.Image = Properties.Resources.Books;
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
 
-            if (IsStaff()) {
+            if (fn.IsStaff()) {
                 Action2Btn.Visible = true;
                 Action3Btn.Visible = true;
 
@@ -102,8 +106,10 @@ namespace LMS {
                 Guna2Button[] menuBtns = new[] { BorrowBooksBtn, DashboardBtn };
                 Array.ForEach(menuBtns, btn => { btn.Checked = false; });
 
-                MemberHiddenWidgets();
                 MemberBooks();
+
+                dgv.ShowGrid(dgv: MainDgv, name: "Member Books", searchQuery: SearchTb.Text);
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 100, 300, 150, 200, 200, 150 });
             }
         }
 
@@ -111,12 +117,12 @@ namespace LMS {
 
             TitlePb.Image = Properties.Resources.Books;
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
+            MainPanel.Show();
 
 
-            if (IsStaff()) {
+            if (fn.IsStaff()) {
                 DateTimePickers(isVisible: true);
                 DashboardPanel.Hide();
-                MainPanel.Show();
                 BorrowBooksBtn.Checked = true;
                 Action2Btn.Visible = true;
                 Action3Btn.Visible = true;
@@ -146,7 +152,10 @@ namespace LMS {
                 SearchTb.Text = string.Empty;
                 TitleLbl.Text = "My Books List";
                 Title2Lbl.Text = "My Pending Books: " + fn.GetNumberOf(name: "Already Borrowed Books", value: Properties.Settings.Default.id);
-                MemberHiddenWidgets();
+
+                MemberBooks();
+                dgv.ShowGrid(dgv: MainDgv, name: "Member Borrow Books", searchQuery: Properties.Settings.Default.id, searchQuery2: SearchTb.Text);
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200, 200 });
             }
         }
 
@@ -522,23 +531,42 @@ namespace LMS {
 
         private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
 
-            if (ActionBtn.Text == "ADD BOOK") {
-                dgv.ShowGrid(dgv: MainDgv, name: "Books", searchQuery: SearchTb.Text);
-                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
-            } else if (ActionBtn.Text == "ADD MEMBER") {
+            if (BooksBtn.Checked == true) {
+                if (fn.IsStaff()) {
+                    dgv.ShowGrid(dgv: MainDgv, name: "Books", searchQuery: SearchTb.Text);
+                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
+                } else {
+                    dgv.ShowGrid(dgv: MainDgv, name: "Member Books", searchQuery: SearchTb.Text);
+                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 100, 300, 150, 200, 200, 150 });
+                }
+
+            } else if (MembersBtn.Checked == true) {
+
                 dgv.ShowGrid(dgv: MainDgv, name: "Members", searchQuery: SearchTb.Text);
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 200, 200, 250, 150, 150, 150 });
-            } else if (ActionBtn.Text == "ADD STAFF") {
+
+            } else if (StaffsBtn.Checked == true) {
+
                 dgv.ShowGrid(dgv: MainDgv, name: "Staffs", searchQuery: SearchTb.Text);
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
-            } else if (ActionBtn.Text == "MANAGE BOOK") {
+
+            } else if (MangeBooksBtn.Checked == true) {
+
                 dgv.ShowGrid(dgv: MainDgv, name: "Manage Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 150, 200, 150, 150, 250, 150 });
-            } else if (ActionBtn.Text == "NEW BORROW") {
-                dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
-                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
-                if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
-                dgv.GridColor(MainDgv);
+
+            } else if (BorrowBooksBtn.Checked == true) {
+
+                if (fn.IsStaff()) {
+                    dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
+                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
+                    if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
+                    dgv.GridColor(MainDgv);
+                } else {
+                    dgv.ShowGrid(dgv: MainDgv, name: "Member Borrow Books", searchQuery: Properties.Settings.Default.id, searchQuery2: SearchTb.Text);
+                    dgv.GridWidth(dgv: MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200, 200 });
+                }
+
             }
         }
 
@@ -606,20 +634,19 @@ namespace LMS {
         #endregion Methods
 
         private void ProfileGB_Click(object sender, EventArgs e) {
-            // TODO: Add member functions
-            StaffsActionsForm saf = new StaffsActionsForm(form: this, "Modify Staff", Properties.Settings.Default.id);
-            saf.ShowDialog();
-        }
-
-
-        private bool IsStaff() {
-            return (Properties.Settings.Default.accountType == "Admin" || Properties.Settings.Default.accountType == "Moderator");
+            if (fn.IsStaff()) {
+                StaffsActionsForm saf = new StaffsActionsForm(form: this, "Modify Staff", Properties.Settings.Default.id);
+                saf.ShowDialog();
+            } else {
+                MembersActionsForm maf = new MembersActionsForm(form: this, "Modify Member", Properties.Settings.Default.id);
+                maf.ShowDialog();
+            }
         }
 
         #region Member Area
         private void MemberDashboard() {
-            MemberHiddenWidgets();
             MainPanel.Show();
+            MemberHiddenWidgets();
             MemberDynamicWidgets(visible: false);
         }
 
@@ -629,7 +656,6 @@ namespace LMS {
         }
 
         private void MemberDynamicWidgets(bool visible) {
-            MainDgv.Visible = visible;
             SearchTb.Visible = visible;
             guna2PictureBox2.Visible = visible;
             RecentUpdateLbl.Visible = visible;
@@ -637,7 +663,7 @@ namespace LMS {
         }
 
         private void MemberHiddenWidgets() {
-            if (!IsStaff()) {
+            if (!fn.IsStaff()) {
                 BorrowBooksBtn.Text = "My Books List";
                 BooksBtn.Text = "Books Details";
 
