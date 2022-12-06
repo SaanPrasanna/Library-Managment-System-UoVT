@@ -73,7 +73,7 @@ namespace LMS.Screens.Primary {
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Proxima Nova Rg", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(45)))), ((int)(((byte)(105)))));
-            this.label2.Location = new System.Drawing.Point(553, 271);
+            this.label2.Location = new System.Drawing.Point(553, 276);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(213, 26);
             this.label2.TabIndex = 15;
@@ -243,9 +243,9 @@ namespace LMS.Screens.Primary {
             // 
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
-            this.gunaPictureBox1.Location = new System.Drawing.Point(594, 111);
+            this.gunaPictureBox1.Location = new System.Drawing.Point(585, 100);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(120, 120);
+            this.gunaPictureBox1.Size = new System.Drawing.Size(153, 148);
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox1.TabIndex = 16;
             this.gunaPictureBox1.TabStop = false;
@@ -271,7 +271,6 @@ namespace LMS.Screens.Primary {
             this.ClientSize = new System.Drawing.Size(835, 572);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.InfoBtn);
-            this.Controls.Add(this.gunaPictureBox1);
             this.Controls.Add(this.LoginBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -279,6 +278,7 @@ namespace LMS.Screens.Primary {
             this.Controls.Add(this.gunaElipsePanel1);
             this.Controls.Add(this.UsernameTB);
             this.Controls.Add(this.PasswordTB);
+            this.Controls.Add(this.gunaPictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "LoginForm";

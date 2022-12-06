@@ -33,6 +33,8 @@ namespace LMS {
             }
 
             InitialLoad(condition: "Full");
+            FullNameLbl.Text = Properties.Settings.Default.fullName;
+            UsernameLbl.Text = Properties.Settings.Default.username;
             ClearGrid();
 
             Thread initBtn = new Thread(() => InitButton());

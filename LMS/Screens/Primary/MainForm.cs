@@ -186,14 +186,14 @@ namespace LMS {
             MainDgv.Columns.Clear();
             if (MainDgv.ColumnCount == 0) {
 
-                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                string[] names = { "Modify", "Remove" };
+                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91), Color.FromArgb(94, 148, 255) };
+                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91), Color.FromArgb(94, 120, 255) };
+                string[] names = { "Modify", "Remove", "Print Report" };
 
                 dgv.GridButtons(dgv: MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
             }
             dgv.ShowGrid(dgv: MainDgv, name: "Members");
-            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 200, 200, 250, 150, 150, 150 });
+            dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 0, 150, 150, 200, 200, 250, 150, 150, 150 });
 
         }
 
@@ -323,7 +323,7 @@ namespace LMS {
                     }
                 }
             } else if (ActionBtn.Text == "ADD MEMBER") {
-                String mid = MainDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+                String mid = MainDgv.Rows[e.RowIndex].Cells[3].Value.ToString();
 
                 if (e.ColumnIndex == 0) {
 
@@ -372,6 +372,13 @@ namespace LMS {
                     } else {
                         this.Alert("Access Denied!", "You do not have enough privilages to Remove Member!", AlertForm.EnmType.Error);
                     }
+                } else if (e.ColumnIndex == 2) {
+                    var reader = fn.GetReader(name: "Member Report", searchQuery: mid);
+                    var memberDetails = fn.GetList<BorrowBook>(reader);
+
+                    //this.Alert("Alert", memberDetails.Count.ToString(), AlertForm.EnmType.Info);
+                    PrintPreviewForm ppfMemberReport = new PrintPreviewForm(memberReport: memberDetails, mid: mid);
+                    ppfMemberReport.ShowDialog();
                 }
             } else if (ActionBtn.Text == "ADD STAFF") {
                 String sid = MainDgv.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -529,6 +536,15 @@ namespace LMS {
                     break;
             }
         }
+        private void ProfileGB_Click(object sender, EventArgs e) {
+            if (fn.IsStaff()) {
+                StaffsActionsForm saf = new StaffsActionsForm(form: this, "Modify Staff", Properties.Settings.Default.id);
+                saf.ShowDialog();
+            } else {
+                MembersActionsForm maf = new MembersActionsForm(form: this, "Modify Member", Properties.Settings.Default.id);
+                maf.ShowDialog();
+            }
+        }
 
         #endregion Control Buttons
 
@@ -548,7 +564,7 @@ namespace LMS {
             } else if (MembersBtn.Checked == true) {
 
                 dgv.ShowGrid(dgv: MainDgv, name: "Members", searchQuery: SearchTb.Text);
-                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 200, 200, 250, 150, 150, 150 });
+                dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 0, 150, 150, 200, 200, 250, 150, 150, 150 });
 
             } else if (StaffsBtn.Checked == true) {
 
@@ -644,15 +660,6 @@ namespace LMS {
 
         #endregion Methods
 
-        private void ProfileGB_Click(object sender, EventArgs e) {
-            if (fn.IsStaff()) {
-                StaffsActionsForm saf = new StaffsActionsForm(form: this, "Modify Staff", Properties.Settings.Default.id);
-                saf.ShowDialog();
-            } else {
-                MembersActionsForm maf = new MembersActionsForm(form: this, "Modify Member", Properties.Settings.Default.id);
-                maf.ShowDialog();
-            }
-        }
 
         #region Member Area
         private void MemberDashboard(bool visible) {

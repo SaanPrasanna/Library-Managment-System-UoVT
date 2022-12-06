@@ -39,6 +39,7 @@ namespace LMS {
             this.borrowBooksReport = new LMS.Reports.BorrowBooksReport();
             this.manageBooksReport = new LMS.Reports.ManageBooksReport();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.memberDetailsReport = new LMS.Reports.MemberDetailsReport();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.SuspendLayout();
@@ -167,5 +168,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Reports.ManageBooksReport manageBooksReport;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Reports.MemberDetailsReport memberDetailsReport;
     }
 }

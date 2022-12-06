@@ -87,6 +87,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reports\MemberDetailsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberDetailsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Screens\Helper\BooksAcceptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,10 @@
     <Compile Include="Utils\Models\Member.cs" />
     <Compile Include="Utils\Models\Publisher.cs" />
     <Compile Include="Utils\Models\Staff.cs" />
+    <EmbeddedResource Include="Reports\MemberDetailsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MemberDetailsReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Helper\BooksAcceptForm.resx">
       <DependentUpon>BooksAcceptForm.cs</DependentUpon>
     </EmbeddedResource>

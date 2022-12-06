@@ -351,6 +351,9 @@ namespace LMS.Utils.Core {
                 case "FineFee":
                     query = "SELECT category, fine FROM member_category;";
                     break;
+                case "Member Report":
+                    query = "SELECT bb.refno AS 'RefNo', m.mid, b.Title, CONCAT(fname, ' ', lname ) As 'FullName', bb.issue_date AS 'IssuedDate', bb.due_date AS 'DueDate', bb.return_date AS 'ReturnedDate', bb.status FROM borrow_books AS bb, members AS m, books AS b WHERE bb.isbn = b.isbn AND bb.mid = m.mid AND m.mid = '" + searchQuery + "';";
+                    break;
                 default:
                     Console.WriteLine("Please double check Reader Name!");
                     break;
@@ -401,6 +404,13 @@ namespace LMS.Utils.Core {
 
         public bool IsStaff() {
             return (Properties.Settings.Default.accountType == "Admin" || Properties.Settings.Default.accountType == "Moderator");
+        }
+
+        public bool IsAdmin() {
+            return Properties.Settings.Default.accountType == "Admin";
+        }
+        public bool IsModerator() {
+            return Properties.Settings.Default.accountType == "Moderator";
         }
     }
 }

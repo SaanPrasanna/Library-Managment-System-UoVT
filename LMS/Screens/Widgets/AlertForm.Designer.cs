@@ -88,7 +88,7 @@ namespace LMS.Screens.Widgets {
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
-            this.CloseBtn.Size = new System.Drawing.Size(40, 40);
+            this.CloseBtn.Size = new System.Drawing.Size(40, 42);
             this.CloseBtn.TabIndex = 9;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
@@ -99,7 +99,7 @@ namespace LMS.Screens.Widgets {
             this.IconPB.Image = ((System.Drawing.Image)(resources.GetObject("IconPB.Image")));
             this.IconPB.Location = new System.Drawing.Point(7, 16);
             this.IconPB.Name = "IconPB";
-            this.IconPB.Size = new System.Drawing.Size(50, 45);
+            this.IconPB.Size = new System.Drawing.Size(50, 47);
             this.IconPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.IconPB.TabIndex = 8;
             this.IconPB.TabStop = false;
@@ -113,7 +113,7 @@ namespace LMS.Screens.Widgets {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 78);
+            this.ClientSize = new System.Drawing.Size(408, 80);
             this.ControlBox = false;
             this.Controls.Add(this.BodyLbl);
             this.Controls.Add(this.guna2VSeparator);

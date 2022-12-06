@@ -73,8 +73,9 @@ namespace LMS{
 
         private void UsernameTb_TextChanged(object sender, EventArgs e) {
             try {
-                var writer = new BarcodeWriter();
-                writer.Format = BarcodeFormat.CODE_128;
+                var writer = new BarcodeWriter {
+                    Format = BarcodeFormat.CODE_128
+                };
                 ISBNPb.Image = writer.Write(ISBNTb.Text);
             } catch (Exception ex) {
                 Console.WriteLine("Error: " + ex.ToString());
@@ -191,7 +192,6 @@ namespace LMS{
         private void BooksActions_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 this.Close();
-                //this.Dispose();
             } else if (e.Control && e.KeyCode == Keys.S) {
                 ActionBtn_Click(sender, e);
             }
@@ -199,7 +199,6 @@ namespace LMS{
 
         private void CloseBtn_Click(object sender, EventArgs e) {
             this.Close();
-            //this.Dispose();
         }
 
         private void PriceTb_KeyPress(object sender, KeyPressEventArgs e) {

@@ -155,7 +155,7 @@ namespace LMS {
             // Call ShowGrid Method
             dgv.ShowGrid(dgv: SelectionDgv, name: "Books Limit Columns", searchQuery: SearchTb.Text);
             // Call GridWidth Method, which replace the DataGridView Columns width
-            dgv.GridWidth(dgv: SelectionDgv, widths: new int[] { 150, 150 });
+            dgv.GridWidth(dgv: SelectionDgv, widths: new int[] { 150, 280, 120 });
         }
 
         // For the Calculation Part

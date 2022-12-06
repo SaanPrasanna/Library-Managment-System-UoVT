@@ -49,7 +49,6 @@ namespace LMS {
                 PasswordTB.Enabled = false;
                 ShowPasswordSwitch.Enabled = false;
                 EmailTB.Enabled = false;
-                PwBtn.Enabled = fn.IsStaff();
                 CategoryCb.Enabled = fn.IsStaff();
             }
         }
@@ -104,57 +103,59 @@ namespace LMS {
                 && AddressTb.Text != string.Empty && CategoryCb.Text != string.Empty && !string.IsNullOrEmpty(EmailTB.Text)
                 && !string.IsNullOrEmpty(PasswordTB.Text) && !string.IsNullOrEmpty(TelephoneTB.Text)) {
                 if (ActionBtn.Text == "ADD MEMBER") {
+                    if (fn.GetNumberOf(name: "Member by Email", value: EmailTB.Text) == 0) {
+                        try {
 
-                    try {
+                            string query = "INSERT INTO members VALUES(@mid, @fname, @lname, @address, @category, " +
+                                "@date, @time, @renewDate, @sid, @email, @password, @telephone, @isRemoved);";
 
-                        string query = "INSERT INTO members VALUES(@mid, @fname, @lname, @address, @category, " +
-                            "@date, @time, @renewDate, @sid, @email, @password, @telephone, @isRemoved);";
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.Add("@mid", SqlDbType.VarChar, 6).Value = MIDTb.Text;
+                            cmd.Parameters.Add("@fname", SqlDbType.NVarChar, 50).Value = FnameTb.Text;
+                            cmd.Parameters.Add("@lname", SqlDbType.NVarChar, 50).Value = LnameTb.Text;
+                            cmd.Parameters.Add("@address", SqlDbType.VarChar, 100).Value = AddressTb.Text;
+                            cmd.Parameters.Add("@category", SqlDbType.VarChar, 10).Value = CategoryCb.Text;
+                            cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
+                            cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
+                            cmd.Parameters.Add("@renewDate", SqlDbType.Date).Value = DateTime.Parse(ReNewDateTb.Text);
+                            cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = Properties.Settings.Default.id; //Implemented
+                            cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = EmailTB.Text;
+                            cmd.Parameters.Add("@password", SqlDbType.VarChar, 100).Value = PasswordTB.Text;
+                            cmd.Parameters.Add("@telephone", SqlDbType.Char, 10).Value = TelephoneTB.Text;
+                            cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
 
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.Add("@mid", SqlDbType.VarChar, 6).Value = MIDTb.Text;
-                        cmd.Parameters.Add("@fname", SqlDbType.NVarChar, 50).Value = FnameTb.Text;
-                        cmd.Parameters.Add("@lname", SqlDbType.NVarChar, 50).Value = LnameTb.Text;
-                        cmd.Parameters.Add("@address", SqlDbType.VarChar, 100).Value = AddressTb.Text;
-                        cmd.Parameters.Add("@category", SqlDbType.VarChar, 10).Value = CategoryCb.Text;
-                        cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
-                        cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
-                        cmd.Parameters.Add("@renewDate", SqlDbType.Date).Value = DateTime.Parse(ReNewDateTb.Text);
-                        cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = Properties.Settings.Default.id; //Implemented
-                        cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = EmailTB.Text;
-                        cmd.Parameters.Add("@password", SqlDbType.VarChar, 100).Value = PasswordTB.Text;
-                        cmd.Parameters.Add("@telephone", SqlDbType.Char, 10).Value = TelephoneTB.Text;
-                        cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
+                            int rowCount = cmd.ExecuteNonQuery();
+                            if (rowCount > 0) {
 
-                        int rowCount = cmd.ExecuteNonQuery();
-                        if (rowCount > 0) {
+                                if (mf.MainDgv.ColumnCount == 0) {
 
-                            if (mf.MainDgv.ColumnCount == 0) {
+                                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91), Color.FromArgb(94, 148, 255) };
+                                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91), Color.FromArgb(94, 120, 255) };
+                                    string[] names = { "Modify", "Remove", "Print Report" };
 
-                                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                                string[] names = { "Modify", "Remove" };
+                                    dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                    //dgv.GridButtons(dgv: mf.MainDgv);
+                                }
+                                dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");
+                                dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 0, 150, 200, 200, 250, 150, 150, 150 });
 
-                                dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                //dgv.GridButtons(dgv: mf.MainDgv);
+                                this.Alert("Information!", "Member added!", AlertForm.EnmType.Info);
+                                //MessageBox.Show("Member added!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
                             }
-                            dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");
-                            dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
 
-                            this.Alert("Information!", "Member added!", AlertForm.EnmType.Info);
-                            //MessageBox.Show("Member added!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                        } catch (Exception ex) {
+                            this.Alert("Warning!", "Ohh, something going wrong!\nMember insertion failed!", AlertForm.EnmType.Error);
+                            //MessageBox.Show("Member insertion failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Console.WriteLine("Error: " + ex.ToString());
+                        } finally {
+                            Console.ReadLine();
+                            conn.Close();
+                            conn.Dispose();
                         }
-
-                    } catch (Exception ex) {
-                        this.Alert("Warning!", "Ohh, something going wrong!\nMember insertion failed!", AlertForm.EnmType.Error);
-                        //MessageBox.Show("Member insertion failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Console.WriteLine("Error: " + ex.ToString());
-                    } finally {
-                        Console.ReadLine();
-                        conn.Close();
-                        conn.Dispose();
+                    } else {
+                        this.Alert("Error!", "Duplicate Email Found!\nTry again with different email address.", AlertForm.EnmType.Error);
                     }
-
                 } else if (ActionBtn.Text == "MODIFY MEMBER") {
                     try {
 
@@ -177,15 +178,15 @@ namespace LMS {
 
                             if (mf.MainDgv.ColumnCount == 0) {
 
-                                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                                string[] names = { "Modify", "Remove" };
+                                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91), Color.FromArgb(94, 148, 255) };
+                                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91), Color.FromArgb(94, 120, 255) };
+                                string[] names = { "Modify", "Remove", "Print Report" };
 
                                 dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
                                 //dgv.GridButtons(dgv: mf.MainDgv);
                             }
                             dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");
-                            dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
+                            dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 0, 150, 200, 200, 250, 150, 150, 150 });
 
                             if (Properties.Settings.Default.id == MIDTb.Text) {
                                 string fullName = FnameTb.Text + " " + LnameTb.Text;
@@ -242,6 +243,7 @@ namespace LMS {
                 PasswordTB.Text = string.Empty;
                 PasswordTB.Enabled = true;
             }
+            ShowPasswordSwitch.Enabled = true;
         }
 
         private void ShowPasswordSwitch_CheckedChanged(object sender, EventArgs e) {

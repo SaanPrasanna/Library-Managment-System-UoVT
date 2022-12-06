@@ -34,7 +34,7 @@ namespace LMS.Screens.Primary {
                         Properties.Settings.Default.username = dt.Rows[0][1].ToString();
                         Properties.Settings.Default.fullName = dt.Rows[0][2].ToString() + " " + dt.Rows[0][3].ToString();
                         Properties.Settings.Default.accountType = dt.Rows[0][4].ToString();
-                        this.Alert("Information!", "Access Granted for " + Properties.Settings.Default.fullName + "!", AlertForm.EnmType.Info);
+                        this.Alert("Access Granted!", "Login as " + Properties.Settings.Default.fullName + "!", AlertForm.EnmType.Success);
 
                         MainForm mf = new MainForm();
                         this.Hide();
@@ -45,7 +45,7 @@ namespace LMS.Screens.Primary {
                         splashForm.Show();
                         */
                     } else {
-                        this.Alert("Warning!", "Invalid Username or Password!", AlertForm.EnmType.Error);
+                        this.Alert("Access Denied!", "Invalid Username or Password!", AlertForm.EnmType.Error);
                     }
                 } else {
                     this.Alert("Warning!", "Username or Password can't be empty!", AlertForm.EnmType.Warning);
@@ -59,8 +59,7 @@ namespace LMS.Screens.Primary {
 
         private void CloseBtn_Click(object sender, EventArgs e) {
             if (MessageBox.Show("Do you want to exit!", "Login Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                this.Close();
-                this.Dispose();
+                Environment.Exit(1);
             }
         }
 
