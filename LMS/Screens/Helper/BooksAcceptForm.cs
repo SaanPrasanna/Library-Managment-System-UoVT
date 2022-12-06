@@ -1,4 +1,5 @@
-﻿using LMS.Utils;
+﻿using LMS.Screens.Widgets;
+using LMS.Utils;
 using LMS.Utils.Connection;
 using LMS.Utils.Core;
 using System;
@@ -15,15 +16,15 @@ using System.Windows.Forms;
 namespace LMS {
     public partial class BooksAcceptForm : Form {
 
-        SecondForm sf;
-        private string[] values; // 0 - RefNo, 1 - ISBN, 2 - MemberID, 3 - Name, 4 - NOB
+        private readonly SecondForm sf;
+        private readonly string[] values; // 0 - RefNo, 1 - ISBN, 2 - MemberID, 3 - Name, 4 - NOB
         private readonly Functions fn = new Functions();
 
         public BooksAcceptForm(SecondForm sf, string[] values) {
+            InitializeComponent();
             this.sf = sf;
             this.values = values;
-
-            InitializeComponent();
+            guna2ShadowForm.SetShadowForm(this);
         }
 
         private void RecievedTB_KeyDown(object sender, KeyEventArgs e) {
@@ -92,14 +93,11 @@ namespace LMS {
                                 sf.ActionBtn.Visible = false;
                             }
 
-                            MessageBox.Show("Book Released!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Alert("Process Success", "Book Released Successfully!", AlertForm.EnmType.Success);
                             this.Close();
-
                         }
-
-
                     } catch (Exception ex) {
-                        MessageBox.Show("Book updation failed!\nTry Again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Alert("Warning!", "Book Released Failed!\nTry Again!", AlertForm.EnmType.Warning);
                         Console.WriteLine("Action Book Error: " + ex.ToString());
                     } finally {
                         conn.Close();
@@ -121,17 +119,7 @@ namespace LMS {
             }
         }
 
-        protected override CreateParams CreateParams {
-            get {
-                const int CS_DROPSHADOW = 0x20000;
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-
         private void BooksAcceptForm_Load(object sender, EventArgs e) {
-            MessageBox.Show(values[0] +" "+ values[1]);
             FineFeeTB.Text = fn.GetFine(refNo: values[0], isbn: values[1]).ToString("00.00");
         }
 
@@ -156,6 +144,11 @@ namespace LMS {
             } finally {
                 Console.ReadLine();
             }
+        }
+
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
         }
     }
 }

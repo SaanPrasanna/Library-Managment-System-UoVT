@@ -498,8 +498,7 @@ namespace LMS {
         private void Action3Btn_Click(object sender, EventArgs e) {
             switch (ActionBtn.Text) {
                 case "NEW BORROW":
-                    var reader = fn.GetReader("");
-                    reader = fn.GetReader(name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
+                    var reader = fn.GetReader(name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
                     var borrowList = fn.GetList<BorrowBook>(reader);
 
                     PrintPreviewForm ppfBooksBorrow = new PrintPreviewForm(borrowBooks: borrowList);

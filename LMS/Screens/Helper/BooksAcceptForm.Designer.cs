@@ -32,6 +32,7 @@ namespace LMS {
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.RecievedTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.guna2ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.SuspendLayout();
             // 
             // Label6
@@ -198,5 +199,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2TextBox RecievedTB;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm;
     }
 }
