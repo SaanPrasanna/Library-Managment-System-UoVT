@@ -307,7 +307,8 @@ namespace LMS {
                                     RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
 
                                 } else {
-                                    MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    this.Alert("Exception Occure!", "Something was going wrong!", AlertForm.EnmType.Error);
+                                    //MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
 
                             } catch (Exception ex) {
@@ -358,7 +359,8 @@ namespace LMS {
                                     dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
 
                                 } else {
-                                    MessageBox.Show("Something was went wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    this.Alert("Exception Occure!", "Something was went wrong!", AlertForm.EnmType.Error);
+                                    //MessageBox.Show("Something was went wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
 
                             } catch (Exception ex) {
@@ -420,7 +422,8 @@ namespace LMS {
                                     Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "Staffs");
 
                                 } else {
-                                    MessageBox.Show("Something was went wrong!", "Exception Occur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    this.Alert("Exception Occur", "Something was went wrong!", AlertForm.EnmType.Error);
+                                    //MessageBox.Show("Something was went wrong!", "Exception Occur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
 
                             } catch (Exception ex) {
@@ -432,9 +435,9 @@ namespace LMS {
                             }
                         }
                     } else if (Properties.Settings.Default.id == sid && Properties.Settings.Default.accountType.ToLower() == "admin") {
-                        MessageBox.Show("Sorry, you can't delete your account!", "Access Denied!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Alert("Access Denied!", "Sorry, you can't delete your account!", AlertForm.EnmType.Error);
                     } else if (Properties.Settings.Default.accountType.ToLower() == "moderator") {
-                        MessageBox.Show("You doesn't have permission to delete accounts!", "Access Denied!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Alert("Access Denied!", "You doesn't have permission to delete accounts!", AlertForm.EnmType.Error);
                     }
                 }
             }
@@ -656,9 +659,7 @@ namespace LMS {
             AlertForm alertForm = new AlertForm();
             alertForm.ShowAlert(title: title, body: body, type: type);
         }
-
         #endregion Methods
-
 
         #region Member Area
         private void MemberDashboard(bool visible) {

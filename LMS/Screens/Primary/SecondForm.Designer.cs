@@ -43,6 +43,7 @@ namespace LMS {
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.MainPanel.SuspendLayout();
@@ -66,7 +67,7 @@ namespace LMS {
             this.guna2ShadowPanel2.ShadowDepth = 15;
             this.guna2ShadowPanel2.ShadowShift = 10;
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(1002, 68);
-            this.guna2ShadowPanel2.TabIndex = 8;
+            this.guna2ShadowPanel2.TabIndex = 0;
             // 
             // TitlePb
             // 
@@ -131,7 +132,7 @@ namespace LMS {
             this.MainPanel.ShadowDepth = 15;
             this.MainPanel.ShadowShift = 10;
             this.MainPanel.Size = new System.Drawing.Size(1002, 580);
-            this.MainPanel.TabIndex = 9;
+            this.MainPanel.TabIndex = 1;
             // 
             // SearchTb
             // 
@@ -159,7 +160,7 @@ namespace LMS {
             this.SearchTb.SelectedText = "";
             this.SearchTb.ShadowDecoration.Parent = this.SearchTb;
             this.SearchTb.Size = new System.Drawing.Size(249, 36);
-            this.SearchTb.TabIndex = 9;
+            this.SearchTb.TabIndex = 0;
             this.SearchTb.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SearchTb_KeyUp);
             // 
             // RecentUpdateLbl
@@ -350,5 +351,6 @@ namespace LMS {
         public Guna.UI2.WinForms.Guna2HtmlLabel TitleLbl;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private Guna.UI2.WinForms.Guna2ShadowForm ShadowForm;
     }
 }

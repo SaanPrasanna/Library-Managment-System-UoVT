@@ -8,6 +8,7 @@ using LMS.Utils;
 using Guna.UI2.WinForms;
 using LMS.Utils.Core;
 using LMS.Utils.Connection;
+using LMS.Screens.Widgets;
 
 namespace LMS {
     public partial class PublishersActionsForm : Form {
@@ -104,12 +105,14 @@ namespace LMS {
                             pf.Title2Lbl.Text = "Total Publishers : " + fn.GetNumberOf(name: "Publishers").ToString();
                             pf.RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
 
-                            MessageBox.Show("Publisher inserted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Alert("Process Success!", "Publisher inserted successfully!", AlertForm.EnmType.Success);
+                            //MessageBox.Show("Publisher inserted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
 
                     } catch (Exception ex) {
-                        MessageBox.Show("Publisher insertion failed!\nHint: Mobile number can't be same.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Alert("Process Failed!", "Publisher insertion failed!\nHint: Mobile number can't be same.", AlertForm.EnmType.Error);
+                        //MessageBox.Show("Publisher insertion failed!\nHint: Mobile number can't be same.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Console.WriteLine("Error: " + ex.ToString());
                     } finally {
                         Console.ReadLine();
@@ -144,12 +147,14 @@ namespace LMS {
                             dgv.ShowGrid(dgv: pf.SecondDgv, name: "Publishers");
                             dgv.GridWidth(dgv: pf.SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
 
-                            MessageBox.Show("Publisher updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Alert("Process Success!","Publisher updated successfully!",AlertForm.EnmType.Success);
+                            //MessageBox.Show("Publisher updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
 
                     } catch (Exception ex) {
-                        MessageBox.Show("Publisher updation failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Alert("Process Failed","Publisher updation failed!", AlertForm.EnmType.Error);
+                        //MessageBox.Show("Publisher updation failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Console.WriteLine("Error: " + ex.ToString());
                     } finally {
                         Console.ReadLine();
@@ -159,7 +164,8 @@ namespace LMS {
                 }
 
             } else {
-                MessageBox.Show("Fields can't be empty!\nPlease fill all fields and submit again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Alert("Warning!", "Fields can't be empty!\nPlease fill all fields and submit again.", AlertForm.EnmType.Warning);
+                //MessageBox.Show("Fields can't be empty!\nPlease fill all fields and submit again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -177,6 +183,10 @@ namespace LMS {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
+        }
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
         }
     }
 }

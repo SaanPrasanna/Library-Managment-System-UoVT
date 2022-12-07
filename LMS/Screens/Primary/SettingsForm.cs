@@ -1,4 +1,5 @@
-﻿using LMS.Utils;
+﻿using LMS.Screens.Widgets;
+using LMS.Utils;
 using LMS.Utils.Connection;
 using LMS.Utils.Models;
 using Salaros.Configuration;
@@ -42,9 +43,11 @@ namespace LMS.Screens.Primary {
             if (DaysTB.Text != string.Empty) {
                 config.SetValue("Numbers", "RenewDate", Convert.ToInt32(DaysTB.Text));
                 config.Save();
-                MessageBox.Show("Settings Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Alert("Process Success!", "Settings Updated!", AlertForm.EnmType.Success);
+                //MessageBox.Show("Settings Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else {
-                MessageBox.Show("Settings Updated failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Alert("Process Failed!", "Settings update failed!", AlertForm.EnmType.Warning);
+                //MessageBox.Show("Settings Updated failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -99,10 +102,12 @@ namespace LMS.Screens.Primary {
                 cmd2.Parameters.Add("@other", SqlDbType.Decimal).Value = fineFee.Other;
 
                 if (cmd.ExecuteNonQuery() > 0 && cmd2.ExecuteNonQuery() > 0) {
-                    MessageBox.Show("Settings Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Alert("Process Success!", "Settings Updated!", AlertForm.EnmType.Success);
+                    //MessageBox.Show("Settings Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             } catch (Exception ex) {
-                MessageBox.Show("Settigs update failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Alert("Process Failed!", "Settigs update failed!", AlertForm.EnmType.Warning);
+                //MessageBox.Show("Settigs update failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Console.WriteLine("Error: " + ex.ToString());
             } finally {
                 Console.ReadLine();
@@ -146,6 +151,11 @@ namespace LMS.Screens.Primary {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
+        }
+
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
         }
     }
 }

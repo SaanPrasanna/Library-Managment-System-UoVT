@@ -26,6 +26,7 @@ namespace LMS {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooksActionsForm));
+            this.guna2ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -484,5 +485,6 @@ namespace LMS {
         internal System.Windows.Forms.Label label2;
         public Guna.UI2.WinForms.Guna2TextBox PublisherTb;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm;
     }
 }

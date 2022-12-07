@@ -8,6 +8,7 @@ using LMS.Utils;
 using Guna.UI2.WinForms;
 using LMS.Utils.Core;
 using LMS.Utils.Connection;
+using LMS.Screens.Widgets;
 
 namespace LMS {
     public partial class StaffsActionsForm : Form {
@@ -112,12 +113,14 @@ namespace LMS {
                             dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
                             mf.Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
 
-                            MessageBox.Show("Member added!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Alert("Process Success!", "Member added successfully!", AlertForm.EnmType.Success);
+                            //MessageBox.Show("Member added!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
 
                     } catch (Exception ex) {
-                        MessageBox.Show("Member insertion failed!\nProbably username already exist!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Alert("Process Failed", "Member insertion failed!\nProbably username already exist!", AlertForm.EnmType.Error);
+                        //MessageBox.Show("Member insertion failed!\nProbably username already exist!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Console.WriteLine("Error: " + ex.ToString());
                     } finally {
                         Console.ReadLine();
@@ -160,12 +163,14 @@ namespace LMS {
                                 Properties.Settings.Default.id = SIDTb.Text;
                                 mf.FullNameLbl.Text = FnameTb.Text + " " + LnameTb.Text;
                             }
-                            MessageBox.Show("Staff updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Alert("Process Success!", "Staff updated successfully!", AlertForm.EnmType.Success);
+                            //MessageBox.Show("Staff updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
 
                     } catch (Exception ex) {
-                        MessageBox.Show("Staff updation failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Alert("Process Failed!", "Staff updated failed!", AlertForm.EnmType.Error);
+                        //MessageBox.Show("Staff updation failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Console.WriteLine("Error: " + ex.ToString());
                     } finally {
                         Console.ReadLine();
@@ -175,7 +180,8 @@ namespace LMS {
 
                 }
             } else {
-                MessageBox.Show("Fields can't be empty!\nPlease fill all fields and submit again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Alert("Warning", "Fields can't be empty!\nPlease fill all fields and submit again.", AlertForm.EnmType.Warning);
+                //MessageBox.Show("Fields can't be empty!\nPlease fill all fields and submit again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -194,6 +200,10 @@ namespace LMS {
             PasswordTb.Text = String.Empty;
             PasswordLbl.Text = "New Password";
             ChangeBtn.Visible = false;
+        }
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
         }
     }
 }

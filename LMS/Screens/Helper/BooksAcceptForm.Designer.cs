@@ -151,6 +151,7 @@ namespace LMS {
             this.RecievedTB.HoverState.Parent = this.RecievedTB;
             this.RecievedTB.Location = new System.Drawing.Point(15, 98);
             this.RecievedTB.Margin = new System.Windows.Forms.Padding(20, 21, 20, 21);
+            this.RecievedTB.MaxLength = 20;
             this.RecievedTB.Name = "RecievedTB";
             this.RecievedTB.PasswordChar = '\0';
             this.RecievedTB.PlaceholderText = "";

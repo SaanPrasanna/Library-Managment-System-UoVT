@@ -11,6 +11,7 @@ using Bunifu.Framework.UI;
 using System.Threading;
 using LMS.Utils.Core;
 using LMS.Utils.Connection;
+using LMS.Screens.Widgets;
 
 namespace LMS {
     public partial class BorrowBooksForm : Form {
@@ -113,7 +114,8 @@ namespace LMS {
 
                     BorrowBtn.Enabled = false;
 
-                    MessageBox.Show("Books Borrowed Complete!", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Alert("Book Borrow Process!","Books Borrowed Complete!",AlertForm.EnmType.Success);
+                    //MessageBox.Show("Books Borrowed Complete!", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } catch (Exception ex) {
                     Console.WriteLine("Error: || Borrow Books ||\n" + ex.ToString());
                 } finally {
@@ -187,6 +189,10 @@ namespace LMS {
         #endregion Grid Cell Content Click
 
         #region Method Area
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
+        }
 
         private void InitButton() {
             MemberBtn.Enabled = true;

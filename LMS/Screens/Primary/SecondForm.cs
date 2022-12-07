@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using LMS.Utils.Core;
 using LMS.Utils.Connection;
+using LMS.Screens.Widgets;
 
 namespace LMS {
     public partial class SecondForm : Form {
@@ -80,7 +81,8 @@ namespace LMS {
                     PublishersActionsForm publisher = new PublishersActionsForm(form: this, title: "Modify Publisher", pid: pid);
                     publisher.ShowDialog();
                 } else if (e.ColumnIndex == 1) {
-                    MessageBox.Show("Publishers removed forbidden!", "Disabled Function", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Alert("Disabled Function", "Publishers removed forbidden!", AlertForm.EnmType.Error);
+                    //MessageBox.Show("Publishers removed forbidden!", "Disabled Function", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             } else if (TitleLbl.Text == "Pending List") {
@@ -152,7 +154,8 @@ namespace LMS {
 
                         this.Close();
                     } else {
-                        MessageBox.Show("Reached maximum number of books borrowing", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Alert("Warning!", "Reached maximum number of books borrowing\nReleased Borrowed books first!", AlertForm.EnmType.Warning);
+                        //MessageBox.Show("Reached maximum number of books borrowing", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             } else if (title == "Choose Books") {
@@ -160,7 +163,7 @@ namespace LMS {
                 this.mID = bbf.MemberIDLbl.Text;
 
                 if (e.ColumnIndex == 0) {
-                    if ((fn.GetNumberOf(name: "Already Borrowed Books", value: this.mID) + fn.GetNumberOf(name: "Already Choose Books", value: mID)) < 2) {
+                    if ((fn.GetNumberOf(name: "Already Borrowed Books", value: this.mID) + fn.GetNumberOf(name: "Already Choose Books", value: mID)) < 2) { // TODO
                         if (fn.IsAlreadyAdd(isbn, mID)) {
                             if (Convert.ToInt32(SecondDgv.Rows[e.RowIndex].Cells[4].Value) > 0) {
                                 SqlConnection conn = DBUtils.GetDBConnection();
@@ -193,13 +196,16 @@ namespace LMS {
                                     this.Close();
                                 }
                             } else {
-                                MessageBox.Show("Sorry!\n" + SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " all books are empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                this.Alert("Error!", "Sorry! '" + SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + "' all books are empty!", AlertForm.EnmType.Error);
+                                //MessageBox.Show("Sorry!\n" + SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " all books are empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         } else {
-                            MessageBox.Show(SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " is already added!", "Choose Book", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            this.Alert("Warning!", SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " is already added!", AlertForm.EnmType.Warning);
+                            //MessageBox.Show(SecondDgv.Rows[e.RowIndex].Cells[2].Value.ToString() + " is already added!", "Choose Book", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     } else {
-                        MessageBox.Show("Reached maximum number of books borrowing", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Alert("Warning!", "Reached maximum number of books borrowing", AlertForm.EnmType.Warning);
+                        //MessageBox.Show("Reached maximum number of books borrowing", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         this.Close();
                     }
                 }
@@ -372,6 +378,10 @@ namespace LMS {
 
             bbf.BorrowIDLbl.Text = fn.GetID("Books Borrows");
             bbf.DueDateLbl.Text = DateTime.Now.AddDays(7).ToString("yyyy-MM-dd"); // TODO: Need to change if want
+        }
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
         }
         #endregion Grid Methods
     }

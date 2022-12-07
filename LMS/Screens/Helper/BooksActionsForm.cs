@@ -11,21 +11,13 @@ using LMS.Utils;
 using Guna.UI2.WinForms;
 using LMS.Utils.Core;
 using LMS.Utils.Connection;
+using LMS.Screens.Widgets;
 
-namespace LMS{
+namespace LMS {
     public partial class BooksActionsForm : Form {
 
         MainForm Mf;
         private readonly GridControlSettings dgv = new GridControlSettings();
-
-        protected override CreateParams CreateParams {
-            get {
-                const int CS_DROPSHADOW = 0x20000;
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
 
         public BooksActionsForm(MainForm form, string title, string isbn) {
             InitializeComponent();
@@ -41,6 +33,14 @@ namespace LMS{
                 LoadData(isbn);
                 ISBNTb.Enabled = false;
                 ActionBtn.FillColor = Color.FromArgb(248, 187, 0);
+            }
+        }
+        protected override CreateParams CreateParams {
+            get {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
             }
         }
 
@@ -120,16 +120,15 @@ namespace LMS{
                                 string[] names = { "Modify", "Remove" };
 
                                 dgv.GridButtons(dgv: Mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                //dgv.GridButtons(dgv: Mf.MainDgv);
                             }
                             dgv.GridWidth(dgv: Mf.MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
 
-                            MessageBox.Show("Book added!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Alert("Process Success!", "Book Added Successfully!", AlertForm.EnmType.Success);
                             this.Close();
                         }
 
                     } catch (Exception ex) {
-                        MessageBox.Show("Book already exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Alert("Process Failed!", "Book already exist", AlertForm.EnmType.Warning);
                         Console.WriteLine("Action Book Error: " + ex.ToString());
                     } finally {
                         conn.Close();
@@ -163,17 +162,16 @@ namespace LMS{
                                 string[] names = { "Modify", "Remove" };
 
                                 dgv.GridButtons(dgv: Mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                //dgv.GridButtons(dgv: Mf.MainDgv);
                             }
                             dgv.GridWidth(dgv: Mf.MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
 
-                            MessageBox.Show("Book updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Alert("Process Success!", "Book Updated Successfully!", AlertForm.EnmType.Success);
                             this.Close();
                             Mf.Show();
                         }
 
                     } catch (Exception ex) {
-                        MessageBox.Show("Book updation failed!\nTry Again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Alert("Process Failed!", "Book Updation Failed!", AlertForm.EnmType.Error);
                         Console.WriteLine("Action Book Error: " + ex.ToString());
                     } finally {
                         Mf.SearchTb.Text = string.Empty;
@@ -185,7 +183,7 @@ namespace LMS{
                 }
 
             } else {
-                MessageBox.Show("Fields can't be empty!\nPlease fill all fields and submit again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Alert("Warning!", "Fields can't be empty!\nPlease fill all fields and submit again.!", AlertForm.EnmType.Warning);
             }
         }
 
@@ -216,6 +214,11 @@ namespace LMS{
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
+        }
+
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
         }
     }
 }
