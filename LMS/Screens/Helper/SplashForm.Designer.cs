@@ -25,7 +25,6 @@ namespace LMS {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashForm));
             this.ProgressBar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LoadingDigitLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -60,7 +59,7 @@ namespace LMS {
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::LMS.Properties.Resources.Splash;
             this.pictureBox1.Location = new System.Drawing.Point(487, 488);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(226, 221);
