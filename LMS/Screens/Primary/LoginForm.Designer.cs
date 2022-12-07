@@ -242,7 +242,7 @@ namespace LMS.Screens.Primary {
             // gunaPictureBox1
             // 
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
+            this.gunaPictureBox1.Image = global::LMS.Properties.Resources.New_Logo;
             this.gunaPictureBox1.Location = new System.Drawing.Point(585, 100);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
             this.gunaPictureBox1.Size = new System.Drawing.Size(153, 148);

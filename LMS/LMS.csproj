@@ -373,5 +373,107 @@
   <ItemGroup>
     <None Include="Resources\ErrorAlert.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboardW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboarG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BorrowW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BorrowG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ManageBooksW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ManageBooksG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MembersW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MembersG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StaffW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StaffG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingsW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingsG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\binH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groupH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-bookH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkoutH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
