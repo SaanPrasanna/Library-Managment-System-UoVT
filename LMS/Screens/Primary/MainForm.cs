@@ -17,6 +17,7 @@ namespace LMS {
 
         private readonly Functions fn = new Functions();
         private readonly GridControlSettings dgv = new GridControlSettings();
+        public event EventHandler DashboardDetailsCalled;
 
         public MainForm() {
             InitializeComponent();
@@ -603,7 +604,7 @@ namespace LMS {
         #endregion Special Events
 
         #region Methods
-        private void DashboardDetails() {
+        public void DashboardDetails() {
 
             Functions fn = new Functions();
 
@@ -621,6 +622,11 @@ namespace LMS {
             UsernameLbl.Text = Properties.Settings.Default.username;
             TypeLbl.Text = Properties.Settings.Default.accountType;
             FineFeesLbl.Text = "Rs. " + fn.GetNumberOf("Monthly FineFees").ToString("0.00");
+            OnDashboardDetailsCalled();
+        }
+
+        private void OnDashboardDetailsCalled() {
+            DashboardDetailsCalled?.Invoke(this, EventArgs.Empty);
         }
 
         private void ManageDataGridLoad() {

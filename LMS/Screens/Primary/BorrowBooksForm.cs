@@ -44,6 +44,8 @@ namespace LMS {
         #endregion Form Load
 
         #region Button Click
+        public static void Bl_ProcessCompleted(object sender, EventArgs e) { }
+
         private void NewBorrowBtn_Click(object sender, EventArgs e) {
             if (MessageBox.Show("Do you want to clear? ", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
 
@@ -114,8 +116,12 @@ namespace LMS {
 
                     BorrowBtn.Enabled = false;
 
-                    this.Alert("Book Borrow Process!","Books Borrowed Complete!",AlertForm.EnmType.Success);
-                    //MessageBox.Show("Books Borrowed Complete!", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Alert("Book Borrow Process!", "Books Borrowed Complete!", AlertForm.EnmType.Success);
+                    
+                    var mainForm = new MainForm();
+                    mainForm.DashboardDetailsCalled += Bl_ProcessCompleted;
+                    mainForm.DashboardDetails();
+
                 } catch (Exception ex) {
                     Console.WriteLine("Error: || Borrow Books ||\n" + ex.ToString());
                 } finally {
