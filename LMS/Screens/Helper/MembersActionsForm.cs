@@ -134,7 +134,6 @@ namespace LMS {
                                     string[] names = { "Modify", "Remove", "Print Report" };
 
                                     dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                    //dgv.GridButtons(dgv: mf.MainDgv);
                                 }
                                 dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");
                                 dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 0, 150, 200, 200, 250, 150, 150, 150 });

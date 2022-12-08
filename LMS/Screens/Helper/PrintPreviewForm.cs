@@ -1,6 +1,8 @@
 ﻿using LMS.Reports;
+using LMS.Screens.Widgets;
 using LMS.Utils.Core;
 using LMS.Utils.Models;
+using Salaros.Configuration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +26,7 @@ namespace LMS {
         private readonly List<BorrowBook> _memberReport;
         private readonly string _mid;
         private string _address, _email, _tp, _name;
+        private readonly ConfigParser config = new ConfigParser(Application.StartupPath + @"\settings.cnf");
 
         internal PrintPreviewForm([Optional] List<Book> books, [Optional] List<Member> members, [Optional] List<Staff> staffs, [Optional] List<BorrowBook> borrowBooks, [Optional] List<ManageBooks> manageBooks, [Optional] List<BorrowBook> memberReport, [Optional] string mid) {
             InitializeComponent();
@@ -40,10 +43,29 @@ namespace LMS {
         }
 
         private void ReportHeading() {
-            _name = "LIBRARY MANAGEMENT SYSTEM";
-            _address = "Kandawala Road, Ratmalana.";
-            _email = "info@rgenesis.cc";
-            _tp = "+9411 666 44 11";
+            //_name = "LIBRARY MANAGEMENT SYSTEM";
+            //_address = "Kandawala Road, Ratmalana.";
+            //_email = "info@rgenesis.cc";
+            //_tp = "+9411 666 44 11";
+
+            try {
+                // Get Library Details
+                if (config.GetValue("Strings", "Name") == null) {
+                    config.SetValue("Strings", "Name", "LIBRARY MANAGEMENT SYSTEM");
+                    config.SetValue("Strings", "Address", "Kandawala Road, Ratmalana.");
+                    config.SetValue("Strings", "Email", "info@rgenesis.cc");
+                    config.SetValue("Strings", "TP", "011 666 44 11");
+                    config.Save();
+                    this.Alert("Rest Settings!", "Settings reset to default!", AlertForm.EnmType.Warning);
+                }
+            } catch (Exception ex){
+                Console.WriteLine(ex.ToString());
+            }
+            _name = config.GetValue("Strings", "Name");
+            _address = config.GetValue("Strings", "Address");
+            _email = config.GetValue("Strings", "Email");
+            _tp = config.GetValue("Strings", "TP");
+
         }
 
         private void PrintPreviewForm_Load(object sender, EventArgs e) {
@@ -129,6 +151,10 @@ namespace LMS {
             }
         }
 
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
+        }
         private void CleanReport() {
             try {
                 if (_books != null) {

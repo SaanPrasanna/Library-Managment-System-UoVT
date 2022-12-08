@@ -1,17 +1,11 @@
-﻿using LMS.Screens.Widgets;
-using LMS.Utils;
+﻿using Guna.UI2.WinForms;
+using LMS.Screens.Widgets;
 using LMS.Utils.Connection;
 using LMS.Utils.Models;
 using Salaros.Configuration;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LMS.Screens.Primary {
@@ -38,6 +32,20 @@ namespace LMS.Screens.Primary {
                 config.SetValue("Numbers", "RenewDate", 365);
                 config.Save();
             }
+
+            // Get Library Details
+            if (config.GetValue("Strings", "Name") == null) {
+                config.SetValue("Strings", "Name", "LIBRARY MANAGEMENT SYSTEM");
+                config.SetValue("Strings", "Address", "Kandawala Road, Ratmalana.");
+                config.SetValue("Strings", "Email", "info@rgenesis.cc");
+                config.SetValue("Strings", "TP", "011 666 44 11");
+                config.Save();
+            }
+
+            Guna2TextBox[] LDetails = { LNameTb, LAddressTb, LTpTb, LEmailTb };
+            string[] names = { "Name", "Address", "TP", "Email" };
+
+            for (int i = 0; i < names.Length; i++) { LDetails[i].Text = config.GetValue("Strings", names[i]); }
             DaysTB.Text = config.GetValue("Numbers", "RenewDate");
 
         }
@@ -112,10 +120,8 @@ namespace LMS.Screens.Primary {
                 config.SetValue("Numbers", "RenewDate", Convert.ToInt32(DaysTB.Text));
                 config.Save();
                 this.Alert("Process Success!", "Settings Updated!", AlertForm.EnmType.Success);
-                //MessageBox.Show("Settings Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else {
                 this.Alert("Process Failed!", "Settings update failed!", AlertForm.EnmType.Warning);
-                //MessageBox.Show("Settings Updated failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void SaveFeeBtn_Click(object sender, EventArgs e) {
@@ -125,6 +131,25 @@ namespace LMS.Screens.Primary {
             };
 
             UpdateFineFee(fineFee);
+        }
+        private void SaveLibraryDetailsBtn_Click(object sender, EventArgs e) {
+            try {
+                if (!string.IsNullOrEmpty(LNameTb.Text) && !string.IsNullOrEmpty(LNameTb.Text) && !string.IsNullOrEmpty(LNameTb.Text) && !string.IsNullOrEmpty(LNameTb.Text)) {
+
+                    Guna2TextBox[] LDetails = { LNameTb, LAddressTb, LTpTb, LEmailTb };
+                    string[] names = { "Name", "Address", "TP", "Email" };
+
+                    for (int i = 0; i < names.Length; i++) {
+                        config.SetValue("Strings", names[i], LDetails[i].Text);
+                        config.Save();
+                    }
+                    this.Alert("Process Success!", "Settings Updated!", AlertForm.EnmType.Success);
+                }
+
+            } catch (Exception ex) {
+                this.Alert("Process Failed!", "Settings update failed!", AlertForm.EnmType.Warning);
+                Console.WriteLine("Error: || Settings Config ||\n" + ex.ToString());
+            }
         }
 
         private void CloseBtn_Click(object sender, EventArgs e) {
@@ -163,7 +188,13 @@ namespace LMS.Screens.Primary {
                 e.Handled = true;
             }
         }
+        private void LTpTb_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !(e.KeyChar == ' ')) {
+                e.Handled = true;
+            }
+        }
         #endregion
+
 
     }
 }

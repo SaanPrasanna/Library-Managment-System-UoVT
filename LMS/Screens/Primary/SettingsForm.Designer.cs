@@ -45,11 +45,22 @@ namespace LMS.Screens.Primary {
             this.dropShadow = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.LNameTb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LAddressTb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.LTpTb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.LEmailTb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.SaveLibraryDetailsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel2
@@ -121,6 +132,7 @@ namespace LMS.Screens.Primary {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(15, 75);
             this.tabControl.Name = "tabControl";
@@ -347,6 +359,209 @@ namespace LMS.Screens.Primary {
             // 
             this.guna2DragControl1.TargetControl = this.guna2ShadowPanel2;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.SaveLibraryDetailsBtn);
+            this.tabPage3.Controls.Add(this.LEmailTb);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.LTpTb);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.LAddressTb);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.LNameTb);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 32);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(387, 258);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Library Details";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // LNameTb
+            // 
+            this.LNameTb.Animated = true;
+            this.LNameTb.BorderRadius = 15;
+            this.LNameTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LNameTb.DefaultText = "";
+            this.LNameTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LNameTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.LNameTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.LNameTb.DisabledState.Parent = this.LNameTb;
+            this.LNameTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.LNameTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LNameTb.FocusedState.Parent = this.LNameTb;
+            this.LNameTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.LNameTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LNameTb.HoverState.Parent = this.LNameTb;
+            this.LNameTb.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.LNameTb.Location = new System.Drawing.Point(141, 18);
+            this.LNameTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LNameTb.Name = "LNameTb";
+            this.LNameTb.PasswordChar = '\0';
+            this.LNameTb.PlaceholderText = "";
+            this.LNameTb.SelectedText = "";
+            this.LNameTb.ShadowDecoration.Parent = this.LNameTb;
+            this.LNameTb.Size = new System.Drawing.Size(227, 36);
+            this.LNameTb.TabIndex = 196;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(30, 24);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.TabIndex = 197;
+            this.label4.Text = "Name";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(30, 72);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 20);
+            this.label5.TabIndex = 197;
+            this.label5.Text = "Address";
+            // 
+            // LAddressTb
+            // 
+            this.LAddressTb.Animated = true;
+            this.LAddressTb.BorderRadius = 15;
+            this.LAddressTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LAddressTb.DefaultText = "";
+            this.LAddressTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LAddressTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.LAddressTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.LAddressTb.DisabledState.Parent = this.LAddressTb;
+            this.LAddressTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.LAddressTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LAddressTb.FocusedState.Parent = this.LAddressTb;
+            this.LAddressTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.LAddressTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LAddressTb.HoverState.Parent = this.LAddressTb;
+            this.LAddressTb.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.LAddressTb.Location = new System.Drawing.Point(141, 65);
+            this.LAddressTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LAddressTb.Name = "LAddressTb";
+            this.LAddressTb.PasswordChar = '\0';
+            this.LAddressTb.PlaceholderText = "";
+            this.LAddressTb.SelectedText = "";
+            this.LAddressTb.ShadowDecoration.Parent = this.LAddressTb;
+            this.LAddressTb.Size = new System.Drawing.Size(227, 36);
+            this.LAddressTb.TabIndex = 196;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(30, 120);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 20);
+            this.label7.TabIndex = 197;
+            this.label7.Text = "Telephone";
+            // 
+            // LTpTb
+            // 
+            this.LTpTb.Animated = true;
+            this.LTpTb.BorderRadius = 15;
+            this.LTpTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LTpTb.DefaultText = "";
+            this.LTpTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LTpTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.LTpTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.LTpTb.DisabledState.Parent = this.LTpTb;
+            this.LTpTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.LTpTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LTpTb.FocusedState.Parent = this.LTpTb;
+            this.LTpTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.LTpTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LTpTb.HoverState.Parent = this.LTpTb;
+            this.LTpTb.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.LTpTb.Location = new System.Drawing.Point(141, 112);
+            this.LTpTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LTpTb.MaxLength = 13;
+            this.LTpTb.Name = "LTpTb";
+            this.LTpTb.PasswordChar = '\0';
+            this.LTpTb.PlaceholderText = "";
+            this.LTpTb.SelectedText = "";
+            this.LTpTb.ShadowDecoration.Parent = this.LTpTb;
+            this.LTpTb.Size = new System.Drawing.Size(173, 36);
+            this.LTpTb.TabIndex = 196;
+            this.LTpTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LTpTb_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(30, 168);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 20);
+            this.label8.TabIndex = 197;
+            this.label8.Text = "Email";
+            // 
+            // LEmailTb
+            // 
+            this.LEmailTb.Animated = true;
+            this.LEmailTb.BorderRadius = 15;
+            this.LEmailTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LEmailTb.DefaultText = "";
+            this.LEmailTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LEmailTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.LEmailTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.LEmailTb.DisabledState.Parent = this.LEmailTb;
+            this.LEmailTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.LEmailTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LEmailTb.FocusedState.Parent = this.LEmailTb;
+            this.LEmailTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.LEmailTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LEmailTb.HoverState.Parent = this.LEmailTb;
+            this.LEmailTb.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.LEmailTb.Location = new System.Drawing.Point(141, 159);
+            this.LEmailTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LEmailTb.Name = "LEmailTb";
+            this.LEmailTb.PasswordChar = '\0';
+            this.LEmailTb.PlaceholderText = "";
+            this.LEmailTb.SelectedText = "";
+            this.LEmailTb.ShadowDecoration.Parent = this.LEmailTb;
+            this.LEmailTb.Size = new System.Drawing.Size(227, 36);
+            this.LEmailTb.TabIndex = 196;
+            // 
+            // SaveLibraryDetailsBtn
+            // 
+            this.SaveLibraryDetailsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveLibraryDetailsBtn.Animated = true;
+            this.SaveLibraryDetailsBtn.BorderRadius = 10;
+            this.SaveLibraryDetailsBtn.CheckedState.Parent = this.SaveLibraryDetailsBtn;
+            this.SaveLibraryDetailsBtn.CustomImages.Parent = this.SaveLibraryDetailsBtn;
+            this.SaveLibraryDetailsBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(200)))), ((int)(((byte)(86)))));
+            this.SaveLibraryDetailsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveLibraryDetailsBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveLibraryDetailsBtn.HoverState.Parent = this.SaveLibraryDetailsBtn;
+            this.SaveLibraryDetailsBtn.Location = new System.Drawing.Point(249, 207);
+            this.SaveLibraryDetailsBtn.Name = "SaveLibraryDetailsBtn";
+            this.SaveLibraryDetailsBtn.ShadowDecoration.Parent = this.SaveLibraryDetailsBtn;
+            this.SaveLibraryDetailsBtn.Size = new System.Drawing.Size(119, 38);
+            this.SaveLibraryDetailsBtn.TabIndex = 11;
+            this.SaveLibraryDetailsBtn.Text = "SAVE";
+            this.SaveLibraryDetailsBtn.Click += new System.EventHandler(this.SaveLibraryDetailsBtn_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +585,8 @@ namespace LMS.Screens.Primary {
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -395,5 +612,15 @@ namespace LMS.Screens.Primary {
         private Guna.UI2.WinForms.Guna2ShadowForm dropShadow;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private Guna.UI2.WinForms.Guna2Button SaveLibraryDetailsBtn;
+        private Guna.UI2.WinForms.Guna2TextBox LEmailTb;
+        internal System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2TextBox LTpTb;
+        internal System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2TextBox LAddressTb;
+        internal System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2TextBox LNameTb;
+        internal System.Windows.Forms.Label label4;
     }
 }
