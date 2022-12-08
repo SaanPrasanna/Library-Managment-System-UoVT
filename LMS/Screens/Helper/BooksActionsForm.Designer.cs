@@ -25,6 +25,7 @@ namespace LMS {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooksActionsForm));
             this.guna2ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -48,6 +49,8 @@ namespace LMS {
             this.PublisherTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.ChooseBtn = new Guna.UI2.WinForms.Guna2Button();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.QtyLbl = new System.Windows.Forms.Label();
+            this.QtyTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ISBNPb)).BeginInit();
@@ -74,7 +77,7 @@ namespace LMS {
             this.guna2ShadowPanel2.ShadowDepth = 15;
             this.guna2ShadowPanel2.ShadowShift = 10;
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(480, 68);
-            this.guna2ShadowPanel2.TabIndex = 7;
+            this.guna2ShadowPanel2.TabIndex = 8;
             // 
             // TitlePb
             // 
@@ -140,6 +143,7 @@ namespace LMS {
             this.ISBNTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.ISBNTb.Location = new System.Drawing.Point(128, 70);
             this.ISBNTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ISBNTb.MaxLength = 13;
             this.ISBNTb.Name = "ISBNTb";
             this.ISBNTb.PasswordChar = '\0';
             this.ISBNTb.PlaceholderText = "";
@@ -223,7 +227,7 @@ namespace LMS {
             // ISBNPb
             // 
             this.ISBNPb.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ISBNPb.Location = new System.Drawing.Point(128, 113);
+            this.ISBNPb.Location = new System.Drawing.Point(128, 130);
             this.ISBNPb.Margin = new System.Windows.Forms.Padding(2);
             this.ISBNPb.Name = "ISBNPb";
             this.ISBNPb.Size = new System.Drawing.Size(168, 93);
@@ -342,7 +346,7 @@ namespace LMS {
             // 
             // ActionBtn
             // 
-            this.ActionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ActionBtn.Animated = true;
             this.ActionBtn.BorderRadius = 10;
             this.ActionBtn.CheckedState.Parent = this.ActionBtn;
@@ -351,11 +355,11 @@ namespace LMS {
             this.ActionBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActionBtn.ForeColor = System.Drawing.Color.White;
             this.ActionBtn.HoverState.Parent = this.ActionBtn;
-            this.ActionBtn.Location = new System.Drawing.Point(342, 444);
+            this.ActionBtn.Location = new System.Drawing.Point(342, 477);
             this.ActionBtn.Name = "ActionBtn";
             this.ActionBtn.ShadowDecoration.Parent = this.ActionBtn;
             this.ActionBtn.Size = new System.Drawing.Size(119, 38);
-            this.ActionBtn.TabIndex = 6;
+            this.ActionBtn.TabIndex = 7;
             this.ActionBtn.Text = "Action Button";
             this.ActionBtn.Click += new System.EventHandler(this.ActionBtn_Click);
             // 
@@ -424,18 +428,62 @@ namespace LMS {
             this.bunifuElipse1.ElipseRadius = 15;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // QtyLbl
+            // 
+            this.QtyLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.QtyLbl.AutoSize = true;
+            this.QtyLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QtyLbl.Location = new System.Drawing.Point(16, 446);
+            this.QtyLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.QtyLbl.Name = "QtyLbl";
+            this.QtyLbl.Size = new System.Drawing.Size(110, 20);
+            this.QtyLbl.TabIndex = 194;
+            this.QtyLbl.Text = "Initial Quantity";
+            // 
+            // QtyTB
+            // 
+            this.QtyTB.Animated = true;
+            this.QtyTB.BorderRadius = 15;
+            this.QtyTB.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.QtyTB.DefaultText = "";
+            this.QtyTB.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.QtyTB.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.QtyTB.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.QtyTB.DisabledState.Parent = this.QtyTB;
+            this.QtyTB.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.QtyTB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.QtyTB.FocusedState.Parent = this.QtyTB;
+            this.QtyTB.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.QtyTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.QtyTB.HoverState.Parent = this.QtyTB;
+            this.QtyTB.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.QtyTB.Location = new System.Drawing.Point(127, 437);
+            this.QtyTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.QtyTB.Name = "QtyTB";
+            this.QtyTB.PasswordChar = '\0';
+            this.QtyTB.PlaceholderText = "";
+            this.QtyTB.SelectedText = "";
+            this.QtyTB.ShadowDecoration.Parent = this.QtyTB;
+            this.QtyTB.Size = new System.Drawing.Size(206, 36);
+            this.QtyTB.TabIndex = 6;
+            this.QtyTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QtyTB_KeyPress);
+            // 
             // BooksActionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 491);
+            this.ClientSize = new System.Drawing.Size(475, 524);
             this.Controls.Add(this.ChooseBtn);
             this.Controls.Add(this.ActionBtn);
+            this.Controls.Add(this.QtyTB);
             this.Controls.Add(this.PriceTb);
             this.Controls.Add(this.CategoryTb);
             this.Controls.Add(this.PublisherTb);
             this.Controls.Add(this.AuthorTb);
             this.Controls.Add(this.TitleTb);
+            this.Controls.Add(this.QtyLbl);
             this.Controls.Add(this.ISBNTb);
             this.Controls.Add(this.Label10);
             this.Controls.Add(this.Label8);
@@ -446,6 +494,7 @@ namespace LMS {
             this.Controls.Add(this.ISBNPb);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "BooksActionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -485,5 +534,7 @@ namespace LMS {
         public Guna.UI2.WinForms.Guna2TextBox PublisherTb;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm;
+        private Guna.UI2.WinForms.Guna2TextBox QtyTB;
+        internal System.Windows.Forms.Label QtyLbl;
     }
 }

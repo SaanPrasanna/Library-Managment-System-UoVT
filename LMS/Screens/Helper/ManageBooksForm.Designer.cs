@@ -28,6 +28,7 @@ namespace LMS {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageBooksForm));
             this.MainPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.ManageBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ActionCb = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -590,6 +591,7 @@ namespace LMS {
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "ManageBooksForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

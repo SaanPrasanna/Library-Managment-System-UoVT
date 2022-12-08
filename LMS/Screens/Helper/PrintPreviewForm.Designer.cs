@@ -25,6 +25,7 @@ namespace LMS {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintPreviewForm));
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -139,6 +140,7 @@ namespace LMS {
             this.Controls.Add(this.PrintReportViewer);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "PrintPreviewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

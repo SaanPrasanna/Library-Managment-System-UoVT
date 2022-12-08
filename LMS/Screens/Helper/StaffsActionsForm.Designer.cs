@@ -25,6 +25,7 @@ namespace LMS {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffsActionsForm));
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.TitlePanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -474,6 +475,7 @@ namespace LMS {
             this.Controls.Add(this.SIDTb);
             this.Controls.Add(this.Label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "StaffsActionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

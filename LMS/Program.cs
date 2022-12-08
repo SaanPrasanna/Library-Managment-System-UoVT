@@ -2,19 +2,13 @@
 using System.Windows.Forms;
 using LMS.Screens.Primary;
 
-namespace LMS
-{
-    static class Program
-    {
+namespace LMS {
+    static class Program {
         [STAThread]
-        static void Main()
-        {
+        static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MainForm());
             Application.Run(new LoginForm());
-            //Application.Run(new SplashForm());
-            //Application.Run(new BorrowBooksForm());
         }
     }
 }

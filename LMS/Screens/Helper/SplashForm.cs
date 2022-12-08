@@ -22,7 +22,7 @@ namespace LMS {
             ProgressBar.Increment(2);
             LoadingDigitLbl.Text = ProgressBar.Value.ToString() + " %...";
 
-            if (ProgressBar.Value == 102) {
+            if (ProgressBar.Value == 100) {
                 timer1.Stop();
                 MainForm mainForm = new MainForm();
                 mainForm.Show();

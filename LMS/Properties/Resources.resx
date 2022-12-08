@@ -121,8 +121,11 @@
   <data name="Dashboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dashboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="F2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\F2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MemberProfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MemberProfile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ErrorAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ErrorAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MembersW" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MembersW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,17 +145,20 @@
   <data name="groupH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\groupH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="StaffG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StaffG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MName" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MName.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checkout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="recent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\recent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MembersG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MembersG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancelW" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancelW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="StaffW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StaffW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,17 +169,23 @@
   <data name="F5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\F5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MTelephone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MTelephone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="group" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\group.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="recent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\recent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="InfoAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InfoAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ErrorAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ErrorAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancelW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Members" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Members.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="New Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\New Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,20 +193,26 @@
   <data name="binH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\binH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="InfoAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\InfoAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="JoinDate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JoinDate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MEmail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MEmail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Members" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Members.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="F1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\F1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open-bookH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open-bookH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open-book" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open-book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StaffG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StaffG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -204,6 +222,9 @@
   </data>
   <data name="BorrowG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BorrowG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="F4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\F4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fee" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,8 +241,8 @@
   <data name="dashboardW" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dashboardW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="checkoutH" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\checkoutH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Splash.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dashboarG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dashboarG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,8 +250,14 @@
   <data name="cancelH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancelH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MID.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BorrowW" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BorrowW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MAddress" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MAddress.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="F3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\F3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,25 +265,22 @@
   <data name="bin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="StaffW" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StaffW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="SettingsW" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SettingsW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Staff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Staff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="F1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\F1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="F2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\F2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SuccessAlert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SuccessAlert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="F4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\F4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="checkoutH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\checkoutH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Splash.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PendingBooks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PendingBooks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

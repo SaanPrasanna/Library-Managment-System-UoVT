@@ -601,6 +601,19 @@ namespace LMS {
         private void ToDtp_ValueChanged(object sender, EventArgs e) {
             ManageDataGridLoad();
         }
+        private void MainForm_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Escape) {
+                if (MessageBox.Show("Do you want to Logout!", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                    CloseBtn_Click(sender, e);
+                }
+            } else if (e.KeyCode == Keys.F1 && ActionBtn.Visible == true) {
+                ActionBtn_Click(sender, e);
+            } else if (e.KeyCode == Keys.F2 && Action2Btn.Visible == true) {
+                Action2Btn_Click(sender, e);
+            } else if (e.Control && e.KeyCode == Keys.P && Action3Btn.Visible == true) {
+                Action3Btn_Click(sender, e);
+            }
+        }
         #endregion Special Events
 
         #region Methods
@@ -710,5 +723,6 @@ namespace LMS {
         }
 
         #endregion
+
     }
 }

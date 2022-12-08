@@ -29,10 +29,14 @@ namespace LMS {
 
             if (title == "Add Book") {
                 ActionBtn.FillColor = Color.FromArgb(77, 200, 86);
+                QtyLbl.Text = "Initial Quantity";
+                QtyTB.Enabled = true;
             } else if (title == "Modify Book") {
                 LoadData(isbn);
                 ISBNTb.Enabled = false;
                 ActionBtn.FillColor = Color.FromArgb(248, 187, 0);
+                QtyLbl.Text = "Quantity";
+                QtyTB.Enabled = false;
             }
         }
         protected override CreateParams CreateParams {
@@ -48,7 +52,7 @@ namespace LMS {
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
             try {
-                string query = "SELECT title, author, pid, category, price  FROM books WHERE isbn = @isbn;";
+                string query = "SELECT title, author, pid, category, price, quantity FROM books WHERE isbn = @isbn;";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
@@ -57,7 +61,7 @@ namespace LMS {
                 DataTable table = new DataTable();
                 adapter.Fill(table);
 
-                Guna2TextBox[] tb = new[] { TitleTb, AuthorTb, PublisherTb, CategoryTb, PriceTb };
+                Guna2TextBox[] tb = new[] { TitleTb, AuthorTb, PublisherTb, CategoryTb, PriceTb, QtyTB };
                 foreach (var textBox in tb.Select((name, index) => (name, index))) {
                     textBox.name.Text = table.Rows[0][textBox.index].ToString();
                 }
@@ -89,7 +93,7 @@ namespace LMS {
             conn.Open();
 
             if (ISBNTb.Text != string.Empty && TitleTb.Text != string.Empty && AuthorTb.Text != string.Empty
-                && CategoryTb.Text != string.Empty && PriceTb.Text != string.Empty && PublisherTb.Text != string.Empty) {
+                && CategoryTb.Text != string.Empty && PriceTb.Text != string.Empty && PublisherTb.Text != string.Empty && QtyTB.Text != string.Empty) {
 
                 if (ActionBtn.Text == "ADD BOOK") {
 
@@ -102,7 +106,7 @@ namespace LMS {
                         cmd.Parameters.Add("@author", SqlDbType.NVarChar, 100).Value = AuthorTb.Text;
                         cmd.Parameters.Add("@category", SqlDbType.VarChar, 20).Value = CategoryTb.Text;
                         cmd.Parameters.Add("@price", SqlDbType.Decimal).Value = PriceTb.Text;
-                        cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = 0;
+                        cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = Convert.ToInt32(QtyTB.Text);
                         cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
                         cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
                         cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = Properties.Settings.Default.id; //Implemented
@@ -190,7 +194,7 @@ namespace LMS {
         private void BooksActions_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 this.Close();
-            } else if (e.Control && e.KeyCode == Keys.S) {
+            } else if (e.Control && e.KeyCode == Keys.S || e.KeyCode == Keys.Enter) {
                 ActionBtn_Click(sender, e);
             }
         }
@@ -219,6 +223,12 @@ namespace LMS {
         public void Alert(string title, string body, AlertForm.EnmType type) {
             AlertForm alertForm = new AlertForm();
             alertForm.ShowAlert(title: title, body: body, type: type);
+        }
+
+        private void QtyTB_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
         }
     }
 }

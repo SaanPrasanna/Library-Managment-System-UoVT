@@ -24,6 +24,8 @@ namespace LMS.Screens.Primary {
             this.TopMost = true;
         }
 
+        #region From Load
+
         private void SettingsForm_Load(object sender, EventArgs e) {
             dropShadow.SetShadowForm(this);
             // Get Fine Fee
@@ -39,6 +41,10 @@ namespace LMS.Screens.Primary {
             DaysTB.Text = config.GetValue("Numbers", "RenewDate");
 
         }
+
+        #endregion
+
+
         private void SaveDaysBtn_Click(object sender, EventArgs e) {
             if (DaysTB.Text != string.Empty) {
                 config.SetValue("Numbers", "RenewDate", Convert.ToInt32(DaysTB.Text));

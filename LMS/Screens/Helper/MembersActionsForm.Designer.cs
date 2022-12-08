@@ -25,6 +25,7 @@ namespace LMS {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersActionsForm));
             this.label2 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -608,6 +609,7 @@ namespace LMS {
             this.Controls.Add(this.Label1);
             this.Controls.Add(this.TitlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "MembersActionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

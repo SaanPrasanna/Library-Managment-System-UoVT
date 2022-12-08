@@ -25,6 +25,7 @@ namespace LMS {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooksAcceptForm));
             this.Label6 = new System.Windows.Forms.Label();
             this.FineFeeTB = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -151,7 +152,6 @@ namespace LMS {
             this.RecievedTB.HoverState.Parent = this.RecievedTB;
             this.RecievedTB.Location = new System.Drawing.Point(15, 98);
             this.RecievedTB.Margin = new System.Windows.Forms.Padding(20, 21, 20, 21);
-            this.RecievedTB.MaxLength = 20;
             this.RecievedTB.Name = "RecievedTB";
             this.RecievedTB.PasswordChar = '\0';
             this.RecievedTB.PlaceholderText = "";
@@ -181,6 +181,7 @@ namespace LMS {
             this.Controls.Add(this.Label6);
             this.Controls.Add(this.RecievedTB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "BooksAcceptForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

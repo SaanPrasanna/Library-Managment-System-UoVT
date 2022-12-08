@@ -25,6 +25,7 @@ namespace LMS {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashForm));
             this.ProgressBar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LoadingDigitLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -47,7 +48,6 @@ namespace LMS {
             this.ProgressBar.FillColor = System.Drawing.Color.White;
             this.ProgressBar.FillThickness = 450;
             this.ProgressBar.Location = new System.Drawing.Point(20, -363);
-            this.ProgressBar.Maximum = 102;
             this.ProgressBar.Name = "ProgressBar";
             this.ProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(120)))));
             this.ProgressBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(129)))), ((int)(((byte)(197)))));
@@ -118,6 +118,7 @@ namespace LMS {
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ProgressBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SplashForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoadingForm";

@@ -323,6 +323,26 @@ namespace LMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap JoinDate {
+            get {
+                object obj = ResourceManager.GetObject("JoinDate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MAddress {
+            get {
+                object obj = ResourceManager.GetObject("MAddress", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ManageBooksG {
             get {
                 object obj = ResourceManager.GetObject("ManageBooksG", resourceCulture);
@@ -336,6 +356,26 @@ namespace LMS.Properties {
         internal static System.Drawing.Bitmap ManageBooksW {
             get {
                 object obj = ResourceManager.GetObject("ManageBooksW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MEmail {
+            get {
+                object obj = ResourceManager.GetObject("MEmail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MemberProfile {
+            get {
+                object obj = ResourceManager.GetObject("MemberProfile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +413,39 @@ namespace LMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MID {
+            get {
+                object obj = ResourceManager.GetObject("MID", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Minimize {
             get {
                 object obj = ResourceManager.GetObject("Minimize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MName {
+            get {
+                object obj = ResourceManager.GetObject("MName", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MTelephone {
+            get {
+                object obj = ResourceManager.GetObject("MTelephone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -426,6 +496,16 @@ namespace LMS.Properties {
         internal static System.Drawing.Bitmap open_bookH {
             get {
                 object obj = ResourceManager.GetObject("open-bookH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PendingBooks {
+            get {
+                object obj = ResourceManager.GetObject("PendingBooks", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

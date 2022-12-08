@@ -47,6 +47,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>LMS.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>LMS.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>E:\Software\Bunifu UI and Guna UI\Bunifu_UI_v1.5.3.dll</HintPath>
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="Screens\Helper\BooksActionsForm.Designer.cs">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Helper\InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Helper\InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Primary\BorrowBooksForm.cs">
       <SubType>Form</SubType>
@@ -242,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Helper\BooksActionsForm.resx">
       <DependentUpon>BooksActionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Helper\InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Primary\BorrowBooksForm.resx">
       <DependentUpon>BorrowBooksForm.cs</DependentUpon>
@@ -477,6 +492,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Splash.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MemberProfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MName.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MTelephone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MEmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAddress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MID.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JoinDate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PendingBooks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LMS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

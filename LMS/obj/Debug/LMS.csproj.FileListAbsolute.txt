@@ -73,3 +73,4 @@ C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.Screens.Primary.LoginForm.res
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.Screens.Primary.SettingsForm.resources
 C:\Users\Sandun\source\repos\LMS\LMS\bin\Debug\ConfigParser.dll
 C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.Screens.Widgets.AlertForm.resources
+C:\Users\Sandun\source\repos\LMS\LMS\obj\Debug\LMS.Screens.Helper.InfoForm.resources

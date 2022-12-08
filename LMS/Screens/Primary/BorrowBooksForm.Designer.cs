@@ -28,8 +28,12 @@ namespace LMS {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorrowBooksForm));
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
             this.TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.MinimizeBtn = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.BorrowDgv = new Guna.UI2.WinForms.Guna2DataGridView();
             this.MainPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.MemberNameLbl = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -37,9 +41,16 @@ namespace LMS {
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
+            this.BorrowBtn = new Guna.UI2.WinForms.Guna2TileButton();
+            this.BooksBtn = new Guna.UI2.WinForms.Guna2TileButton();
+            this.ClearAllBtn = new Guna.UI2.WinForms.Guna2TileButton();
+            this.MemberBtn = new Guna.UI2.WinForms.Guna2TileButton();
+            this.NewBorrowBtn = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.UsernameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.FullNameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -47,25 +58,15 @@ namespace LMS {
             this.BorrowIDLbl = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
-            this.BorrowBtn = new Guna.UI2.WinForms.Guna2TileButton();
-            this.BooksBtn = new Guna.UI2.WinForms.Guna2TileButton();
-            this.ClearAllBtn = new Guna.UI2.WinForms.Guna2TileButton();
-            this.MemberBtn = new Guna.UI2.WinForms.Guna2TileButton();
-            this.NewBorrowBtn = new Guna.UI2.WinForms.Guna2TileButton();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.TitlePb = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.MinimizeBtn = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.CloseBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2ShadowPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowDgv)).BeginInit();
             this.MainPanel.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
-            this.guna2GroupBox1.SuspendLayout();
-            this.guna2ShadowPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
+            this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
+            this.guna2ShadowPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel2
@@ -87,6 +88,17 @@ namespace LMS {
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(1617, 68);
             this.guna2ShadowPanel2.TabIndex = 2;
             // 
+            // TitlePb
+            // 
+            this.TitlePb.Image = global::LMS.Properties.Resources.Books;
+            this.TitlePb.Location = new System.Drawing.Point(23, 17);
+            this.TitlePb.Name = "TitlePb";
+            this.TitlePb.ShadowDecoration.Parent = this.TitlePb;
+            this.TitlePb.Size = new System.Drawing.Size(40, 35);
+            this.TitlePb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TitlePb.TabIndex = 4;
+            this.TitlePb.TabStop = false;
+            // 
             // TitleLbl
             // 
             this.TitleLbl.BackColor = System.Drawing.Color.Transparent;
@@ -97,6 +109,44 @@ namespace LMS {
             this.TitleLbl.TabIndex = 1;
             this.TitleLbl.Text = "Borrow Books";
             this.TitleLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MinimizeBtn
+            // 
+            this.MinimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MinimizeBtn.Animated = true;
+            this.MinimizeBtn.CheckedState.Parent = this.MinimizeBtn;
+            this.MinimizeBtn.CustomImages.Parent = this.MinimizeBtn;
+            this.MinimizeBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(200)))), ((int)(((byte)(86)))));
+            this.MinimizeBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimizeBtn.ForeColor = System.Drawing.Color.White;
+            this.MinimizeBtn.HoverState.Parent = this.MinimizeBtn;
+            this.MinimizeBtn.Image = global::LMS.Properties.Resources.Minimize;
+            this.MinimizeBtn.Location = new System.Drawing.Point(1511, 17);
+            this.MinimizeBtn.Name = "MinimizeBtn";
+            this.MinimizeBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.MinimizeBtn.ShadowDecoration.Parent = this.MinimizeBtn;
+            this.MinimizeBtn.Size = new System.Drawing.Size(35, 35);
+            this.MinimizeBtn.TabIndex = 0;
+            this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseBtn.Animated = true;
+            this.CloseBtn.CheckedState.Parent = this.CloseBtn;
+            this.CloseBtn.CustomImages.Parent = this.CloseBtn;
+            this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(83)))), ((int)(((byte)(79)))));
+            this.CloseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseBtn.ForeColor = System.Drawing.Color.White;
+            this.CloseBtn.HoverState.Parent = this.CloseBtn;
+            this.CloseBtn.Image = global::LMS.Properties.Resources.cancel;
+            this.CloseBtn.Location = new System.Drawing.Point(1549, 17);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
+            this.CloseBtn.Size = new System.Drawing.Size(35, 35);
+            this.CloseBtn.TabIndex = 1;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // BorrowDgv
             // 
@@ -266,121 +316,6 @@ namespace LMS {
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(440, 892);
             this.guna2ShadowPanel1.TabIndex = 6;
             // 
-            // guna2GroupBox1
-            // 
-            this.guna2GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2GroupBox1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox1.Controls.Add(this.UsernameLbl);
-            this.guna2GroupBox1.Controls.Add(this.FullNameLbl);
-            this.guna2GroupBox1.Controls.Add(this.guna2PictureBox1);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(10, 802);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(401, 79);
-            this.guna2GroupBox1.TabIndex = 8;
-            // 
-            // UsernameLbl
-            // 
-            this.UsernameLbl.AutoSize = false;
-            this.UsernameLbl.BackColor = System.Drawing.Color.Transparent;
-            this.UsernameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLbl.ForeColor = System.Drawing.Color.Silver;
-            this.UsernameLbl.Location = new System.Drawing.Point(84, 50);
-            this.UsernameLbl.Name = "UsernameLbl";
-            this.UsernameLbl.Size = new System.Drawing.Size(182, 19);
-            this.UsernameLbl.TabIndex = 7;
-            this.UsernameLbl.Text = "admin";
-            this.UsernameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // FullNameLbl
-            // 
-            this.FullNameLbl.AutoSize = false;
-            this.FullNameLbl.BackColor = System.Drawing.Color.Transparent;
-            this.FullNameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FullNameLbl.ForeColor = System.Drawing.Color.Black;
-            this.FullNameLbl.Location = new System.Drawing.Point(84, 28);
-            this.FullNameLbl.Name = "FullNameLbl";
-            this.FullNameLbl.Size = new System.Drawing.Size(275, 25);
-            this.FullNameLbl.TabIndex = 6;
-            this.FullNameLbl.Text = "Full Name";
-            this.FullNameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // guna2ShadowPanel3
-            // 
-            this.guna2ShadowPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2ShadowPanel3.Controls.Add(this.bunifuCustomLabel4);
-            this.guna2ShadowPanel3.Controls.Add(this.bunifuCustomLabel3);
-            this.guna2ShadowPanel3.Controls.Add(this.DueDateLbl);
-            this.guna2ShadowPanel3.Controls.Add(this.BorrowIDLbl);
-            this.guna2ShadowPanel3.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel3.Location = new System.Drawing.Point(0, 784);
-            this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
-            this.guna2ShadowPanel3.Radius = 10;
-            this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel3.ShadowDepth = 15;
-            this.guna2ShadowPanel3.ShadowShift = 10;
-            this.guna2ShadowPanel3.Size = new System.Drawing.Size(1181, 176);
-            this.guna2ShadowPanel3.TabIndex = 12;
-            // 
-            // bunifuCustomLabel4
-            // 
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(578, 75);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(163, 32);
-            this.bunifuCustomLabel4.TabIndex = 12;
-            this.bunifuCustomLabel4.Text = "DUE DATE:";
-            // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(49, 75);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(186, 32);
-            this.bunifuCustomLabel3.TabIndex = 12;
-            this.bunifuCustomLabel3.Text = "BORROW ID:";
-            // 
-            // DueDateLbl
-            // 
-            this.DueDateLbl.AutoSize = true;
-            this.DueDateLbl.Font = new System.Drawing.Font("Proxima Nova Rg", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DueDateLbl.ForeColor = System.Drawing.Color.Black;
-            this.DueDateLbl.Location = new System.Drawing.Point(743, 68);
-            this.DueDateLbl.Name = "DueDateLbl";
-            this.DueDateLbl.Size = new System.Drawing.Size(0, 41);
-            this.DueDateLbl.TabIndex = 10;
-            // 
-            // BorrowIDLbl
-            // 
-            this.BorrowIDLbl.AutoSize = true;
-            this.BorrowIDLbl.Font = new System.Drawing.Font("Proxima Nova Rg", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BorrowIDLbl.ForeColor = System.Drawing.Color.Black;
-            this.BorrowIDLbl.Location = new System.Drawing.Point(237, 68);
-            this.BorrowIDLbl.Name = "BorrowIDLbl";
-            this.BorrowIDLbl.Size = new System.Drawing.Size(0, 41);
-            this.BorrowIDLbl.TabIndex = 11;
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 15;
-            this.bunifuElipse1.TargetControl = this;
-            // 
-            // bunifuElipse2
-            // 
-            this.bunifuElipse2.ElipseRadius = 15;
-            this.bunifuElipse2.TargetControl = this.BorrowDgv;
-            // 
             // gunaPictureBox2
             // 
             this.gunaPictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -517,6 +452,49 @@ namespace LMS {
             this.NewBorrowBtn.Text = "New Borrow";
             this.NewBorrowBtn.Click += new System.EventHandler(this.NewBorrowBtn_Click);
             // 
+            // guna2GroupBox1
+            // 
+            this.guna2GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.guna2GroupBox1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox1.Controls.Add(this.UsernameLbl);
+            this.guna2GroupBox1.Controls.Add(this.FullNameLbl);
+            this.guna2GroupBox1.Controls.Add(this.guna2PictureBox1);
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox1.Location = new System.Drawing.Point(10, 802);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
+            this.guna2GroupBox1.Size = new System.Drawing.Size(401, 79);
+            this.guna2GroupBox1.TabIndex = 8;
+            // 
+            // UsernameLbl
+            // 
+            this.UsernameLbl.AutoSize = false;
+            this.UsernameLbl.BackColor = System.Drawing.Color.Transparent;
+            this.UsernameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameLbl.ForeColor = System.Drawing.Color.Silver;
+            this.UsernameLbl.Location = new System.Drawing.Point(84, 50);
+            this.UsernameLbl.Name = "UsernameLbl";
+            this.UsernameLbl.Size = new System.Drawing.Size(182, 19);
+            this.UsernameLbl.TabIndex = 7;
+            this.UsernameLbl.Text = "admin";
+            this.UsernameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // FullNameLbl
+            // 
+            this.FullNameLbl.AutoSize = false;
+            this.FullNameLbl.BackColor = System.Drawing.Color.Transparent;
+            this.FullNameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FullNameLbl.ForeColor = System.Drawing.Color.Black;
+            this.FullNameLbl.Location = new System.Drawing.Point(84, 28);
+            this.FullNameLbl.Name = "FullNameLbl";
+            this.FullNameLbl.Size = new System.Drawing.Size(275, 25);
+            this.FullNameLbl.TabIndex = 6;
+            this.FullNameLbl.Text = "Full Name";
+            this.FullNameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = global::LMS.Properties.Resources.user;
@@ -528,54 +506,77 @@ namespace LMS {
             this.guna2PictureBox1.TabIndex = 5;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // TitlePb
+            // guna2ShadowPanel3
             // 
-            this.TitlePb.Image = global::LMS.Properties.Resources.Books;
-            this.TitlePb.Location = new System.Drawing.Point(23, 17);
-            this.TitlePb.Name = "TitlePb";
-            this.TitlePb.ShadowDecoration.Parent = this.TitlePb;
-            this.TitlePb.Size = new System.Drawing.Size(40, 35);
-            this.TitlePb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.TitlePb.TabIndex = 4;
-            this.TitlePb.TabStop = false;
+            this.guna2ShadowPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2ShadowPanel3.Controls.Add(this.bunifuCustomLabel4);
+            this.guna2ShadowPanel3.Controls.Add(this.bunifuCustomLabel3);
+            this.guna2ShadowPanel3.Controls.Add(this.DueDateLbl);
+            this.guna2ShadowPanel3.Controls.Add(this.BorrowIDLbl);
+            this.guna2ShadowPanel3.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel3.Location = new System.Drawing.Point(0, 784);
+            this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
+            this.guna2ShadowPanel3.Radius = 10;
+            this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel3.ShadowDepth = 15;
+            this.guna2ShadowPanel3.ShadowShift = 10;
+            this.guna2ShadowPanel3.Size = new System.Drawing.Size(1181, 176);
+            this.guna2ShadowPanel3.TabIndex = 12;
             // 
-            // MinimizeBtn
+            // bunifuCustomLabel4
             // 
-            this.MinimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MinimizeBtn.Animated = true;
-            this.MinimizeBtn.CheckedState.Parent = this.MinimizeBtn;
-            this.MinimizeBtn.CustomImages.Parent = this.MinimizeBtn;
-            this.MinimizeBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(200)))), ((int)(((byte)(86)))));
-            this.MinimizeBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.MinimizeBtn.HoverState.Parent = this.MinimizeBtn;
-            this.MinimizeBtn.Image = global::LMS.Properties.Resources.Minimize;
-            this.MinimizeBtn.Location = new System.Drawing.Point(1511, 17);
-            this.MinimizeBtn.Name = "MinimizeBtn";
-            this.MinimizeBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.MinimizeBtn.ShadowDecoration.Parent = this.MinimizeBtn;
-            this.MinimizeBtn.Size = new System.Drawing.Size(35, 35);
-            this.MinimizeBtn.TabIndex = 0;
-            this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(578, 75);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(163, 32);
+            this.bunifuCustomLabel4.TabIndex = 12;
+            this.bunifuCustomLabel4.Text = "DUE DATE:";
             // 
-            // CloseBtn
+            // bunifuCustomLabel3
             // 
-            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseBtn.Animated = true;
-            this.CloseBtn.CheckedState.Parent = this.CloseBtn;
-            this.CloseBtn.CustomImages.Parent = this.CloseBtn;
-            this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(83)))), ((int)(((byte)(79)))));
-            this.CloseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.83168F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseBtn.ForeColor = System.Drawing.Color.White;
-            this.CloseBtn.HoverState.Parent = this.CloseBtn;
-            this.CloseBtn.Image = global::LMS.Properties.Resources.cancel;
-            this.CloseBtn.Location = new System.Drawing.Point(1549, 17);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
-            this.CloseBtn.Size = new System.Drawing.Size(35, 35);
-            this.CloseBtn.TabIndex = 1;
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Proxima Nova Rg", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(49, 75);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(186, 32);
+            this.bunifuCustomLabel3.TabIndex = 12;
+            this.bunifuCustomLabel3.Text = "BORROW ID:";
+            // 
+            // DueDateLbl
+            // 
+            this.DueDateLbl.AutoSize = true;
+            this.DueDateLbl.Font = new System.Drawing.Font("Proxima Nova Rg", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DueDateLbl.ForeColor = System.Drawing.Color.Black;
+            this.DueDateLbl.Location = new System.Drawing.Point(743, 68);
+            this.DueDateLbl.Name = "DueDateLbl";
+            this.DueDateLbl.Size = new System.Drawing.Size(0, 41);
+            this.DueDateLbl.TabIndex = 10;
+            // 
+            // BorrowIDLbl
+            // 
+            this.BorrowIDLbl.AutoSize = true;
+            this.BorrowIDLbl.Font = new System.Drawing.Font("Proxima Nova Rg", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BorrowIDLbl.ForeColor = System.Drawing.Color.Black;
+            this.BorrowIDLbl.Location = new System.Drawing.Point(237, 68);
+            this.BorrowIDLbl.Name = "BorrowIDLbl";
+            this.BorrowIDLbl.Size = new System.Drawing.Size(0, 41);
+            this.BorrowIDLbl.TabIndex = 11;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 15;
+            this.bunifuElipse2.TargetControl = this.BorrowDgv;
             // 
             // BorrowBooksForm
             // 
@@ -587,6 +588,7 @@ namespace LMS {
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "BorrowBooksForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -596,16 +598,16 @@ namespace LMS {
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BorrowBooksForm_KeyDown);
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BorrowDgv)).EndInit();
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
             this.guna2ShadowPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
             this.guna2GroupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2ShadowPanel3.ResumeLayout(false);
             this.guna2ShadowPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).EndInit();
             this.ResumeLayout(false);
 
         }
