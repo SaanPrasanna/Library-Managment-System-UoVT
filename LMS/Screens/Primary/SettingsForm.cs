@@ -44,28 +44,6 @@ namespace LMS.Screens.Primary {
 
         #endregion
 
-
-        private void SaveDaysBtn_Click(object sender, EventArgs e) {
-            if (DaysTB.Text != string.Empty) {
-                config.SetValue("Numbers", "RenewDate", Convert.ToInt32(DaysTB.Text));
-                config.Save();
-                this.Alert("Process Success!", "Settings Updated!", AlertForm.EnmType.Success);
-                //MessageBox.Show("Settings Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } else {
-                this.Alert("Process Failed!", "Settings update failed!", AlertForm.EnmType.Warning);
-                //MessageBox.Show("Settings Updated failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void SaveFeeBtn_Click(object sender, EventArgs e) {
-            FineFee fineFee = new FineFee {
-                Student = Convert.ToDouble(StudentTB.Text),
-                Other = Convert.ToDouble(OthersTB.Text)
-            };
-
-            UpdateFineFee(fineFee);
-        }
-
         #region Methods
         private DataTable FineFee() {
             SqlConnection conn = DBUtils.GetDBConnection();
@@ -121,12 +99,40 @@ namespace LMS.Screens.Primary {
                 conn.Dispose();
             }
         }
+
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
+        }
         #endregion Methods
+
+        #region Button Click
+        private void SaveDaysBtn_Click(object sender, EventArgs e) {
+            if (DaysTB.Text != string.Empty) {
+                config.SetValue("Numbers", "RenewDate", Convert.ToInt32(DaysTB.Text));
+                config.Save();
+                this.Alert("Process Success!", "Settings Updated!", AlertForm.EnmType.Success);
+                //MessageBox.Show("Settings Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else {
+                this.Alert("Process Failed!", "Settings update failed!", AlertForm.EnmType.Warning);
+                //MessageBox.Show("Settings Updated failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void SaveFeeBtn_Click(object sender, EventArgs e) {
+            FineFee fineFee = new FineFee {
+                Student = Convert.ToDouble(StudentTB.Text),
+                Other = Convert.ToDouble(OthersTB.Text)
+            };
+
+            UpdateFineFee(fineFee);
+        }
 
         private void CloseBtn_Click(object sender, EventArgs e) {
             this.Close();
         }
+        #endregion
 
+        #region Special Key Events
         private void SettingsForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 CloseBtn_Click(sender, e);
@@ -142,7 +148,6 @@ namespace LMS.Screens.Primary {
                 e.Handled = true;
             }
         }
-
         private void OthersTB_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !(e.KeyChar == '.')) {
                 e.Handled = true;
@@ -158,10 +163,7 @@ namespace LMS.Screens.Primary {
                 e.Handled = true;
             }
         }
+        #endregion
 
-        public void Alert(string title, string body, AlertForm.EnmType type) {
-            AlertForm alertForm = new AlertForm();
-            alertForm.ShowAlert(title: title, body: body, type: type);
-        }
     }
 }

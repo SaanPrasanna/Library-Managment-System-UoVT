@@ -21,6 +21,7 @@ namespace LMS.Screens.Widgets {
             this.TopMost = true;
         }
 
+        #region Enums
         public enum EnmAction {
             wait,
             start,
@@ -34,11 +35,13 @@ namespace LMS.Screens.Widgets {
             Info
         }
 
+        #endregion
+
+        #region Special Events
         private void CloseBtn_Click(object sender, EventArgs e) {
             Timer.Interval = 1;
             action = EnmAction.close;
         }
-
         private void Timer_Tick(object sender, EventArgs e) {
             switch (this.action) {
                 case EnmAction.wait:
@@ -68,6 +71,9 @@ namespace LMS.Screens.Widgets {
             }
         }
 
+        #endregion
+
+        #region Methods
         public void ShowAlert(string title, string body, EnmType type) {
 
             this.Opacity = 0.0;
@@ -117,6 +123,8 @@ namespace LMS.Screens.Widgets {
             this.Timer.Interval = 1;
             this.Timer.Start();
         }
+
+        #endregion
 
     }
 

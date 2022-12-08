@@ -27,6 +27,7 @@ namespace LMS {
             InitialForm();
         }
 
+        #region Methods
         protected override CreateParams CreateParams {
             get {
                 const int CS_DROPSHADOW = 0x00020000;
@@ -70,7 +71,9 @@ namespace LMS {
                 ActionBtn.Visible = false;
             }
         }
-        #region Environment Change
+        #endregion
+
+        #region DataGridView Change
         private void SecoundDgv_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
             if (TitleLbl.Text == "Publishers") {
@@ -213,6 +216,7 @@ namespace LMS {
         }
         #endregion Environment Change
 
+        #region Button Click
         private void ActionBtn_Click(object sender, EventArgs e) {
 
             Functions fn = new Functions();
@@ -221,7 +225,6 @@ namespace LMS {
                 publisherForm.ShowDialog();
             }
         }
-
         private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
 
             if (ActionBtn.Text == "ADD PUBLISHER") {
@@ -240,6 +243,7 @@ namespace LMS {
         private void CloseBtn_Click(object sender, EventArgs e) {
             this.Close();
         }
+
 
         private void PublishersForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
@@ -264,6 +268,7 @@ namespace LMS {
                 }
             }
         }
+        #endregion
 
         #region Grid Methods
         public void PendingBooks() {

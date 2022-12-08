@@ -95,7 +95,7 @@ namespace LMS {
             this.guna2ShadowPanel19 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.MonthlyBooksLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.RecentUpdate8Lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox15 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -1283,7 +1283,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientPanel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2GradientPanel3.BorderRadius = 20;
-            this.guna2GradientPanel3.Controls.Add(this.guna2HtmlLabel5);
+            this.guna2GradientPanel3.Controls.Add(this.MonthlyBooksLbl);
             this.guna2GradientPanel3.Controls.Add(this.guna2HtmlLabel3);
             this.guna2GradientPanel3.Controls.Add(this.RecentUpdate8Lbl);
             this.guna2GradientPanel3.Controls.Add(this.guna2PictureBox15);
@@ -1301,16 +1301,16 @@ namespace LMS {
             this.guna2GradientPanel3.Size = new System.Drawing.Size(440, 145);
             this.guna2GradientPanel3.TabIndex = 1;
             // 
-            // guna2HtmlLabel5
+            // MonthlyBooksLbl
             // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(126, 52);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(73, 59);
-            this.guna2HtmlLabel5.TabIndex = 9;
-            this.guna2HtmlLabel5.Text = "420";
+            this.MonthlyBooksLbl.BackColor = System.Drawing.Color.Transparent;
+            this.MonthlyBooksLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonthlyBooksLbl.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.MonthlyBooksLbl.Location = new System.Drawing.Point(126, 52);
+            this.MonthlyBooksLbl.Name = "MonthlyBooksLbl";
+            this.MonthlyBooksLbl.Size = new System.Drawing.Size(73, 59);
+            this.MonthlyBooksLbl.TabIndex = 9;
+            this.MonthlyBooksLbl.Text = "420";
             // 
             // guna2HtmlLabel3
             // 
@@ -2062,7 +2062,7 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel MonthlyBooksLbl;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel RecentUpdate8Lbl;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox15;
