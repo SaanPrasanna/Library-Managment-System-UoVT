@@ -624,8 +624,8 @@ namespace LMS {
             Guna2HtmlLabel[] labels = new[] { RecentUpdate1Lbl, RecentUpdate2Lbl, RecentUpdate3Lbl, RecentUpdate4Lbl, RecentUpdate5Lbl, RecentUpdate6Lbl, RecentUpdate7Lbl, RecentUpdate8Lbl };
             Array.ForEach(labels, x => { x.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt"); });
 
-            Guna2HtmlLabel[] mainLabels = new[] { BooksLbl, MembersLbl, ManageBooksLbl, PendingBooksLbl, ReturnBooksLbl, IssuedBooksLbl };
-            string[] names = new[] { "Books", "Members", "Manage Books", "Pending Books", "Returned Books", "Issued Books" };
+            Guna2HtmlLabel[] mainLabels = new[] { BooksLbl, MembersLbl, ManageBooksLbl, PendingBooksLbl, ReturnBooksLbl, IssuedBooksLbl, MonthlyBooksLbl };
+            string[] names = new[] { "Books", "Members", "Manage Books", "Pending Books", "Returned Books", "Issued Books", "Monthly Books" };
 
             foreach (var lbl in mainLabels.Select((name, index) => (name, index))) {
                 lbl.name.Text = fn.GetNumberOf(name: names[lbl.index]).ToString();
