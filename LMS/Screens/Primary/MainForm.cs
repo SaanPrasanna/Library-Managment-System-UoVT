@@ -11,6 +11,7 @@ using LMS.Screens.Primary;
 using LMS.Utils.Core;
 using LMS.Utils.Connection;
 using LMS.Screens.Widgets;
+using System.IO;
 
 namespace LMS {
     public partial class MainForm : Form {
@@ -452,10 +453,12 @@ namespace LMS {
         }
 
         private void CloseBtn_Click(object sender, EventArgs e) {
-            LoginForm lf = new LoginForm();
-            this.Hide();
-            this.Dispose();
-            lf.Show();
+            if (MessageBox.Show("Do you want to Logout!", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                LoginForm lf = new LoginForm();
+                this.Hide();
+                this.Dispose();
+                lf.Show();
+            }
         }
         private void ActionBtn_Click(object sender, EventArgs e) {
 
@@ -603,9 +606,7 @@ namespace LMS {
         }
         private void MainForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
-                if (MessageBox.Show("Do you want to Logout!", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                    CloseBtn_Click(sender, e);
-                }
+                CloseBtn_Click(sender, e);
             } else if (e.KeyCode == Keys.F1 && ActionBtn.Visible == true) {
                 ActionBtn_Click(sender, e);
             } else if (e.KeyCode == Keys.F2 && Action2Btn.Visible == true) {
@@ -681,7 +682,7 @@ namespace LMS {
         #endregion Methods
 
         #region Member Area
-        private void MemberDashboard(bool visible) {
+        public void MemberDashboard(bool visible) {
             MainPanel.Show();
             MemberHiddenWidgets();
             MemberDynamicWidgets(visible: !visible);
@@ -700,6 +701,13 @@ namespace LMS {
 
             MJoinDateLbl.Text = Convert.ToDateTime(dt.Rows[0][5]).ToString("yyyy-MM-dd");
             MPendingBooksLbl.Text = fn.GetNumberOf(name: "Already Borrowed Books", value: Properties.Settings.Default.id).ToString();
+            // 6 gender, 7 img
+            if (dt.Rows[0][7] != DBNull.Value) {
+                MemoryStream ms = new MemoryStream((Byte[])dt.Rows[0][7]);
+                ProfilePicPb.Image = Image.FromStream(ms);
+            } else {
+                ProfilePicPb.Image = (dt.Rows[0][6].ToString() == "M")?Properties.Resources.ProfileMale: Properties.Resources.ProfileFemale;
+            }
         }
 
         private void MemberDynamicWidgets(bool visible) {
