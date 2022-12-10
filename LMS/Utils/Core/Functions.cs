@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using LMS.Utils.Connection;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace LMS.Utils.Core {
     class Functions {
@@ -304,7 +305,7 @@ namespace LMS.Utils.Core {
                         query = "SELECT id, isbn, mid, is_removed FROM borrow_temp";
                         break;
                     case "Member":
-                        query = "SELECT mid, email, CONCAT(fname, ' ', lname), telephone, address, date FROM members WHERE mid = '" + value + "';";
+                        query = "SELECT mid, email, CONCAT(fname, ' ', lname), telephone, address, date, gender, img FROM members WHERE mid = '" + value + "';";
                         break;
                 }
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -392,17 +393,15 @@ namespace LMS.Utils.Core {
         }
 
         public bool IsEmail(string email) {
-            var trimmedEmail = email.Trim();
+            string pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
+            Regex regEx = new Regex(pattern);
+            return regEx.IsMatch(email);
+        }
 
-            if (trimmedEmail.EndsWith(".")) {
-                return false;
-            }
-            try {
-                var addr = new MailAddress(email);
-                return addr.Address == trimmedEmail;
-            } catch {
-                return false;
-            }
+        public bool IsPhoneNumber(string number) {
+            string pattern = @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$";
+            Regex regEx = new Regex(pattern);
+            return regEx.IsMatch(number);
         }
 
         public bool IsStaff() {
@@ -414,6 +413,15 @@ namespace LMS.Utils.Core {
         }
         public bool IsModerator() {
             return Properties.Settings.Default.accountType == "Moderator";
+        }
+
+        public bool CheckPasswordStrength(string password, [Optional]bool needToReview) {
+
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasUpperChar = new Regex(@"[A-Z]+");
+            var hasMinimum8Chars = new Regex(@".{8,}");
+
+            return !needToReview || hasNumber.IsMatch(password) && hasUpperChar.IsMatch(password) && hasMinimum8Chars.IsMatch(password);
         }
     }
 }
