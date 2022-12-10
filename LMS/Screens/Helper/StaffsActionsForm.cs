@@ -78,110 +78,106 @@ namespace LMS {
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 
-            if (SIDTb.Text != string.Empty && UsernameTb.Text != string.Empty && PasswordTb.Text != string.Empty && FnameTb.Text != string.Empty && LnameTb.Text != string.Empty
-                && AddressTb.Text != string.Empty && TypeCb.Text != string.Empty) {
-                if (ActionBtn.Text == "ADD STAFF") {
+            if (SIDTb.Text != string.Empty && UsernameTb.Text != string.Empty && PasswordTb.Text != string.Empty && FnameTb.Text != string.Empty
+                && LnameTb.Text != string.Empty && AddressTb.Text != string.Empty && TypeCb.Text != string.Empty) {
+                if (fn.CheckPasswordStrength(password: PasswordTb.Text, needToReview: PasswordTb.Enabled)) {
+                    if (ActionBtn.Text == "ADD STAFF") {
 
-                    try {
+                        try {
 
-                        string query = "INSERT INTO staffs VALUES(@sid, @username, @password, @fname, @lname, " +
-                            "@address, @type, @isRemoved);";
+                            string query = "INSERT INTO staffs VALUES(@sid, @username, @password, @fname, @lname, " +
+                                "@address, @type, @isRemoved);";
 
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = SIDTb.Text;
-                        cmd.Parameters.Add("@username", SqlDbType.VarChar, 20).Value = UsernameTb.Text;
-                        cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = fn.GetSHA1Hash(PasswordTb.Text);
-                        cmd.Parameters.Add("@fname", SqlDbType.NVarChar, 25).Value = FnameTb.Text;
-                        cmd.Parameters.Add("@lname", SqlDbType.NVarChar, 25).Value = LnameTb.Text;
-                        cmd.Parameters.Add("@address", SqlDbType.VarChar, 50).Value = AddressTb.Text;
-                        cmd.Parameters.Add("@type", SqlDbType.VarChar, 10).Value = TypeCb.Text;
-                        cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = SIDTb.Text;
+                            cmd.Parameters.Add("@username", SqlDbType.VarChar, 20).Value = UsernameTb.Text;
+                            cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = fn.GetSHA1Hash(PasswordTb.Text);
+                            cmd.Parameters.Add("@fname", SqlDbType.NVarChar, 25).Value = FnameTb.Text;
+                            cmd.Parameters.Add("@lname", SqlDbType.NVarChar, 25).Value = LnameTb.Text;
+                            cmd.Parameters.Add("@address", SqlDbType.VarChar, 50).Value = AddressTb.Text;
+                            cmd.Parameters.Add("@type", SqlDbType.VarChar, 10).Value = TypeCb.Text;
+                            cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
 
-                        int rowCount = (Int32)cmd.ExecuteNonQuery();
-                        if (rowCount > 0) {
+                            int rowCount = (Int32)cmd.ExecuteNonQuery();
+                            if (rowCount > 0) {
 
-                            if (mf.MainDgv.ColumnCount == 0) {
+                                if (mf.MainDgv.ColumnCount == 0) {
 
-                                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                                string[] names = { "Modify", "Remove" };
+                                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                                    string[] names = { "Modify", "Remove" };
 
-                                dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                //dgv.GridButtons(dgv: mf.MainDgv);
+                                    dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                }
+                                dgv.ShowGrid(dgv: mf.MainDgv, name: "Staffs");
+                                dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
+                                mf.Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
+
+                                this.Alert("Process Success!", "Member added successfully!", AlertForm.EnmType.Success);
+                                this.Close();
                             }
-                            dgv.ShowGrid(dgv: mf.MainDgv, name: "Staffs");
-                            dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
-                            mf.Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "staffs");
 
-                            this.Alert("Process Success!", "Member added successfully!", AlertForm.EnmType.Success);
-                            //MessageBox.Show("Member added!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                        } catch (Exception ex) {
+                            this.Alert("Process Failed", "Member insertion failed!\nProbably username already exist!", AlertForm.EnmType.Error);
+                            Console.WriteLine("Error: " + ex.ToString());
+                        } finally {
+                            Console.ReadLine();
+                            conn.Close();
+                            conn.Dispose();
                         }
 
-                    } catch (Exception ex) {
-                        this.Alert("Process Failed", "Member insertion failed!\nProbably username already exist!", AlertForm.EnmType.Error);
-                        //MessageBox.Show("Member insertion failed!\nProbably username already exist!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Console.WriteLine("Error: " + ex.ToString());
-                    } finally {
-                        Console.ReadLine();
-                        conn.Close();
-                        conn.Dispose();
-                    }
+                    } else if (ActionBtn.Text == "MODIFY STAFF") {
 
-                } else if (ActionBtn.Text == "MODIFY STAFF") {
+                        try {
 
-                    try {
+                            string query = "UPDATE staffs SET password = @password, fname = @fname, lname = @lname, address = @address, type = @type WHERE sid = @sid;";
 
-                        string query = "UPDATE staffs SET password = @password, fname = @fname, lname = @lname, address = @address, type = @type WHERE sid = @sid;";
+                            SqlCommand cmd = new SqlCommand(query, conn);
+                            cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = (PasswordTb.Enabled == true) ? fn.GetSHA1Hash(PasswordTb.Text) : PasswordTb.Text;
+                            cmd.Parameters.Add("@fname", SqlDbType.NVarChar, 25).Value = FnameTb.Text;
+                            cmd.Parameters.Add("@lname", SqlDbType.NVarChar, 25).Value = LnameTb.Text;
+                            cmd.Parameters.Add("@address", SqlDbType.VarChar, 50).Value = AddressTb.Text;
+                            cmd.Parameters.Add("@type", SqlDbType.VarChar, 10).Value = TypeCb.Text;
+                            cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = SIDTb.Text;
 
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = (PasswordTb.Enabled == true) ? fn.GetSHA1Hash(PasswordTb.Text) : PasswordTb.Text;
-                        cmd.Parameters.Add("@fname", SqlDbType.NVarChar, 25).Value = FnameTb.Text;
-                        cmd.Parameters.Add("@lname", SqlDbType.NVarChar, 25).Value = LnameTb.Text;
-                        cmd.Parameters.Add("@address", SqlDbType.VarChar, 50).Value = AddressTb.Text;
-                        cmd.Parameters.Add("@type", SqlDbType.VarChar, 10).Value = TypeCb.Text;
-                        cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = SIDTb.Text;
+                            int rowCount = (Int32)cmd.ExecuteNonQuery();
+                            if (rowCount > 0) {
 
-                        int rowCount = (Int32)cmd.ExecuteNonQuery();
-                        if (rowCount > 0) {
+                                GridControlSettings dgv = new GridControlSettings();
 
-                            GridControlSettings dgv = new GridControlSettings();
+                                if (mf.MainDgv.ColumnCount == 0) {
 
-                            if (mf.MainDgv.ColumnCount == 0) {
+                                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                                    string[] names = { "Modify", "Remove" };
 
-                                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                                string[] names = { "Modify", "Remove" };
+                                    dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                }
+                                dgv.ShowGrid(dgv: mf.MainDgv, name: "Staffs");
+                                dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
 
-                                dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                //dgv.GridButtons(dgv: mf.MainDgv);
+                                if (Properties.Settings.Default.id == SIDTb.Text) {
+                                    Properties.Settings.Default.id = SIDTb.Text;
+                                    mf.FullNameLbl.Text = FnameTb.Text + " " + LnameTb.Text;
+                                }
+                                this.Alert("Process Success!", "Staff updated successfully!", AlertForm.EnmType.Success);
+                                this.Close();
                             }
-                            dgv.ShowGrid(dgv: mf.MainDgv, name: "Staffs");
-                            dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
-
-                            if (Properties.Settings.Default.id == SIDTb.Text) {
-                                Properties.Settings.Default.id = SIDTb.Text;
-                                mf.FullNameLbl.Text = FnameTb.Text + " " + LnameTb.Text;
-                            }
-                            this.Alert("Process Success!", "Staff updated successfully!", AlertForm.EnmType.Success);
-                            //MessageBox.Show("Staff updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                        } catch (Exception ex) {
+                            this.Alert("Process Failed!", "Staff updated failed!", AlertForm.EnmType.Error);
+                            Console.WriteLine("Error: " + ex.ToString());
+                        } finally {
+                            Console.ReadLine();
+                            conn.Close();
+                            conn.Dispose();
                         }
 
-                    } catch (Exception ex) {
-                        this.Alert("Process Failed!", "Staff updated failed!", AlertForm.EnmType.Error);
-                        //MessageBox.Show("Staff updation failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Console.WriteLine("Error: " + ex.ToString());
-                    } finally {
-                        Console.ReadLine();
-                        conn.Close();
-                        conn.Dispose();
                     }
-
+                } else {
+                    this.Alert("Warning", "Please enter Strong Password!", AlertForm.EnmType.Warning);
                 }
             } else {
                 this.Alert("Warning", "Fields can't be empty!\nPlease fill all fields and submit again.", AlertForm.EnmType.Warning);
-                //MessageBox.Show("Fields can't be empty!\nPlease fill all fields and submit again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

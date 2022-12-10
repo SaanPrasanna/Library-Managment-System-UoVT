@@ -173,6 +173,7 @@ namespace LMS {
             this.LnameTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.LnameTb.Location = new System.Drawing.Point(127, 248);
             this.LnameTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LnameTb.MaxLength = 25;
             this.LnameTb.Name = "LnameTb";
             this.LnameTb.PasswordChar = '\0';
             this.LnameTb.PlaceholderText = "";
@@ -200,6 +201,7 @@ namespace LMS {
             this.FnameTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.FnameTb.Location = new System.Drawing.Point(128, 203);
             this.FnameTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FnameTb.MaxLength = 25;
             this.FnameTb.Name = "FnameTb";
             this.FnameTb.PasswordChar = '\0';
             this.FnameTb.PlaceholderText = "";
@@ -227,6 +229,7 @@ namespace LMS {
             this.PasswordTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.PasswordTb.Location = new System.Drawing.Point(128, 158);
             this.PasswordTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PasswordTb.MaxLength = 30;
             this.PasswordTb.Name = "PasswordTb";
             this.PasswordTb.PasswordChar = '●';
             this.PasswordTb.PlaceholderText = "";
@@ -365,6 +368,7 @@ namespace LMS {
             this.AddressTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.AddressTb.Location = new System.Drawing.Point(127, 292);
             this.AddressTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddressTb.MaxLength = 50;
             this.AddressTb.Name = "AddressTb";
             this.AddressTb.PasswordChar = '\0';
             this.AddressTb.PlaceholderText = "";
@@ -420,6 +424,7 @@ namespace LMS {
             this.UsernameTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.UsernameTb.Location = new System.Drawing.Point(128, 114);
             this.UsernameTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UsernameTb.MaxLength = 20;
             this.UsernameTb.Name = "UsernameTb";
             this.UsernameTb.PasswordChar = '\0';
             this.UsernameTb.PlaceholderText = "";
