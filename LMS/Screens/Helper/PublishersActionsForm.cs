@@ -74,98 +74,93 @@ namespace LMS {
             conn.Open();
 
             if (PIDTb.Text != string.Empty && NameTb.Text != string.Empty && NumberTb.Text != string.Empty) {
+                if (fn.IsPhoneNumber(number: NumberTb.Text)) {
+                    if (ActionBtn.Text == "ADD PUBLISHER") {
 
-                if (ActionBtn.Text == "ADD PUBLISHER") {
+                        try {
 
-                    try {
+                            SqlCommand cmd = new SqlCommand("INSERT INTO publishers VALUES(@pid, @name, @isRemoved);", conn);
+                            cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
+                            cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = NameTb.Text;
+                            cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
 
-                        SqlCommand cmd = new SqlCommand("INSERT INTO publishers VALUES(@pid, @name, @isRemoved);", conn);
-                        cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
-                        cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = NameTb.Text;
-                        cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
+                            SqlCommand cmd2 = new SqlCommand("INSERT INTO publishers_number VALUES(@pid, @number)", conn);
+                            cmd2.Parameters.Add("@number", SqlDbType.Char, 10).Value = NumberTb.Text;
+                            cmd2.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
 
-                        SqlCommand cmd2 = new SqlCommand("INSERT INTO publishers_number VALUES(@pid, @number)", conn);
-                        cmd2.Parameters.Add("@number", SqlDbType.Char, 10).Value = NumberTb.Text;
-                        cmd2.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
+                            if ((Int32)cmd.ExecuteNonQuery() > 0 && (Int32)cmd2.ExecuteNonQuery() > 0) {
 
-                        if ((Int32)cmd.ExecuteNonQuery() > 0 && (Int32)cmd2.ExecuteNonQuery() > 0) {
+                                if (pf.SecondDgv.ColumnCount == 0) {
 
-                            if (pf.SecondDgv.ColumnCount == 0) {
+                                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                                    string[] names = { "Modify", "Remove" };
 
-                                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                                string[] names = { "Modify", "Remove" };
+                                    dgv.GridButtons(dgv: pf.SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                }
+                                dgv.ShowGrid(dgv: pf.SecondDgv, name: "Publishers");
+                                dgv.GridWidth(dgv: pf.SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
 
-                                dgv.GridButtons(dgv: pf.SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                //dgv.GridButtons(dgv: pf.SecondDgv);
+                                pf.Title2Lbl.Text = "Total Publishers : " + fn.GetNumberOf(name: "Publishers").ToString();
+                                pf.RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
+
+                                this.Alert("Process Success!", "Publisher inserted successfully!", AlertForm.EnmType.Success);
+                                this.Close();
                             }
-                            dgv.ShowGrid(dgv: pf.SecondDgv, name: "Publishers");
-                            dgv.GridWidth(dgv: pf.SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
 
-                            pf.Title2Lbl.Text = "Total Publishers : " + fn.GetNumberOf(name: "Publishers").ToString();
-                            pf.RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
-
-                            this.Alert("Process Success!", "Publisher inserted successfully!", AlertForm.EnmType.Success);
-                            //MessageBox.Show("Publisher inserted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                        } catch (Exception ex) {
+                            this.Alert("Process Failed!", "Publisher insertion failed!\nHint: Mobile number can't be same.", AlertForm.EnmType.Error);
+                            Console.WriteLine("Error: " + ex.ToString());
+                        } finally {
+                            Console.ReadLine();
+                            conn.Close();
+                            conn.Dispose();
                         }
 
-                    } catch (Exception ex) {
-                        this.Alert("Process Failed!", "Publisher insertion failed!\nHint: Mobile number can't be same.", AlertForm.EnmType.Error);
-                        //MessageBox.Show("Publisher insertion failed!\nHint: Mobile number can't be same.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Console.WriteLine("Error: " + ex.ToString());
-                    } finally {
-                        Console.ReadLine();
-                        conn.Close();
-                        conn.Dispose();
-                    }
+                    } else if (ActionBtn.Text == "MODIFY PUBLISHER") {
+                        try {
 
-                } else if (ActionBtn.Text == "MODIFY PUBLISHER") {
-                    try {
+                            SqlCommand cmd = new SqlCommand("UPDATE publishers SET name = @name WHERE pid = @pid;", conn);
+                            cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = NameTb.Text;
+                            cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
 
-                        SqlCommand cmd = new SqlCommand("UPDATE publishers SET name = @name WHERE pid = @pid;", conn);
-                        cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = NameTb.Text;
-                        cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
+                            SqlCommand cmd2 = new SqlCommand("UPDATE publishers_number SET number = @number WHERE pid = @pid;", conn);
+                            cmd2.Parameters.Add("@number", SqlDbType.Char, 10).Value = NumberTb.Text;
+                            cmd2.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
 
-                        SqlCommand cmd2 = new SqlCommand("UPDATE publishers_number SET number = @number WHERE pid = @pid;", conn);
-                        cmd2.Parameters.Add("@number", SqlDbType.Char, 10).Value = NumberTb.Text;
-                        cmd2.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
+                            if ((Int32)cmd.ExecuteNonQuery() > 0 && (Int32)cmd2.ExecuteNonQuery() > 0) {
 
-                        if ((Int32)cmd.ExecuteNonQuery() > 0 && (Int32)cmd2.ExecuteNonQuery() > 0) {
+                                GridControlSettings dgv = new GridControlSettings();
 
-                            GridControlSettings dgv = new GridControlSettings();
+                                if (pf.SecondDgv.ColumnCount == 0) {
 
-                            if (pf.SecondDgv.ColumnCount == 0) {
+                                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                                    string[] names = { "Modify", "Remove" };
 
-                                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                                string[] names = { "Modify", "Remove" };
+                                    dgv.GridButtons(dgv: pf.SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                }
+                                dgv.ShowGrid(dgv: pf.SecondDgv, name: "Publishers");
+                                dgv.GridWidth(dgv: pf.SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
 
-                                dgv.GridButtons(dgv: pf.SecondDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                //dgv.GridButtons(dgv: pf.SecondDgv);
+                                this.Alert("Process Success!", "Publisher updated successfully!", AlertForm.EnmType.Success);
+                                this.Close();
                             }
-                            dgv.ShowGrid(dgv: pf.SecondDgv, name: "Publishers");
-                            dgv.GridWidth(dgv: pf.SecondDgv, widths: new int[] { 0, 0, 150, 200, 150 });
 
-                            this.Alert("Process Success!","Publisher updated successfully!",AlertForm.EnmType.Success);
-                            //MessageBox.Show("Publisher updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                        } catch (Exception ex) {
+                            this.Alert("Process Failed", "Publisher updation failed!", AlertForm.EnmType.Error);
+                            Console.WriteLine("Error: " + ex.ToString());
+                        } finally {
+                            Console.ReadLine();
+                            conn.Close();
+                            conn.Dispose();
                         }
-
-                    } catch (Exception ex) {
-                        this.Alert("Process Failed","Publisher updation failed!", AlertForm.EnmType.Error);
-                        //MessageBox.Show("Publisher updation failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Console.WriteLine("Error: " + ex.ToString());
-                    } finally {
-                        Console.ReadLine();
-                        conn.Close();
-                        conn.Dispose();
                     }
+                } else {
+                    this.Alert("Warning!", "Please enter valid phone number.", AlertForm.EnmType.Warning);
                 }
-
             } else {
                 this.Alert("Warning!", "Fields can't be empty!\nPlease fill all fields and submit again.", AlertForm.EnmType.Warning);
-                //MessageBox.Show("Fields can't be empty!\nPlease fill all fields and submit again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

@@ -149,6 +149,7 @@ namespace LMS {
             this.NumberTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.NumberTb.Location = new System.Drawing.Point(128, 160);
             this.NumberTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NumberTb.MaxLength = 10;
             this.NumberTb.Name = "NumberTb";
             this.NumberTb.PasswordChar = '\0';
             this.NumberTb.PlaceholderText = "";
@@ -177,6 +178,7 @@ namespace LMS {
             this.NameTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.NameTb.Location = new System.Drawing.Point(128, 115);
             this.NameTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NameTb.MaxLength = 100;
             this.NameTb.Name = "NameTb";
             this.NameTb.PasswordChar = '\0';
             this.NameTb.PlaceholderText = "";
