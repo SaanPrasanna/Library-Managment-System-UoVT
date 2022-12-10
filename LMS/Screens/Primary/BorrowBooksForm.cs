@@ -18,9 +18,11 @@ namespace LMS {
 
         private readonly Functions fn = new Functions();
         private readonly GridControlSettings dgv = new GridControlSettings();
+        private readonly MainForm _mf;
 
-        public BorrowBooksForm() {
+        public BorrowBooksForm(MainForm mf) {
             InitializeComponent();
+            _mf = mf;
         }
 
         #region Form Load
@@ -118,9 +120,13 @@ namespace LMS {
 
                     this.Alert("Book Borrow Process!", "Books Borrowed Complete!", AlertForm.EnmType.Success);
                     
-                    var mainForm = new MainForm();
-                    mainForm.DashboardDetailsCalled += Bl_ProcessCompleted;
-                    mainForm.DashboardDetails();
+                    _mf.DashboardDetailsCalled += Bl_ProcessCompleted;
+                    _mf.DashboardDetails();
+
+                    dgv.ShowGrid(dgv: _mf.MainDgv, name: "Borrow Books", searchQuery: _mf.SearchTb.Text, fromDate: _mf.FromDtp.Value.ToString("yyyy-MM-dd"), toDate: _mf.ToDtp.Value.ToString("yyyy-MM-dd"));
+                    dgv.GridWidth(dgv: _mf.MainDgv, widths: new int[] { 175, 300, 250, 200, 200, 200, 150 });
+                    if (_mf.MainDgv.RowCount > 0) _mf.MainDgv.CurrentCell.Selected = false;
+                    dgv.GridColor(_mf.MainDgv);
 
                 } catch (Exception ex) {
                     Console.WriteLine("Error: || Borrow Books ||\n" + ex.ToString());

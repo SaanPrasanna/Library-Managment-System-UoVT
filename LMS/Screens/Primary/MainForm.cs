@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using LMS.Utils;
 using Guna.UI2.WinForms;
 using LMS.Utils.Models;
 using LMS.Screens.Primary;
@@ -58,7 +57,7 @@ namespace LMS {
                 MainPanel.Hide();
                 DashboardPanel.Show();
 
-                Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, BooksBtn, MembersBtn, StaffsBtn };
+                Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, BooksBtn, MembersBtn, StaffsBtn, SettingsBtn };
                 Array.ForEach(menuBtn, btn => { btn.Checked = false; });
 
                 DashboardDetails();
@@ -87,7 +86,7 @@ namespace LMS {
                 Action2Btn.Visible = true;
                 Action3Btn.Visible = true;
 
-                Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, StaffsBtn };
+                Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, StaffsBtn, SettingsBtn };
                 Array.ForEach(menuBtn, btn => { btn.Checked = false; });
 
                 CustomizeButton(btn: ActionBtn, name: "ADD BOOK", fillColor: Color.FromArgb(77, 200, 86));
@@ -132,7 +131,7 @@ namespace LMS {
                 Action2Btn.Visible = true;
                 Action3Btn.Visible = true;
 
-                Guna2Button[] menuBtn = new[] { MangeBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn };
+                Guna2Button[] menuBtn = new[] { MangeBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn, SettingsBtn };
                 Array.ForEach(menuBtn, btn => { btn.Checked = false; });
 
                 SearchTb.PlaceholderText = "Search By Name";
@@ -147,8 +146,8 @@ namespace LMS {
                 dgv.ShowGrid(dgv: MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: FromDtp.Value.ToString("yyyy-MM-dd"), toDate: ToDtp.Value.ToString("yyyy-MM-dd"));
                 dgv.GridWidth(dgv: MainDgv, widths: new int[] { 175, 300, 250, 200, 200, 200, 150 });
                 if (MainDgv.RowCount > 0) MainDgv.CurrentCell.Selected = false;
-
                 dgv.GridColor(MainDgv);
+
             } else {
                 Guna2Button[] menuBtns = new[] { BooksBtn, DashboardBtn };
                 Array.ForEach(menuBtns, btn => { btn.Checked = false; });
@@ -172,7 +171,7 @@ namespace LMS {
             Action2Btn.Visible = false;
             Action3Btn.Visible = true;
 
-            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, BooksBtn, StaffsBtn };
+            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, BooksBtn, StaffsBtn, SettingsBtn };
             Array.ForEach(menuBtn, btn => { btn.Checked = false; });
 
             TitlePb.Image = Properties.Resources.Members;
@@ -207,7 +206,7 @@ namespace LMS {
                 Action2Btn.Visible = false;
                 Action3Btn.Visible = true;
 
-                Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, BooksBtn };
+                Guna2Button[] menuBtn = new[] { BorrowBooksBtn, MangeBooksBtn, DashboardBtn, MembersBtn, BooksBtn, SettingsBtn };
                 Array.ForEach(menuBtn, btn => { btn.Checked = false; });
 
                 TitlePb.Image = Properties.Resources.Members;
@@ -245,7 +244,7 @@ namespace LMS {
             Action2Btn.Visible = false;
             Action3Btn.Visible = true;
 
-            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn };
+            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn, SettingsBtn };
             Array.ForEach(menuBtn, btn => { btn.Checked = false; });
 
             TitlePb.Image = Properties.Resources.Members;
@@ -263,6 +262,11 @@ namespace LMS {
 
 
         private void SettingsBtn_Click(object sender, EventArgs e) {
+
+            SettingsBtn.Checked = true;
+
+            Guna2Button[] menuBtn = new[] { BorrowBooksBtn, StaffsBtn, DashboardBtn, MembersBtn, BooksBtn, MangeBooksBtn };
+            Array.ForEach(menuBtn, btn => { btn.Checked = false; });
             SettingsForm sf = new SettingsForm();
             sf.ShowDialog();
         }
@@ -307,12 +311,10 @@ namespace LMS {
                                     dgv.ShowGrid(dgv: MainDgv, name: "Books");
                                     dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 250, 250, 100, 250, 100, 100 });
                                     RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm tt");
-
+                                    this.Alert("Process Success!", "Book Deleted Successfully!", AlertForm.EnmType.Success);
                                 } else {
                                     this.Alert("Exception Occure!", "Something was going wrong!", AlertForm.EnmType.Error);
-                                    //MessageBox.Show("Something was going wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-
                             } catch (Exception ex) {
                                 Console.WriteLine("Book Remove Error: " + ex.ToString());
                             } finally {
@@ -359,10 +361,9 @@ namespace LMS {
                                     }
                                     dgv.ShowGrid(dgv: MainDgv, name: "Members");
                                     dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 200, 200, 250, 150, 150, 150 });
-
+                                    this.Alert("Process Success!", "Member Deleted Successfully!", AlertForm.EnmType.Success);
                                 } else {
                                     this.Alert("Exception Occure!", "Something was went wrong!", AlertForm.EnmType.Error);
-                                    //MessageBox.Show("Something was went wrong!", "Exception Occure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
 
                             } catch (Exception ex) {
@@ -380,7 +381,6 @@ namespace LMS {
                     var reader = fn.GetReader(name: "Member Report", searchQuery: mid);
                     var memberDetails = fn.GetList<BorrowBook>(reader);
 
-                    //this.Alert("Alert", memberDetails.Count.ToString(), AlertForm.EnmType.Info);
                     PrintPreviewForm ppfMemberReport = new PrintPreviewForm(memberReport: memberDetails, mid: mid);
                     ppfMemberReport.ShowDialog();
                 }
@@ -422,10 +422,9 @@ namespace LMS {
                                     dgv.ShowGrid(dgv: MainDgv, name: "Staffs");
                                     dgv.GridWidth(dgv: MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
                                     Title2Lbl.Text = "Total Staffs Members: " + fn.GetNumberOf(name: "Staffs");
-
+                                    this.Alert("Process Success!", "Staff Member Deleted Successfully!", AlertForm.EnmType.Success);
                                 } else {
                                     this.Alert("Exception Occur", "Something was went wrong!", AlertForm.EnmType.Error);
-                                    //MessageBox.Show("Something was went wrong!", "Exception Occur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
 
                             } catch (Exception ex) {
@@ -482,7 +481,7 @@ namespace LMS {
                     manageBooksForm.ShowDialog();
                     break;
                 case "NEW BORROW":
-                    BorrowBooksForm borrowBooksForm = new BorrowBooksForm();
+                    BorrowBooksForm borrowBooksForm = new BorrowBooksForm(mf: this);
                     borrowBooksForm.Show();
                     break;
             }
@@ -626,7 +625,7 @@ namespace LMS {
             Array.ForEach(labels, x => { x.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt"); });
 
             Guna2HtmlLabel[] mainLabels = new[] { BooksLbl, MembersLbl, ManageBooksLbl, PendingBooksLbl, ReturnBooksLbl, IssuedBooksLbl, MonthlyBooksLbl };
-            string[] names = new[] { "Books", "Members", "Manage Books", "Pending Books", "Returned Books", "Issued Books", "Monthly Books" };
+            string[] names = new[] { "Books Qty", "Members", "Manage Books", "Pending Books", "Returned Books", "Issued Books", "Monthly Books" };
 
             foreach (var lbl in mainLabels.Select((name, index) => (name, index))) {
                 lbl.name.Text = fn.GetNumberOf(name: names[lbl.index]).ToString();

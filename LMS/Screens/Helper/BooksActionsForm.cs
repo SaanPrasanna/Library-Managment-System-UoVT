@@ -52,7 +52,7 @@ namespace LMS {
             SqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
             try {
-                string query = "SELECT title, author, pid, category, price, quantity FROM books WHERE isbn = @isbn;";
+                string query = "SELECT title, author, pid, price, quantity, category FROM books WHERE isbn = @isbn;";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = isbn;
@@ -61,11 +61,11 @@ namespace LMS {
                 DataTable table = new DataTable();
                 adapter.Fill(table);
 
-                Guna2TextBox[] tb = new[] { TitleTb, AuthorTb, PublisherTb, CategoryTb, PriceTb, QtyTB };
+                Guna2TextBox[] tb = new[] { TitleTb, AuthorTb, PublisherTb, PriceTb, QtyTB };
                 foreach (var textBox in tb.Select((name, index) => (name, index))) {
                     textBox.name.Text = table.Rows[0][textBox.index].ToString();
                 }
-
+                CategoryCb.Text = table.Rows[0][5].ToString();
             } catch (Exception ex) {
                 Console.WriteLine("Error: " + ex.ToString());
             } finally {
@@ -93,7 +93,7 @@ namespace LMS {
             conn.Open();
 
             if (ISBNTb.Text != string.Empty && TitleTb.Text != string.Empty && AuthorTb.Text != string.Empty
-                && CategoryTb.Text != string.Empty && PriceTb.Text != string.Empty && PublisherTb.Text != string.Empty && QtyTB.Text != string.Empty) {
+                && CategoryCb.Text != string.Empty && PriceTb.Text != string.Empty && PublisherTb.Text != string.Empty && QtyTB.Text != string.Empty) {
 
                 if (ActionBtn.Text == "ADD BOOK") {
 
@@ -104,7 +104,7 @@ namespace LMS {
                         cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;
                         cmd.Parameters.Add("@title", SqlDbType.NVarChar, 150).Value = TitleTb.Text;
                         cmd.Parameters.Add("@author", SqlDbType.NVarChar, 100).Value = AuthorTb.Text;
-                        cmd.Parameters.Add("@category", SqlDbType.VarChar, 20).Value = CategoryTb.Text;
+                        cmd.Parameters.Add("@category", SqlDbType.VarChar, 20).Value = CategoryCb.Text;
                         cmd.Parameters.Add("@price", SqlDbType.Decimal).Value = PriceTb.Text;
                         cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = Convert.ToInt32(QtyTB.Text);
                         cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
@@ -150,7 +150,7 @@ namespace LMS {
                         SqlCommand cmd = new SqlCommand(query, conn);
                         cmd.Parameters.Add("@title", SqlDbType.NVarChar, 150).Value = TitleTb.Text;
                         cmd.Parameters.Add("@author", SqlDbType.NVarChar, 100).Value = AuthorTb.Text;
-                        cmd.Parameters.Add("@category", SqlDbType.VarChar, 20).Value = CategoryTb.Text;
+                        cmd.Parameters.Add("@category", SqlDbType.VarChar, 20).Value = CategoryCb.Text;
                         cmd.Parameters.Add("@price", SqlDbType.Decimal).Value = PriceTb.Text;
                         cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PublisherTb.Text;
                         cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;

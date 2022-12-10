@@ -37,13 +37,12 @@ namespace LMS.Screens.Primary {
                         Properties.Settings.Default.accountType = dt.Rows[0][4].ToString();
                         this.Alert("Access Granted!", "Login as " + Properties.Settings.Default.fullName + "!", AlertForm.EnmType.Success);
 
-
-                        //MainForm mf = new MainForm();
-                        //this.Hide();
-                        //mf.Show();
-                        SplashForm splashForm = new SplashForm();
+                        MainForm mf = new MainForm();
                         this.Hide();
-                        splashForm.Show();
+                        mf.Show();
+                        //SplashForm splashForm = new SplashForm();
+                        //this.Hide();
+                        //splashForm.Show();
                     } else {
                         this.Alert("Access Denied!", "Invalid Username or Password!", AlertForm.EnmType.Error);
                     }
@@ -78,6 +77,8 @@ namespace LMS.Screens.Primary {
                     this.Close();
                     this.Dispose();
                 }
+            } else if (e.KeyCode == Keys.Enter) {
+                LoginBtn_Click(sender, e);
             }
         }
         #endregion Key Events

@@ -145,20 +145,20 @@ namespace LMS {
 
                                 GridControlSettings dgv = new GridControlSettings();
 
-                                if (mf.MainDgv.ColumnCount == 0) {
-
-                                    Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
-                                    Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
-                                    string[] names = { "Modify", "Remove" };
-
-                                    dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                }
-                                dgv.ShowGrid(dgv: mf.MainDgv, name: "Staffs");
-                                dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
-
                                 if (Properties.Settings.Default.id == SIDTb.Text) {
                                     Properties.Settings.Default.id = SIDTb.Text;
                                     mf.FullNameLbl.Text = FnameTb.Text + " " + LnameTb.Text;
+                                } else {
+                                    if (mf.MainDgv.ColumnCount == 0) {
+
+                                        Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91) };
+                                        Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91) };
+                                        string[] names = { "Modify", "Remove" };
+
+                                        dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                    }
+                                    dgv.ShowGrid(dgv: mf.MainDgv, name: "Staffs");
+                                    dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 150, 150, 150, 400, 200 });
                                 }
                                 this.Alert("Process Success!", "Staff updated successfully!", AlertForm.EnmType.Success);
                                 this.Close();
@@ -174,7 +174,7 @@ namespace LMS {
 
                     }
                 } else {
-                    this.Alert("Warning", "Please enter Strong Password!", AlertForm.EnmType.Warning);
+                    this.Alert("Warning", "Weak Password found!\nPlease enter Strong Password!", AlertForm.EnmType.Warning);
                 }
             } else {
                 this.Alert("Warning", "Fields can't be empty!\nPlease fill all fields and submit again.", AlertForm.EnmType.Warning);

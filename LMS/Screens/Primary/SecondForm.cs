@@ -85,7 +85,6 @@ namespace LMS {
                     publisher.ShowDialog();
                 } else if (e.ColumnIndex == 1) {
                     this.Alert("Disabled Function", "Publishers removed forbidden!", AlertForm.EnmType.Error);
-                    //MessageBox.Show("Publishers removed forbidden!", "Disabled Function", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             } else if (TitleLbl.Text == "Pending List") {
@@ -158,7 +157,6 @@ namespace LMS {
                         this.Close();
                     } else {
                         this.Alert("Warning!", "Reached maximum number of books borrowing\nReleased Borrowed books first!", AlertForm.EnmType.Warning);
-                        //MessageBox.Show("Reached maximum number of books borrowing", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             } else if (title == "Choose Books") {
@@ -363,7 +361,7 @@ namespace LMS {
 
             mf.MainDgv.Columns.Clear();
             dgv.ShowGrid(dgv: mf.MainDgv, name: "Borrow Books", searchQuery: SearchTb.Text, fromDate: mf.FromDtp.Value.ToString("yyyy-MM-dd"), toDate: mf.ToDtp.Value.ToString("yyyy-MM-dd"));
-            dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 200, 250, 250, 200, 200, 200 });
+            dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 175, 300, 250, 200, 200, 200, 150 });
             if (mf.MainDgv.RowCount > 0) mf.MainDgv.CurrentCell.Selected = false;
 
             dgv.GridColor(mf.MainDgv);

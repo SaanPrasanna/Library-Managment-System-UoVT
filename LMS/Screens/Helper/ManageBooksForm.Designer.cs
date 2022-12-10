@@ -172,6 +172,7 @@ namespace LMS {
             this.DescriptionTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.DescriptionTb.Location = new System.Drawing.Point(754, 299);
             this.DescriptionTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DescriptionTb.MaxLength = 50;
             this.DescriptionTb.Multiline = true;
             this.DescriptionTb.Name = "DescriptionTb";
             this.DescriptionTb.PasswordChar = '\0';
@@ -418,6 +419,7 @@ namespace LMS {
             this.SearchTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.SearchTb.Location = new System.Drawing.Point(28, 23);
             this.SearchTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SearchTb.MaxLength = 50;
             this.SearchTb.Name = "SearchTb";
             this.SearchTb.PasswordChar = '\0';
             this.SearchTb.PlaceholderText = "Search By Name";

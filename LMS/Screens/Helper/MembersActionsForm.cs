@@ -11,7 +11,6 @@ using LMS.Utils.Core;
 using LMS.Utils.Connection;
 using LMS.Screens.Widgets;
 using System.IO;
-using static LMS.Utils.Core.Functions;
 
 namespace LMS {
     public partial class MembersActionsForm : Form {
@@ -31,7 +30,12 @@ namespace LMS {
 
             if (title == "Add Member") {
 
-                if (config.GetValue("Numbers", "RenewDate") == null) {
+                try {
+                    if (config.GetValue("Numbers", "RenewDate") == null) {
+                        config.SetValue("Numbers", "RenewDate", 365);
+                        config.Save();
+                    }
+                } catch {
                     config.SetValue("Numbers", "RenewDate", 365);
                     config.Save();
                 }
@@ -227,20 +231,19 @@ namespace LMS {
                                     Console.WriteLine("Success");
 
                                     if (rowCount > 0) {
-
-                                        if (mf.MainDgv.ColumnCount == 0) {
-
-                                            Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91), Color.FromArgb(94, 148, 255) };
-                                            Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91), Color.FromArgb(94, 120, 255) };
-                                            string[] names = { "Modify", "Remove", "Print Report" };
-
-                                            dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
-                                        }
-                                        dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");
-                                        dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 0, 150, 150, 200, 200, 250, 150, 150, 150 });
-
                                         if (Properties.Settings.Default.id == MIDTb.Text) {
                                             mf.MemberDashboard(visible: true);
+                                        } else {
+                                            if (mf.MainDgv.ColumnCount == 0) {
+
+                                                Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91), Color.FromArgb(94, 148, 255) };
+                                                Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91), Color.FromArgb(94, 120, 255) };
+                                                string[] names = { "Modify", "Remove", "Print Report" };
+
+                                                dgv.GridButtons(dgv: mf.MainDgv, names: names, backColors: backColors, selectionColors: selectColors);
+                                            }
+                                            dgv.ShowGrid(dgv: mf.MainDgv, name: "Members");
+                                            dgv.GridWidth(dgv: mf.MainDgv, widths: new int[] { 0, 0, 0, 150, 150, 200, 200, 250, 150, 150, 150 });
                                         }
                                         this.Alert("Process Success!", "Member updated successfully!", AlertForm.EnmType.Info);
                                         this.Close();
@@ -256,7 +259,7 @@ namespace LMS {
                                 }
                             }
                         } else {
-                            this.Alert("Warning!", "Please enter Strong Password!", AlertForm.EnmType.Warning);
+                            this.Alert("Warning!", "Weak Password found!\nPlease enter Strong Password!", AlertForm.EnmType.Warning);
                         }
                     } else {
                         this.Alert("Warning!", "Please enter valid email address!", AlertForm.EnmType.Warning);
@@ -273,9 +276,13 @@ namespace LMS {
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e) {
-            if (config.GetValue("Numbers", "RenewDate") == null) {
-                config.SetValue("Numbers", "RenewDate", 365);
-                config.Save();
+            try {
+                if (config.GetValue("Numbers", "RenewDate") == null) {
+                    config.SetValue("Numbers", "RenewDate", 365);
+                    config.Save();
+                }
+            } catch (Exception ex) {
+                Console.WriteLine("Error || Extracting Details from Settings.cnf ||" + ex.ToString());
             }
 
             ReNewDateTb.Text = DateTime.Now.AddDays(Convert.ToInt32(config.GetValue("Numbers", "RenewDate"))).ToString("yyyy-MM-dd");

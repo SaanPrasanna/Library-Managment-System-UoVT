@@ -76,8 +76,11 @@ namespace LMS.Utils.Core {
                     case "Publishers":
                         query = "SELECT COUNT(*) FROM " + name.ToLower() + " WHERE is_removed = 0;";
                         break;
+                    case "Books Qty":
+                        query = "SELECT SUM(quantity) FROM books WHERE is_removed = 0;";
+                        break;
                     case "Manage Books":
-                        query = "SELECT COUNT(*) FROM books_manage WHERE date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%';";
+                        query = "SELECT COUNT(*) FROM books_manage WHERE date LIKE '%" + DateTime.Now.ToString("yyyy-MM-dd") + "%';";
                         break;
                     case "Returned Books":
                         query = "SELECT COUNT(*) FROM borrow_books WHERE status = 'Returned'; ";
@@ -110,7 +113,7 @@ namespace LMS.Utils.Core {
                         query = "SELECT fines_fee FROM borrow_books WHERE return_date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%'";
                         break;
                     case "Monthly Books":
-                        query = "SELECT COUNT(*) FROM books WHERE date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%'";
+                        query = "SELECT SUM(quantity) FROM books WHERE date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%' AND is_removed = 0;";
                         break;
                     case "Member by Email":
                         query = "SELECT COUNT(*) FROM members WHERE is_removed = '0' AND email = '" + value + "'";

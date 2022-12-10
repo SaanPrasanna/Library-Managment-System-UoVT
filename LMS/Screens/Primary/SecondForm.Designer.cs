@@ -154,6 +154,7 @@ namespace LMS {
             this.SearchTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.SearchTb.Location = new System.Drawing.Point(578, 36);
             this.SearchTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SearchTb.MaxLength = 50;
             this.SearchTb.Name = "SearchTb";
             this.SearchTb.PasswordChar = '\0';
             this.SearchTb.PlaceholderText = "Search here";

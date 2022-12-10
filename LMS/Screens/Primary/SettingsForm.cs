@@ -1,6 +1,7 @@
 ﻿using Guna.UI2.WinForms;
 using LMS.Screens.Widgets;
 using LMS.Utils.Connection;
+using LMS.Utils.Core;
 using LMS.Utils.Models;
 using Salaros.Configuration;
 using System;
@@ -12,6 +13,7 @@ namespace LMS.Screens.Primary {
     public partial class SettingsForm : Form {
 
         private readonly ConfigParser config = new ConfigParser(Application.StartupPath + @"\settings.cnf");
+        private readonly Functions fn = new Functions();
 
         public SettingsForm() {
             InitializeComponent();
@@ -95,11 +97,9 @@ namespace LMS.Screens.Primary {
 
                 if (cmd.ExecuteNonQuery() > 0 && cmd2.ExecuteNonQuery() > 0) {
                     this.Alert("Process Success!", "Settings Updated!", AlertForm.EnmType.Success);
-                    //MessageBox.Show("Settings Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             } catch (Exception ex) {
                 this.Alert("Process Failed!", "Settigs update failed!", AlertForm.EnmType.Warning);
-                //MessageBox.Show("Settigs update failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Console.WriteLine("Error: " + ex.ToString());
             } finally {
                 Console.ReadLine();
@@ -134,18 +134,20 @@ namespace LMS.Screens.Primary {
         }
         private void SaveLibraryDetailsBtn_Click(object sender, EventArgs e) {
             try {
-                if (!string.IsNullOrEmpty(LNameTb.Text) && !string.IsNullOrEmpty(LNameTb.Text) && !string.IsNullOrEmpty(LNameTb.Text) && !string.IsNullOrEmpty(LNameTb.Text)) {
+                if (!string.IsNullOrEmpty(LNameTb.Text) && !string.IsNullOrEmpty(LAddressTb.Text) && !string.IsNullOrEmpty(LTpTb.Text) && !string.IsNullOrEmpty(LEmailTb.Text)) {
+                    if (fn.IsEmail(LEmailTb.Text)) {
+                        Guna2TextBox[] LDetails = { LNameTb, LAddressTb, LTpTb, LEmailTb };
+                        string[] names = { "Name", "Address", "TP", "Email" };
 
-                    Guna2TextBox[] LDetails = { LNameTb, LAddressTb, LTpTb, LEmailTb };
-                    string[] names = { "Name", "Address", "TP", "Email" };
-
-                    for (int i = 0; i < names.Length; i++) {
-                        config.SetValue("Strings", names[i], LDetails[i].Text);
-                        config.Save();
+                        for (int i = 0; i < names.Length; i++) {
+                            config.SetValue("Strings", names[i], LDetails[i].Text);
+                            config.Save();
+                        }
+                        this.Alert("Process Success!", "Settings Updated!", AlertForm.EnmType.Success);
+                    } else {
+                        this.Alert("Warning!", "Email Validation Failed!", AlertForm.EnmType.Warning);
                     }
-                    this.Alert("Process Success!", "Settings Updated!", AlertForm.EnmType.Success);
                 }
-
             } catch (Exception ex) {
                 this.Alert("Process Failed!", "Settings update failed!", AlertForm.EnmType.Warning);
                 Console.WriteLine("Error: || Settings Config ||\n" + ex.ToString());

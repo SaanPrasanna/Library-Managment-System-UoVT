@@ -41,7 +41,6 @@ namespace LMS {
             this.ISBNPb = new System.Windows.Forms.PictureBox();
             this.TitleTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.AuthorTb = new Guna.UI2.WinForms.Guna2TextBox();
-            this.CategoryTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.PriceTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.ActionBtn = new Guna.UI2.WinForms.Guna2Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -51,6 +50,7 @@ namespace LMS {
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.QtyLbl = new System.Windows.Forms.Label();
             this.QtyTB = new Guna.UI2.WinForms.Guna2TextBox();
+            this.CategoryCb = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ISBNPb)).BeginInit();
@@ -161,7 +161,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label10.AutoSize = true;
             this.Label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label10.Location = new System.Drawing.Point(17, 402);
+            this.Label10.Location = new System.Drawing.Point(17, 417);
             this.Label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(43, 20);
@@ -175,7 +175,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label8.AutoSize = true;
             this.Label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label8.Location = new System.Drawing.Point(17, 357);
+            this.Label8.Location = new System.Drawing.Point(17, 372);
             this.Label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(72, 20);
@@ -189,7 +189,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label7.AutoSize = true;
             this.Label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label7.Location = new System.Drawing.Point(17, 222);
+            this.Label7.Location = new System.Drawing.Point(17, 237);
             this.Label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(38, 20);
@@ -203,7 +203,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label6.AutoSize = true;
             this.Label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label6.Location = new System.Drawing.Point(17, 267);
+            this.Label6.Location = new System.Drawing.Point(17, 282);
             this.Label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(57, 20);
@@ -227,7 +227,7 @@ namespace LMS {
             // ISBNPb
             // 
             this.ISBNPb.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ISBNPb.Location = new System.Drawing.Point(128, 130);
+            this.ISBNPb.Location = new System.Drawing.Point(128, 120);
             this.ISBNPb.Margin = new System.Windows.Forms.Padding(2);
             this.ISBNPb.Name = "ISBNPb";
             this.ISBNPb.Size = new System.Drawing.Size(168, 93);
@@ -252,8 +252,9 @@ namespace LMS {
             this.TitleTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TitleTb.HoverState.Parent = this.TitleTb;
             this.TitleTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.TitleTb.Location = new System.Drawing.Point(128, 213);
+            this.TitleTb.Location = new System.Drawing.Point(128, 228);
             this.TitleTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TitleTb.MaxLength = 150;
             this.TitleTb.Name = "TitleTb";
             this.TitleTb.PasswordChar = '\0';
             this.TitleTb.PlaceholderText = "";
@@ -279,8 +280,9 @@ namespace LMS {
             this.AuthorTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AuthorTb.HoverState.Parent = this.AuthorTb;
             this.AuthorTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.AuthorTb.Location = new System.Drawing.Point(128, 258);
+            this.AuthorTb.Location = new System.Drawing.Point(128, 273);
             this.AuthorTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AuthorTb.MaxLength = 100;
             this.AuthorTb.Name = "AuthorTb";
             this.AuthorTb.PasswordChar = '\0';
             this.AuthorTb.PlaceholderText = "";
@@ -288,33 +290,6 @@ namespace LMS {
             this.AuthorTb.ShadowDecoration.Parent = this.AuthorTb;
             this.AuthorTb.Size = new System.Drawing.Size(333, 36);
             this.AuthorTb.TabIndex = 2;
-            // 
-            // CategoryTb
-            // 
-            this.CategoryTb.Animated = true;
-            this.CategoryTb.BorderRadius = 15;
-            this.CategoryTb.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.CategoryTb.DefaultText = "";
-            this.CategoryTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.CategoryTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.CategoryTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.CategoryTb.DisabledState.Parent = this.CategoryTb;
-            this.CategoryTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.CategoryTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CategoryTb.FocusedState.Parent = this.CategoryTb;
-            this.CategoryTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
-            this.CategoryTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CategoryTb.HoverState.Parent = this.CategoryTb;
-            this.CategoryTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.CategoryTb.Location = new System.Drawing.Point(128, 348);
-            this.CategoryTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.CategoryTb.Name = "CategoryTb";
-            this.CategoryTb.PasswordChar = '\0';
-            this.CategoryTb.PlaceholderText = "";
-            this.CategoryTb.SelectedText = "";
-            this.CategoryTb.ShadowDecoration.Parent = this.CategoryTb;
-            this.CategoryTb.Size = new System.Drawing.Size(206, 36);
-            this.CategoryTb.TabIndex = 4;
             // 
             // PriceTb
             // 
@@ -333,8 +308,9 @@ namespace LMS {
             this.PriceTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PriceTb.HoverState.Parent = this.PriceTb;
             this.PriceTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.PriceTb.Location = new System.Drawing.Point(128, 393);
+            this.PriceTb.Location = new System.Drawing.Point(128, 408);
             this.PriceTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PriceTb.MaxLength = 12;
             this.PriceTb.Name = "PriceTb";
             this.PriceTb.PasswordChar = '\0';
             this.PriceTb.PlaceholderText = "";
@@ -355,7 +331,7 @@ namespace LMS {
             this.ActionBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActionBtn.ForeColor = System.Drawing.Color.White;
             this.ActionBtn.HoverState.Parent = this.ActionBtn;
-            this.ActionBtn.Location = new System.Drawing.Point(342, 477);
+            this.ActionBtn.Location = new System.Drawing.Point(342, 499);
             this.ActionBtn.Name = "ActionBtn";
             this.ActionBtn.ShadowDecoration.Parent = this.ActionBtn;
             this.ActionBtn.Size = new System.Drawing.Size(119, 38);
@@ -370,7 +346,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 312);
+            this.label2.Location = new System.Drawing.Point(16, 327);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 20);
@@ -395,7 +371,7 @@ namespace LMS {
             this.PublisherTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PublisherTb.HoverState.Parent = this.PublisherTb;
             this.PublisherTb.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.PublisherTb.Location = new System.Drawing.Point(127, 303);
+            this.PublisherTb.Location = new System.Drawing.Point(127, 318);
             this.PublisherTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PublisherTb.Name = "PublisherTb";
             this.PublisherTb.PasswordChar = '\0';
@@ -415,7 +391,7 @@ namespace LMS {
             this.ChooseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChooseBtn.ForeColor = System.Drawing.Color.White;
             this.ChooseBtn.HoverState.Parent = this.ChooseBtn;
-            this.ChooseBtn.Location = new System.Drawing.Point(382, 301);
+            this.ChooseBtn.Location = new System.Drawing.Point(382, 316);
             this.ChooseBtn.Name = "ChooseBtn";
             this.ChooseBtn.ShadowDecoration.Parent = this.ChooseBtn;
             this.ChooseBtn.Size = new System.Drawing.Size(79, 38);
@@ -435,7 +411,7 @@ namespace LMS {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.QtyLbl.AutoSize = true;
             this.QtyLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QtyLbl.Location = new System.Drawing.Point(16, 446);
+            this.QtyLbl.Location = new System.Drawing.Point(16, 461);
             this.QtyLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.QtyLbl.Name = "QtyLbl";
             this.QtyLbl.Size = new System.Drawing.Size(110, 20);
@@ -459,8 +435,9 @@ namespace LMS {
             this.QtyTB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.QtyTB.HoverState.Parent = this.QtyTB;
             this.QtyTB.IconLeftSize = new System.Drawing.Size(21, 21);
-            this.QtyTB.Location = new System.Drawing.Point(127, 437);
+            this.QtyTB.Location = new System.Drawing.Point(127, 452);
             this.QtyTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.QtyTB.MaxLength = 7;
             this.QtyTB.Name = "QtyTB";
             this.QtyTB.PasswordChar = '\0';
             this.QtyTB.PlaceholderText = "";
@@ -470,16 +447,49 @@ namespace LMS {
             this.QtyTB.TabIndex = 6;
             this.QtyTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QtyTB_KeyPress);
             // 
+            // CategoryCb
+            // 
+            this.CategoryCb.Animated = true;
+            this.CategoryCb.AutoCompleteCustomSource.AddRange(new string[] {
+            "Student",
+            "Others"});
+            this.CategoryCb.BackColor = System.Drawing.Color.Transparent;
+            this.CategoryCb.BorderRadius = 15;
+            this.CategoryCb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CategoryCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CategoryCb.FocusedColor = System.Drawing.Color.Empty;
+            this.CategoryCb.FocusedState.Parent = this.CategoryCb;
+            this.CategoryCb.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.CategoryCb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.CategoryCb.FormattingEnabled = true;
+            this.CategoryCb.HoverState.Parent = this.CategoryCb;
+            this.CategoryCb.ItemHeight = 30;
+            this.CategoryCb.Items.AddRange(new object[] {
+            "Novel",
+            "Science fiction",
+            "Education",
+            "Adventure stories",
+            "Horror",
+            "Mystery",
+            "Historical fiction",
+            "Others"});
+            this.CategoryCb.ItemsAppearance.Parent = this.CategoryCb;
+            this.CategoryCb.Location = new System.Drawing.Point(128, 363);
+            this.CategoryCb.Name = "CategoryCb";
+            this.CategoryCb.ShadowDecoration.Parent = this.CategoryCb;
+            this.CategoryCb.Size = new System.Drawing.Size(206, 36);
+            this.CategoryCb.TabIndex = 198;
+            // 
             // BooksActionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 524);
+            this.ClientSize = new System.Drawing.Size(475, 546);
+            this.Controls.Add(this.CategoryCb);
             this.Controls.Add(this.ChooseBtn);
             this.Controls.Add(this.ActionBtn);
             this.Controls.Add(this.QtyTB);
             this.Controls.Add(this.PriceTb);
-            this.Controls.Add(this.CategoryTb);
             this.Controls.Add(this.PublisherTb);
             this.Controls.Add(this.AuthorTb);
             this.Controls.Add(this.TitleTb);
@@ -526,7 +536,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2TextBox AuthorTb;
         private Guna.UI2.WinForms.Guna2TextBox TitleTb;
         private Guna.UI2.WinForms.Guna2TextBox PriceTb;
-        private Guna.UI2.WinForms.Guna2TextBox CategoryTb;
         private Guna.UI2.WinForms.Guna2Button ActionBtn;
         private System.Windows.Forms.ToolTip toolTip1;
         private Guna.UI2.WinForms.Guna2Button ChooseBtn;
@@ -536,5 +545,6 @@ namespace LMS {
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm;
         private Guna.UI2.WinForms.Guna2TextBox QtyTB;
         internal System.Windows.Forms.Label QtyLbl;
+        private Guna.UI2.WinForms.Guna2ComboBox CategoryCb;
     }
 }

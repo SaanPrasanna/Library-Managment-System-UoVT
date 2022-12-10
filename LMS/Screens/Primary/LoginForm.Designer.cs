@@ -161,6 +161,7 @@ namespace LMS.Screens.Primary {
             this.UsernameTB.HoverState.Parent = this.UsernameTB;
             this.UsernameTB.Location = new System.Drawing.Point(528, 316);
             this.UsernameTB.Margin = new System.Windows.Forms.Padding(4);
+            this.UsernameTB.MaxLength = 100;
             this.UsernameTB.Name = "UsernameTB";
             this.UsernameTB.PasswordChar = '\0';
             this.UsernameTB.PlaceholderForeColor = System.Drawing.Color.Black;
@@ -191,6 +192,7 @@ namespace LMS.Screens.Primary {
             this.PasswordTB.HoverState.Parent = this.PasswordTB;
             this.PasswordTB.Location = new System.Drawing.Point(528, 384);
             this.PasswordTB.Margin = new System.Windows.Forms.Padding(4);
+            this.PasswordTB.MaxLength = 100;
             this.PasswordTB.Name = "PasswordTB";
             this.PasswordTB.PasswordChar = '●';
             this.PasswordTB.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
