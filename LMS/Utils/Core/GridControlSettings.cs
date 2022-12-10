@@ -84,51 +84,6 @@ namespace LMS.Utils.Core {
             }
         }
 
-        // Deprecated Functoin replaced by GridButtons
-        public void GridButtonsDeprecated(DataGridView dgv) {
-
-            DataGridViewButtonColumn btn = new DataGridViewButtonColumn {
-                UseColumnTextForButtonValue = true,
-                Name = "",
-                Text = "Modify",
-                FlatStyle = FlatStyle.Popup
-            };
-            btn.InheritedStyle.SelectionForeColor = Color.White;
-            btn.InheritedStyle.SelectionBackColor = Color.FromArgb(249, 200, 55);
-            btn.InheritedStyle.BackColor = Color.FromArgb(249, 217, 55);
-            btn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgv.Columns.Add(btn);
-
-            DataGridViewButtonColumn btn2 = new DataGridViewButtonColumn {
-                UseColumnTextForButtonValue = true,
-                Name = "",
-                Text = "Remove",
-                FlatStyle = FlatStyle.Popup
-            };
-            btn2.InheritedStyle.SelectionForeColor = Color.White;
-            btn2.InheritedStyle.SelectionBackColor = Color.FromArgb(230, 98, 91);
-            btn2.InheritedStyle.BackColor = Color.FromArgb(253, 98, 91);
-            btn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgv.Columns.Add(btn2);
-        }
-
-        // Deprecated Functoin replaced by GridButtons
-        public void GridSingleButton(DataGridView dgv, string name) {
-
-            DataGridViewButtonColumn btn = new DataGridViewButtonColumn {
-                UseColumnTextForButtonValue = true,
-                Name = "",
-                Text = name,
-                FlatStyle = FlatStyle.Popup
-            };
-            btn.InheritedStyle.SelectionForeColor = Color.White;
-            btn.InheritedStyle.SelectionBackColor = Color.FromArgb(98, 222, 107);
-            btn.InheritedStyle.BackColor = Color.FromArgb(77, 200, 86);
-            btn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgv.Columns.Add(btn);
-
-        }
-
         public void GridButtons(DataGridView dgv, string[] names, Color[] backColors, Color[] selectionColors) {
             for (int i = 0; i < names.Length; i++) {
                 DataGridViewButtonColumn btn = new DataGridViewButtonColumn {
