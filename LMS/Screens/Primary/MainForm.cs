@@ -11,6 +11,7 @@ using LMS.Utils.Core;
 using LMS.Utils.Connection;
 using LMS.Screens.Widgets;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace LMS {
     public partial class MainForm : Form {
@@ -122,12 +123,12 @@ namespace LMS {
             TitlePb.Image = Properties.Resources.Books;
             RecentUpdateLbl.Text = DateTime.Now.ToString("yyyy-MM-dd, hh:mm:ss tt");
             MainPanel.Show();
+            BorrowBooksBtn.Checked = true;
 
 
             if (fn.IsStaff()) {
                 DateTimePickers(isVisible: true);
                 DashboardPanel.Hide();
-                BorrowBooksBtn.Checked = true;
                 Action2Btn.Visible = true;
                 Action3Btn.Visible = true;
 
@@ -681,7 +682,7 @@ namespace LMS {
         #endregion Methods
 
         #region Member Area
-        public void MemberDashboard(bool visible) {
+        private void MemberDashboard(bool visible) {
             MainPanel.Show();
             MemberHiddenWidgets();
             MemberDynamicWidgets(visible: !visible);
@@ -690,7 +691,9 @@ namespace LMS {
             MainDgv.Visible = !visible;
 
             // Load Data
-            //mid, email, CONCAT(fname, ' ', lname), date, address, telephone
+            LoadMemberData();
+        }
+        public void LoadMemberData() {
             DataTable dt = fn.GetDataTable(name: "Member", value: Properties.Settings.Default.id);
 
             Guna2HtmlLabel[] labels = { MIDLbl, MEmailLbl, MNameLbl, MTpLbl, MAddressLbl };
@@ -700,12 +703,12 @@ namespace LMS {
 
             MJoinDateLbl.Text = Convert.ToDateTime(dt.Rows[0][5]).ToString("yyyy-MM-dd");
             MPendingBooksLbl.Text = fn.GetNumberOf(name: "Already Borrowed Books", value: Properties.Settings.Default.id).ToString();
-            // 6 gender, 7 img
+
             if (dt.Rows[0][7] != DBNull.Value) {
                 MemoryStream ms = new MemoryStream((Byte[])dt.Rows[0][7]);
                 ProfilePicPb.Image = Image.FromStream(ms);
             } else {
-                ProfilePicPb.Image = (dt.Rows[0][6].ToString() == "M")?Properties.Resources.ProfileMale: Properties.Resources.ProfileFemale;
+                ProfilePicPb.Image = (dt.Rows[0][6].ToString() == "M") ? Properties.Resources.ProfileMale : Properties.Resources.ProfileFemale;
             }
         }
 

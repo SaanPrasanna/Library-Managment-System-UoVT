@@ -228,14 +228,12 @@ namespace LMS {
                                     cmd.Parameters.Add("@mid", SqlDbType.VarChar, 6).Value = MIDTb.Text;
 
                                     int rowCount = cmd.ExecuteNonQuery();
-                                    Console.WriteLine("Success");
 
                                     if (rowCount > 0) {
                                         if (Properties.Settings.Default.id == MIDTb.Text) {
-                                            mf.MemberDashboard(visible: true);
+                                            mf.LoadMemberData();
                                         } else {
                                             if (mf.MainDgv.ColumnCount == 0) {
-
                                                 Color[] backColors = { Color.FromArgb(249, 217, 55), Color.FromArgb(253, 98, 91), Color.FromArgb(94, 148, 255) };
                                                 Color[] selectColors = { Color.FromArgb(249, 200, 55), Color.FromArgb(230, 98, 91), Color.FromArgb(94, 120, 255) };
                                                 string[] names = { "Modify", "Remove", "Print Report" };
