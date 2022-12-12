@@ -10,6 +10,7 @@ namespace LMS {
         public BooksActionsForm booksActions;
         public MembersActionsForm membersActions;
 
+        #region FormLoad
         public ChooseForm([Optional] BooksActionsForm booksActions, [Optional] MembersActionsForm membersActions) {
             InitializeComponent();
 
@@ -20,7 +21,9 @@ namespace LMS {
                 dgv.ShowGrid(dgv: ChooseDgv, name: "Publishers");
             }
         }
+        #endregion
 
+        #region Methods
         protected override CreateParams CreateParams {
             get {
                 const int CS_DROPSHADOW = 0x20000;
@@ -30,27 +33,35 @@ namespace LMS {
             }
         }
 
+        #endregion
+
+        #region Grid Cell Click
         private void ChooseDgv_CellEnter(object sender, DataGridViewCellEventArgs e) {
             if (booksActions != null) {
                 booksActions.PublisherTb.Text = ChooseDgv.CurrentRow.Cells[0].Value.ToString();
             }
         }
+        #endregion
 
+        #region Key Events
         private void ChoosePID_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 this.Close();
             }
         }
-
-        private void CloseBtn_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
         private void SearchTb_KeyUp(object sender, KeyEventArgs e) {
 
             if (booksActions != null) {
                 dgv.ShowGrid(dgv: ChooseDgv, name: "Publishers", searchQuery: SearchTb.Text);
             }
         }
+        #endregion
+
+        #region Button Click
+
+        private void CloseBtn_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+        #endregion
     }
 }

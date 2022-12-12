@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using LMS.Utils;
 using Guna.UI2.WinForms;
 using LMS.Utils.Core;
 using LMS.Utils.Connection;
@@ -12,7 +11,8 @@ using LMS.Screens.Widgets;
 
 namespace LMS {
     public partial class PublishersActionsForm : Form {
-        SecondForm pf;
+
+        private readonly SecondForm pf;
         private readonly Functions fn = new Functions();
         private readonly GridControlSettings dgv = new GridControlSettings();
 
@@ -32,42 +32,7 @@ namespace LMS {
             }
         }
 
-        private void LoadData(string pid) {
-            SqlConnection conn = DBUtils.GetDBConnection();
-            conn.Open();
-            try {
-                string query = "SELECT p.Name, pn.Number FROM publishers AS p, publishers_number AS pn WHERE p.pid = pn.pid AND p.pid = @pid;";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = pid;
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                Guna2TextBox[] tb = new[] { NameTb, NumberTb };
-                foreach (var textBox in tb.Select((name, index) => (name, index))) {
-                    textBox.name.Text = table.Rows[0][textBox.index].ToString();
-                }
-
-            } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.ToString());
-            } finally {
-                Console.ReadLine();
-                conn.Close();
-                conn.Dispose();
-            }
-        }
-
-        protected override CreateParams CreateParams {
-            get {
-                const int CS_DROPSHADOW = 0x20000;
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-
+        #region Button Click
         private void ActionBtn_Click(object sender, EventArgs e) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
@@ -167,7 +132,9 @@ namespace LMS {
         private void CloseBtn_Click(object sender, EventArgs e) {
             this.Close();
         }
+        #endregion
 
+        #region Key Events
         private void PublishersActionsForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 this.Close();
@@ -179,9 +146,48 @@ namespace LMS {
                 e.Handled = true;
             }
         }
+        #endregion
+
+        #region Methods
+        private void LoadData(string pid) {
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+            try {
+                string query = "SELECT p.Name, pn.Number FROM publishers AS p, publishers_number AS pn WHERE p.pid = pn.pid AND p.pid = @pid;";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = pid;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                Guna2TextBox[] tb = new[] { NameTb, NumberTb };
+                foreach (var textBox in tb.Select((name, index) => (name, index))) {
+                    textBox.name.Text = table.Rows[0][textBox.index].ToString();
+                }
+
+            } catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.ToString());
+            } finally {
+                Console.ReadLine();
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        protected override CreateParams CreateParams {
+            get {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
         public void Alert(string title, string body, AlertForm.EnmType type) {
             AlertForm alertForm = new AlertForm();
             alertForm.ShowAlert(title: title, body: body, type: type);
         }
+        #endregion
     }
 }

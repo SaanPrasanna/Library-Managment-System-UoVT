@@ -15,7 +15,7 @@ using System.IO;
 namespace LMS {
     public partial class MembersActionsForm : Form {
 
-        MainForm mf;
+        private readonly MainForm mf;
         private readonly Functions fn = new Functions();
         private readonly GridControlSettings dgv = new GridControlSettings();
         private readonly ConfigParser config = new ConfigParser(Application.StartupPath + @"\settings.cnf");

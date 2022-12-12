@@ -12,8 +12,8 @@ using LMS.Screens.Widgets;
 namespace LMS {
     public partial class SecondForm : Form {
 
-        MainForm mf;
-        BorrowBooksForm bbf;
+        private readonly MainForm mf;
+        private readonly BorrowBooksForm bbf;
         private string title, name, mID;
         public int NOB;
         private readonly GridControlSettings dgv = new GridControlSettings();

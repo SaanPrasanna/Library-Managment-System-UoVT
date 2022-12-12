@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using LMS.Utils;
 using Guna.UI2.WinForms;
 using LMS.Utils.Core;
 using LMS.Utils.Connection;
@@ -12,7 +11,8 @@ using LMS.Screens.Widgets;
 
 namespace LMS {
     public partial class StaffsActionsForm : Form {
-        MainForm mf;
+
+        private readonly MainForm mf;
         private readonly Functions fn = new Functions();
         private readonly GridControlSettings dgv = new GridControlSettings();
 
@@ -36,43 +36,7 @@ namespace LMS {
             }
         }
 
-        protected override CreateParams CreateParams {
-            get {
-                const int CS_DROPSHADOW = 0x20000;
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-
-        private void LoadData(string sid) {
-            SqlConnection conn = DBUtils.GetDBConnection();
-            conn.Open();
-            try {
-                string query = "SELECT username, password, fname, lname, address, type FROM staffs WHERE sid = @sid;";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = sid;
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                Guna2TextBox[] tb = new[] { UsernameTb, PasswordTb, FnameTb, LnameTb, AddressTb };
-                foreach (var textBox in tb.Select((name, index) => (name, index))) {
-                    textBox.name.Text = table.Rows[0][textBox.index].ToString();
-                }
-                TypeCb.Text = table.Rows[0][5].ToString();
-
-            } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.ToString());
-            } finally {
-                Console.ReadLine();
-                conn.Close();
-                conn.Dispose();
-            }
-        }
-
+        #region Button Click
         private void ActionBtn_Click(object sender, EventArgs e) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
@@ -184,22 +148,65 @@ namespace LMS {
         private void CloseBtn_Click(object sender, EventArgs e) {
             this.Close();
         }
-
-        private void StaffsActionsForm_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Escape) {
-                this.Close();
-            }
-        }
-
         private void ChangeBtn_Click(object sender, EventArgs e) {
             PasswordTb.Enabled = true;
             PasswordTb.Text = String.Empty;
             PasswordLbl.Text = "New Password";
             ChangeBtn.Visible = false;
         }
+
+        #endregion
+
+        #region Key Event
+        private void StaffsActionsForm_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Escape) {
+                this.Close();
+            }
+        }
+        #endregion
+
+        #region Methods
+        protected override CreateParams CreateParams {
+            get {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
+        private void LoadData(string sid) {
+            SqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+            try {
+                string query = "SELECT username, password, fname, lname, address, type FROM staffs WHERE sid = @sid;";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = sid;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                Guna2TextBox[] tb = new[] { UsernameTb, PasswordTb, FnameTb, LnameTb, AddressTb };
+                foreach (var textBox in tb.Select((name, index) => (name, index))) {
+                    textBox.name.Text = table.Rows[0][textBox.index].ToString();
+                }
+                TypeCb.Text = table.Rows[0][5].ToString();
+
+            } catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.ToString());
+            } finally {
+                Console.ReadLine();
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
         public void Alert(string title, string body, AlertForm.EnmType type) {
             AlertForm alertForm = new AlertForm();
             alertForm.ShowAlert(title: title, body: body, type: type);
         }
+        #endregion
     }
 }

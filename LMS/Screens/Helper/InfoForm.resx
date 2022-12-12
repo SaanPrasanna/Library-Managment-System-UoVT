@@ -120,6 +120,14 @@
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="gunaLabel3.Text" xml:space="preserve">
+    <value>SOF/20/B1/03 - M. M. S. P. Mapa
+SOF/20/B1/33 - D. H. P. M. K. Hewage
+SOF/20/B1/32 - M. P. K. S. Gunarathne
+SOF/20/B1/14 - W. M. H. T. Mandakini
+SOF/20/B1/24 - H. E. R. Madushani
+SOF/20/B1/40 - G. A. D. G. Ganearachchi</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1882,18 +1890,10 @@
         gAEAAIABAADAAwAAwAMAAMADAADgBwAA4AcAAPgfAAA=
 </value>
   </data>
-  <data name="gunaLabel3.Text" xml:space="preserve">
-    <value>SOF/20/B1/03 - M. M. S. P. Mapa
-SOF/20/B1/33 - D. H. P. M. K. Hewage
-SOF/20/B1/32 - M. P. K. S. Gunarathne
-SOF/20/B1/14 - W. M. H. T. Mandakini
-SOF/20/B1/24 - H. E. R. Madushani
-SOF/20/B1/40 - G. A. D. G. Ganearachchi</value>
-  </data>
   <metadata name="guna2AnimateWindow1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>148, 17</value>
   </metadata>
-  <metadata name="guna2DragControl.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bunifuDragControl.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>342, 17</value>
   </metadata>
 </root>

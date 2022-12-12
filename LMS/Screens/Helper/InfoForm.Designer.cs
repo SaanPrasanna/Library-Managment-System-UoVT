@@ -39,7 +39,7 @@ namespace LMS.Screens.Helper {
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.guna2DragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.bunifuDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePb)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
@@ -208,9 +208,12 @@ namespace LMS.Screens.Helper {
             this.gunaLabel1.TabIndex = 1;
             this.gunaLabel1.Text = "Group A, Our Team";
             // 
-            // guna2DragControl
+            // bunifuDragControl
             // 
-            this.guna2DragControl.TargetControl = this.guna2ShadowPanel2;
+            this.bunifuDragControl.Fixed = true;
+            this.bunifuDragControl.Horizontal = true;
+            this.bunifuDragControl.TargetControl = this.guna2ShadowPanel2;
+            this.bunifuDragControl.Vertical = true;
             // 
             // InfoForm
             // 
@@ -249,8 +252,8 @@ namespace LMS.Screens.Helper {
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl;
         private Guna.UI2.WinForms.Guna2Button ThanksBtn;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl;
     }
 }

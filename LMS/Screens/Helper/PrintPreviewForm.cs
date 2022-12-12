@@ -1,17 +1,11 @@
-﻿using LMS.Reports;
-using LMS.Screens.Widgets;
+﻿using LMS.Screens.Widgets;
 using LMS.Utils.Core;
 using LMS.Utils.Models;
 using Salaros.Configuration;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LMS {
@@ -38,36 +32,10 @@ namespace LMS {
             _memberReport = memberReport;
             _mid = mid;
 
-            // Load Heading Details
             ReportHeading();
         }
 
-        private void ReportHeading() {
-            //_name = "LIBRARY MANAGEMENT SYSTEM";
-            //_address = "Kandawala Road, Ratmalana.";
-            //_email = "info@rgenesis.cc";
-            //_tp = "+9411 666 44 11";
-
-            try {
-                // Get Library Details
-                if (config.GetValue("Strings", "Name") == null) {
-                    config.SetValue("Strings", "Name", "LIBRARY MANAGEMENT SYSTEM");
-                    config.SetValue("Strings", "Address", "Kandawala Road, Ratmalana.");
-                    config.SetValue("Strings", "Email", "info@rgenesis.cc");
-                    config.SetValue("Strings", "TP", "011 666 44 11");
-                    config.Save();
-                    this.Alert("Rest Settings!", "Settings reset to default!", AlertForm.EnmType.Warning);
-                }
-            } catch (Exception ex){
-                Console.WriteLine(ex.ToString());
-            }
-            _name = config.GetValue("Strings", "Name");
-            _address = config.GetValue("Strings", "Address");
-            _email = config.GetValue("Strings", "Email");
-            _tp = config.GetValue("Strings", "TP");
-
-        }
-
+        #region FormLoad
         private void PrintPreviewForm_Load(object sender, EventArgs e) {
             guna2ShadowForm.SetShadowForm(this);
             this.TopMost = true;
@@ -138,19 +106,25 @@ namespace LMS {
             } finally {
             }
         }
+        #endregion
 
+        #region Button Click
         private void CloseBtn_Click(object sender, EventArgs e) {
             CleanReport();
             this.Close();
         }
+        #endregion
 
+        #region Key Event
         private void PrintPreviewForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Escape) {
                 CleanReport();
                 this.Close();
             }
         }
+        #endregion
 
+        #region Methods
         public void Alert(string title, string body, AlertForm.EnmType type) {
             AlertForm alertForm = new AlertForm();
             alertForm.ShowAlert(title: title, body: body, type: type);
@@ -187,5 +161,27 @@ namespace LMS {
             } finally {
             }
         }
+
+        private void ReportHeading() {
+
+            try {
+                // Get cnf Details
+                if (config.GetValue("Strings", "Name") == null) {
+                    config.SetValue("Strings", "Name", "LIBRARY MANAGEMENT SYSTEM");
+                    config.SetValue("Strings", "Address", "Kandawala Road, Ratmalana.");
+                    config.SetValue("Strings", "Email", "info@rgenesis.cc");
+                    config.SetValue("Strings", "TP", "011 666 44 11");
+                    config.Save();
+                    this.Alert("Rest Settings!", "Settings reset to default!", AlertForm.EnmType.Warning);
+                }
+            } catch (Exception ex){
+                Console.WriteLine(ex.ToString());
+            }
+            _name = config.GetValue("Strings", "Name");
+            _address = config.GetValue("Strings", "Address");
+            _email = config.GetValue("Strings", "Email");
+            _tp = config.GetValue("Strings", "TP");
+        }
+        #endregion
     }
 }

@@ -2,7 +2,6 @@
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using LMS.Utils;
 using System.Data.SqlClient;
 using Guna.UI2.WinForms;
 using LMS.Utils.Core;
@@ -12,7 +11,7 @@ using LMS.Screens.Widgets;
 namespace LMS {
     public partial class ManageBooksForm : Form {
 
-        MainForm mf;
+        private readonly MainForm mf;
         readonly Functions fn = new Functions();
         readonly GridControlSettings dgv = new GridControlSettings();
 

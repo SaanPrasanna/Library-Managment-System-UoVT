@@ -1,16 +1,10 @@
 ﻿using LMS.Screens.Widgets;
-using LMS.Utils;
 using LMS.Utils.Connection;
 using LMS.Utils.Core;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LMS {
@@ -25,14 +19,22 @@ namespace LMS {
             this.sf = sf;
             this.values = values;
         }
-        protected override CreateParams CreateParams {
-            get {
-                const int CS_DROPSHADOW = 0x20000;
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
+
+        #region Form Load
+
+        private void BooksAcceptForm_Load(object sender, EventArgs e) {
+            FineFeeTB.Text = fn.GetFine(refNo: values[0], isbn: values[1]).ToString("00.00");
+        }
+
+        private void BooksAcceptForm_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Escape) {
+                this.Close();
             }
         }
+        #endregion
+
+        #region Key Events
+
 
         private void RecievedTB_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Enter) {
@@ -115,7 +117,6 @@ namespace LMS {
                 }
             }
         }
-
         private void RecievedTB_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !(e.KeyChar == '.')) {
                 e.Handled = true;
@@ -123,16 +124,6 @@ namespace LMS {
 
             if (e.KeyChar == '.' && RecievedTB.Text.IndexOf('.') > -1) {
                 e.Handled = true;
-            }
-        }
-
-        private void BooksAcceptForm_Load(object sender, EventArgs e) {
-            FineFeeTB.Text = fn.GetFine(refNo: values[0], isbn: values[1]).ToString("00.00");
-        }
-
-        private void BooksAcceptForm_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Escape) {
-                this.Close();
             }
         }
 
@@ -152,10 +143,24 @@ namespace LMS {
                 Console.ReadLine();
             }
         }
+        #endregion
+
+        #region Methods
+        protected override CreateParams CreateParams {
+            get {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
 
         public void Alert(string title, string body, AlertForm.EnmType type) {
             AlertForm alertForm = new AlertForm();
             alertForm.ShowAlert(title: title, body: body, type: type);
         }
+
+        #endregion
+
     }
 }

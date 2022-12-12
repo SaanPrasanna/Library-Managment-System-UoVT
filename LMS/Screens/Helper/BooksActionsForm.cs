@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using ZXing;
-using LMS.Utils;
 using Guna.UI2.WinForms;
 using LMS.Utils.Core;
 using LMS.Utils.Connection;
@@ -16,7 +13,7 @@ using LMS.Screens.Widgets;
 namespace LMS {
     public partial class BooksActionsForm : Form {
 
-        MainForm Mf;
+        private readonly MainForm Mf;
         private readonly GridControlSettings dgv = new GridControlSettings();
 
         public BooksActionsForm(MainForm form, string title, string isbn) {
@@ -39,6 +36,8 @@ namespace LMS {
                 QtyTB.Enabled = false;
             }
         }
+
+        #region Methods
         protected override CreateParams CreateParams {
             get {
                 const int CS_DROPSHADOW = 0x20000;
@@ -74,6 +73,26 @@ namespace LMS {
                 conn.Dispose();
             }
         }
+
+        public void Alert(string title, string body, AlertForm.EnmType type) {
+            AlertForm alertForm = new AlertForm();
+            alertForm.ShowAlert(title: title, body: body, type: type);
+        }
+        #endregion
+
+        #region Button Click
+        private void CloseBtn_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void ChooseBtn_Click(object sender, EventArgs e) {
+            ChooseForm chooseForm = new ChooseForm(booksActions: this);
+            chooseForm.ShowDialog();
+        }
+
+        #endregion
+
+        #region Key Events
 
         private void UsernameTb_TextChanged(object sender, EventArgs e) {
             try {
@@ -199,20 +218,12 @@ namespace LMS {
             }
         }
 
-        private void CloseBtn_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
         private void PriceTb_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
                 e.Handled = true;
             }
         }
 
-        private void ChooseBtn_Click(object sender, EventArgs e) {
-            ChooseForm chooseForm = new ChooseForm(booksActions: this);
-            chooseForm.ShowDialog();
-        }
 
         private void ISBNTb_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
@@ -220,15 +231,12 @@ namespace LMS {
             }
         }
 
-        public void Alert(string title, string body, AlertForm.EnmType type) {
-            AlertForm alertForm = new AlertForm();
-            alertForm.ShowAlert(title: title, body: body, type: type);
-        }
-
         private void QtyTB_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
         }
+        #endregion
+
     }
 }
