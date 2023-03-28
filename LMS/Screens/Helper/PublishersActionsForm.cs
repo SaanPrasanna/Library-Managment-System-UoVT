@@ -44,16 +44,14 @@ namespace LMS {
 
                         try {
 
-                            SqlCommand cmd = new SqlCommand("INSERT INTO publishers VALUES(@pid, @name, @isRemoved);", conn);
+                            SqlCommand cmd = new SqlCommand("addPublisher", conn);
+                            cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
                             cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = NameTb.Text;
+                            cmd.Parameters.Add("@number", SqlDbType.Char, 10).Value = NumberTb.Text;
                             cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
 
-                            SqlCommand cmd2 = new SqlCommand("INSERT INTO publishers_number VALUES(@pid, @number)", conn);
-                            cmd2.Parameters.Add("@number", SqlDbType.Char, 10).Value = NumberTb.Text;
-                            cmd2.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
-
-                            if ((Int32)cmd.ExecuteNonQuery() > 0 && (Int32)cmd2.ExecuteNonQuery() > 0) {
+                            if ((Int32)cmd.ExecuteNonQuery() > 0) {
 
                                 if (pf.SecondDgv.ColumnCount == 0) {
 
@@ -85,15 +83,13 @@ namespace LMS {
                     } else if (ActionBtn.Text == "MODIFY PUBLISHER") {
                         try {
 
-                            SqlCommand cmd = new SqlCommand("UPDATE publishers SET name = @name WHERE pid = @pid;", conn);
-                            cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = NameTb.Text;
+                            SqlCommand cmd = new SqlCommand("modifyPublisher", conn);
+                            cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
+                            cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = NameTb.Text;
+                            cmd.Parameters.Add("@number", SqlDbType.Char, 10).Value = NumberTb.Text;
 
-                            SqlCommand cmd2 = new SqlCommand("UPDATE publishers_number SET number = @number WHERE pid = @pid;", conn);
-                            cmd2.Parameters.Add("@number", SqlDbType.Char, 10).Value = NumberTb.Text;
-                            cmd2.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
-
-                            if ((Int32)cmd.ExecuteNonQuery() > 0 && (Int32)cmd2.ExecuteNonQuery() > 0) {
+                            if ((Int32)cmd.ExecuteNonQuery() > 0 ) {
 
                                 GridControlSettings dgv = new GridControlSettings();
 
