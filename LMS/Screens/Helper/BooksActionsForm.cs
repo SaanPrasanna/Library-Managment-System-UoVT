@@ -90,22 +90,6 @@ namespace LMS {
             chooseForm.ShowDialog();
         }
 
-        #endregion
-
-        #region Key Events
-
-        private void UsernameTb_TextChanged(object sender, EventArgs e) {
-            try {
-                var writer = new BarcodeWriter {
-                    Format = BarcodeFormat.CODE_128
-                };
-                ISBNPb.Image = writer.Write(ISBNTb.Text);
-            } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.ToString());
-            } finally {
-                Console.ReadLine();
-            }
-        }
         private void ActionBtn_Click(object sender, EventArgs e) {
 
             SqlConnection conn = DBUtils.GetDBConnection();
@@ -117,9 +101,9 @@ namespace LMS {
                 if (ActionBtn.Text == "ADD BOOK") {
 
                     try {
-                        string query = "INSERT INTO books VALUES(@isbn, @title, @author, @category, @price, @quantity, @date, @time, @sid, @pid, @isRemoved);";
-
-                        SqlCommand cmd = new SqlCommand(query, conn);
+                        SqlCommand cmd = new SqlCommand("addBook", conn) {
+                            CommandType = CommandType.StoredProcedure
+                        };
                         cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;
                         cmd.Parameters.Add("@title", SqlDbType.NVarChar, 150).Value = TitleTb.Text;
                         cmd.Parameters.Add("@author", SqlDbType.NVarChar, 100).Value = AuthorTb.Text;
@@ -128,7 +112,7 @@ namespace LMS {
                         cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = Convert.ToInt32(QtyTB.Text);
                         cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
                         cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
-                        cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = Properties.Settings.Default.id; //Implemented
+                        cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = Properties.Settings.Default.id;
                         cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PublisherTb.Text;
                         cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
 
@@ -162,11 +146,9 @@ namespace LMS {
                 } else if (ActionBtn.Text == "MODIFY BOOK") {
 
                     try {
-
-                        string query = "UPDATE books SET title = @title, author = @author, category = @category, " +
-                        "price = @price, pid = @pid WHERE isbn = @isbn;";
-
-                        SqlCommand cmd = new SqlCommand(query, conn);
+                        SqlCommand cmd = new SqlCommand("modifyBook", conn) {
+                            CommandType = CommandType.StoredProcedure
+                        };
                         cmd.Parameters.Add("@title", SqlDbType.NVarChar, 150).Value = TitleTb.Text;
                         cmd.Parameters.Add("@author", SqlDbType.NVarChar, 100).Value = AuthorTb.Text;
                         cmd.Parameters.Add("@category", SqlDbType.VarChar, 20).Value = CategoryCb.Text;
@@ -207,6 +189,22 @@ namespace LMS {
 
             } else {
                 this.Alert("Warning!", "Fields can't be empty!\nPlease fill all fields and submit again.!", AlertForm.EnmType.Warning);
+            }
+        }
+        #endregion
+
+        #region Key Events
+
+        private void UsernameTb_TextChanged(object sender, EventArgs e) {
+            try {
+                var writer = new BarcodeWriter {
+                    Format = BarcodeFormat.CODE_128
+                };
+                ISBNPb.Image = writer.Write(ISBNTb.Text);
+            } catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.ToString());
+            } finally {
+                Console.ReadLine();
             }
         }
 
