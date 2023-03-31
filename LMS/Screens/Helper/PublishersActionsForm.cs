@@ -44,8 +44,9 @@ namespace LMS {
 
                         try {
 
-                            SqlCommand cmd = new SqlCommand("addPublisher", conn);
-                            cmd.CommandType = CommandType.StoredProcedure;
+                            SqlCommand cmd = new SqlCommand("addPublisher", conn) {
+                                CommandType = CommandType.StoredProcedure
+                            };
                             cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
                             cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = NameTb.Text;
                             cmd.Parameters.Add("@number", SqlDbType.Char, 10).Value = NumberTb.Text;
@@ -83,8 +84,9 @@ namespace LMS {
                     } else if (ActionBtn.Text == "MODIFY PUBLISHER") {
                         try {
 
-                            SqlCommand cmd = new SqlCommand("modifyPublisher", conn);
-                            cmd.CommandType = CommandType.StoredProcedure;
+                            SqlCommand cmd = new SqlCommand("modifyPublisher", conn) {
+                                CommandType = CommandType.StoredProcedure
+                            };
                             cmd.Parameters.Add("@pid", SqlDbType.VarChar, 6).Value = PIDTb.Text;
                             cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = NameTb.Text;
                             cmd.Parameters.Add("@number", SqlDbType.Char, 10).Value = NumberTb.Text;
@@ -142,7 +144,7 @@ namespace LMS {
                 e.Handled = true;
             }
         }
-        #endregion
+        #endregion Key Events
 
         #region Methods
         private void LoadData(string pid) {
