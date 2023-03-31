@@ -39,8 +39,9 @@ namespace LMS {
                 conn.Open();
 
                 try {
-                    string query = "INSERT INTO books_manage VALUES(@refID, @isbn, @sid, @qty, @action, @description, @date, @time);";
-                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlCommand cmd = new SqlCommand("addBooksManage", conn) {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd.Parameters.Add("@refID", SqlDbType.VarChar, 6).Value = fn.GetID("Books Manage");
                     cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;
                     cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = Properties.Settings.Default.id; // Implemented SID
@@ -50,15 +51,15 @@ namespace LMS {
                     cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.ToString("yyyy-MM-dd");
                     cmd.Parameters.Add("@time", SqlDbType.Time).Value = DateTime.Now.ToString("HH:mm:ss");
 
-                    string query2 = "UPDATE books SET quantity = @qty WHERE isbn = @isbn";
-                    SqlCommand cmd2 = new SqlCommand(query2, conn);
+                    SqlCommand cmd2 = new SqlCommand("updateQty", conn) {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd2.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = ISBNTb.Text;
                     cmd2.Parameters.Add("@qty", SqlDbType.Int).Value = Int32.Parse(FQtyTb.Text);
 
                     if ((Int32)cmd.ExecuteNonQuery() > 0 && (Int32)cmd2.ExecuteNonQuery() > 0) {
 
                         this.Alert("Process Success!", "Book(s) " + ActionCb.Text + ((ActionCb.Text == "Add") ? "ed!" : "d!"), AlertForm.EnmType.Success);
-                        //MessageBox.Show("Book(s) " + ActionCb.Text + ((ActionCb.Text == "Add") ? "ed!" : "d!"), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         FQtyTb.Text = string.Empty;
                         AQtyTb.Text = string.Empty;
@@ -74,15 +75,12 @@ namespace LMS {
                 } catch (Exception ex) {
                     this.Alert("Process Failed!", "Book(s) " + ActionCb.Text + ((ActionCb.Text == "Add") ? "ed!" : "d!") + " Failed", AlertForm.EnmType.Error);
                     Console.WriteLine("Error: || ManageBOoks ||\n" + ex.ToString());
-                    //MessageBox.Show("Book(s) " + ActionCb.Text + ((ActionCb.Text == "Add") ? "ed!" : "d!") + " Failed : \n" + ex.ToString(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 } finally {
                     conn.Close();
                     Console.ReadLine();
                 }
             } else {
                 this.Alert("Warning!", "Fields can't be empty!", AlertForm.EnmType.Warning);
-                //MessageBox.Show("Fields can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
         }
 
@@ -151,7 +149,6 @@ namespace LMS {
                         AQtyTb.Text = string.Empty;
                         ActionCb.SelectedIndex = -1;
                         this.Alert("Warning!", "Not Enough Quantities to Remove!", AlertForm.EnmType.Warning);
-                        //MessageBox.Show("Not Enough Quantities to Remove!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
