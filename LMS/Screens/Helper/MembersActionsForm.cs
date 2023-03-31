@@ -147,10 +147,10 @@ namespace LMS {
                                 if (fn.GetNumberOf(name: "Member by Email", value: EmailTB.Text) == 0) {
                                     try {
 
-                                        string query = "INSERT INTO members VALUES(@mid, @fname, @lname, @address, @category, " +
-                                            "@date, @time, @renewDate, @sid, @email, @password, @telephone, @isRemoved, @img, @gender);";
+                                        SqlCommand cmd = new SqlCommand("addMember", conn) {
+                                            CommandType = CommandType.StoredProcedure
+                                        };
 
-                                        SqlCommand cmd = new SqlCommand(query, conn);
                                         cmd.Parameters.Add("@mid", SqlDbType.VarChar, 6).Value = MIDTb.Text;
                                         cmd.Parameters.Add("@fname", SqlDbType.NVarChar, 50).Value = FnameTb.Text;
                                         cmd.Parameters.Add("@lname", SqlDbType.NVarChar, 50).Value = LnameTb.Text;
@@ -205,11 +205,10 @@ namespace LMS {
                             } else if (ActionBtn.Text == "MODIFY MEMBER") {
                                 try {
 
-                                    string query = "UPDATE members SET fname = @fname, lname = @lname, address = @address, category = @category, " +
-                                        "renew_date = @renewDate, email = @email, telephone = @telephone, password = @passowrd, img = @img, gender = @gender" +
-                                        " WHERE mid = @mid;";
+                                    SqlCommand cmd = new SqlCommand("modifyMember", conn) {
+                                        CommandType = CommandType.StoredProcedure
+                                    };
 
-                                    SqlCommand cmd = new SqlCommand(query, conn);
                                     cmd.Parameters.Add("@fname", SqlDbType.NVarChar, 50).Value = FnameTb.Text;
                                     cmd.Parameters.Add("@lname", SqlDbType.NVarChar, 50).Value = LnameTb.Text;
                                     cmd.Parameters.Add("@address", SqlDbType.VarChar, 100).Value = AddressTb.Text;
@@ -217,7 +216,7 @@ namespace LMS {
                                     cmd.Parameters.Add("@renewDate", SqlDbType.Date).Value = DateTime.Parse(ReNewDateTb.Text);
                                     cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = EmailTB.Text;
                                     cmd.Parameters.Add("@telephone", SqlDbType.Char, 10).Value = TelephoneTB.Text;
-                                    cmd.Parameters.Add("@passowrd", SqlDbType.Char, 50).Value = (PasswordTB.Enabled == true) ? fn.GetSHA1Hash(PasswordTB.Text) : PasswordTB.Text;
+                                    cmd.Parameters.Add("@password", SqlDbType.Char, 50).Value = (PasswordTB.Enabled == true) ? fn.GetSHA1Hash(PasswordTB.Text) : PasswordTB.Text;
                                     if (ProfilePicPb.Image != null) {
                                         ImageConverter converter = new ImageConverter();
                                         cmd.Parameters.Add("@img", SqlDbType.Image).Value = (byte[])converter.ConvertTo(ProfilePicPb.Image, typeof(byte[]));/*File.ReadAllBytes(ProfilePicPb.ImageLocation)*/
