@@ -49,10 +49,9 @@ namespace LMS {
 
                         try {
 
-                            string query = "INSERT INTO staffs VALUES(@sid, @username, @password, @fname, @lname, " +
-                                "@address, @type, @isRemoved);";
-
-                            SqlCommand cmd = new SqlCommand(query, conn);
+                            SqlCommand cmd = new SqlCommand("addStaff", conn) {
+                                CommandType = CommandType.StoredProcedure
+                            };
                             cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = SIDTb.Text;
                             cmd.Parameters.Add("@username", SqlDbType.VarChar, 20).Value = UsernameTb.Text;
                             cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = fn.GetSHA1Hash(PasswordTb.Text);
@@ -62,8 +61,7 @@ namespace LMS {
                             cmd.Parameters.Add("@type", SqlDbType.VarChar, 10).Value = TypeCb.Text;
                             cmd.Parameters.Add("@isRemoved", SqlDbType.TinyInt).Value = 0;
 
-                            int rowCount = (Int32)cmd.ExecuteNonQuery();
-                            if (rowCount > 0) {
+                            if ((Int32)cmd.ExecuteNonQuery() > 0) {
 
                                 if (mf.MainDgv.ColumnCount == 0) {
 
@@ -94,9 +92,9 @@ namespace LMS {
 
                         try {
 
-                            string query = "UPDATE staffs SET password = @password, fname = @fname, lname = @lname, address = @address, type = @type WHERE sid = @sid;";
-
-                            SqlCommand cmd = new SqlCommand(query, conn);
+                            SqlCommand cmd = new SqlCommand("modifyStaff", conn) {
+                                CommandType = CommandType.StoredProcedure
+                            };
                             cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = (PasswordTb.Enabled == true) ? fn.GetSHA1Hash(PasswordTb.Text) : PasswordTb.Text;
                             cmd.Parameters.Add("@fname", SqlDbType.NVarChar, 25).Value = FnameTb.Text;
                             cmd.Parameters.Add("@lname", SqlDbType.NVarChar, 25).Value = LnameTb.Text;
@@ -104,8 +102,7 @@ namespace LMS {
                             cmd.Parameters.Add("@type", SqlDbType.VarChar, 10).Value = TypeCb.Text;
                             cmd.Parameters.Add("@sid", SqlDbType.VarChar, 6).Value = SIDTb.Text;
 
-                            int rowCount = (Int32)cmd.ExecuteNonQuery();
-                            if (rowCount > 0) {
+                            if ((Int32)cmd.ExecuteNonQuery() > 0) {
 
                                 GridControlSettings dgv = new GridControlSettings();
 
