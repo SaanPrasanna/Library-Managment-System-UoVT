@@ -43,16 +43,15 @@ namespace LMS {
                     SqlConnection conn = DBUtils.GetDBConnection();
                     conn.Open();
                     try {
-
-
-                        string query = "UPDATE books SET quantity = @qty WHERE isbn = @isbn;";
-
-                        SqlCommand cmd = new SqlCommand(query, conn);
+                        SqlCommand cmd = new SqlCommand("updateQty", conn) {
+                            CommandType = CommandType.StoredProcedure
+                        };
                         cmd.Parameters.Add("@qty", SqlDbType.Int).Value = (fn.GetNumberOf(name: "Specified Book", value: values[1]) + 1);
                         cmd.Parameters.Add("@isbn", SqlDbType.VarChar, 13).Value = values[1];
 
-                        string query2 = "UPDATE borrow_books SET return_date = @returnDate, status = 'Returned', fines_fee = @finesFee WHERE refno = @refNo AND mid = @mid AND isbn = @isbn;";
-                        SqlCommand cmd2 = new SqlCommand(query2, conn);
+                        SqlCommand cmd2 = new SqlCommand("updateBorrowBook", conn) {
+                            CommandType = CommandType.StoredProcedure
+                        };
                         cmd2.Parameters.Add("@returnDate", SqlDbType.Date).Value = DateTime.Now;
                         cmd2.Parameters.Add("@finesFee", SqlDbType.Decimal).Value = Convert.ToDouble(FineFeeTB.Text);
                         cmd2.Parameters.Add("@refNo", SqlDbType.VarChar, 12).Value = values[0];
