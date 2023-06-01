@@ -52,6 +52,11 @@ namespace LMS.Screens.Primary {
             this.label5 = new System.Windows.Forms.Label();
             this.LNameTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.LocationBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.BackupBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.LocationTb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.dropShadow = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
@@ -61,6 +66,7 @@ namespace LMS.Screens.Primary {
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel2
@@ -101,7 +107,7 @@ namespace LMS.Screens.Primary {
             this.TitleLbl.IsSelectionEnabled = false;
             this.TitleLbl.Location = new System.Drawing.Point(69, 17);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(96, 37);
+            this.TitleLbl.Size = new System.Drawing.Size(91, 34);
             this.TitleLbl.TabIndex = 1;
             this.TitleLbl.Text = "Settings";
             this.TitleLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,8 +139,9 @@ namespace LMS.Screens.Primary {
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(15, 75);
+            this.tabControl.Location = new System.Drawing.Point(15, 73);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(395, 294);
@@ -147,10 +154,10 @@ namespace LMS.Screens.Primary {
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.Label6);
             this.tabPage1.Controls.Add(this.SaveFeeBtn);
-            this.tabPage1.Location = new System.Drawing.Point(4, 32);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(387, 258);
+            this.tabPage1.Size = new System.Drawing.Size(387, 260);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Fine Fee";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -173,8 +180,7 @@ namespace LMS.Screens.Primary {
             this.OthersTB.HoverState.Parent = this.OthersTB;
             this.OthersTB.IconLeftSize = new System.Drawing.Size(21, 21);
             this.OthersTB.Location = new System.Drawing.Point(131, 75);
-            this.OthersTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.OthersTB.MaxLength = 10;
+            this.OthersTB.Margin = new System.Windows.Forms.Padding(4);
             this.OthersTB.Name = "OthersTB";
             this.OthersTB.PasswordChar = '\0';
             this.OthersTB.PlaceholderText = "";
@@ -203,8 +209,7 @@ namespace LMS.Screens.Primary {
             this.StudentTB.HoverState.Parent = this.StudentTB;
             this.StudentTB.IconLeftSize = new System.Drawing.Size(21, 21);
             this.StudentTB.Location = new System.Drawing.Point(131, 26);
-            this.StudentTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.StudentTB.MaxLength = 10;
+            this.StudentTB.Margin = new System.Windows.Forms.Padding(4);
             this.StudentTB.Name = "StudentTB";
             this.StudentTB.PasswordChar = '\0';
             this.StudentTB.PlaceholderText = "";
@@ -225,7 +230,7 @@ namespace LMS.Screens.Primary {
             this.label2.Location = new System.Drawing.Point(20, 87);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 20);
+            this.label2.Size = new System.Drawing.Size(69, 19);
             this.label2.TabIndex = 195;
             this.label2.Text = "For Other";
             // 
@@ -239,7 +244,7 @@ namespace LMS.Screens.Primary {
             this.Label6.Location = new System.Drawing.Point(20, 32);
             this.Label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(89, 20);
+            this.Label6.Size = new System.Drawing.Size(82, 19);
             this.Label6.TabIndex = 195;
             this.Label6.Text = "For Student";
             // 
@@ -268,10 +273,10 @@ namespace LMS.Screens.Primary {
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.SaveDaysBtn);
-            this.tabPage2.Location = new System.Drawing.Point(4, 32);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(387, 258);
+            this.tabPage2.Size = new System.Drawing.Size(387, 260);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Re-New Day";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -294,8 +299,7 @@ namespace LMS.Screens.Primary {
             this.DaysTB.HoverState.Parent = this.DaysTB;
             this.DaysTB.IconLeftSize = new System.Drawing.Size(21, 21);
             this.DaysTB.Location = new System.Drawing.Point(103, 75);
-            this.DaysTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.DaysTB.MaxLength = 10;
+            this.DaysTB.Margin = new System.Windows.Forms.Padding(4);
             this.DaysTB.Name = "DaysTB";
             this.DaysTB.PasswordChar = '\0';
             this.DaysTB.PlaceholderText = "";
@@ -316,7 +320,7 @@ namespace LMS.Screens.Primary {
             this.label3.Location = new System.Drawing.Point(21, 34);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 20);
+            this.label3.Size = new System.Drawing.Size(168, 19);
             this.label3.TabIndex = 195;
             this.label3.Text = "Membership re-new after";
             // 
@@ -330,7 +334,7 @@ namespace LMS.Screens.Primary {
             this.label1.Location = new System.Drawing.Point(21, 84);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 20);
+            this.label1.Size = new System.Drawing.Size(39, 19);
             this.label1.TabIndex = 195;
             this.label1.Text = "Days";
             // 
@@ -364,9 +368,9 @@ namespace LMS.Screens.Primary {
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.LNameTb);
             this.tabPage3.Controls.Add(this.label4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 32);
+            this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(387, 258);
+            this.tabPage3.Size = new System.Drawing.Size(387, 260);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Library Details";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -382,7 +386,7 @@ namespace LMS.Screens.Primary {
             this.SaveLibraryDetailsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveLibraryDetailsBtn.ForeColor = System.Drawing.Color.White;
             this.SaveLibraryDetailsBtn.HoverState.Parent = this.SaveLibraryDetailsBtn;
-            this.SaveLibraryDetailsBtn.Location = new System.Drawing.Point(249, 207);
+            this.SaveLibraryDetailsBtn.Location = new System.Drawing.Point(260, 211);
             this.SaveLibraryDetailsBtn.Name = "SaveLibraryDetailsBtn";
             this.SaveLibraryDetailsBtn.ShadowDecoration.Parent = this.SaveLibraryDetailsBtn;
             this.SaveLibraryDetailsBtn.Size = new System.Drawing.Size(119, 38);
@@ -408,8 +412,7 @@ namespace LMS.Screens.Primary {
             this.LEmailTb.HoverState.Parent = this.LEmailTb;
             this.LEmailTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.LEmailTb.Location = new System.Drawing.Point(141, 159);
-            this.LEmailTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.LEmailTb.MaxLength = 50;
+            this.LEmailTb.Margin = new System.Windows.Forms.Padding(4);
             this.LEmailTb.Name = "LEmailTb";
             this.LEmailTb.PasswordChar = '\0';
             this.LEmailTb.PlaceholderText = "";
@@ -428,7 +431,7 @@ namespace LMS.Screens.Primary {
             this.label8.Location = new System.Drawing.Point(30, 168);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 20);
+            this.label8.Size = new System.Drawing.Size(43, 19);
             this.label8.TabIndex = 197;
             this.label8.Text = "Email";
             // 
@@ -450,8 +453,7 @@ namespace LMS.Screens.Primary {
             this.LTpTb.HoverState.Parent = this.LTpTb;
             this.LTpTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.LTpTb.Location = new System.Drawing.Point(141, 112);
-            this.LTpTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.LTpTb.MaxLength = 15;
+            this.LTpTb.Margin = new System.Windows.Forms.Padding(4);
             this.LTpTb.Name = "LTpTb";
             this.LTpTb.PasswordChar = '\0';
             this.LTpTb.PlaceholderText = "";
@@ -471,7 +473,7 @@ namespace LMS.Screens.Primary {
             this.label7.Location = new System.Drawing.Point(30, 120);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 20);
+            this.label7.Size = new System.Drawing.Size(73, 19);
             this.label7.TabIndex = 197;
             this.label7.Text = "Telephone";
             // 
@@ -493,8 +495,7 @@ namespace LMS.Screens.Primary {
             this.LAddressTb.HoverState.Parent = this.LAddressTb;
             this.LAddressTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.LAddressTb.Location = new System.Drawing.Point(141, 65);
-            this.LAddressTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.LAddressTb.MaxLength = 40;
+            this.LAddressTb.Margin = new System.Windows.Forms.Padding(4);
             this.LAddressTb.Name = "LAddressTb";
             this.LAddressTb.PasswordChar = '\0';
             this.LAddressTb.PlaceholderText = "";
@@ -513,7 +514,7 @@ namespace LMS.Screens.Primary {
             this.label5.Location = new System.Drawing.Point(30, 72);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 20);
+            this.label5.Size = new System.Drawing.Size(58, 19);
             this.label5.TabIndex = 197;
             this.label5.Text = "Address";
             // 
@@ -535,8 +536,7 @@ namespace LMS.Screens.Primary {
             this.LNameTb.HoverState.Parent = this.LNameTb;
             this.LNameTb.IconLeftSize = new System.Drawing.Size(21, 21);
             this.LNameTb.Location = new System.Drawing.Point(141, 18);
-            this.LNameTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.LNameTb.MaxLength = 40;
+            this.LNameTb.Margin = new System.Windows.Forms.Padding(4);
             this.LNameTb.Name = "LNameTb";
             this.LNameTb.PasswordChar = '\0';
             this.LNameTb.PlaceholderText = "";
@@ -555,9 +555,100 @@ namespace LMS.Screens.Primary {
             this.label4.Location = new System.Drawing.Point(30, 24);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.Size = new System.Drawing.Size(46, 19);
             this.label4.TabIndex = 197;
             this.label4.Text = "Name";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.LocationBtn);
+            this.tabPage4.Controls.Add(this.BackupBtn);
+            this.tabPage4.Controls.Add(this.LocationTb);
+            this.tabPage4.Controls.Add(this.label9);
+            this.tabPage4.Location = new System.Drawing.Point(4, 30);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(387, 260);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Backup";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // LocationBtn
+            // 
+            this.LocationBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LocationBtn.Animated = true;
+            this.LocationBtn.BorderRadius = 10;
+            this.LocationBtn.CheckedState.Parent = this.LocationBtn;
+            this.LocationBtn.CustomImages.Parent = this.LocationBtn;
+            this.LocationBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LocationBtn.ForeColor = System.Drawing.Color.White;
+            this.LocationBtn.HoverState.Parent = this.LocationBtn;
+            this.LocationBtn.Location = new System.Drawing.Point(260, 61);
+            this.LocationBtn.Name = "LocationBtn";
+            this.LocationBtn.ShadowDecoration.Parent = this.LocationBtn;
+            this.LocationBtn.Size = new System.Drawing.Size(109, 38);
+            this.LocationBtn.TabIndex = 201;
+            this.LocationBtn.Text = "LOCATION";
+            this.LocationBtn.Click += new System.EventHandler(this.LocationBtn_Click);
+            // 
+            // BackupBtn
+            // 
+            this.BackupBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackupBtn.Animated = true;
+            this.BackupBtn.BorderRadius = 10;
+            this.BackupBtn.CheckedState.Parent = this.BackupBtn;
+            this.BackupBtn.CustomImages.Parent = this.BackupBtn;
+            this.BackupBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(200)))), ((int)(((byte)(86)))));
+            this.BackupBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.267326F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackupBtn.ForeColor = System.Drawing.Color.White;
+            this.BackupBtn.HoverState.Parent = this.BackupBtn;
+            this.BackupBtn.Location = new System.Drawing.Point(260, 211);
+            this.BackupBtn.Name = "BackupBtn";
+            this.BackupBtn.ShadowDecoration.Parent = this.BackupBtn;
+            this.BackupBtn.Size = new System.Drawing.Size(119, 38);
+            this.BackupBtn.TabIndex = 200;
+            this.BackupBtn.Text = "BACKUP";
+            this.BackupBtn.Click += new System.EventHandler(this.BackupBtn_Click);
+            // 
+            // LocationTb
+            // 
+            this.LocationTb.Animated = true;
+            this.LocationTb.BorderRadius = 15;
+            this.LocationTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LocationTb.DefaultText = "";
+            this.LocationTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.LocationTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.LocationTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.LocationTb.DisabledState.Parent = this.LocationTb;
+            this.LocationTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.LocationTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LocationTb.FocusedState.Parent = this.LocationTb;
+            this.LocationTb.Font = new System.Drawing.Font("Noto Serif Sinhala", 9F);
+            this.LocationTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LocationTb.HoverState.Parent = this.LocationTb;
+            this.LocationTb.IconLeftSize = new System.Drawing.Size(21, 21);
+            this.LocationTb.Location = new System.Drawing.Point(142, 18);
+            this.LocationTb.Margin = new System.Windows.Forms.Padding(4);
+            this.LocationTb.Name = "LocationTb";
+            this.LocationTb.PasswordChar = '\0';
+            this.LocationTb.PlaceholderText = "";
+            this.LocationTb.SelectedText = "";
+            this.LocationTb.ShadowDecoration.Parent = this.LocationTb;
+            this.LocationTb.Size = new System.Drawing.Size(227, 36);
+            this.LocationTb.TabIndex = 198;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(31, 24);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 19);
+            this.label9.TabIndex = 199;
+            this.label9.Text = "Location";
             // 
             // bunifuElipse1
             // 
@@ -593,6 +684,8 @@ namespace LMS.Screens.Primary {
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -628,5 +721,10 @@ namespace LMS.Screens.Primary {
         internal System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TextBox LNameTb;
         internal System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPage4;
+        private Guna.UI2.WinForms.Guna2TextBox LocationTb;
+        internal System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2Button LocationBtn;
+        private Guna.UI2.WinForms.Guna2Button BackupBtn;
     }
 }

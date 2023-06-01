@@ -5,6 +5,7 @@ using LMS.Utils.Core;
 using LMS.Utils.Models;
 using Salaros.Configuration;
 using System;
+using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -195,8 +196,55 @@ namespace LMS.Screens.Primary {
                 e.Handled = true;
             }
         }
+
         #endregion
 
+        private void LocationBtn_Click(object sender, EventArgs e) {
+            FolderBrowserDialog dlg = new FolderBrowserDialog();
+            if (dlg.ShowDialog() == DialogResult.OK) {
+                LocationTb.Text = dlg.SelectedPath;
+            }
+        }
 
+        private void BackupBtn_Click(object sender, EventArgs e) {
+            SqlConnection conn = DBUtils.GetDBConnection();
+            try {
+                if (LocationTb.Text != string.Empty) {
+                    string serverName = @"RGenesis\SQLEXPRESS";
+                    string databaseName = "LMS";
+                    string backupPath = LocationTb.Text;
+
+                    SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder();
+                    connectionStringBuilder.DataSource = serverName;
+                    connectionStringBuilder.InitialCatalog = databaseName;
+                    connectionStringBuilder.IntegratedSecurity = true;
+
+                    using (SqlConnection connection = new SqlConnection(connectionStringBuilder.ConnectionString)) {
+                        connection.Open();
+
+                        using (SqlCommand command = connection.CreateCommand()) {
+                            string backupFileName = Path.Combine(backupPath, $"{databaseName}-{DateTime.Now:yyyy-MM-dd-HH-mm-ss}.bak");
+                            string backupCommand = $"BACKUP DATABASE [{databaseName}] TO DISK = '{backupFileName}'";
+
+                            command.CommandText = backupCommand;
+                            command.ExecuteNonQuery();
+                        }
+
+                        connection.Close();
+                    }
+                    this.Alert("Process Complete!", "Database Backup Successfully!", AlertForm.EnmType.Success);
+                } else {
+                    this.Alert("Warning!", "Location Cannot be empty!", AlertForm.EnmType.Warning);
+                }
+
+            } catch (Exception ex) {
+                this.Alert("Access Denied!", "Select another location to do the backup process!", AlertForm.EnmType.Error);
+                Console.WriteLine("Error: " + ex.ToString());
+            } finally {
+                Console.ReadLine();
+                conn.Close();
+                conn.Dispose();
+            }
+        }
     }
 }
