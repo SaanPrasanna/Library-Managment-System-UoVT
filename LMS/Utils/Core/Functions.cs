@@ -139,7 +139,7 @@ namespace LMS.Utils.Core {
 
             try {
 
-                string mid = "", query = "", prefix = "";
+                string query = "", prefix = "";
                 switch (name) {
                     case "Member":
                         query = "SELECT COUNT(*) FROM members;";
@@ -170,20 +170,14 @@ namespace LMS.Utils.Core {
                 }
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-                int cout = (Int32)cmd.ExecuteScalar() + 1;
+                int count = (Int32)cmd.ExecuteScalar() + 1;
 
-                if (cout >= 0 && cout < 10) {
-                    mid = prefix + "0000" + cout.ToString();
-                } else if (cout >= 10 && cout < 100) {
-                    mid = prefix + "000" + cout.ToString();
-                } else if (cout >= 100 && cout < 1000) {
-                    mid = prefix + "00" + cout.ToString();
-                } else if (cout >= 1000 && cout < 10000) {
-                    mid = prefix + "0" + cout.ToString();
-                } else if (cout >= 10000 && cout < 100000) {
-                    mid = prefix + cout.ToString();
-                }
-                return mid;
+                query = "SELECT dbo.getID(@prefix, @count)";
+                cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add("@prefix", SqlDbType.Char, 1).Value = prefix;
+                cmd.Parameters.Add("@count", SqlDbType.Int).Value = count;
+
+                return (string)cmd.ExecuteScalar();
 
             } catch (Exception e) {
                 Console.WriteLine("Error: " + e.ToString());
@@ -418,7 +412,7 @@ namespace LMS.Utils.Core {
             return Properties.Settings.Default.accountType == "Moderator";
         }
 
-        public bool CheckPasswordStrength(string password, [Optional]bool needToReview) {
+        public bool CheckPasswordStrength(string password, [Optional] bool needToReview) {
 
             var hasNumber = new Regex(@"[0-9]+");
             var hasUpperChar = new Regex(@"[A-Z]+");
