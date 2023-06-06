@@ -89,7 +89,7 @@ namespace LMS.Screens.Helper {
             this.TitleLbl.IsSelectionEnabled = false;
             this.TitleLbl.Location = new System.Drawing.Point(69, 17);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(110, 37);
+            this.TitleLbl.Size = new System.Drawing.Size(104, 34);
             this.TitleLbl.TabIndex = 1;
             this.TitleLbl.Text = "About Us";
             this.TitleLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -154,7 +154,7 @@ namespace LMS.Screens.Helper {
             this.ThanksBtn.CheckedState.Parent = this.ThanksBtn;
             this.ThanksBtn.CustomImages.Parent = this.ThanksBtn;
             this.ThanksBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(209)))), ((int)(((byte)(165)))));
-            this.ThanksBtn.Font = new System.Drawing.Font("Proxima Nova Rg", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThanksBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ThanksBtn.ForeColor = System.Drawing.Color.White;
             this.ThanksBtn.HoverState.Parent = this.ThanksBtn;
             this.ThanksBtn.Location = new System.Drawing.Point(136, 390);
@@ -174,7 +174,7 @@ namespace LMS.Screens.Helper {
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(228, 19);
             this.gunaLabel4.TabIndex = 4;
-            this.gunaLabel4.Text = "Library Management System V1.0.0";
+            this.gunaLabel4.Text = "Library Management System V1.0.7";
             // 
             // gunaLabel3
             // 
@@ -194,7 +194,7 @@ namespace LMS.Screens.Helper {
             this.gunaLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(209)))), ((int)(((byte)(165)))));
             this.gunaLabel2.Location = new System.Drawing.Point(266, 205);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(117, 32);
+            this.gunaLabel2.Size = new System.Drawing.Size(112, 31);
             this.gunaLabel2.TabIndex = 2;
             this.gunaLabel2.Text = "Members";
             // 
@@ -204,9 +204,9 @@ namespace LMS.Screens.Helper {
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel1.Location = new System.Drawing.Point(42, 205);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(226, 32);
+            this.gunaLabel1.Size = new System.Drawing.Size(211, 31);
             this.gunaLabel1.TabIndex = 1;
-            this.gunaLabel1.Text = "Group A, Our Team";
+            this.gunaLabel1.Text = "Group 4, Our Team";
             // 
             // bunifuDragControl
             // 
