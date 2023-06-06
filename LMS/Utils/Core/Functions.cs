@@ -110,7 +110,7 @@ namespace LMS.Utils.Core {
                         query = "SELECT COUNT(*) FROM borrow_books WHERE status = 'Pending' AND isbn = '" + value + "' AND mid = '" + value2 + "'";
                         break;
                     case "Monthly FineFees":
-                        query = "SELECT fines_fee FROM borrow_books WHERE return_date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%'";
+                        query = "SELECT SUM(fines_fee) FROM borrow_books WHERE return_date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%'";
                         break;
                     case "Monthly Books":
                         query = "SELECT SUM(quantity) FROM books WHERE date LIKE '%" + DateTime.Now.ToString("yyyy-MM") + "%' AND is_removed = 0;";
